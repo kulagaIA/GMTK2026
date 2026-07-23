@@ -2,7 +2,6 @@ class_name ProgressionScreen
 extends Control
 
 #TODO: for debug
-@export var points: int
 @export var purchased: Dictionary[String, Item]
 
 signal item_purchased
@@ -13,7 +12,7 @@ const game_over_scene: PackedScene = preload("res://UI/GameOver/game_over_screen
 @onready var point_label: Label = %PointLabel
 
 func _ready() -> void:
-	point_label.text = "Points available: %d" % [points]
+	point_label.text = "Points available: %d" % [Game.player_state.points.value]
 	for item in %Items.get_children():
 		if item is Item:
 			item.connect("trying_to_purchase", _on_item_trying_to_purchase)
@@ -33,10 +32,10 @@ func _on_item_trying_to_purchase(item: Item) -> void:
 		print("already purchased")
 	elif item.dependent_on != null and not purchased.has(item.dependent_on.name):
 		print("first you need to purchase %s" % [item.dependent_on.name])
-	elif points < item.cost:
+	elif Game.player_state.points.value < item.cost:
 		print("not enough points")
 	else:
-		points -= item.cost
+		Game.player_state.points.add(-item.cost)
 		purchased[item.name] = item
 		item_purchased.emit()
 		print("purchased item %s" % [item.name])
@@ -49,7 +48,7 @@ func _on_item_trying_to_purchase(item: Item) -> void:
 				ModifierInfo.TargetType.SPEED:
 					Game.player_state.sensitivity.add_modifier(modifier.mod_info)
 		
-	point_label.text = "Points available: %d" % [points]
+	point_label.text = "Points available: %d" % [Game.player_state.points.value]
 
 
 func _on_back_pressed() -> void:

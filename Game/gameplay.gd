@@ -39,6 +39,7 @@ func apply_single_hit(magnitude: float) -> void:
 	hit_occurred.emit(player_state, target_smashable)
 
 func _on_smashable_destroyed(target: Smashable) -> void:
+	Game.player_state.points.add(target.reward.value)
 	smashables.erase(target)
 	if target:
 		target.queue_free()

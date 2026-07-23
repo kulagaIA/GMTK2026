@@ -4,6 +4,7 @@ extends Node3D
 @onready var max_health: SimpleAttribute = %MaxHealth
 @onready var health: SimpleAttribute = %Health
 @onready var damage: SimpleAttribute = %Damage
+@onready var reward: SimpleAttribute = %Reward
 
 signal destroyed(target: Smashable)
 var _destroyed : bool = false
@@ -21,6 +22,7 @@ func apply_stats(stats: SmashableResource) -> void:
 	max_health.set_value(stats.health)
 	health.set_value(stats.health)
 	damage.set_value(stats.damage)
+	reward.set_value(stats.reward)
 
 func calculate_damage(base_amount: float, state: Dictionary = {}) -> float:
 	var multiplier: float = 1.0

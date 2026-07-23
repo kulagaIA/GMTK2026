@@ -21,4 +21,8 @@ unique_name_in_owner = true
 script = ExtResource("2_jafkp")
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
+[node name="Reward" type="Node" parent="." unique_id=1097442839]
+unique_name_in_owner = true
+script = ExtResource("2_jafkp")
+
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

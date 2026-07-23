@@ -4,3 +4,4 @@ extends Resource
 @export var display_name: String = "Melon"
 @export var health: int = 40
 @export var damage: int = 8
+@export var reward: int = 10
