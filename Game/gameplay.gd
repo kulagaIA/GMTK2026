@@ -53,8 +53,9 @@ func load_level(config: SmashLevelConfig) -> void:
 	player_state = null
 	smashables.clear()
 
-	for smashable_resource in config.smashables:
-		spawn_smashable(smashable_resource)
+	for pool in config.pools:
+		for idx in range(pool.count):
+			spawn_smashable(pool.smashable)
 
 func spawn_smashable(smashable_resource: SmashableResource) -> void:
 	if smashable_resource == null:

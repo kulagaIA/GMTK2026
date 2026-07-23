@@ -1,10 +1,16 @@
 [gd_resource type="Resource" script_class="SmashLevelConfig" format=3 uid="uid://xwyuegqs227e"]
 
-[ext_resource type="Script" uid="uid://de6bjjhhcii50" path="res://Game/level_config.gd" id="1_26s7i"]
-[ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="2_0vxtx"]
-[ext_resource type="Resource" uid="uid://itv6qkmn24dq" path="res://Data/Smashables/_test_smashable.tres" id="3_0vxtx"]
+[ext_resource type="Script" uid="uid://de6bjjhhcii50" path="res://Game/Config/level_config.gd" id="1_rdqbj"]
+[ext_resource type="Script" uid="uid://7oi6fcvw5rs" path="res://Game/Config/smashables_pool.gd" id="2_0vxtx"]
+[ext_resource type="Resource" uid="uid://itv6qkmn24dq" path="res://Data/Smashables/_test_smashable.tres" id="3_lk221"]
+
+[sub_resource type="Resource" id="Resource_uc0nm"]
+script = ExtResource("2_0vxtx")
+smashable = ExtResource("3_lk221")
+count = 10
+metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
 [resource]
-script = ExtResource("1_26s7i")
-smashables = Array[ExtResource("2_0vxtx")]([ExtResource("3_0vxtx")])
+script = ExtResource("1_rdqbj")
+pools = Array[ExtResource("2_0vxtx")]([SubResource("Resource_uc0nm")])
 metadata/_custom_type_script = "uid://de6bjjhhcii50"
