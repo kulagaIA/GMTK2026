@@ -10,3 +10,4 @@ script = ExtResource("1_slo8l")
 unique_name_in_owner = true
 
 [connection signal="hit_occurred" from="." to="Player" method="_on_hit_occurred"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]

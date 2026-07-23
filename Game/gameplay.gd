@@ -22,27 +22,31 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
-	
-#region Input
 
-var _last_mouse_direction: int = 0
+#region Smashing
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		var direction: int = signi(event.relative.y)
-		if direction == 0:
-			return
-		if direction == 1 and _last_mouse_direction == -1:
-			apply_single_hit()
-		_last_mouse_direction = direction
-	elif event.is_action_pressed("pause"):
-		Game.open_pause_menu()
+func _on_player_hit() -> void:
+	apply_single_hit()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		Game.open_pause_menu()
+func apply_single_hit() -> void:
+	if player_state == null or smashables.is_empty():
+		return
+
+	var target_smashable: Smashable = smashables[0]
+	if target_smashable == null:
+		return
+
+	hit_occurred.emit(player_state, target_smashable)
+
+func _on_smashable_destroyed(target: Smashable) -> void:
+	smashables.erase(target)
+	if target:
+		target.queue_free()
+		print("Smashables left: %d" % [smashables.size()])
 
 #endregion
+
+#region Initialization
 
 func load_level(config: SmashLevelConfig) -> void:
 	if config == null:
@@ -71,18 +75,4 @@ func spawn_smashable(smashable_resource: SmashableResource) -> void:
 		smashable.destroyed.connect(self._on_smashable_destroyed)
 		smashables.append(smashable)
 
-func apply_single_hit() -> void:
-	if player_state == null or smashables.is_empty():
-		return
-
-	var target_smashable: Smashable = smashables[0]
-	if target_smashable == null:
-		return
-
-	hit_occurred.emit(player_state, target_smashable)
-
-func _on_smashable_destroyed(target: Smashable) -> void:
-	smashables.erase(target)
-	if target:
-		target.queue_free()
-		print("Smashables left: %d" % [smashables.size()])
+#endregion
