@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SmashLevelConfig" format=3 uid="uid://xwyuegqs227e"]
+
+[ext_resource type="Script" uid="uid://de6bjjhhcii50" path="res://Game/level_config.gd" id="1_26s7i"]
+[ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="2_0vxtx"]
+[ext_resource type="Resource" uid="uid://itv6qkmn24dq" path="res://Data/Smashables/_test_smashable.tres" id="3_0vxtx"]
+
+[resource]
+script = ExtResource("1_26s7i")
+smashables = Array[ExtResource("2_0vxtx")]([ExtResource("3_0vxtx")])
+metadata/_custom_type_script = "uid://de6bjjhhcii50"

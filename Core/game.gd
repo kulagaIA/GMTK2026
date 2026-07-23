@@ -18,6 +18,28 @@ func _input(event: InputEvent) -> void:
 func toggle_mouse_cursor() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_VISIBLE
 
+#region Jam
+
+@export var default_player_stats : SmashPlayerPreset
+var _player_stats_override : SmashPlayerPreset
+var player_stats : SmashPlayerPreset:
+	get:
+		if _player_stats_override:
+			return _player_stats_override
+		else:
+			return default_player_stats
+
+@export var default_level_config : SmashLevelConfig
+var _level_config_override : SmashLevelConfig
+var level_config : SmashLevelConfig:
+	get:
+		if _level_config_override:
+			return _level_config_override
+		else:
+			return default_level_config
+
+#endregion
+
 #region Pause
 
 var _active_pause_menu : Control

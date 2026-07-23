@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SmashableResource" format=3 uid="uid://itv6qkmn24dq"]
+
+[ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="1_q50ae"]
+
+[resource]
+script = ExtResource("1_q50ae")
+display_name = "Test"
+metadata/_custom_type_script = "uid://btpfuiq3co3bj"

@@ -1,4 +1,4 @@
-class_name BasePlayerStats
+class_name SmashPlayerPreset
 extends Resource
 
 @export var display_name: String = "Base Player"
