@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 
 folder_colors={
 "res://Core/": "gray",
+"res://Game/": "pink",
 "res://Gameplay/": "teal",
 "res://Gameplay2D/": "teal",
 "res://Gameplay3D/": "teal",

@@ -29,16 +29,17 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=839759193]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
 text = "Play"
 
 [node name="Gym3DButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=1125152303]
+visible = false
 layout_mode = 2
 text = "3D Gym"
 script = ExtResource("2_h8rmy")
 scene_to_load = ExtResource("2_t17p2")
 
 [node name="Gym2DButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=743152867]
+visible = false
 layout_mode = 2
 text = "2D Gym"
 script = ExtResource("2_h8rmy")

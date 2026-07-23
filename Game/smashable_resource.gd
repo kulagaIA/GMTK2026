@@ -1,0 +1,2 @@
+class_name SmashableResource
+extends Resource

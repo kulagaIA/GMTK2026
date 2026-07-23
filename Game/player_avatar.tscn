@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cuuyl0xvlpdxb"]
+
+[ext_resource type="Script" uid="uid://dvovkqlil0ulm" path="res://Game/player_avatar.gd" id="1_33jkh"]
+
+[node name="PlayerAvatar" type="Node3D" unique_id=1403313368]
+script = ExtResource("1_33jkh")

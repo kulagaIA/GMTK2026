@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bsnkh5wdabb3v"]
+
+[ext_resource type="Script" uid="uid://d1du8106s7itd" path="res://Game/smashable.gd" id="1_tm57f"]
+[ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_jafkp"]
+
+[node name="Smashable" type="Node3D" unique_id=892062914]
+script = ExtResource("1_tm57f")
+
+[node name="Health" type="Node" parent="." unique_id=457779434]
+script = ExtResource("2_jafkp")
+metadata/_custom_type_script = "uid://d23my1rvaun41"
