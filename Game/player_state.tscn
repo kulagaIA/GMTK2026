@@ -31,4 +31,10 @@ metadata/_custom_type_script = "uid://d23my1rvaun41"
 unique_name_in_owner = true
 script = ExtResource("2_dr5hc")
 
+[node name="InitialTime" type="Node" parent="." unique_id=1248794690]
+unique_name_in_owner = true
+script = ExtResource("2_dr5hc")
+_starting_value = 29.0
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

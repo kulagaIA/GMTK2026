@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://djqmikqpsfu2g"]
+
+[ext_resource type="Script" uid="uid://66t68ivib3ro" path="res://UI/HUD/Timer/timer.gd" id="1_nd37h"]
+
+[node name="Timer" type="Label" unique_id=1732815039]
+offset_right = -10.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "00:31"
+script = ExtResource("1_nd37h")

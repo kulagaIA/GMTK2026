@@ -11,6 +11,7 @@ var player_state: SmashPlayerState:
 		return Game.player_state
 
 var smashables: Array[Smashable] = []
+@onready var timer := %GameTimer as GameTimer
 
 func _ready() -> void:
 	assert(smashable_scene)
@@ -18,6 +19,14 @@ func _ready() -> void:
 	player_state.reset()
 	load_level(Game.level_config)
 	self.hit_occurred.connect(player_state._on_hit_occurred)
+	
+	timer.time_depleted.connect(_on_timer_depleted)
+	timer.initial_time = player_state.initial_time.value
+	timer.reset()
+	timer.start()
+
+func _on_timer_depleted() -> void:
+	Game.loose()
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:

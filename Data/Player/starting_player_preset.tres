@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_gcej8")
+initial_time = 15.0
 metadata/_custom_type_script = "uid://dhpgcuy27qysf"

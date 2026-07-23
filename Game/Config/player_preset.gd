@@ -6,3 +6,4 @@ extends Resource
 @export var damage: float = 20
 @export var sensitivity: float = 1
 @export var points: int = 100
+@export var initial_time: float = 32767.0

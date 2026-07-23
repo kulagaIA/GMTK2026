@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://kp4gc6gequll"]
 
 [ext_resource type="Script" uid="uid://crcvi18yewi61" path="res://Game/gameplay.gd" id="1_slo8l"]
-[ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="2_ihuh5"]
+[ext_resource type="Script" uid="uid://ndb11yb8e06s" path="res://Game/game_timer.gd" id="2_timer"]
+[ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="3_ihuh5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ihuh5"]
 sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
@@ -19,7 +20,11 @@ reflected_light_source = 2
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
 
-[node name="Player" parent="." unique_id=1978419293 instance=ExtResource("2_ihuh5")]
+[node name="GameTimer" type="Node" parent="." unique_id=-1007312975]
+unique_name_in_owner = true
+script = ExtResource("2_timer")
+
+[node name="Player" parent="." unique_id=1978419293 instance=ExtResource("3_ihuh5")]
 unique_name_in_owner = true
 
 [node name="World" type="Node3D" parent="." unique_id=551144578]
