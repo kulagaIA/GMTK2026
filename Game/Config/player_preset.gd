@@ -5,3 +5,4 @@ extends Resource
 @export var max_health: float = 100
 @export var damage: float = 20
 @export var sensitivity: float = 1
+@export var points: int = 100

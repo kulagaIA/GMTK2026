@@ -1,7 +1,7 @@
 extends Resource
 class_name ModifierInfo
 
-enum ModifierType { DAMAGE, HP, SPEED }
+enum TargetType { DAMAGE, MAX_HEALTH, SPEED }
 
-@export var type: ModifierType
-@export var amount_percent: float
+@export var target: TargetType
+@export var mod_info: AttributeModInfo

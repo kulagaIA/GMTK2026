@@ -1,10 +1,11 @@
 class_name SmashPlayerState
 extends Node
 
-@onready var max_health: SimpleAttribute = %MaxHealth
-@onready var health: SimpleAttribute = %Health
-@onready var damage: SimpleAttribute = %Damage
-@onready var sensitivity: SimpleAttribute = %Sensitivity
+@onready var max_health: DynamicAttribute = %MaxHealth
+@onready var health: DynamicAttribute = %Health
+@onready var damage: DynamicAttribute = %Damage
+@onready var sensitivity: DynamicAttribute = %Sensitivity
+@onready var points: SimpleAttribute = %Points
 
 func _ready() -> void:
 	pass

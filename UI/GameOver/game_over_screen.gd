@@ -28,7 +28,7 @@ func unpause() -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	Game.restart_level()
+	Game.load_gameplay_scene()
 
 
 func _on_title_button_pressed() -> void:
@@ -37,3 +37,8 @@ func _on_title_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	Game.quit_to_desktop()
+
+
+func _on_progression_pressed() -> void:
+	Game.load_progression_scene()
+	pass # Replace with function body.

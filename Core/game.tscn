@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kp4gc6gequll" path="res://Game/gameplay.tscn" id="3_lqrbg"]
 [ext_resource type="PackedScene" uid="uid://3lueexl8umks" path="res://Game/player_state.tscn" id="4_gwpo4"]
 [ext_resource type="PackedScene" uid="uid://mbpwhjgv7obw" path="res://UI/GameOver/game_over_screen.tscn" id="4_jcax3"]
+[ext_resource type="PackedScene" uid="uid://bp4x2yq8aafff" path="res://UI/Progression/progression_screen.tscn" id="9_4qclw"]
 
 [node name="Game" type="Node" unique_id=736238743]
 process_mode = 3
@@ -22,6 +23,7 @@ title_scene = ExtResource("2_htkch")
 gameplay_scene = ExtResource("3_lqrbg")
 pause_menu_scene = ExtResource("3_52drc")
 game_over_scene = ExtResource("4_jcax3")
+progression_scene = ExtResource("9_4qclw")
 
 [node name="CanvasManager" parent="." unique_id=2009050083 instance=ExtResource("2_xt2r0")]
 

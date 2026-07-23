@@ -119,12 +119,16 @@ func init_game_over(result : StageResult) -> void:
 @export var gameplay_scene : PackedScene
 @export var pause_menu_scene : PackedScene
 @export var game_over_scene : PackedScene
+@export var progression_scene : PackedScene
 
 func load_title_scene() -> void:
 	load_level(title_scene)
 
 func load_gameplay_scene() -> void:
 	load_level(gameplay_scene)
+
+func load_progression_scene() -> void:
+	load_level(progression_scene)
 
 func load_level(level_scene : PackedScene) -> void:
 	if level_scene:

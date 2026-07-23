@@ -8,6 +8,7 @@ extends Control
 signal item_purchased
 
 const arrow : PackedScene = preload("res://UI/Progression/arrow.tscn")
+const game_over_scene: PackedScene = preload("res://UI/GameOver/game_over_screen.tscn")
 
 func _ready() -> void:
 	%PointLabel.text = "Points available: %d" % [points]
@@ -37,4 +38,18 @@ func _on_item_trying_to_purchase(item: Item) -> void:
 		purchased[item.name] = item
 		item_purchased.emit()
 		print("purchased item %s" % [item.name])
+		for modifier in item.modifiers:
+			match modifier.target:
+				ModifierInfo.TargetType.DAMAGE:
+					Game.player_state.damage.add_modifier(modifier.mod_info)
+				ModifierInfo.TargetType.MAX_HEALTH:
+					Game.player_state.max_health.add_modifier(modifier.mod_info)
+				ModifierInfo.TargetType.SPEED:
+					Game.player_state.sensitivity.add_modifier(modifier.mod_info)
+		
 	%PointLabel.text = "Points available: %d" % [points]
+
+
+func _on_back_pressed() -> void:
+	Game.loose()
+	pass # Replace with function body.

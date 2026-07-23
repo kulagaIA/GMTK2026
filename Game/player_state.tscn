@@ -2,28 +2,33 @@
 
 [ext_resource type="Script" uid="uid://bmha13xw6n5oj" path="res://Game/player_state.gd" id="1_uc0nm"]
 [ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_dr5hc"]
+[ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Gameplay/Atributes/dynamic_attribute.gd" id="3_dr5hc"]
 
 [node name="PlayerState" type="Node" unique_id=1386542611]
 script = ExtResource("1_uc0nm")
 
 [node name="MaxHealth" type="Node" parent="." unique_id=1552078781]
 unique_name_in_owner = true
-script = ExtResource("2_dr5hc")
+script = ExtResource("3_dr5hc")
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [node name="Health" type="Node" parent="." unique_id=1414637548]
 unique_name_in_owner = true
-script = ExtResource("2_dr5hc")
+script = ExtResource("3_dr5hc")
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [node name="Damage" type="Node" parent="." unique_id=1130783329]
 unique_name_in_owner = true
-script = ExtResource("2_dr5hc")
+script = ExtResource("3_dr5hc")
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [node name="Sensitivity" type="Node" parent="." unique_id=133183902]
 unique_name_in_owner = true
-script = ExtResource("2_dr5hc")
+script = ExtResource("3_dr5hc")
 metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Points" type="Node" parent="." unique_id=2033539988]
+unique_name_in_owner = true
+script = ExtResource("2_dr5hc")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

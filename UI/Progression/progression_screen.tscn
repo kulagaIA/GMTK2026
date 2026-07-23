@@ -5,23 +5,40 @@
 [ext_resource type="Script" uid="uid://bxmvh0pqrtobl" path="res://UI/Progression/modifier_info.gd" id="3_1tcv4"]
 [ext_resource type="Texture2D" uid="uid://dmsuhg00nyqe0" path="res://UI/Progression/TestAssets/pummeled.svg" id="3_3yhoo"]
 [ext_resource type="Texture2D" uid="uid://bqvnpofm0e0sn" path="res://UI/Progression/TestAssets/headshot.svg" id="3_wj56m"]
+[ext_resource type="Script" uid="uid://befawv230b71n" path="res://Gameplay/Atributes/attribute_mod_info.gd" id="5_xdk4a"]
 [ext_resource type="Texture2D" uid="uid://ogdxwfpw82iq" path="res://UI/Progression/TestAssets/ninja-head.svg" id="6_xdk4a"]
+
+[sub_resource type="Resource" id="Resource_wj56m"]
+script = ExtResource("5_xdk4a")
+mod_type = 1
+mod_value = 20.0
+metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_c6qw7"]
 script = ExtResource("3_1tcv4")
-amount_percent = 120.0
+mod_info = SubResource("Resource_wj56m")
 metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
+
+[sub_resource type="Resource" id="Resource_xdk4a"]
+script = ExtResource("5_xdk4a")
+mod_value = 200.0
+metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_3yhoo"]
 script = ExtResource("3_1tcv4")
-type = 1
-amount_percent = 120.0
+target = 1
+mod_info = SubResource("Resource_xdk4a")
 metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
+
+[sub_resource type="Resource" id="Resource_ry0np"]
+script = ExtResource("5_xdk4a")
+mod_value = 120.0
+metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_qdwcu"]
 script = ExtResource("3_1tcv4")
-type = 2
-amount_percent = 228.0
+target = 2
+mod_info = SubResource("Resource_ry0np")
 metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
 
 [node name="ProgressionScreen" type="Control" unique_id=2119330929]
@@ -46,15 +63,27 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Info" unique_id=1312952586]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Info" unique_id=699675796]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PointLabel" type="Label" parent="VBoxContainer/Info/MarginContainer" unique_id=1364749207]
+[node name="PointLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer" unique_id=1364749207]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Points abailable: "
+
+[node name="Control" type="Control" parent="VBoxContainer/Info/HBoxContainer" unique_id=1358317840]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="VBoxContainer/Info/HBoxContainer" unique_id=1815980857]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to menu"
 
 [node name="Items" type="Control" parent="VBoxContainer" unique_id=576033756]
 unique_name_in_owner = true
@@ -92,3 +121,5 @@ icon = ExtResource("6_xdk4a")
 dependent_on = NodePath("../DamageIncrease")
 cost = 30
 modifiers = Array[ExtResource("3_1tcv4")]([SubResource("Resource_qdwcu")])
+
+[connection signal="pressed" from="VBoxContainer/Info/HBoxContainer/Back" to="." method="_on_back_pressed"]
