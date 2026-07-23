@@ -1,0 +1,40 @@
+class_name ProgressionScreen
+extends Control
+
+#TODO: for debug
+@export var points: int
+@export var purchased: Dictionary[String, Item]
+
+signal item_purchased
+
+const arrow : PackedScene = preload("res://UI/Progression/arrow.tscn")
+
+func _ready() -> void:
+	%PointLabel.text = "Points available: %d" % [points]
+	for item in %Items.get_children():
+		if item is Item:
+			item.connect("trying_to_purchase", _on_item_trying_to_purchase)
+			if item.dependent_on != null:
+				var start: Vector2 = item.dependent_on.global_position + item.dependent_on.size / 2
+				var end: Vector2 = item.global_position + item.size / 2
+				var arr: Control = arrow.instantiate()
+				var angle: float = start.angle_to_point(end)
+				item.dependent_on.add_child(arr)
+				arr.position = Vector2(arr.get_parent().size.x / 2, -arr.get_parent().size.y / 2 + arr.size.y / 15)
+				arr.position += Vector2(cos(angle), sin(angle)) * arr.get_parent().size.x / 2
+				arr.size.x = start.distance_to(end) * 10 - 1280
+				arr.rotation = angle
+
+func _on_item_trying_to_purchase(item: Item) -> void:
+	if purchased.has(item.name):
+		print("already purchased")
+	elif item.dependent_on != null and not purchased.has(item.dependent_on.name):
+		print("first you need to purchase %s" % [item.dependent_on.name])
+	elif points < item.cost:
+		print("not enough points")
+	else:
+		points -= item.cost
+		purchased[item.name] = item
+		item_purchased.emit()
+		print("purchased item %s" % [item.name])
+	%PointLabel.text = "Points available: %d" % [points]

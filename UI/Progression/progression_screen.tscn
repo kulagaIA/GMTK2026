@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bp4x2yq8aafff"]
+
+[ext_resource type="Script" uid="uid://c8dvt1lns1lgg" path="res://UI/Progression/progression_screen.gd" id="1_h64k1"]
+[ext_resource type="PackedScene" uid="uid://dos71h7hq75v" path="res://UI/Progression/item.tscn" id="2_c6qw7"]
+[ext_resource type="Script" uid="uid://bxmvh0pqrtobl" path="res://UI/Progression/modifier_info.gd" id="3_1tcv4"]
+[ext_resource type="Texture2D" uid="uid://dmsuhg00nyqe0" path="res://UI/Progression/TestAssets/pummeled.svg" id="3_3yhoo"]
+[ext_resource type="Texture2D" uid="uid://bqvnpofm0e0sn" path="res://UI/Progression/TestAssets/headshot.svg" id="3_wj56m"]
+[ext_resource type="Texture2D" uid="uid://ogdxwfpw82iq" path="res://UI/Progression/TestAssets/ninja-head.svg" id="6_xdk4a"]
+
+[sub_resource type="Resource" id="Resource_c6qw7"]
+script = ExtResource("3_1tcv4")
+amount_percent = 120.0
+metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
+
+[sub_resource type="Resource" id="Resource_3yhoo"]
+script = ExtResource("3_1tcv4")
+type = 1
+amount_percent = 120.0
+metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
+
+[sub_resource type="Resource" id="Resource_qdwcu"]
+script = ExtResource("3_1tcv4")
+type = 2
+amount_percent = 228.0
+metadata/_custom_type_script = "uid://bxmvh0pqrtobl"
+
+[node name="ProgressionScreen" type="Control" unique_id=2119330929]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h64k1")
+points = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=154120622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="Control" parent="VBoxContainer" unique_id=744824427]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Info" unique_id=1312952586]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointLabel" type="Label" parent="VBoxContainer/Info/MarginContainer" unique_id=1364749207]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Points abailable: "
+
+[node name="Items" type="Control" parent="VBoxContainer" unique_id=576033756]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DamageIncrease" parent="VBoxContainer/Items" unique_id=790196962 instance=ExtResource("2_c6qw7")]
+layout_mode = 1
+offset_left = 216.0
+offset_top = 178.0
+offset_right = -936.0
+offset_bottom = -210.0
+icon = ExtResource("3_wj56m")
+cost = 20
+modifiers = Array[ExtResource("3_1tcv4")]([SubResource("Resource_c6qw7")])
+
+[node name="HealthIncrease" parent="VBoxContainer/Items" unique_id=640402734 node_paths=PackedStringArray("dependent_on") instance=ExtResource("2_c6qw7")]
+layout_mode = 1
+offset_left = 446.0
+offset_top = 34.0
+offset_right = -706.0
+offset_bottom = -354.0
+icon = ExtResource("3_3yhoo")
+dependent_on = NodePath("../DamageIncrease")
+cost = 30
+modifiers = Array[ExtResource("3_1tcv4")]([SubResource("Resource_3yhoo")])
+
+[node name="SpeedIncrease" parent="VBoxContainer/Items" unique_id=116960009 node_paths=PackedStringArray("dependent_on") instance=ExtResource("2_c6qw7")]
+layout_mode = 1
+offset_left = 674.0
+offset_top = 316.0
+offset_right = -478.0
+offset_bottom = -72.0
+icon = ExtResource("6_xdk4a")
+dependent_on = NodePath("../DamageIncrease")
+cost = 30
+modifiers = Array[ExtResource("3_1tcv4")]([SubResource("Resource_qdwcu")])

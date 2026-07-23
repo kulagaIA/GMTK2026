@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://sv3frv6tinxx"]
+
+[ext_resource type="Texture2D" uid="uid://bywelyxt42ssx" path="res://UI/Progression/TestAssets/arrow-right-svgrepo-com (1).svg" id="1_6hkpf"]
+
+[node name="Arrow" type="Control" unique_id=1579772871]
+custom_minimum_size = Vector2(0, 225)
+custom_maximum_size = Vector2(-1, 225)
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_right = 3000.0
+offset_bottom = 202.5
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(0, 112.5)
+offset_transform_pivot = Vector2(0, 99.13)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1026238779]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_pivot = Vector2(0, 122.5)
+texture = ExtResource("1_6hkpf")
+region_rect = Rect2(0, 0, 800, 800)
+patch_margin_left = 308
+patch_margin_top = 800
+patch_margin_right = 409
