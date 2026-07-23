@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://kp4gc6gequll"]
 
 [ext_resource type="Script" uid="uid://crcvi18yewi61" path="res://Game/gameplay.gd" id="1_slo8l"]
+[ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="2_ihuh5"]
 
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
+
+[node name="Player" parent="." unique_id=1978419293 instance=ExtResource("2_ihuh5")]
+unique_name_in_owner = true
+
+[connection signal="hit_occurred" from="." to="Player" method="_on_hit_occurred"]
