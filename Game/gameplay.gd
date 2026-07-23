@@ -25,10 +25,10 @@ func _process(delta: float) -> void:
 
 #region Smashing
 
-func _on_player_hit() -> void:
-	apply_single_hit()
+func _on_player_hit(magnitude: float) -> void:
+	apply_single_hit(magnitude)
 
-func apply_single_hit() -> void:
+func apply_single_hit(magnitude: float) -> void:
 	if player_state == null or smashables.is_empty():
 		return
 
