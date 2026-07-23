@@ -14,6 +14,8 @@ var smashables: Array[Smashable] = []
 
 func _ready() -> void:
 	assert(smashable_scene)
+	assert(player_state)
+	player_state.reset()
 	load_level(Game.level_config)
 	self.hit_occurred.connect(player_state._on_hit_occurred)
 
