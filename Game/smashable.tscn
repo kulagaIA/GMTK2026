@@ -6,6 +6,17 @@
 [node name="Smashable" type="Node3D" unique_id=892062914]
 script = ExtResource("1_tm57f")
 
-[node name="Health" type="Node" parent="." unique_id=457779434]
+[node name="MaxHealth" type="Node" parent="." unique_id=457779434]
+unique_name_in_owner = true
+script = ExtResource("2_jafkp")
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Health" type="Node" parent="." unique_id=457779435]
+unique_name_in_owner = true
+script = ExtResource("2_jafkp")
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Damage" type="Node" parent="." unique_id=457779436]
+unique_name_in_owner = true
 script = ExtResource("2_jafkp")
 metadata/_custom_type_script = "uid://d23my1rvaun41"

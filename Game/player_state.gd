@@ -6,11 +6,41 @@ extends Node
 @onready var damage: SimpleAttribute = %Damage
 @onready var sensitivity: SimpleAttribute = %Sensitivity
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func apply_stats(stats: Resource) -> void:
+	if stats == null:
+		return
+
+	if max_health != null:
+		max_health.set_value(stats.get("max_health"))
+	if health != null:
+		health.set_value(stats.get("health"))
+	if damage != null:
+		damage.set_value(stats.get("damage"))
+	if sensitivity != null:
+		sensitivity.set_value(stats.get("sensitivity"))
+
+func calculate_damage(base_amount: float, state: Dictionary = {}) -> float:
+	var multiplier: float = 1.0
+	if state.has("buff_multiplier"):
+		multiplier *= float(state["buff_multiplier"])
+	if state.has("debuff_multiplier"):
+		multiplier *= float(state["debuff_multiplier"])
+	return base_amount * multiplier
+
+func apply_damage(amount: float) -> void:
+	take_damage(amount)
+
+func _on_hit_occurred(attacker: Node, target: Node) -> void:
+	if attacker == self and target is Smashable:
+		var self_damage := (target as Smashable).calculate_damage((target as Smashable).damage.value, {"buff_multiplier": 1.0})
+		apply_damage(self_damage)
+
+func take_damage(amount: float) -> void:
+	if health != null:
+		health.add(-amount)
