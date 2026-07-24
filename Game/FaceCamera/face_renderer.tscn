@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bt4yv0wn4lugx"]
+
+[ext_resource type="Script" uid="uid://bn4mchnuimex6" path="res://Game/FaceCamera/face_renderer.gd" id="1_j2mii"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h10kl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5f2x"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g50ce"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g50ce"]
+panorama = SubResource("PlaceholderTexture2D_g50ce")
+
+[sub_resource type="Sky" id="Sky_b5f2x"]
+sky_material = SubResource("PanoramaSkyMaterial_g50ce")
+
+[sub_resource type="Environment" id="Environment_h10kl"]
+background_mode = 2
+sky = SubResource("Sky_b5f2x")
+
+[node name="FaceRenderer" type="SubViewport" unique_id=1238039156]
+own_world_3d = true
+render_target_update_mode = 4
+script = ExtResource("1_j2mii")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=712750535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=578541190]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+
+[node name="HeadModel" type="Node3D" parent="." unique_id=1120991714]
+
+[node name="HeadPlaceholder" type="MeshInstance3D" parent="HeadModel" unique_id=2050900522]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_h10kl")
+surface_material_override/0 = SubResource("StandardMaterial3D_b5f2x")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1874124929]
+environment = SubResource("Environment_h10kl")

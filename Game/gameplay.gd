@@ -38,6 +38,7 @@ func _on_player_hit(magnitude: float) -> void:
 	apply_single_hit(magnitude)
 
 func apply_single_hit(magnitude: float) -> void:
+	player.face_renderer.set_head_color(Color.YELLOW)
 	if player_state == null or smashables.is_empty():
 		return
 

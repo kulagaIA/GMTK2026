@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c5absqcct10fa" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerHealthTracker/dev_player_health_tracker.tscn" id="2_ing8j"]
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
+[ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
 
 [node name="HUD" type="Control" unique_id=407136769]
 layout_mode = 3
@@ -41,6 +44,21 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -100.0
 offset_top = 10.0
-offset_right = -10.0
+offset_right = 0.0
+offset_bottom = 33.0
+
+[node name="FaceDisplay" parent="." unique_id=2091583509 instance=ExtResource("4_qdh7y")]
+unique_name_in_owner = true
+top_level = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 50.0
 offset_bottom = 33.0
 grow_horizontal = 0
+texture = SubResource("PlaceholderTexture2D_qdh7y")
+expand_mode = 3
+stretch_mode = 5

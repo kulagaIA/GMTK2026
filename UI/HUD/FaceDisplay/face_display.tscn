@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ba5gdpgerq27d"]
+
+[ext_resource type="Script" uid="uid://dkr8c1osbo5pi" path="res://UI/HUD/FaceDisplay/face_display.gd" id="1_on66k"]
+
+[node name="FaceDisplay" type="TextureRect" unique_id=2091583509]
+script = ExtResource("1_on66k")

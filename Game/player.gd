@@ -27,10 +27,13 @@ func _on_hit_occurred(attacker: Node, target: Node) -> void:
 #region HUD
 
 @export var hud_scene : PackedScene
+@onready var face_renderer := %FaceRenderer as FaceRenderer
 
 func _show_hud() -> void:
 	if hud_scene:
 		var hud := hud_scene.instantiate() as Control
+		var texture := face_renderer.get_texture()
+		hud.set_face_texture(texture)
 		Game.canvas_manager.set_layer_content(JamUtils.layer_ui_hud, hud)
 
 func _hide_hud() -> void:
