@@ -92,12 +92,11 @@ var neck_deceleration_rate : float = .8
 
 var neck_strike_amplitude : float = 0.0
 
-
 func _consume_mouse_input(delta : float) -> void:
 	_mouse_rotation.x += _input_pitch * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, MIN_TILT, MAX_TILT)
 	_mouse_rotation.y += _input_yaw * delta
-	_mouse_rotation.y += clamp(_mouse_rotation.y, MIN_TURN, MAX_TURN)
+	_mouse_rotation.y = clamp(_mouse_rotation.y, MIN_TURN, MAX_TURN)
 	
 	if use_acceleration:
 		_neck_acceleration = move_toward(_neck_acceleration, 0.0, neck_deceleration_rate * delta)
@@ -149,5 +148,8 @@ func _process_camera(delta : float) -> void:
 	camera_pivot.rotation.z = 0
 	
 	global_transform.basis = Basis.from_euler(_player_rotation)
+
+	face_renderer.set_head_rotation(_camera_rotation.x, _player_rotation.y)
+
 
 #endregion
