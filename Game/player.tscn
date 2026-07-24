@@ -7,7 +7,6 @@
 [node name="Player" type="Node3D" unique_id=1978419293]
 script = ExtResource("1_kwoj6")
 hud_scene = ExtResource("2_h4tjw")
-face_renderer_scene = ExtResource("3_xhrf0")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=418279374]
 unique_name_in_owner = true
@@ -17,3 +16,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 current = true
+
+[node name="FaceRenderer" parent="." unique_id=1238039156 instance=ExtResource("3_xhrf0")]
+unique_name_in_owner = true

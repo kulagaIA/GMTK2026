@@ -1,6 +1,5 @@
 extends Label
 
-
 func _ready() -> void:
 	if Game.player_state:
 		Game.player_state.health.value_changed.connect(_on_player_health_value_changed)
