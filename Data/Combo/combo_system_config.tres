@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SmashComboConfig" format=3 uid="uid://cwwwdw1dr2li4"]
+
+[ext_resource type="Script" uid="uid://ddpjin2vnay7w" path="res://Game/Config/combo_level_config.gd" id="1_m65h4"]
+[ext_resource type="Script" uid="uid://b66le32xijm5v" path="res://Game/Config/combo_config.gd" id="2_tqauo"]
+
+[resource]
+script = ExtResource("2_tqauo")
+metadata/_custom_type_script = "uid://b66le32xijm5v"
