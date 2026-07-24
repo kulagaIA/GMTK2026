@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bn4mchnuimex6" path="res://Game/FaceCamera/face_renderer.gd" id="1_j2mii"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_h10kl"]
+[sub_resource type="BoxMesh" id="BoxMesh_j2mii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5f2x"]
 albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h10kl"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g50ce"]
 
@@ -30,12 +32,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=578541190]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
 
-[node name="HeadModel" type="Node3D" parent="." unique_id=1120991714]
+[node name="Model" type="Node3D" parent="." unique_id=1120991714]
 
-[node name="HeadPlaceholder" type="MeshInstance3D" parent="HeadModel" unique_id=2050900522]
+[node name="HeadPlaceholder" type="MeshInstance3D" parent="Model" unique_id=2050900522]
 unique_name_in_owner = true
-mesh = SubResource("SphereMesh_h10kl")
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = SubResource("BoxMesh_j2mii")
 surface_material_override/0 = SubResource("StandardMaterial3D_b5f2x")
+
+[node name="BodyPlaceholder" type="MeshInstance3D" parent="Model" unique_id=1103911654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+mesh = SubResource("BoxMesh_h10kl")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1874124929]
 environment = SubResource("Environment_h10kl")
