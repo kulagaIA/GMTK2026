@@ -56,4 +56,5 @@ func take_damage(amount: float) -> void:
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	#print("Player HP left: %f" % [new_value])
 	if new_value <= 0.0:
-		Game.loose()
+		#Game.loose()
+		pass
