@@ -6,7 +6,7 @@ var saved_mouse_mode : Input.MouseMode
 func _enter_tree() -> void:
 	saved_mouse_mode = Input.mouse_mode
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	Game.pause()
+	#Game.pause()
 
 @onready var win_text: Label = %WinText
 @onready var loose_text: Label = %LooseText
@@ -16,7 +16,8 @@ func _ready() -> void:
 	loose_text.visible = Game.stage_result == Game.StageResult.LOOSE
 
 func _exit_tree() -> void:
-	Game.unpause()
+	#Game.unpause()
+	pass
 
 func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
