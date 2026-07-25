@@ -59,6 +59,7 @@ tag = 8
 
 [node name="Pivo" type="Node" parent="." unique_id=931949841]
 unique_name_in_owner = true
+process_mode = 1
 script = ExtResource("4_i41wu")
 
 [node name="PivoCharges" type="Node" parent="." unique_id=488732216]

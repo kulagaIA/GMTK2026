@@ -23,7 +23,6 @@ func _exit_tree() -> void:
 func _on_time_changed(remaining: float) -> void:
 	_update_display(remaining)
 
-
 func _update_display(seconds: float) -> void:
 	var minutes := int(seconds) / 60 as int
 	var secs := int(ceilf(seconds)) % 60 as int

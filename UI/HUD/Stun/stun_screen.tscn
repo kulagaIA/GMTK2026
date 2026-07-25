@@ -1,5 +1,14 @@
 [gd_scene format=3 uid="uid://bm3awdi33xxvt"]
 
+[ext_resource type="Shader" uid="uid://bnmsex4xgdy42" path="res://UI/HUD/Stun/stun_screen.gdshader" id="1_0w3dy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwjux"]
+shader = ExtResource("1_0w3dy")
+shader_parameter/pixel_size = 3.0
+shader_parameter/vhs_intensity = 3.0
+shader_parameter/opacity = 0.5
+shader_parameter/double_vision_split = 0.01
+
 [node name="StunScreen" type="Control" unique_id=1573350455]
 layout_mode = 3
 anchors_preset = 15
@@ -9,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1514752480]
+material = SubResource("ShaderMaterial_qwjux")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
