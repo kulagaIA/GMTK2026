@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c5t1j23bw2cpp" path="res://UI/Info/round_countdown.tscn" id="2_4531b"]
 [ext_resource type="Script" uid="uid://ndb11yb8e06s" path="res://Game/game_timer.gd" id="2_timer"]
 [ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="3_ihuh5"]
-[ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="4_kwr8c"]
 
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
@@ -19,13 +18,5 @@ script = ExtResource("2_timer")
 [node name="Player" parent="." unique_id=1978419293 instance=ExtResource("3_ihuh5")]
 unique_name_in_owner = true
 
-[node name="SmashableQueue" parent="." unique_id=334214445 instance=ExtResource("4_kwr8c")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0.523926, -0.7380258)
-queue_spacing = 2.0
-queue_advance_time = 0.5
-queue_tween_transition = 11
-
 [connection signal="hit_occurred" from="." to="Player" method="_on_hit_occurred"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
-[connection signal="smashable_spawned" from="SmashableQueue" to="." method="_on_smashable_queue_smashable_spawned"]

@@ -9,14 +9,15 @@ var player_state: SmashPlayerState:
 	get:
 		return Game.player_state
 
-@onready var spawned_queue: SmashQueue = %SmashableQueue
+@export var spawned_queue: SmashQueue
 var smashables: Array[SmashableResource] = []
 
 func _ready() -> void:
 	Game.gameplay = self
 	assert(player_state)
 	player_state.reset()
-	
+	assert(spawned_queue)
+	spawned_queue.smashable_spawned.connect(_on_smashable_queue_smashable_spawned)
 	timer.timeout.connect(_on_timer_depleted)
 
 
