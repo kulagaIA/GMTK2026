@@ -17,7 +17,7 @@ func _ready() -> void:
 	assert(player_state)
 	player_state.reset()
 	
-	timer.time_depleted.connect(_on_timer_depleted)
+	timer.timeout.connect(_on_timer_depleted)
 
 
 @warning_ignore("unused_parameter")
@@ -41,12 +41,10 @@ func cleanup_gameplay() -> void:
 @onready var timer := %GameTimer as GameTimer
 
 func restart_gameplay_timer() -> void:
-	timer.initial_time = player_state.initial_time.value
-	timer.reset()
-	timer.start()
+	timer.start(player_state.initial_time.value)
 
 func stop_gameplay_timer() -> void:
-	timer.reset()
+	timer.stop()
 
 func _on_timer_depleted() -> void:
 	Game.change_game_state(GameState.ROUND_OVER)
