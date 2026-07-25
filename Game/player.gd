@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	_consume_mouse_input(delta)
 	_process_camera(delta)
 
-func _on_hit_occurred(attacker: Node, target: Node) -> void:
+func _on_hit_occurred(info: HitInfo) -> void:
 	pass
 
 #region HUD
@@ -49,6 +49,8 @@ func _hide_hud() -> void:
 var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("pivo"):
+		player_state.pivo.activate()
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -131,11 +133,13 @@ func _consume_mouse_input(delta : float) -> void:
 		neck_strike_amplitude = neck_position
 	#print("Input: %f, velocity: %f, position: %f, unclamped: %f" % [_input_pitch, _neck_velocity, neck_position, neck_pos_unclamped])
 	if neck_position != neck_pos_unclamped:
+		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > 0.0:
+			#TODO: rearanged some things, whoever wrote this should check if it still works as intended
+			hit.emit(-_neck_velocity, neck_strike_amplitude)
+			neck_strike_amplitude = 0.0
 		_neck_velocity = 0.0
 		_neck_acceleration = 0.0
-		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > 0.0:
-			neck_strike_amplitude = 0.0
-			hit.emit(_neck_velocity, neck_strike_amplitude)
+	
 	
 	if allow_turning:
 		_player_rotation = Vector3(0, _mouse_rotation.y, 0)

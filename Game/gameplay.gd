@@ -1,7 +1,7 @@
 class_name SmashLevel
 extends Node3D
 
-signal hit_occurred(attacker: Node, target: Node)
+signal hit_occurred(info: HitInfo)
 
 @export var smashable_scene: PackedScene = preload("res://Game/smashable.tscn")
 
@@ -49,8 +49,13 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	var target_smashable: Smashable = spawned_queue.current_smashable
 	if target_smashable == null:
 		return
-
-	hit_occurred.emit(player_state, target_smashable)
+	
+	var info:= HitInfo.new()
+	info.attacker = player_state
+	info.target = target_smashable
+	info.velocity = velocity
+	info.amplitude = amplitude
+	hit_occurred.emit(info)
 
 func _on_smashable_destroyed(target: Smashable) -> void:
 	Game.player_state.points.add(target.reward.value)

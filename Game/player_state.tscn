@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmha13xw6n5oj" path="res://Game/player_state.gd" id="1_uc0nm"]
 [ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_dr5hc"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Gameplay/Atributes/dynamic_attribute.gd" id="3_dr5hc"]
+[ext_resource type="Script" uid="uid://dkm4na7paiqvf" path="res://Game/pivo.gd" id="4_i41wu"]
 
 [node name="PlayerState" type="Node" unique_id=1386542611]
 script = ExtResource("1_uc0nm")
@@ -45,5 +46,19 @@ script = ExtResource("3_dr5hc")
 _starting_value = 30.0
 tag = 5
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="CritChance" type="Node" parent="." unique_id=438414117]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+tag = 7
+
+[node name="CritMultiplier" type="Node" parent="." unique_id=952666034]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+tag = 8
+
+[node name="Pivo" type="Node" parent="." unique_id=931949841]
+unique_name_in_owner = true
+script = ExtResource("4_i41wu")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

@@ -76,6 +76,30 @@ unique_name_in_owner = true
 layout_mode = 2
 target_attribute = 5
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=302581286]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=340295577]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Crit chance:"
+
+[node name="TimerUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
+layout_mode = 2
+target_attribute = 7
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=261476725]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1684048685]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Crit Multiplier:"
+
+[node name="TimerUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
+layout_mode = 2
+target_attribute = 8
+
 [node name="Back" type="Button" parent="VBoxContainer/Info/HBoxContainer" unique_id=1815980857]
 unique_name_in_owner = true
 layout_mode = 2
@@ -83,6 +107,7 @@ text = "Next Round"
 
 [node name="Tree" parent="VBoxContainer" unique_id=1105908104 instance=ExtResource("2_c6qw7")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [connection signal="upgraded" from="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer/HealthUpgrader" to="." method="_on_attribute_upgraded"]

@@ -29,20 +29,17 @@ func apply_stats(stats: SmashableResource) -> void:
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
 
-func calculate_damage(base_amount: float, state: Dictionary = {}) -> float:
+func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
-	if state.has("buff_multiplier"):
-		multiplier *= float(state["buff_multiplier"])
-	if state.has("debuff_multiplier"):
-		multiplier *= float(state["debuff_multiplier"])
-	return base_amount * multiplier
+	var base_damage: float = info.attacker.damage.value
+	return base_damage * multiplier
 
 func apply_damage(amount: float) -> void:
 	take_damage(amount)
 
-func _on_hit_occurred(attacker: Node, target: Node) -> void:
-	if target == self and attacker is SmashPlayerState:
-		var self_damage := (attacker as SmashPlayerState).calculate_damage((attacker as SmashPlayerState).damage.value, {"debuff_multiplier": 1.0})
+func _on_hit_occurred(info: HitInfo) -> void:
+	if info.target == self and info.attacker is SmashPlayerState:
+		var self_damage := (info.attacker as SmashPlayerState).calculate_damage(info)
 		apply_damage(self_damage)
 
 func take_damage(amount: float) -> void:

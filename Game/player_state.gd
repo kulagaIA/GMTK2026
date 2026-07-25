@@ -7,6 +7,9 @@ extends Node
 @onready var sensitivity: DynamicAttribute = %Sensitivity
 @onready var points: SimpleAttribute = %Points
 @onready var initial_time: SimpleAttribute = %InitialTime
+@onready var crit_chance: DynamicAttribute = %CritChance
+@onready var crit_multiplier: DynamicAttribute = %CritMultiplier
+@onready var pivo: Pivo = %Pivo
 
 var progression_config : SmashProgressionConfig:
 	get:
@@ -32,21 +35,31 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	sensitivity.set_value(stats.sensitivity)
 	points.set_value(stats.points)
 	initial_time.set_value(stats.initial_time)
+	crit_chance.set_value(stats.crit_chance)
+	crit_multiplier.set_value(stats.crit_multiplier)
+	pivo.duration = stats.pivo_duration
+	pivo.cooldown = stats.pivo_cooldown
+	pivo.damage_resistance = stats.pivo_damage_resistance
+	pivo.crit_chance_multiplier = stats.pivo_crit_chance_multplier
 
-func calculate_damage(base_amount: float, state: Dictionary = {}) -> float:
+func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
-	if state.has("buff_multiplier"):
-		multiplier *= float(state["buff_multiplier"])
-	if state.has("debuff_multiplier"):
-		multiplier *= float(state["debuff_multiplier"])
-	return base_amount * multiplier
+	var base_damage: float = info.target.damage.value
+	if randf_range(0, 100) <= (crit_chance.value * pivo.crit_chance_multiplier if pivo.is_active() else crit_chance.value):
+		print("crit occured! multiplier: %f" % [crit_multiplier.value])
+		multiplier *= crit_multiplier.value
+	# TODO: here we can calculate additional multpliers based on speed and amplitude
+	return base_damage * multiplier
 
 func apply_damage(amount: float) -> void:
-	take_damage(amount)
+	var multiplier: float = 1
+	if pivo.is_active():
+		multiplier /= pivo.damage_resistance
+	take_damage(amount * multiplier)
 
-func _on_hit_occurred(attacker: Node, target: Node) -> void:
-	if attacker == self and target is Smashable:
-		var self_damage := (target as Smashable).calculate_damage((target as Smashable).damage.value, {"buff_multiplier": 1.0})
+func _on_hit_occurred(info: HitInfo) -> void:
+	if info.attacker == self and info.target is Smashable:
+		var self_damage := (info.target as Smashable).calculate_damage(info)
 		apply_damage(self_damage)
 
 func take_damage(amount: float) -> void:
