@@ -13,3 +13,4 @@ extends Resource
 @export var pivo_cooldown: float = 5
 @export var pivo_damage_resistance: float = 99
 @export var pivo_crit_chance_multplier: float = 99
+@export var pivo_charges: int = 1

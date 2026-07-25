@@ -11,6 +11,7 @@ extends Node
 @onready var crit_multiplier: DynamicAttribute = %CritMultiplier
 @onready var pivo: Ability = %Pivo
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
+@onready var pivo_charges: DynamicAttribute = %PivoCharges
 
 const damge_number_scene: PackedScene = preload("res://Game/damage_number.tscn")
 
@@ -26,6 +27,10 @@ func _process(delta: float) -> void:
 	pass
 
 func reset() -> void:
+	pivo.reset()
+	for mod in pivo_charges.get_children().filter(func(node)->bool: return node is AttributeMod):
+		if (mod as AttributeMod).value < 0:
+			pivo_charges.remove_modifier(mod)
 	health.set_value(max_health.value)
 
 func apply_stats(stats: SmashPlayerPreset) -> void:
@@ -41,6 +46,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	crit_chance.set_value(stats.crit_chance)
 	crit_multiplier.set_value(stats.crit_multiplier)
 	damage_resistance.set_value(1)
+	pivo_charges.set_value(stats.pivo_charges)
 	pivo.duration = stats.pivo_duration
 	pivo.cooldown = stats.pivo_cooldown
 	pivo.modifiers[Attribute.Tag.CRIT_CHANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_crit_chance_multplier)

@@ -50,7 +50,13 @@ var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("pivo"):
-		player_state.pivo.activate()
+		if player_state.pivo_charges.value >= 1:
+			print("%d" % [player_state.pivo_charges.value])
+			if player_state.pivo.is_available():
+				player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
+				player_state.pivo.activate()
+		else:
+			print("out of pivo")
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:

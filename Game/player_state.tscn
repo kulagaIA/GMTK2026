@@ -61,6 +61,12 @@ tag = 8
 unique_name_in_owner = true
 script = ExtResource("4_i41wu")
 
+[node name="PivoCharges" type="Node" parent="." unique_id=488732216]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+tag = 10
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
 [node name="DamageResistance" type="Node" parent="." unique_id=395671972]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
