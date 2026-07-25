@@ -2,6 +2,7 @@ class_name SmashGameplay
 extends Node3D
 
 signal hit_occurred(info: HitInfo)
+signal smashable_destroyed(smashables: Array[SmashableResource])
 
 @export var smashable_scene: PackedScene = preload("res://Game/smashable.tscn")
 
@@ -27,6 +28,8 @@ func _ready() -> void:
 	timer.start()
 	
 	Game.combo_manager.decay_started = true
+	
+	Game.gameplay = self
 
 func _on_timer_depleted() -> void:
 	Game.loose()
@@ -62,6 +65,7 @@ func _on_smashable_destroyed(target: Smashable) -> void:
 	queue_smashables(1)
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
+	smashable_destroyed.emit(smashables)
 
 #endregion
 
