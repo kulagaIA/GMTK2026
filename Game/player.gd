@@ -81,7 +81,6 @@ const MIN_TURN = deg_to_rad(-20)
 const MAX_TURN = deg_to_rad(20)
 
 const MAX_SWING_SPEED = 1500.0
-const MAX_NECK_AMPLITUDE = 60.0
 
 var _mouse_moving : bool = false
 var _input_yaw : float
@@ -98,6 +97,13 @@ var _player_rotation : Vector3
 var min_neck_position : float = 0.0
 @export var max_neck_position : float = 100.0
 var neck_position : float = 0.0
+
+var neck_strike_amplitude : float = 0.0
+@export var min_strike_amplitude : float = 20.0
+var max_strike_amplitude : float:
+	get: 
+		return max_neck_position
+
 var starting_neck_position : float:
 	get:
 		return remap(0.0, MAX_TILT, MIN_TILT, max_neck_position, min_neck_position)
@@ -121,8 +127,6 @@ func get_sensitivity_curve(direction : float) -> Curve:
 	else:
 		return neck_fall_sensitivity
 
-var neck_strike_amplitude : float = 0.0
-
 func _consume_mouse_input(delta : float) -> void:
 	_mouse_rotation.x += _input_pitch * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, MIN_TILT, MAX_TILT)
@@ -140,11 +144,11 @@ func _consume_mouse_input(delta : float) -> void:
 		neck_strike_amplitude = neck_position
 	#print("Input: %f, velocity: %f, position: %f, unclamped: %f" % [_input_pitch, _neck_velocity, neck_position, neck_pos_unclamped])
 	if neck_position != neck_pos_unclamped:
-		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > 0.0:
+		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude:
 			#TODO: rearanged some things, whoever wrote this should check if it still works as intended
 			hit.emit(
 				clamp(_neck_peak_velocity / MAX_SWING_SPEED, 0.0, 1.0),
-				clamp(neck_strike_amplitude / MAX_NECK_AMPLITUDE, 0.0, 1.0)
+				clamp(neck_strike_amplitude / max_neck_position, 0.0, 1.0)
 				)
 			neck_strike_amplitude = 0.0
 			_neck_peak_velocity = 0.0
