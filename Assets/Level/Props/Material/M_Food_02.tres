@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://crqo6gce0y0vb"]
+
+[ext_resource type="Texture2D" uid="uid://cw4luxgme4oxq" path="res://Assets/Level/Props/Meat_01_image.png" id="1_xclx7"]
+
+[resource]
+resource_name = "M_Food_02"
+cull_mode = 2
+albedo_texture = ExtResource("1_xclx7")
+metallic_specular = 0.0
+roughness = 0.5
+disable_receive_shadows = true
+metadata/extras = {
+"ps_mat_data": {},
+"yp": {
+"active_ypaint_node": "",
+"expand_content": 0.0
+}
+}
+metadata/_gltf_primary_texture_coord = 0

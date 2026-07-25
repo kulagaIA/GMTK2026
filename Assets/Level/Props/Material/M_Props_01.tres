@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bh75tn2xw7vty"]
+
+[ext_resource type="Texture2D" uid="uid://cuotqr6wcchf5" path="res://Assets/Level/Props/Table_01_Table_texture_test_02.png" id="1_jis7j"]
+[ext_resource type="Texture2D" uid="uid://5sys2e8253cb" path="res://Assets/Level/Props/texturea_stol_normal-2.png" id="2_yrqmx"]
+
+[resource]
+resource_name = "M_Props_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_jis7j")
+metallic_specular = 0.0
+roughness = 0.3
+normal_texture = ExtResource("2_yrqmx")
+refraction_scale = 1.0
+disable_receive_shadows = true
+metadata/_gltf_primary_texture_coord = 0
