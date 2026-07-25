@@ -106,6 +106,7 @@ var neck_tilt : float:
 
 var _neck_velocity : float = 0.0
 var _neck_acceleration : float = 0.0
+var _neck_peak_velocity := 0.0
 @export var neck_speed : float = 10.0
 @export var neck_fall_sensitivity : Curve
 @export var neck_rise_sensitivity : Curve
@@ -126,6 +127,8 @@ func _consume_mouse_input(delta : float) -> void:
 	
 	var sensitivity_curve := get_sensitivity_curve(_input_pitch)
 	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress)
+	if _neck_velocity < 0.0:
+		_neck_peak_velocity = max(_neck_peak_velocity, -_neck_velocity)
 	
 	var neck_pos_unclamped := neck_position + _neck_velocity * delta
 	neck_position = clamp(neck_pos_unclamped, min_neck_position, max_neck_position)
@@ -135,8 +138,9 @@ func _consume_mouse_input(delta : float) -> void:
 	if neck_position != neck_pos_unclamped:
 		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > 0.0:
 			#TODO: rearanged some things, whoever wrote this should check if it still works as intended
-			hit.emit(-_neck_velocity, neck_strike_amplitude)
+			hit.emit(_neck_peak_velocity, neck_strike_amplitude)
 			neck_strike_amplitude = 0.0
+			_neck_peak_velocity = 0.0
 		_neck_velocity = 0.0
 		_neck_acceleration = 0.0
 	
