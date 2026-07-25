@@ -1,4 +1,4 @@
-class_name SmashLevel
+class_name SmashGameplay
 extends Node3D
 
 signal hit_occurred(info: HitInfo)
