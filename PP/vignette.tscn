@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://drjebu1qnini8"]
+
+[ext_resource type="Shader" uid="uid://c4c5ubol03tv0" path="res://PP/vignette.gdshader" id="1_4b87i"]
+[ext_resource type="Script" uid="uid://qvfulmhika5i" path="res://PP/vignette.gd" id="1_hei4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwa0k"]
+shader = ExtResource("1_4b87i")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+shader_parameter/color = Vector4(0, 0, 0, 0)
+
+[node name="Vignette" type="CanvasLayer" unique_id=1579675382]
+script = ExtResource("1_hei4x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2117956088]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_cwa0k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
