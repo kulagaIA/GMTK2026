@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://orwdi64o67uh"
-path="res://.godot/imported/Floor.glb-f341a81825ed06d5c0c87caaee1c5570.scn"
+uid="uid://3gry682h5qdo"
+path="res://.godot/imported/LechonPork_01.glb-d6ec0732b7420201519d18847d898656.scn"
 
 [deps]
 
-source_file="res://Assets/Level/Walls/Floor.glb"
-dest_files=["res://.godot/imported/Floor.glb-f341a81825ed06d5c0c87caaee1c5570.scn"]
+source_file="res://Assets/Level/Props/LechonPork_01.glb"
+dest_files=["res://.godot/imported/LechonPork_01.glb-d6ec0732b7420201519d18847d898656.scn"]
 
 [params]
 
@@ -41,10 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"M_Floor_01.001": {
+"Cube.013_Mat.001": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Level/Walls/M_Floor_01.001.tres",
-"use_external/path": "uid://bbxjdngx7simm"
+"use_external/fallback_path": "res://Assets/Level/Props/Material/Cube.013_Mat.001.tres",
+"use_external/path": "uid://da8ciihwx2r1f"
 }
 }
 }

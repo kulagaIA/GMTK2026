@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bo6i4xkb8pn3o"]
+
+[ext_resource type="Texture2D" uid="uid://dfef28ej4o2m" path="res://Assets/Level/Walls/Floor_Tile_Floor_texture.png" id="1_5uom5"]
+
+[resource]
+resource_name = "M_Floor_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_5uom5")
+metallic_specular = 0.0
+roughness = 0.5
+uv1_scale = Vector3(0.14492756, 0.14492756, 1)
+uv1_offset = Vector3(0, 0.85507244, 0)
+point_size = 0.1
+metadata/_gltf_primary_texture_coord = 0

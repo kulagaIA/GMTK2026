@@ -1,12 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dkr105ct6t1av"]
 
-[ext_resource type="Texture2D" uid="uid://c0ugvnfw6ttl3" path="res://Assets/Level/Props/Flag_01_image2.png" id="1_6vbrg"]
+[ext_resource type="Texture2D" uid="uid://byi35h1ihc6c1" path="res://Assets/Level/Props/Carpet_01_image2.png" id="1_6vbrg"]
 
 [resource]
 resource_name = "M_Flag_01"
 cull_mode = 2
 albedo_texture = ExtResource("1_6vbrg")
-metallic_specular = 0.0
 roughness = 0.5
-disable_receive_shadows = true
 metadata/_gltf_primary_texture_coord = 0

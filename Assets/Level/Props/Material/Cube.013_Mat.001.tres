@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://da8ciihwx2r1f"]
+
+[ext_resource type="Texture2D" uid="uid://bko8lr1jygtjl" path="res://Assets/Level/Props/LechonPork_01_Atlas2.png" id="1_bsvn6"]
+
+[resource]
+resource_name = "Cube.013_Mat.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_bsvn6")
+roughness = 0.5
+disable_receive_shadows = true
+metadata/extras = {
+"tex_overlay_mappings": ["UV"],
+"yp": {
+"active_ypaint_node": "",
+"expand_content": 0.0
+}
+}
+metadata/_gltf_primary_texture_coord = 0
