@@ -27,9 +27,12 @@ func _process(delta: float) -> void:
 func restart_gameplay() -> void:
 	cleanup_gameplay()
 	load_level(Game.level_config)
+	player_state.reset()
+	var countdown := countdown_scene.instantiate() as Control
+	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
+	await countdown.tree_exited
 	restart_gameplay_timer()
 	Game.combo_manager.decay_started = true
-	player_state.reset()
 	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
@@ -44,6 +47,7 @@ func stop_gameplay() -> void:
 #region Timer
 
 @onready var timer := %GameTimer as GameTimer
+@export var countdown_scene : PackedScene
 
 func restart_gameplay_timer() -> void:
 	timer.start(player_state.initial_time.value)
