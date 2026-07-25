@@ -31,7 +31,7 @@ func apply_stats(stats: SmashableResource) -> void:
 
 func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
-	var base_damage: float = info.attacker.damage.value
+	var base_damage: float = damage.value
 	return base_damage * multiplier
 
 func apply_damage(amount: float) -> void:

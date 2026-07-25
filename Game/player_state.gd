@@ -55,7 +55,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 
 func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
-	var base_damage: float = info.target.damage.value
+	var base_damage: float = damage.value
 	var damage_number: DamageNumber = damge_number_scene.instantiate()
 	if randf_range(0, 100) <= crit_chance.value:
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])
