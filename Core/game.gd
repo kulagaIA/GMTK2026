@@ -45,6 +45,9 @@ var level_config : SmashLevelConfig:
 var player_state : SmashPlayerState = null
 var player : SmashPlayer = null
 
+@export var combo_config : SmashComboConfig
+@onready var combo_manager : ComboManager = %ComboManager
+
 func reset_run() -> void:
 	_player_stats_override = null
 	_level_config_override = null
@@ -60,9 +63,13 @@ func init_run() -> void:
 
 #endregion
 
-#region Jam Combo
-@export var combo_config : SmashComboConfig
-@onready var combo_manager : ComboManager = %ComboManager
+#region States
+
+@onready var game_state_machine: StateMachine = %GameStateMachine
+
+func change_game_state(new_state_name : StringName) -> void:
+	game_state_machine.request_transition_external(new_state_name)
+
 #endregion
 
 #region Pause

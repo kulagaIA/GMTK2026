@@ -1,4 +1,3 @@
-# TODO: migrate to toolbox
 class_name State
 extends Node
 
