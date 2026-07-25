@@ -142,10 +142,8 @@ func _consume_mouse_input(delta : float) -> void:
 	neck_position = clamp(neck_pos_unclamped, min_neck_position, max_neck_position)
 	if neck_position > neck_strike_amplitude:
 		neck_strike_amplitude = neck_position
-	#print("Input: %f, velocity: %f, position: %f, unclamped: %f" % [_input_pitch, _neck_velocity, neck_position, neck_pos_unclamped])
 	if neck_position != neck_pos_unclamped:
 		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude:
-			#TODO: rearanged some things, whoever wrote this should check if it still works as intended
 			hit.emit(
 				clamp(_neck_peak_velocity / MAX_SWING_SPEED, 0.0, 1.0),
 				clamp(neck_strike_amplitude / max_neck_position, 0.0, 1.0)
