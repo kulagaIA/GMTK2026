@@ -6,7 +6,7 @@ extends Node
 @onready var damage: DynamicAttribute = %Damage
 @onready var sensitivity: DynamicAttribute = %Sensitivity
 @onready var points: SimpleAttribute = %Points
-@onready var initial_time: SimpleAttribute = %InitialTime
+@onready var initial_time: DynamicAttribute = %InitialTime
 @onready var crit_chance: DynamicAttribute = %CritChance
 @onready var crit_multiplier: DynamicAttribute = %CritMultiplier
 @onready var pivo: Ability = %Pivo
@@ -31,6 +31,7 @@ func reset() -> void:
 	for mod in pivo_charges.get_children().filter(func(node)->bool: return node is AttributeMod):
 		if (mod as AttributeMod).value < 0:
 			pivo_charges.remove_modifier(mod)
+	health.max_value = max_health.value
 	health.set_value(max_health.value)
 
 func apply_stats(stats: SmashPlayerPreset) -> void:
@@ -54,7 +55,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 
 func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
-	var base_damage: float = info.target.damage.value
+	var base_damage: float = damage.value
 	var damage_number: DamageNumber = damge_number_scene.instantiate()
 	if randf_range(0, 100) <= crit_chance.value:
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])

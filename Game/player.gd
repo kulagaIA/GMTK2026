@@ -15,12 +15,12 @@ func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	neck_position = starting_neck_position
 	neck_strike_amplitude = neck_position
-	Game.state_changed.connect(_on_game_state_changed)
 
-func process_gameplay_restart() -> void:
+func handle_gameplay_started() -> void:
 	face_renderer.init_hat()
 
-func _on_game_state_changed() -> void:
+func handle_gameplay_ended() -> void:
+	_reset_neck(0.7)
 	unstun()
 
 func _exit_tree() -> void:
@@ -202,11 +202,15 @@ var health_recovery_per_shake : float:
 func stun() -> void:
 	if stunned:
 		return
-	var tween := get_tree().create_tween()
-	tween.tween_property(self, "neck_position", starting_neck_position, 0.7)
 	stunned = true
 	stun_recovery = 0
+	_reset_neck(0.7)
 	stun_status_changed.emit(stunned)
+
+func _reset_neck(duration : float) -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "neck_position", starting_neck_position, duration)
+	await tween.finished
 
 func unstun() -> void:
 	if not stunned:

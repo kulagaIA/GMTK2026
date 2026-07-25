@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbw1xl8qxsn7v" path="res://Game/smash_level.gd" id="1_14wd1"]
 [ext_resource type="PackedScene" uid="uid://kp4gc6gequll" path="res://Game/gameplay.tscn" id="1_gs3im"]
+[ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="3_hec4b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_14wd1"]
 sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
@@ -16,6 +17,9 @@ background_mode = 2
 sky = SubResource("Sky_hv080")
 reflected_light_source = 2
 
+[sub_resource type="BoxMesh" id="BoxMesh_tp06f"]
+size = Vector3(10, 10, 10)
+
 [node name="SmashLevel" type="Node3D" unique_id=1054562787]
 script = ExtResource("1_14wd1")
 
@@ -28,3 +32,20 @@ transform = Transform3D(0.70710677, -0.61237246, 0.35355335, 0, 0.49999997, 0.86
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2036361092]
 environment = SubResource("Environment_hec4b")
+
+[node name="MenuCamera" parent="." unique_id=1560827527 instance=ExtResource("3_hec4b")]
+transform = Transform3D(0.10886705, 0.48571727, -0.86731005, 0, 0.8724959, 0.48862147, 0.99405634, -0.05319478, 0.09498605, -9.259557, 5.2378516, 1.2308844)
+tag = 2
+
+[node name="SmashCamera" parent="MenuCamera" unique_id=1891859281 instance=ExtResource("3_hec4b")]
+transform = Transform3D(1.0000001, 3.7252903e-09, 0, 3.7252903e-09, 1.0000001, 1.3504177e-08, 0, -1.6763806e-08, 1, 0, 0, 0)
+current = true
+tag = 1
+
+[node name="ProgressionCamera" parent="." unique_id=1334473311 instance=ExtResource("3_hec4b")]
+transform = Transform3D(0.9099612, 0.06487245, -0.40958774, 0, 0.9876883, 0.15643477, 0.4146933, -0.14234959, 0.8987581, -1.2026747, 1.8406427, 3.1995137)
+tag = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1799976118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0274944, 0, -13.545398)
+mesh = SubResource("BoxMesh_tp06f")

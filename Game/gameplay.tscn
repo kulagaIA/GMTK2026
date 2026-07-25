@@ -8,8 +8,10 @@
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
 
-[node name="GameTimer" type="Node" parent="." unique_id=-1007312975]
+[node name="GameTimer" type="Timer" parent="." unique_id=1989958060]
 unique_name_in_owner = true
+wait_time = 25.0
+one_shot = true
 script = ExtResource("2_timer")
 
 [node name="Player" parent="." unique_id=1978419293 instance=ExtResource("3_ihuh5")]

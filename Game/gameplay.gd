@@ -17,7 +17,7 @@ func _ready() -> void:
 	assert(player_state)
 	player_state.reset()
 	
-	timer.time_depleted.connect(_on_timer_depleted)
+	timer.timeout.connect(_on_timer_depleted)
 
 
 @warning_ignore("unused_parameter")
@@ -29,24 +29,27 @@ func restart_gameplay() -> void:
 	load_level(Game.level_config)
 	restart_gameplay_timer()
 	Game.combo_manager.decay_started = true
-	player.process_gameplay_restart()
+	player_state.reset()
+	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
 	Game.combo_manager.reset_combo()
 	smashables.clear()
 	spawned_queue.clear_all()
 
+func stop_gameplay() -> void:
+	stop_gameplay_timer()
+	player.handle_gameplay_ended()
+
 #region Timer
 
 @onready var timer := %GameTimer as GameTimer
 
 func restart_gameplay_timer() -> void:
-	timer.initial_time = player_state.initial_time.value
-	timer.reset()
-	timer.start()
+	timer.start(player_state.initial_time.value)
 
 func stop_gameplay_timer() -> void:
-	timer.reset()
+	timer.stop()
 
 func _on_timer_depleted() -> void:
 	Game.change_game_state(GameState.ROUND_OVER)

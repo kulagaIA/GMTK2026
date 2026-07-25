@@ -5,6 +5,11 @@ extends GameState
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
+	var camera := SmashCamera.get_active()
+	var target_camera := SmashCamera.get_by_tag(SmashCamera.Tag.PPROGRESSION)
+	assert(camera)
+	assert(target_camera)
+	await camera.reparent_and_fly(target_camera, 2.5)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var progression_menu := progression_scene.instantiate() as Control
 	if progression_menu:
