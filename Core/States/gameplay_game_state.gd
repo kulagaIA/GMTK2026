@@ -15,7 +15,7 @@ func exit(next_state : State) -> void:
 	_hide_hud()
 	Game.gameplay.hit_occurred.disconnect(Game.player_state._on_hit_occurred)
 	Game.player_state.health.value_changed.disconnect(Game.player._on_health_value_changed)
-	await Game.player.unstun()
+	Game.gameplay.stop_gameplay()
 	super.exit(next_state)
 
 func update(delta: float) -> void:

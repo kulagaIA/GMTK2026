@@ -29,12 +29,16 @@ func restart_gameplay() -> void:
 	load_level(Game.level_config)
 	restart_gameplay_timer()
 	Game.combo_manager.decay_started = true
-	player.process_gameplay_restart()
+	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
 	Game.combo_manager.reset_combo()
 	smashables.clear()
 	spawned_queue.clear_all()
+
+func stop_gameplay() -> void:
+	stop_gameplay_timer()
+	player.handle_gameplay_ended()
 
 #region Timer
 
