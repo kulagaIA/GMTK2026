@@ -5,11 +5,11 @@ extends GameState
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_show_hud()
 	assert(Game.gameplay)
 	Game.gameplay.hit_occurred.connect(Game.player_state._on_hit_occurred)
 	Game.player_state.health.value_changed.connect(Game.player._on_health_value_changed)
 	Game.gameplay.restart_gameplay()
+	_show_hud()
 
 func exit(next_state : State) -> void:
 	_hide_hud()
