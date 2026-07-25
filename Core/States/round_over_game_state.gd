@@ -8,6 +8,7 @@ func enter(prev_state : State) -> void:
 	Game.loose()
 
 func exit(next_state : State) -> void:
+	Game.canvas_manager.clear_layer(JamUtils.layer_ui_menu)
 	super.exit(next_state)
 
 func update(delta: float) -> void:
