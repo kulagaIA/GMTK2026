@@ -94,6 +94,8 @@ func set_hat(hat_node: Node3D) -> void:
 	if hat_node == null:
 		return
 	for child in hat_socket.get_children():
+		if child == hat_node: #hack for cases when we set the same hat multiple times, otherwise it will set the hat that is already queued for deletion
+			return
 		child.queue_free()
 	var hat := hat_node.get_child(0) as MeshInstance3D
 	hat.position.y = 0.33

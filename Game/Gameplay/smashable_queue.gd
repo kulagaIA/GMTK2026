@@ -3,7 +3,7 @@ extends Node3D
 
 signal smashable_spawned(smashable: Smashable)
 
-@export var smashable_scene: PackedScene = preload("res://Game/smashable.tscn")
+@export var smashable_scene: PackedScene = preload("res://Game/Smashables/smashable.tscn")
 
 func _ready() -> void:
 	pass

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bsnkh5wdabb3v"]
+
+[ext_resource type="Script" uid="uid://d1du8106s7itd" path="res://Game/Smashables/smashable.gd" id="1_34eoq"]
+[ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_2yyft"]
+[ext_resource type="PackedScene" uid="uid://un3urakfnagt" path="res://Game/Smashables/smashable_view.tscn" id="3_2yyft"]
+
+[node name="Smashable" type="Node3D" unique_id=892062914]
+script = ExtResource("1_34eoq")
+
+[node name="MaxHealth" type="Node" parent="." unique_id=457779434]
+unique_name_in_owner = true
+script = ExtResource("2_2yyft")
+tag = 2
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Health" type="Node" parent="." unique_id=457779435]
+unique_name_in_owner = true
+script = ExtResource("2_2yyft")
+tag = 3
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Damage" type="Node" parent="." unique_id=457779436]
+unique_name_in_owner = true
+script = ExtResource("2_2yyft")
+tag = 1
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="Reward" type="Node" parent="." unique_id=1097442839]
+unique_name_in_owner = true
+script = ExtResource("2_2yyft")
+tag = 6
+
+[node name="SmashableView" parent="." unique_id=164980757 instance=ExtResource("3_2yyft")]
+unique_name_in_owner = true
+
+[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
