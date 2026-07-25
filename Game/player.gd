@@ -11,15 +11,17 @@ signal stun_status_changed(stunned: bool)
 func _ready() -> void:
 	Game.player = self
 	assert(player_state)
-	player_state.health.value_changed.connect(_on_health_value_changed)
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#player_state.health.value_changed.connect(_on_health_value_changed)
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	neck_position = starting_neck_position
 	neck_strike_amplitude = neck_position
-	await owner.ready
-	_show_hud()
+	Game.state_changed.connect(_on_game_state_changed)
+
+func _on_game_state_changed() -> void:
+	unstun()
 
 func _exit_tree() -> void:
-	_hide_hud()
+	pass
 
 func _process(delta: float) -> void:
 	_consume_mouse_input(delta)
@@ -30,18 +32,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 #region HUD
 
-@export var hud_scene : PackedScene
 @onready var face_renderer := %FaceRenderer as FaceRenderer
-
-func _show_hud() -> void:
-	if hud_scene:
-		var hud := hud_scene.instantiate() as HUD
-		var texture := face_renderer.get_texture()
-		hud.set_face_texture(texture)
-		Game.canvas_manager.set_layer_content(JamUtils.layer_ui_hud, hud)
-
-func _hide_hud() -> void:
-	Game.canvas_manager.clear_layer(JamUtils.layer_ui_hud)
 
 #endregion
 
@@ -219,6 +210,7 @@ func unstun() -> void:
 		return
 	var tween := get_tree().create_tween()
 	tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
+	await tween.finished
 	stunned = false
 	stun_status_changed.emit(stunned)
 

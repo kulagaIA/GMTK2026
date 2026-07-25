@@ -5,7 +5,7 @@ const MENU := &"MainMenu"
 const GAMEPLAY := &"Gameplay"
 const ROUND_OVER := &"RoundOver"
 const PROGRESSION := &"Progression"
-const WIN := &"Victory"
+const VICTORY := &"Victory"
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)

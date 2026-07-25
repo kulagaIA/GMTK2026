@@ -36,11 +36,12 @@ func _ready() -> void:
 		else:
 			push_warning("State machine %s contains incompatible child node %s" % [get_path(), child.name])
 
-	await owner.ready
+	if not owner.is_node_ready():
+		await owner.ready
 	if INITIAL_STATE:
 		current_state = INITIAL_STATE
-	else:
-		push_warning("Initial state not set for state machine %s" % [get_path()])
+	#else:
+		#push_warning("Initial state not set for state machine %s" % [get_path()])
 
 
 func _process(delta: float) -> void:

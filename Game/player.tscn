@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://b1e26gyir4s3r"]
 
 [ext_resource type="Script" uid="uid://dydffqxmsh78n" path="res://Game/player.gd" id="1_kwoj6"]
-[ext_resource type="PackedScene" uid="uid://c6uqpxfa40845" path="res://UI/HUD/hud.tscn" id="2_h4tjw"]
 [ext_resource type="Curve" uid="uid://b3f1h88fpni0w" path="res://Data/Player/mouse_sensitivity_fall_curve.tres" id="3_c5leg"]
 [ext_resource type="PackedScene" uid="uid://bt4yv0wn4lugx" path="res://Game/FaceCamera/face_renderer.tscn" id="3_xhrf0"]
 [ext_resource type="Curve" uid="uid://c7h5skm7oet3r" path="res://Data/Player/mouse_sensitivity_rise_curve.tres" id="4_oyrjc"]
 
 [node name="Player" type="Node3D" unique_id=1978419293]
 script = ExtResource("1_kwoj6")
-hud_scene = ExtResource("2_h4tjw")
 mouse_sensitivity = 0.2
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")

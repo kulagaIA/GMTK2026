@@ -4,41 +4,54 @@ extends Node3D
 signal hit_occurred(info: HitInfo)
 signal smashable_destroyed(smashables: Array[SmashableResource])
 
-@export var smashable_scene: PackedScene = preload("res://Game/smashable.tscn")
-
 @onready var player: SmashPlayer = %Player
 var player_state: SmashPlayerState:
 	get:
 		return Game.player_state
 
-@onready var timer := %GameTimer as GameTimer
 @onready var spawned_queue: SmashQueue = %SmashableQueue
 var smashables: Array[SmashableResource] = []
 
 func _ready() -> void:
-	assert(smashable_scene)
+	Game.gameplay = self
 	assert(player_state)
 	player_state.reset()
-	load_level(Game.level_config)
-	self.hit_occurred.connect(player_state._on_hit_occurred)
 	
 	timer.time_depleted.connect(_on_timer_depleted)
-	timer.initial_time = player_state.initial_time.value
-	timer.reset()
-	timer.start()
-	
-	Game.combo_manager.decay_started = true
-	
-	Game.gameplay = self
-	
-	player_state.health.value_changed.connect(_on_health_value_changed)
 
-func _on_timer_depleted() -> void:
-	Game.loose()
+	player_state.health.value_changed.connect(_on_health_value_changed)
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
+
+func restart_gameplay() -> void:
+	cleanup_gameplay()
+	load_level(Game.level_config)
+	restart_gameplay_timer()
+	Game.combo_manager.decay_started = true
+
+func cleanup_gameplay() -> void:
+	Game.combo_manager.reset_combo()
+	smashables.clear()
+	spawned_queue.clear_all()
+
+#region Timer
+
+@onready var timer := %GameTimer as GameTimer
+
+func restart_gameplay_timer() -> void:
+	timer.initial_time = player_state.initial_time.value
+	timer.reset()
+	timer.start()
+
+func stop_gameplay_timer() -> void:
+	timer.reset()
+
+func _on_timer_depleted() -> void:
+	Game.change_game_state(GameState.ROUND_OVER)
+
+#endregion
 
 #region Smashing
 
@@ -76,8 +89,6 @@ func _on_smashable_destroyed(target: Smashable) -> void:
 func load_level(config: SmashLevelConfig) -> void:
 	if config == null:
 		return
-
-	smashables.clear()
 
 	for pool in config.pools:
 		for idx in range(pool.count):

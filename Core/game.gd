@@ -45,9 +45,10 @@ var level_config : SmashLevelConfig:
 var player_state : SmashPlayerState = null
 var player : SmashPlayer = null
 
+var gameplay : SmashGameplay = null
+
 @export var combo_config : SmashComboConfig
 @onready var combo_manager : ComboManager = %ComboManager
-@export var gameplay : SmashGameplay
 
 func reset_run() -> void:
 	_player_stats_override = null
@@ -66,10 +67,16 @@ func init_run() -> void:
 
 #region States
 
+signal state_changed
+
 @onready var game_state_machine: StateMachine = %GameStateMachine
 
 func change_game_state(new_state_name : StringName) -> void:
 	game_state_machine.request_transition_external(new_state_name)
+
+func _on_game_state_changed(old_state: State, new_state: State) -> void:
+	# TODO: add arguments
+	state_changed.emit()
 
 #endregion
 
@@ -105,7 +112,8 @@ enum StageResult { IN_PROGRESS, LOOSE, WIN }
 var stage_result : StageResult = StageResult.IN_PROGRESS
 
 func win() -> void:
-	init_game_over(StageResult.WIN)
+	#init_game_over(StageResult.WIN)
+	change_game_state(GameState.VICTORY)
 
 func loose() -> void:
 	init_game_over(StageResult.LOOSE)

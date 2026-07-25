@@ -5,6 +5,8 @@ extends Control
 func _ready() -> void:
 	dev_smashables_queue_tracker.set_number_to_display(Game.gameplay.smashables.size())
 	Game.player.stun_status_changed.connect(_on_player_stunned)
+	var texture := Game.player.face_renderer.get_texture() as ViewportTexture
+	set_face_texture(texture)
 
 
 func _process(delta: float) -> void:
