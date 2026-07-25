@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bj1mvg2afo28f"]
+
+[ext_resource type="Script" uid="uid://dbvey3bv2t7c8" path="res://Game/smash_camera.gd" id="1_keyc2"]
+
+[node name="SmashCamera" type="Camera3D" unique_id=1891859281]
+current = true
+script = ExtResource("1_keyc2")

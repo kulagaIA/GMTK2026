@@ -50,6 +50,8 @@ var gameplay : SmashGameplay = null
 @export var combo_config : SmashComboConfig
 @onready var combo_manager : ComboManager = %ComboManager
 
+var camera : SmashCamera = null
+
 func reset_run() -> void:
 	_player_stats_override = null
 	_level_config_override = null
