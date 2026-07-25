@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://kd2snueokyay"]
+
+[ext_resource type="Script" uid="uid://cnymccx6v55tk" path="res://Game/damage_number.gd" id="1_uxqfv"]
+
+[node name="DamageNumber" type="Node3D" unique_id=476853367]
+script = ExtResource("1_uxqfv")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1950103670]
+billboard = 1
+text = "agag"

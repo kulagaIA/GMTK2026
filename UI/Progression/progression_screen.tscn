@@ -110,7 +110,4 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[connection signal="upgraded" from="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer/HealthUpgrader" to="." method="_on_attribute_upgraded"]
-[connection signal="upgraded" from="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer2/DamageUpgrader" to="." method="_on_attribute_upgraded"]
-[connection signal="upgraded" from="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer3/TimerUpgrader" to="." method="_on_attribute_upgraded"]
 [connection signal="pressed" from="VBoxContainer/Info/HBoxContainer/Back" to="." method="_on_back_pressed"]
