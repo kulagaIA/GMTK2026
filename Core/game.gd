@@ -100,7 +100,8 @@ func unpause() -> void:
 #region Game
 
 func start_game() -> void:
-	load_gameplay_scene()
+	#load_gameplay_scene()
+	change_game_state(GameState.GAMEPLAY)
 
 func restart_level() -> void:
 	pre_level_change()
