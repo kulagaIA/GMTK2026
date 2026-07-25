@@ -9,11 +9,6 @@ var base_value : float:
 		_base_value = value
 		_request_value_update()
 
-@export var has_min_value : bool = true
-@export var min_value : float = 0.0
-@export var has_max_value : bool = false
-@export var max_value : float = 1.0
-
 var percent : float:
 	get:
 		if has_max_value:

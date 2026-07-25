@@ -15,12 +15,14 @@ _starting_value = 100.0
 tag = 2
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
-[node name="Health" type="Node" parent="." unique_id=545507894]
+[node name="Health" type="Node" parent="." unique_id=731821363]
 unique_name_in_owner = true
-script = ExtResource("3_dr5hc")
+script = ExtResource("2_dr5hc")
 _starting_value = 100.0
+has_max_value = true
+max_value = 100.0
 tag = 3
-metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [node name="Damage" type="Node" parent="." unique_id=500112805]
 unique_name_in_owner = true
