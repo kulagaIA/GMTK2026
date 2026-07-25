@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/dev_combo_tracker.tscn" id="5_abcde"]
 [ext_resource type="PackedScene" uid="uid://desxqv8rcmelh" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.tscn" id="7_s83ig"]
+[ext_resource type="PackedScene" uid="uid://cnbg5s70g4n6i" path="res://UI/HUD/PointsTracker/dev_points_tracker.tscn" id="8_db5ks"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
 
@@ -74,3 +75,11 @@ offset_left = 16.0
 offset_top = 137.0
 offset_right = 278.0
 offset_bottom = 204.0
+
+[node name="DevPointsTracker" parent="." unique_id=1959073645 instance=ExtResource("8_db5ks")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = 201.0
+offset_right = 276.0
+offset_bottom = 268.0
