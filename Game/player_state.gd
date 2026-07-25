@@ -63,10 +63,10 @@ func calculate_damage(info: HitInfo) -> float:
 		damage_number.is_crit = true
 	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.7, 1.3)
 	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
-	damage_number.damage_value = base_damage * multiplier
+	damage_number.damage_value = base_damage * multiplier * headVelocityAmplitudeMultiplier
 	add_child(damage_number)
 	damage_number.global_position = info.target.global_position
-	return base_damage * multiplier
+	return damage_number.damage_value
 
 func apply_damage(amount: float) -> void:
 	var multiplier: float = damage_resistance.value
