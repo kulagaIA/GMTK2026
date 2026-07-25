@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dydffqxmsh78n" path="res://Game/player.gd" id="1_kwoj6"]
 [ext_resource type="Curve" uid="uid://b3f1h88fpni0w" path="res://Data/Player/mouse_sensitivity_fall_curve.tres" id="3_c5leg"]
 [ext_resource type="PackedScene" uid="uid://bt4yv0wn4lugx" path="res://Game/FaceCamera/face_renderer.tscn" id="3_xhrf0"]
+[ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="4_c5leg"]
 [ext_resource type="Curve" uid="uid://c7h5skm7oet3r" path="res://Data/Player/mouse_sensitivity_rise_curve.tres" id="4_oyrjc"]
 
 [node name="Player" type="Node3D" unique_id=1978419293]
@@ -15,10 +16,10 @@ neck_rise_sensitivity = ExtResource("4_oyrjc")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1187154087]
+[node name="Camera3D" parent="CameraPivot" unique_id=1891859281 instance=ExtResource("4_c5leg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-current = true
+tag = 3
 
 [node name="FaceRenderer" parent="." unique_id=1238039156 instance=ExtResource("3_xhrf0")]
 unique_name_in_owner = true
