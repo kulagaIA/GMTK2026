@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cnbg5s70g4n6i"]
+
+[ext_resource type="Script" uid="uid://dclv4xjw4i1gw" path="res://UI/HUD/PointsTracker/dev_points_tracker.gd" id="1_5j6r8"]
+
+[node name="DevPointsTracker" type="Label" unique_id=1732815039]
+offset_right = 214.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "Queue: 100"
+script = ExtResource("1_5j6r8")
