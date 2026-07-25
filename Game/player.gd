@@ -208,11 +208,11 @@ func stun() -> void:
 func unstun() -> void:
 	if not stunned:
 		return
+	stunned = false
+	stun_status_changed.emit(stunned)
 	var tween := get_tree().create_tween()
 	tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
 	await tween.finished
-	stunned = false
-	stun_status_changed.emit(stunned)
 
 func shake_head() -> void:
 	if not stunned:
