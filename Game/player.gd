@@ -79,6 +79,9 @@ const MAX_TILT = deg_to_rad(30)
 const MIN_TURN = deg_to_rad(-20)
 const MAX_TURN = deg_to_rad(20)
 
+const MAX_SWING_SPEED = 1500.0
+const MAX_NECK_AMPLITUDE = 60.0
+
 var _mouse_moving : bool = false
 var _input_yaw : float
 var _input_pitch : float
@@ -138,7 +141,10 @@ func _consume_mouse_input(delta : float) -> void:
 	if neck_position != neck_pos_unclamped:
 		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > 0.0:
 			#TODO: rearanged some things, whoever wrote this should check if it still works as intended
-			hit.emit(_neck_peak_velocity, neck_strike_amplitude)
+			hit.emit(
+				clamp(_neck_peak_velocity / MAX_SWING_SPEED, 0.0, 1.0),
+				clamp(neck_strike_amplitude / MAX_NECK_AMPLITUDE, 0.0, 1.0)
+				)
 			neck_strike_amplitude = 0.0
 			_neck_peak_velocity = 0.0
 		_neck_velocity = 0.0
