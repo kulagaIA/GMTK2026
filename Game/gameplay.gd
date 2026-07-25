@@ -30,6 +30,8 @@ func _ready() -> void:
 	Game.combo_manager.decay_started = true
 	
 	Game.gameplay = self
+	
+	player_state.health.value_changed.connect(_on_health_value_changed)
 
 func _on_timer_depleted() -> void:
 	Game.loose()
@@ -92,4 +94,23 @@ func queue_smashables(count : int = 1) -> void:
 			return
 		spawned_queue.spawn_to_queue(smashables.pop_front())
 
+#endregion
+
+#region PP
+
+@export var vignette_threshold: float = 60
+@export var vignette_color: Color = Color.DARK_RED
+const vignette_scene: PackedScene = preload("res://PP/vignette.tscn")
+var vignette: Vignette = null
+
+func _update_vignette() -> void:
+	print("jere ")
+	if vignette == null:
+		vignette = vignette_scene.instantiate() as Vignette
+		get_tree().root.add_child(vignette)
+	vignette.update(clampf(1 - Game.player_state.health.value / vignette_threshold, 0, 1), vignette_color)
+
+func _on_health_value_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
+	if new_value <= vignette_threshold:
+		_update_vignette()
 #endregion
