@@ -9,14 +9,15 @@ var player_state: SmashPlayerState:
 	get:
 		return Game.player_state
 
-@onready var spawned_queue: SmashQueue = %SmashableQueue
+@export var spawned_queue: SmashQueue
 var smashables: Array[SmashableResource] = []
 
 func _ready() -> void:
 	Game.gameplay = self
 	assert(player_state)
 	player_state.reset()
-	
+	assert(spawned_queue)
+	spawned_queue.smashable_spawned.connect(_on_smashable_queue_smashable_spawned)
 	timer.timeout.connect(_on_timer_depleted)
 
 
@@ -27,9 +28,12 @@ func _process(delta: float) -> void:
 func restart_gameplay() -> void:
 	cleanup_gameplay()
 	load_level(Game.level_config)
+	player_state.reset()
+	var countdown := countdown_scene.instantiate() as Control
+	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
+	await countdown.tree_exited
 	restart_gameplay_timer()
 	Game.combo_manager.decay_started = true
-	player_state.reset()
 	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
@@ -44,6 +48,7 @@ func stop_gameplay() -> void:
 #region Timer
 
 @onready var timer := %GameTimer as GameTimer
+@export var countdown_scene : PackedScene
 
 func restart_gameplay_timer() -> void:
 	timer.start(player_state.initial_time.value)

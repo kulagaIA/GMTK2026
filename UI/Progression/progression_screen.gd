@@ -9,7 +9,7 @@ signal item_purchased
 const game_over_scene: PackedScene = preload("res://UI/GameOver/game_over_screen.tscn")
 
 @onready var point_label: Label = %PointLabel
-@onready var tree: ProgressionTreeControl = %Tree
+#@onready var tree: ProgressionTreeControl = %Tree
 
 var points_attribute : Attribute:
 	get:
@@ -21,7 +21,7 @@ var points_available : int:
 
 func _ready() -> void:
 	update_points()
-	tree.purchase_requested.connect(_on_leaf_purchase_requested)
+	#tree.purchase_requested.connect(_on_leaf_purchase_requested)
 
 func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 	if purchased.has(leaf.name):

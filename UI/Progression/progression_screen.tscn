@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c8dvt1lns1lgg" path="res://UI/Progression/progression_screen.gd" id="1_h64k1"]
 [ext_resource type="PackedScene" uid="uid://bi4geqtwdtgpq" path="res://UI/Progression/Attributes/attribute_level_upgrader.tscn" id="2_1tcv4"]
-[ext_resource type="PackedScene" uid="uid://e763at52kugs" path="res://UI/Progression/Tree/progression_tree.tscn" id="2_c6qw7"]
 
 [node name="ProgressionScreen" type="Control" unique_id=2119330929]
 layout_mode = 3
@@ -13,113 +12,118 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h64k1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=154120622]
+[node name="Info" type="MarginContainer" parent="." unique_id=96208268]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
-[node name="Info" type="MarginContainer" parent="VBoxContainer" unique_id=96208268]
-custom_minimum_size = Vector2(0, 200)
+[node name="HBoxContainer" type="HBoxContainer" parent="Info" unique_id=699675796]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Info" unique_id=699675796]
+[node name="VBoxContainer" type="VBoxContainer" parent="Info/HBoxContainer" unique_id=1037505900]
 layout_mode = 2
+size_flags_horizontal = 6
 
-[node name="PointLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer" unique_id=1364749207]
+[node name="PointLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer" unique_id=1364749207]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Points abailable: "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Info/HBoxContainer" unique_id=1037505900]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=591558809]
+[node name="HBoxContainer" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=591558809]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1945423147]
+[node name="HealthLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1945423147]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Health:"
 
-[node name="HealthUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=81163404 instance=ExtResource("2_1tcv4")]
+[node name="HealthUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=81163404 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
 target_attribute = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=1388283840]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=1388283840]
 layout_mode = 2
 
-[node name="DamageLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1806006289]
+[node name="DamageLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1806006289]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Damage:"
 
-[node name="DamageUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
+[node name="DamageUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
 target_attribute = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=496017648]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=496017648]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1204130278]
+[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1204130278]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Time:"
 
-[node name="TimerUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=2002332192 instance=ExtResource("2_1tcv4")]
+[node name="TimerUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=2002332192 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
 target_attribute = 5
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=302581286]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=302581286]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=340295577]
+[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=340295577]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Crit chance:"
 
-[node name="CritChanceUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
+[node name="CritChanceUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
 target_attribute = 7
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=261476725]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=261476725]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1684048685]
+[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1684048685]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Crit Multiplier:"
 
-[node name="CritMultiplierUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
+[node name="CritMultiplierUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
 target_attribute = 8
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer" unique_id=441905893]
+[node name="HBoxContainer6" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=441905893]
 layout_mode = 2
 
-[node name="TimerLabel" type="Label" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=2004280899]
+[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=2004280899]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Pivo Charges:"
 
-[node name="Pivo charges" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
+[node name="Pivo charges" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
 target_attribute = 10
 
-[node name="Back" type="Button" parent="VBoxContainer/Info/HBoxContainer" unique_id=1815980857]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.79700005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.15997314
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="MarginContainer" unique_id=1815980857]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Next Round"
 
-[node name="Tree" parent="VBoxContainer" unique_id=1105908104 instance=ExtResource("2_c6qw7")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/Info/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7x3ovf6y8c2m"]
 
-[ext_resource type="Script" uid="uid://d3x9f6m0n7p2q" path="res://UI/HUD/ComboTracker/dev_combo_tracker.gd" id="1_2k3m4"]
+[ext_resource type="Script" uid="uid://debf5wpg4nx2d" path="res://UI/HUD/ComboTracker/dev_combo_tracker.gd" id="1_2k3m4"]
 
-[node name="DevComboTracker" type="Label"]
+[node name="DevComboTracker" type="Label" unique_id=765298417]
 offset_right = 214.0
 offset_bottom = 67.0
 theme_override_font_sizes/font_size = 48

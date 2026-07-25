@@ -12,7 +12,8 @@ signal destroyed(target: Smashable)
 var _destroyed : bool = false
 var _view : Node3D = null
 
-@onready var placeholder_mesh: MeshInstance3D = $PlaceholderMesh
+@onready var view: SmashableView = %SmashableView
+@onready var placeholder_mesh: MeshInstance3D = view.mesh
 
 func _ready() -> void:
 	apply_stats(data)
@@ -48,6 +49,8 @@ func take_damage(amount: float) -> void:
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if not _destroyed:
 		#print("Smashable HP left: %f" % [new_value])
+		if new_value <= max_health.value / 2:
+			pass
 		if new_value <= 0.0:
 			_destroyed = true
 			_view.visible = false
