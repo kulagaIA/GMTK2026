@@ -28,7 +28,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_title_button_pressed() -> void:
-	Game.quit_to_title()
+	Game.change_game_state(GameState.MENU)
 
 
 func _on_quit_button_pressed() -> void:
