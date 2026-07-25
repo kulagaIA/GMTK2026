@@ -1,7 +1,9 @@
+class_name HUD
 extends Control
 
-
+@onready var dev_smashables_queue_tracker: DevSmashableQueueTracker = %DevSmashablesQueueTracker
 func _ready() -> void:
+	dev_smashables_queue_tracker.set_number_to_display(Game.gameplay.smashables.size())
 	Game.player.stun_status_changed.connect(_on_player_stunned)
 
 

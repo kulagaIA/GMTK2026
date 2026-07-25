@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://desxqv8rcmelh"]
+
+[ext_resource type="Script" uid="uid://b0hmy8o1t5p5v" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.gd" id="1_01qar"]
+
+[node name="DevSmashablesQueueTracker" type="Label" unique_id=1732815039]
+offset_right = 214.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "Queue: 100"
+script = ExtResource("1_01qar")

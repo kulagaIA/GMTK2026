@@ -12,10 +12,11 @@ func _ready() -> void:
 	Game.player = self
 	assert(player_state)
 	player_state.health.value_changed.connect(_on_health_value_changed)
-	_show_hud()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	neck_position = starting_neck_position
 	neck_strike_amplitude = neck_position
+	await owner.ready
+	_show_hud()
 
 func _exit_tree() -> void:
 	_hide_hud()
@@ -34,7 +35,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 func _show_hud() -> void:
 	if hud_scene:
-		var hud := hud_scene.instantiate() as Control
+		var hud := hud_scene.instantiate() as HUD
 		var texture := face_renderer.get_texture()
 		hud.set_face_texture(texture)
 		Game.canvas_manager.set_layer_content(JamUtils.layer_ui_hud, hud)

@@ -47,6 +47,7 @@ var player : SmashPlayer = null
 
 @export var combo_config : SmashComboConfig
 @onready var combo_manager : ComboManager = %ComboManager
+@export var gameplay : SmashGameplay
 
 func reset_run() -> void:
 	_player_stats_override = null
