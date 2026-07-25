@@ -29,6 +29,7 @@ func restart_gameplay() -> void:
 	load_level(Game.level_config)
 	restart_gameplay_timer()
 	Game.combo_manager.decay_started = true
+	player_state.reset()
 	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
