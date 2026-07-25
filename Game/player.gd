@@ -17,6 +17,9 @@ func _ready() -> void:
 	neck_strike_amplitude = neck_position
 	Game.state_changed.connect(_on_game_state_changed)
 
+func process_gameplay_restart() -> void:
+	face_renderer.init_hat()
+
 func _on_game_state_changed() -> void:
 	unstun()
 

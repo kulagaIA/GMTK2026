@@ -43,7 +43,7 @@ func _ready() -> void:
 	_camera_rest_position = camera.position
 	_camera_target_position = _camera_rest_position
 	_camera_rest_rotation = camera.rotation
-	_init_hat()
+	init_hat()
 
 func _process(delta: float) -> void:
 	head_pivot.position = head_pivot.position.lerp(_target_position, delta * HEAD_POSITION_INTERPOLATION_SPEED)
@@ -102,6 +102,6 @@ func set_hat(hat_node: Node3D) -> void:
 	hat.scale.z = 0.6
 	hat_socket.add_child(hat_node)
 
-func _init_hat() -> void:
+func init_hat() -> void:
 	if Game.player_state.max_health.value > 100:
 		set_hat(upgraded_hat)
