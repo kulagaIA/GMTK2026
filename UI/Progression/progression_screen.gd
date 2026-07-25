@@ -45,7 +45,8 @@ func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 
 
 func _on_back_pressed() -> void:
-	Game.load_gameplay_scene()
+	#Game.load_gameplay_scene()
+	Game.change_game_state(GameState.GAMEPLAY)
 
 func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:
 	update_info()

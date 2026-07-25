@@ -62,3 +62,13 @@ func spawn_to_queue(resource: SmashableResource) -> Smashable:
 func _cleanup_trash() -> void:
 	while _trash_smashables.size() > trash_size:
 		_trash_smashables.pop_front().queue_free()
+
+func clear_all() -> void:
+	for smashable in _trash_smashables:
+		smashable.queue_free()
+	_trash_smashables.clear()
+	for smashable in active_smashables:
+		smashable.queue_free()
+	active_smashables.clear()
+	_total_objects_added = 0
+	queue_root.position = Vector3.ZERO

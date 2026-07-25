@@ -6,7 +6,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
 	Game.reset_run()
-	Game.start_game()
+	Game.change_game_state(GameState.GAMEPLAY)
 
 func _on_credits_button_pressed() -> void:
 	push_warning("Credits are not yet implemented")

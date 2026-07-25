@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdxq1ehfo3jo8"]
+
+[ext_resource type="Script" uid="uid://bbw1xl8qxsn7v" path="res://Game/smash_level.gd" id="1_14wd1"]
+[ext_resource type="PackedScene" uid="uid://kp4gc6gequll" path="res://Game/gameplay.tscn" id="1_gs3im"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_14wd1"]
+sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
+sky_horizon_color = Color(0.56112, 0.56948954, 0.58623457, 1)
+ground_horizon_color = Color(0, 0.35418084, 0.08339094, 1)
+
+[sub_resource type="Sky" id="Sky_hv080"]
+sky_material = SubResource("ProceduralSkyMaterial_14wd1")
+
+[sub_resource type="Environment" id="Environment_hec4b"]
+background_mode = 2
+sky = SubResource("Sky_hv080")
+reflected_light_source = 2
+
+[node name="SmashLevel" type="Node3D" unique_id=1054562787]
+script = ExtResource("1_14wd1")
+
+[node name="Gameplay" parent="." unique_id=1557019137 instance=ExtResource("1_gs3im")]
+
+[node name="World" type="Node3D" parent="." unique_id=333780664]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1804743502]
+transform = Transform3D(0.70710677, -0.61237246, 0.35355335, 0, 0.49999997, 0.86602545, -0.70710677, -0.61237246, 0.35355335, 0, 12, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2036361092]
+environment = SubResource("Environment_hec4b")

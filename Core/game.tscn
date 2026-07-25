@@ -16,7 +16,9 @@
 [ext_resource type="Script" uid="uid://cmo5n6t4g2sel" path="res://Gameplay/StateMachine/state_machine.gd" id="14_546rn"]
 [ext_resource type="Script" uid="uid://byxbbtwkua6nq" path="res://Core/States/main_menu_game_state.gd" id="15_457hq"]
 [ext_resource type="Script" uid="uid://hm4mr3v1hfai" path="res://Core/States/gameplay_game_state.gd" id="16_jnlp6"]
+[ext_resource type="PackedScene" uid="uid://dpoay026t1lnn" path="res://UI/MainMenu/main_menu.tscn" id="16_kcwrq"]
 [ext_resource type="Script" uid="uid://y4l40ck5bj28" path="res://Core/States/round_over_game_state.gd" id="17_kcwrq"]
+[ext_resource type="PackedScene" uid="uid://c6uqpxfa40845" path="res://UI/HUD/hud.tscn" id="18_kcwrq"]
 [ext_resource type="Script" uid="uid://cfi2u2nfo47fs" path="res://Core/States/progression_game_state.gd" id="18_sbld0"]
 [ext_resource type="Script" uid="uid://dqilioqh70fiv" path="res://Core/States/victory_game_state.gd" id="19_eg2hk"]
 
@@ -57,10 +59,12 @@ metadata/_custom_type_script = "uid://cmo5n6t4g2sel"
 
 [node name="MainMenu" type="Node" parent="GameStateMachine" unique_id=89426331]
 script = ExtResource("15_457hq")
+main_menu_scene = ExtResource("16_kcwrq")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="Gameplay" type="Node" parent="GameStateMachine" unique_id=28413620]
 script = ExtResource("16_jnlp6")
+hud_scene = ExtResource("18_kcwrq")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="RoundOver" type="Node" parent="GameStateMachine" unique_id=1787137069]
@@ -69,8 +73,11 @@ metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="Progression" type="Node" parent="GameStateMachine" unique_id=543598129]
 script = ExtResource("18_sbld0")
+progression_scene = ExtResource("9_4qclw")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="Victory" type="Node" parent="GameStateMachine" unique_id=852794398]
 script = ExtResource("19_eg2hk")
 metadata/_custom_type_script = "uid://4ab8024ypye"
+
+[connection signal="state_changed" from="GameStateMachine" to="." method="_on_game_state_changed"]

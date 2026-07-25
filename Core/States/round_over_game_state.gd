@@ -4,10 +4,11 @@ extends GameState
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Game.loose()
 
 func exit(next_state : State) -> void:
 	super.exit(next_state)
-	pass
 
 func update(delta: float) -> void:
 	super.update(delta)

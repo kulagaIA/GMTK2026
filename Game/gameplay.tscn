@@ -5,19 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="3_ihuh5"]
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="4_kwr8c"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ihuh5"]
-sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
-sky_horizon_color = Color(0.56112, 0.56948954, 0.58623457, 1)
-ground_horizon_color = Color(0, 0.35418084, 0.08339094, 1)
-
-[sub_resource type="Sky" id="Sky_hv080"]
-sky_material = SubResource("ProceduralSkyMaterial_ihuh5")
-
-[sub_resource type="Environment" id="Environment_kuodp"]
-background_mode = 2
-sky = SubResource("Sky_hv080")
-reflected_light_source = 2
-
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
 
@@ -34,14 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0.523926, -0.
 queue_spacing = 2.0
 queue_advance_time = 0.5
 queue_tween_transition = 11
-
-[node name="World" type="Node3D" parent="." unique_id=551144578]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=705191454]
-transform = Transform3D(0.70710677, -0.61237246, 0.35355335, 0, 0.49999997, 0.86602545, -0.70710677, -0.61237246, 0.35355335, 0, 12, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=598340421]
-environment = SubResource("Environment_kuodp")
 
 [connection signal="hit_occurred" from="." to="Player" method="_on_hit_occurred"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]

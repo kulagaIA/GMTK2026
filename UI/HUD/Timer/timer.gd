@@ -1,7 +1,11 @@
 extends Label
 
+var gameplay_scene : SmashGameplay:
+	get:
+		return Game.gameplay
+
 func _ready() -> void:
-	var gameplay_scene := get_tree().root.get_node_or_null("Gameplay") as Node
+	assert(gameplay_scene)
 	if gameplay_scene and gameplay_scene.has_node("GameTimer"):
 		var game_timer := gameplay_scene.get_node("GameTimer") as GameTimer
 		if game_timer:
@@ -10,7 +14,6 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
-	var gameplay_scene := get_tree().root.get_node_or_null("Gameplay") as Node
 	if gameplay_scene and gameplay_scene.has_node("GameTimer"):
 		var game_timer := gameplay_scene.get_node("GameTimer") as GameTimer
 		if game_timer:

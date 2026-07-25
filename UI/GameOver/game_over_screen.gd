@@ -23,12 +23,13 @@ func _gui_input(event: InputEvent) -> void:
 		unpause()
 
 func unpause() -> void:
-	Input.mouse_mode = saved_mouse_mode
+	#Input.mouse_mode = saved_mouse_mode
 	queue_free()
 
 
 func _on_restart_button_pressed() -> void:
-	Game.load_gameplay_scene()
+	#Game.load_gameplay_scene()
+	Game.change_game_state(GameState.PROGRESSION)
 
 
 func _on_title_button_pressed() -> void:
@@ -40,5 +41,5 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_progression_pressed() -> void:
-	Game.load_progression_scene()
-	pass # Replace with function body.
+	#Game.load_progression_scene()
+	Game.change_game_state(GameState.PROGRESSION)
