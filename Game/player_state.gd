@@ -48,7 +48,10 @@ func calculate_damage(info: HitInfo) -> float:
 	if randf_range(0, 100) <= (crit_chance.value * pivo.crit_chance_multiplier if pivo.is_active() else crit_chance.value):
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
-	# TODO: here we can calculate additional multpliers based on speed and amplitude
+	print("velocity=", info.velocity)
+	print("amplitude=", info.amplitude)
+	var headVelocityAmplitudeMultiplier = info.velocity * info.amplitude / 30000
+	print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	return base_damage * multiplier
 
 func apply_damage(amount: float) -> void:
