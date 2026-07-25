@@ -50,9 +50,7 @@ func calculate_damage(info: HitInfo) -> float:
 	if randf_range(0, 100) <= crit_chance.value:
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
-	#print("velocity=", info.velocity)
-	#print("amplitude=", info.amplitude)
-	var headVelocityAmplitudeMultiplier = info.velocity * info.amplitude / 30000
+	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.7, 1.3)
 	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	return base_damage * multiplier
 
