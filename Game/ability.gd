@@ -8,9 +8,9 @@ signal state_changed(State)
 @export var cooldown: float
 @export var duration: float
 @export var modifiers: Dictionary[Attribute.Tag, AttributeModInfo]
+@onready var timer: Timer = Timer.new()
 var _active_mods: Dictionary[Attribute.Tag, AttributeMod]
 var _current_state := State.AVAILABLE
-@onready var timer: Timer = Timer.new()
 var state: Ability.State:
 	get:
 		return _current_state
@@ -58,7 +58,6 @@ func is_on_cooldown() -> bool:
 func _on_timer_timeout() -> void:
 	match _current_state:
 		State.ACTIVE:
-			print("stoped")
 			_current_state = State.COOLDOWN
 			_remove_mods()
 			timer.start(cooldown)
