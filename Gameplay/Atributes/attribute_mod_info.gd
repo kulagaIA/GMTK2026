@@ -5,3 +5,7 @@ enum ModType { ADD_FLAT, ADD_PERCENT }
 
 @export var mod_type : ModType
 @export var mod_value : float
+
+func _init(type: ModType, value: float) -> void:
+	mod_type = type
+	mod_value = value

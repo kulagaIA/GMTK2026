@@ -9,7 +9,8 @@ extends Node
 @onready var initial_time: SimpleAttribute = %InitialTime
 @onready var crit_chance: DynamicAttribute = %CritChance
 @onready var crit_multiplier: DynamicAttribute = %CritMultiplier
-@onready var pivo: Pivo = %Pivo
+@onready var pivo: Ability = %Pivo
+@onready var damage_resistance: DynamicAttribute = %DamageResistance
 
 var progression_config : SmashProgressionConfig:
 	get:
@@ -37,28 +38,27 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	initial_time.set_value(stats.initial_time)
 	crit_chance.set_value(stats.crit_chance)
 	crit_multiplier.set_value(stats.crit_multiplier)
+	damage_resistance.set_value(1)
 	pivo.duration = stats.pivo_duration
 	pivo.cooldown = stats.pivo_cooldown
-	pivo.damage_resistance = stats.pivo_damage_resistance
-	pivo.crit_chance_multiplier = stats.pivo_crit_chance_multplier
+	pivo.modifiers[Attribute.Tag.CRIT_CHANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_crit_chance_multplier)
+	pivo.modifiers[Attribute.Tag.DAMAGE_RESISTANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_damage_resistance)
 
 func calculate_damage(info: HitInfo) -> float:
 	var multiplier: float = 1.0
 	var base_damage: float = info.target.damage.value
-	if randf_range(0, 100) <= (crit_chance.value * pivo.crit_chance_multiplier if pivo.is_active() else crit_chance.value):
+	if randf_range(0, 100) <= crit_chance.value:
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
-	print("velocity=", info.velocity)
-	print("amplitude=", info.amplitude)
+	#print("velocity=", info.velocity)
+	#print("amplitude=", info.amplitude)
 	var headVelocityAmplitudeMultiplier = info.velocity * info.amplitude / 30000
-	print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
+	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	return base_damage * multiplier
 
 func apply_damage(amount: float) -> void:
-	var multiplier: float = 1
-	if pivo.is_active():
-		multiplier /= pivo.damage_resistance
-	take_damage(amount * multiplier)
+	var multiplier: float = damage_resistance.value
+	take_damage(amount / multiplier)
 
 func _on_hit_occurred(info: HitInfo) -> void:
 	if info.attacker == self and info.target is Smashable:
@@ -68,7 +68,6 @@ func _on_hit_occurred(info: HitInfo) -> void:
 func take_damage(amount: float) -> void:
 	if health != null:
 		health.add(-amount)
-
 
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	#print("Player HP left: %f" % [new_value])

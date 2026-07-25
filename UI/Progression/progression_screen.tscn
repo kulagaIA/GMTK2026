@@ -84,7 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Crit chance:"
 
-[node name="TimerUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
+[node name="CritChanceUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
 target_attribute = 7
 
@@ -96,7 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Crit Multiplier:"
 
-[node name="TimerUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
+[node name="CritMultiplierUpgrader" parent="VBoxContainer/Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
 target_attribute = 8
 

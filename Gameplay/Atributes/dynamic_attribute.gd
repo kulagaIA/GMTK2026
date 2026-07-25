@@ -64,6 +64,7 @@ func add_modifier(mod_info : AttributeModInfo) -> AttributeMod:
 
 func remove_modifier(mod : AttributeMod):
 	if is_ancestor_of(mod):
+		remove_child(mod)
 		mod.queue_free()
 		_request_value_update()
 

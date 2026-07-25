@@ -10,6 +10,6 @@ extends Resource
 @export var crit_chance: float = 10
 @export var crit_multiplier: float = 10
 @export var pivo_duration: float = 3
-@export var pivo_cooldown: float = 3
+@export var pivo_cooldown: float = 5
 @export var pivo_damage_resistance: float = 99
 @export var pivo_crit_chance_multplier: float = 99
