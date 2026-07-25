@@ -22,9 +22,9 @@ var current_state : State:
 		state_change_crit_section = true
 		var old_state := _current_state
 		if old_state:
-			old_state.exit(new_state)
+			await old_state.exit(new_state)
 		_current_state = new_state
-		new_state.enter(old_state)
+		await new_state.enter(old_state)
 		state_change_crit_section = false
 		state_changed.emit(old_state, new_state)
 
