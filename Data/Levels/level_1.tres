@@ -3,14 +3,34 @@
 [ext_resource type="Script" uid="uid://de6bjjhhcii50" path="res://Game/Config/level_config.gd" id="1_rdqbj"]
 [ext_resource type="Script" uid="uid://7oi6fcvw5rs" path="res://Game/Config/smashables_pool.gd" id="2_0vxtx"]
 [ext_resource type="Resource" uid="uid://itv6qkmn24dq" path="res://Data/Smashables/_test_smashable.tres" id="3_lk221"]
+[ext_resource type="Resource" uid="uid://bptgos307bse8" path="res://Data/Smashables/melon_m.tres" id="3_m6tf1"]
+[ext_resource type="Resource" uid="uid://cbll2ut6crcju" path="res://Data/Smashables/melon_l.tres" id="4_6cmcy"]
+[ext_resource type="Resource" uid="uid://c3ymw1gbsw0at" path="res://Data/Smashables/melon_boss.tres" id="5_pkmhs"]
 
 [sub_resource type="Resource" id="Resource_uc0nm"]
 script = ExtResource("2_0vxtx")
 smashable = ExtResource("3_lk221")
-count = 100
+count = 34
+metadata/_custom_type_script = "uid://7oi6fcvw5rs"
+
+[sub_resource type="Resource" id="Resource_4531b"]
+script = ExtResource("2_0vxtx")
+smashable = ExtResource("3_m6tf1")
+count = 19
+metadata/_custom_type_script = "uid://7oi6fcvw5rs"
+
+[sub_resource type="Resource" id="Resource_bw48f"]
+script = ExtResource("2_0vxtx")
+smashable = ExtResource("4_6cmcy")
+count = 15
+metadata/_custom_type_script = "uid://7oi6fcvw5rs"
+
+[sub_resource type="Resource" id="Resource_kxj8v"]
+script = ExtResource("2_0vxtx")
+smashable = ExtResource("5_pkmhs")
 metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
 [resource]
 script = ExtResource("1_rdqbj")
-pools = Array[ExtResource("2_0vxtx")]([SubResource("Resource_uc0nm")])
+pools = Array[ExtResource("2_0vxtx")]([SubResource("Resource_uc0nm"), SubResource("Resource_4531b"), SubResource("Resource_bw48f"), SubResource("Resource_kxj8v")])
 metadata/_custom_type_script = "uid://de6bjjhhcii50"

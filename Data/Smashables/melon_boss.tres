@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SmashableResource" format=3 uid="uid://c3ymw1gbsw0at"]
+
+[ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="1_21x0e"]
+[ext_resource type="ArrayMesh" uid="uid://w51s01bqmbtq" path="res://Assets/Watermelons/Pieces/Piece melon C.glb" id="1_ayegt"]
+[ext_resource type="AudioStream" uid="uid://0mgf8gshkndm" path="res://Assets/Sound/Effects/critical.wav" id="2_brx7i"]
+[ext_resource type="ArrayMesh" uid="uid://cbkbxsotbvo7p" path="res://Assets/Watermelons/Melon A DAMAGE.glb" id="3_w2srk"]
+[ext_resource type="ArrayMesh" uid="uid://rk6l6ilcu50l" path="res://Assets/Watermelons/Pieces/Piece melon.glb" id="4_5vmgp"]
+[ext_resource type="ArrayMesh" uid="uid://buah66pjf78wf" path="res://Assets/Watermelons/Pieces/Piece melon A.glb" id="5_cncqq"]
+[ext_resource type="ArrayMesh" uid="uid://b8bb8xrcdy1vv" path="res://Assets/Watermelons/Pieces/Piece melon B.glb" id="6_gcq08"]
+[ext_resource type="AudioStream" uid="uid://jahjoyabtw2f" path="res://Assets/Sound/Effects/target_destroyed_1.wav" id="7_anxc1"]
+[ext_resource type="AudioStream" uid="uid://drweojof3o2wp" path="res://Assets/Sound/Effects/target_destroyed_2.wav" id="8_uupa3"]
+[ext_resource type="AudioStream" uid="uid://bh0sivrhgkpj" path="res://Assets/Sound/Effects/target_destroyed_3.wav" id="9_7uxhx"]
+[ext_resource type="ArrayMesh" uid="uid://crlt3y46oh56o" path="res://Assets/Watermelons/Melon A.glb" id="10_2mlyn"]
+[ext_resource type="AudioStream" uid="uid://cctqqndnr3l2n" path="res://Assets/Sound/Effects/helmet_hit_1.wav" id="11_cugea"]
+[ext_resource type="AudioStream" uid="uid://trnyyqqv8dv4" path="res://Assets/Sound/Effects/helmet_hit_2.wav" id="12_mcj3b"]
+[ext_resource type="AudioStream" uid="uid://b0jojnv2hb5xr" path="res://Assets/Sound/Effects/helmet_hit_3.wav" id="13_uof2y"]
+[ext_resource type="AudioStream" uid="uid://cehplm44dm5ud" path="res://Assets/Sound/Effects/target_hit_1.wav" id="14_4wph6"]
+[ext_resource type="AudioStream" uid="uid://gl643lg5hykt" path="res://Assets/Sound/Effects/target_hit_2.wav" id="15_m4y2y"]
+[ext_resource type="AudioStream" uid="uid://psl5l1lsbpej" path="res://Assets/Sound/Effects/target_hit_3.wav" id="16_jeoyp"]
+
+[resource]
+script = ExtResource("1_21x0e")
+display_name = "Test"
+intact_mesh = ExtResource("10_2mlyn")
+damaged_mesh = ExtResource("3_w2srk")
+broken_mesh = ExtResource("1_ayegt")
+debris_meshes = Array[Mesh]([ExtResource("4_5vmgp"), ExtResource("5_cncqq"), ExtResource("6_gcq08"), ExtResource("1_ayegt")])
+normal_hits = Array[AudioStream]([ExtResource("14_4wph6"), ExtResource("15_m4y2y"), ExtResource("16_jeoyp")])
+metal_hits = Array[AudioStream]([ExtResource("11_cugea"), ExtResource("12_mcj3b"), ExtResource("13_uof2y")])
+crit_hits = Array[AudioStream]([ExtResource("2_brx7i")])
+destroy = Array[AudioStream]([ExtResource("7_anxc1"), ExtResource("8_uupa3"), ExtResource("9_7uxhx")])
+metadata/_custom_type_script = "uid://btpfuiq3co3bj"
