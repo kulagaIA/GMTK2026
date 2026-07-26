@@ -49,6 +49,7 @@ scene_to_load = ExtResource("3_3jj5y")
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=2017876094]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 text = "Credits"
