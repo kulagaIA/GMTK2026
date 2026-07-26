@@ -49,9 +49,11 @@ func _input(event: InputEvent) -> void:
 			if player_state.pivo.is_available():
 				_drinking_pivo = true
 				_start_drinking_pivo()
-				print("pivo charges left %d" % [player_state.pivo_charges.value])
+				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
+				#print("pivo charges left %d" % [player_state.pivo_charges.value])
 		else:
-			print("out of pivo")
+			#print("out of pivo")
+			pass
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:

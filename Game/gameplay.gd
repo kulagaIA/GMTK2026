@@ -41,6 +41,8 @@ func restart_gameplay() -> void:
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
 	await countdown.tree_exited
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
+	if player_state.pivo_charges.value > 0.0:
+		Game.tutorial_manager.request_tutorial(Tutorial.Tag.BEER)
 	restart_gameplay_timer()
 	Game.combo_manager.active = true
 	player.handle_gameplay_started()

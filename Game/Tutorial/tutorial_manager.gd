@@ -1,7 +1,7 @@
 class_name Tutorial
 extends Node
 
-enum Tag { NONE, SWING, STUN, PROGRESSION }
+enum Tag { NONE, SWING, STUN, PROGRESSION, BEER }
 
 signal tutorial_requested(tag : Tag)
 signal tutorial_dismissed(tag : Tag)
