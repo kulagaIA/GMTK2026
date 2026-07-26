@@ -77,8 +77,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity
 
-const MIN_TILT = deg_to_rad(-90)
-const MAX_TILT = deg_to_rad(30)
+const MIN_TILT = deg_to_rad(-80)
+const MAX_TILT = deg_to_rad(40)
 
 const MIN_TURN = deg_to_rad(-20)
 const MAX_TURN = deg_to_rad(20)

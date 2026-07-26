@@ -29,6 +29,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_bcirh")
 script = ExtResource("1_ia7gp")
+vignette_color = Color(0.55, 0, 0, 0.79607844)
 
 [node name="StunScreen" parent="." unique_id=1573350455 instance=ExtResource("2_dhie7")]
 unique_name_in_owner = true

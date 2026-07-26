@@ -7,3 +7,4 @@ script = ExtResource("1_fjtty")
 
 [node name="QueueRoot" type="Node3D" parent="." unique_id=1774139471]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
