@@ -30,4 +30,7 @@ func _on_game_state_machine_state_changed(old_state: State, new_state: State) ->
 
 func change_master_volume(new_volume: float) -> void:
 	master_volume = new_volume
+	drums.volume_linear = master_volume
+	if melody.volume_linear == melody_volume_target:
+		master_volume
 	master_volume_changed.emit(new_volume)
