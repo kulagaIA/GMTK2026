@@ -41,7 +41,7 @@ func recalculate_value() -> float:
 				total_flat_bonus += mod.value
 			AttributeModInfo.ModType.ADD_PERCENT:
 				total_percent_bonus += mod.value
-	var new_value = base_value * max(0.0, 1.0 + total_percent_bonus) + total_flat_bonus
+	var new_value = (base_value + total_flat_bonus) * max(0.0, 1.0 + total_percent_bonus)
 	if has_min_value:
 		new_value = max(min_value, new_value)
 	if has_max_value:
