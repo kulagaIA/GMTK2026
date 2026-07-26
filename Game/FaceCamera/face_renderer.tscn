@@ -11,12 +11,6 @@ material = SubResource("StandardMaterial3D_j2mii")
 
 [node name="FaceRenderer" type="Node3D" unique_id=1203992604]
 script = ExtResource("1_j2mii")
-camera_movement_enabled = null
-camera_distance = null
-camera_height = null
-camera_side = null
-camera_follow_speed = null
-shake_decay_speed = null
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=919481621]
 unique_name_in_owner = true
