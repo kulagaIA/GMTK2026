@@ -3,9 +3,40 @@
 [ext_resource type="Script" uid="uid://c8dvt1lns1lgg" path="res://UI/Progression/progression_screen.gd" id="1_h64k1"]
 [ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_wj56m"]
 [ext_resource type="PackedScene" uid="uid://bi4geqtwdtgpq" path="res://UI/Progression/Attributes/attribute_level_upgrader.tscn" id="2_1tcv4"]
+[ext_resource type="Texture2D" uid="uid://datr6hy3cd3je" path="res://UI/Progression/Assets/menu_BG.png" id="3_2proi"]
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="3_qdwcu"]
+[ext_resource type="Texture2D" uid="uid://bedcrvb7h4vl0" path="res://UI/Progression/Assets/upgrades.png" id="4_s0rk6"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="4_wj56m"]
+[ext_resource type="FontFile" uid="uid://dyp84fgnvqc65" path="res://UI/Progression/Font/Balthazar-Regular.ttf" id="5_lnyxp"]
 [ext_resource type="Texture2D" uid="uid://cy4aqvdk6gd3c" path="res://Game/Tutorial/InputHints/vector_whiteIcons.svg" id="5_xdk4a"]
+[ext_resource type="Texture2D" uid="uid://uc0fgeaivlq6" path="res://UI/Progression/Assets/watermelon_but.png" id="6_rp3xo"]
+[ext_resource type="Texture2D" uid="uid://dqcox7cumw33i" path="res://UI/Progression/Assets/watermelonn_icon.png" id="7_5uakg"]
+[ext_resource type="Texture2D" uid="uid://u2j822ymooqr" path="res://UI/Progression/Assets/exp.png" id="8_ou33j"]
+[ext_resource type="Texture2D" uid="uid://lgi031tw3pai" path="res://UI/Progression/Assets/dmg.png" id="10_fiv3w"]
+[ext_resource type="Texture2D" uid="uid://cc1igtp2kwrqc" path="res://UI/Progression/Assets/sec.png" id="11_aaqxj"]
+[ext_resource type="Texture2D" uid="uid://bqcvf57fmk7ro" path="res://UI/Progression/Assets/crit_ch.png" id="12_2toln"]
+[ext_resource type="Texture2D" uid="uid://c7detgytbi5qq" path="res://UI/Progression/Assets/crit_str.png" id="13_42rac"]
+[ext_resource type="Texture2D" uid="uid://dwx1sm7rp2gde" path="res://UI/Progression/Assets/abilities.png" id="14_eeoo1"]
+[ext_resource type="Texture2D" uid="uid://cmlqx47xmi1nx" path="res://UI/Progression/Assets/start.png" id="15_4xlrk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
+texture = ExtResource("3_2proi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62yky"]
+texture = ExtResource("4_s0rk6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mti6b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1bc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mti6b"]
+texture = ExtResource("6_rp3xo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm1bc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62yky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h73s"]
 atlas = ExtResource("5_xdk4a")
@@ -21,6 +52,199 @@ grow_vertical = 2
 theme = ExtResource("1_wj56m")
 script = ExtResource("1_h64k1")
 
+[node name="Panel" type="Panel" parent="." unique_id=1803264033]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4kxuq")
+
+[node name="Panel3" type="Panel" parent="." unique_id=1889343771]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 26.0
+offset_right = 1076.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_62yky")
+
+[node name="TextEdit" type="TextEdit" parent="Panel3" unique_id=1747875055]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 15.0
+offset_right = 383.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.81757176, 0.5918121, 0.31368482, 1)
+theme_override_fonts/font = ExtResource("5_lnyxp")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4kxuq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mti6b")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_mm1bc")
+text = "Upgrades"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1736499337]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 15.0
+offset_right = 1256.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
+
+[node name="PointLabel" type="Label" parent="Panel2" unique_id=1364749207]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 37.0
+offset_right = -28.0
+offset_bottom = 65.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("5_lnyxp")
+text = "1000"
+
+[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=1745380702]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -24.0
+offset_right = -92.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_5uakg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1037505900]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 117.0
+offset_right = -121.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=591558809]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1825778341]
+layout_mode = 2
+texture = ExtResource("8_ou33j")
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1945423147]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("5_lnyxp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mm1bc")
+text = "Health:"
+
+[node name="HealthUpgrader" parent="VBoxContainer/HBoxContainer" unique_id=81163404 instance=ExtResource("2_1tcv4")]
+unique_name_in_owner = true
+layout_mode = 2
+target_attribute = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1388283840]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=269625216]
+layout_mode = 2
+texture = ExtResource("10_fiv3w")
+
+[node name="DamageLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1806006289]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+text = "Damage:"
+
+[node name="DamageUpgrader" parent="VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
+unique_name_in_owner = true
+layout_mode = 2
+target_attribute = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=496017648]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=1909006246]
+layout_mode = 2
+texture = ExtResource("11_aaqxj")
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1204130278]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+text = "Time:"
+
+[node name="TimerUpgrader" parent="VBoxContainer/HBoxContainer3" unique_id=2002332192 instance=ExtResource("2_1tcv4")]
+unique_name_in_owner = true
+layout_mode = 2
+target_attribute = 5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=302581286]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4" unique_id=1779524931]
+layout_mode = 2
+texture = ExtResource("12_2toln")
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=340295577]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+text = "Crit chance:"
+
+[node name="CritChanceUpgrader" parent="VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
+layout_mode = 2
+target_attribute = 7
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=261476725]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer5" unique_id=486364668]
+layout_mode = 2
+texture = ExtResource("13_42rac")
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer5" unique_id=1684048685]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+text = "Crit Multiplier:"
+
+[node name="CritMultiplierUpgrader" parent="VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
+layout_mode = 2
+target_attribute = 8
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer" unique_id=441905893]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer6" unique_id=1549761514]
+layout_mode = 2
+texture = ExtResource("14_eeoo1")
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer6" unique_id=2004280899]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+text = "Beer Charges:"
+
+[node name="Pivo charges" parent="VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
+layout_mode = 2
+target_attribute = 10
+
 [node name="Info" type="MarginContainer" parent="." unique_id=96208268]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
@@ -35,104 +259,30 @@ size_flags_vertical = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="Info" unique_id=699675796]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Info/HBoxContainer" unique_id=1037505900]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="PointLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer" unique_id=1364749207]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Points abailable: "
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=591558809]
-layout_mode = 2
-
-[node name="HealthLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1945423147]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Health:"
-
-[node name="HealthUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=81163404 instance=ExtResource("2_1tcv4")]
-unique_name_in_owner = true
-layout_mode = 2
-target_attribute = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=1388283840]
-layout_mode = 2
-
-[node name="DamageLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1806006289]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Damage:"
-
-[node name="DamageUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
-unique_name_in_owner = true
-layout_mode = 2
-target_attribute = 1
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=496017648]
-layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1204130278]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Time:"
-
-[node name="TimerUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=2002332192 instance=ExtResource("2_1tcv4")]
-unique_name_in_owner = true
-layout_mode = 2
-target_attribute = 5
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=302581286]
-layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=340295577]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Crit chance:"
-
-[node name="CritChanceUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
-layout_mode = 2
-target_attribute = 7
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=261476725]
-layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1684048685]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Crit Multiplier:"
-
-[node name="CritMultiplierUpgrader" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1028147570 instance=ExtResource("2_1tcv4")]
-layout_mode = 2
-target_attribute = 8
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="Info/HBoxContainer/VBoxContainer" unique_id=441905893]
-layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=2004280899]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Beer Charges:"
-
-[node name="Pivo charges" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
-layout_mode = 2
-target_attribute = 10
-
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.79700005
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.15997314
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = 241.0
+offset_right = 462.0
+offset_bottom = 345.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1964266140]
+layout_mode = 2
+texture = ExtResource("15_4xlrk")
 
 [node name="Back" type="Button" parent="MarginContainer" unique_id=1815980857]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9593652, 0.7345416, 0.4122536, 1)
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxEmpty_62yky")
 text = "Next Round"
 
 [node name="ProgressionTutorial" type="Control" parent="." unique_id=15828988]

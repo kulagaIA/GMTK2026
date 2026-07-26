@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://bi4geqtwdtgpq"]
 
 [ext_resource type="Script" uid="uid://brh65nroswiho" path="res://UI/Progression/Attributes/attribute_level_upgrader.gd" id="1_dvwhr"]
+[ext_resource type="FontFile" uid="uid://dyp84fgnvqc65" path="res://UI/Progression/Font/Balthazar-Regular.ttf" id="2_ef8uh"]
+[ext_resource type="Texture2D" uid="uid://dqcox7cumw33i" path="res://UI/Progression/Assets/watermelonn_icon.png" id="2_mwt6u"]
+[ext_resource type="Texture2D" uid="uid://djhickpv5sscn" path="res://UI/Progression/Assets/menu_button.png" id="3_ef8uh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
+texture = ExtResource("3_ef8uh")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [node name="AttributeLevelUpgrader" type="HBoxContainer" unique_id=81163404]
 offset_right = 42.0
@@ -9,29 +19,41 @@ script = ExtResource("1_dvwhr")
 
 [node name="LevelLabel" type="Label" parent="." unique_id=1948524870]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("2_ef8uh")
+theme_override_font_sizes/font_size = 25
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=367044391]
-layout_mode = 2
-
-[node name="UpgradeButton" type="Button" parent="VBoxContainer" unique_id=339700665]
+[node name="UpgradeButton" type="Button" parent="." unique_id=339700665]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kxuq")
 text = "+"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=192364650]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=192364650]
 layout_mode = 2
 
-[node name="CostLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=388032457]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1711894040]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_mwt6u")
+
+[node name="CostLabel" type="Label" parent="HBoxContainer" unique_id=388032457]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("2_ef8uh")
+theme_override_font_sizes/font_size = 25
 text = "100"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]

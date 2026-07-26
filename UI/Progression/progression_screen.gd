@@ -42,7 +42,7 @@ func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 			assert(target_attribute is DynamicAttribute)
 			(target_attribute as DynamicAttribute).add_modifier(modifier.mod_info)
 		
-	point_label.text = "Points available: %d" % [Game.player_state.points.value]
+	point_label.text = "%d" % [Game.player_state.points.value]
 
 
 func _on_back_pressed() -> void:
@@ -57,7 +57,7 @@ func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:
 @onready var timer_upgrader: AttributeLevelUpgrader = %TimerUpgrader
 
 func update_points() -> void:
-	point_label.text = "Points available: %d" % [points_available]
+	point_label.text = "%d" % [points_available]
 
 func update_info() -> void:
 	update_points()
