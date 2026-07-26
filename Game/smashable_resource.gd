@@ -9,3 +9,5 @@ extends Resource
 @export var intact_mesh: Mesh
 @export var damaged_mesh: Mesh
 @export var broken_mesh: Mesh
+
+@export var debris_meshes: Array[Mesh]

@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="SmashableResource" format=3 uid="uid://itv6qkmn24dq"]
 
 [ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="1_q50ae"]
-[ext_resource type="SphereMesh" uid="uid://cpoc84idqgp0s" path="res://Assets/Smashables/Placeholder/default_broken.tres" id="1_tgj7i"]
 [ext_resource type="ArrayMesh" uid="uid://cbkbxsotbvo7p" path="res://Assets/Watermelons/Melon A DAMAGE.glb" id="2_tgj7i"]
 [ext_resource type="ArrayMesh" uid="uid://crlt3y46oh56o" path="res://Assets/Watermelons/Melon A.glb" id="3_erdlo"]
+[ext_resource type="ArrayMesh" uid="uid://rk6l6ilcu50l" path="res://Assets/Watermelons/Pieces/Piece melon.glb" id="3_yortn"]
+[ext_resource type="ArrayMesh" uid="uid://buah66pjf78wf" path="res://Assets/Watermelons/Pieces/Piece melon A.glb" id="4_oi6nl"]
+[ext_resource type="ArrayMesh" uid="uid://b8bb8xrcdy1vv" path="res://Assets/Watermelons/Pieces/Piece melon B.glb" id="5_jm2vn"]
+[ext_resource type="ArrayMesh" uid="uid://w51s01bqmbtq" path="res://Assets/Watermelons/Pieces/Piece melon C.glb" id="6_ikf7d"]
 
 [resource]
 script = ExtResource("1_q50ae")
 display_name = "Test"
 intact_mesh = ExtResource("3_erdlo")
 damaged_mesh = ExtResource("2_tgj7i")
-broken_mesh = ExtResource("1_tgj7i")
+broken_mesh = ExtResource("6_ikf7d")
+debris_meshes = Array[Mesh]([ExtResource("3_yortn"), ExtResource("4_oi6nl"), ExtResource("5_jm2vn"), ExtResource("6_ikf7d")])
 metadata/_custom_type_script = "uid://btpfuiq3co3bj"

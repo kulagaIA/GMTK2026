@@ -34,7 +34,7 @@ func apply_stats(stats: SmashableResource) -> void:
 	health.set_value(stats.health)
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
-	_mesh.mesh = data.intact_mesh
+	_view.configure(stats)
 
 func get_base_damage() -> float:
 	return damage.value
@@ -66,7 +66,7 @@ func _on_health_value_changed(attribute: Attribute, new_value: float, old_value:
 		#print("Smashable HP left: %f" % [new_value])
 		if new_value <= 0.0:
 			_destroyed = true
-			_view.visible = false
+			_view.play_destroy()
 			destroyed.emit(self)
 
 func _update_damage_stage() -> void:
