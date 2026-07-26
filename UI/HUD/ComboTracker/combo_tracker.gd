@@ -2,7 +2,6 @@ class_name ComboCounter
 extends Control
 
 @onready var combo_label: Label = %ComboLabel
-@onready var level_visuals: Control = %LevelVisualsRoot
 @onready var combo_progress: ProgressBar = %ComboProgress
 @onready var rank_label: Label = %RankLabel
 
