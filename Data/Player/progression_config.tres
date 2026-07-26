@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://dkk60tjlf00pe" path="res://Game/Progression/progression_config.gd" id="2_3kyeq"]
 [ext_resource type="Script" uid="uid://b34o7ah7chudh" path="res://Game/Progression/attribute_progression_level_info.gd" id="2_4rqh2"]
 [ext_resource type="Script" uid="uid://befawv230b71n" path="res://Gameplay/Atributes/attribute_mod_info.gd" id="3_4rqh2"]
+[ext_resource type="PackedScene" uid="uid://ppc46iuyul4w" path="res://Assets/Hats/Helmet_Grade_01.glb" id="4_oj24t"]
+[ext_resource type="PackedScene" uid="uid://ck482d75y7nhn" path="res://Assets/Hats/Helmet_Grade_03.glb" id="5_776t0"]
+[ext_resource type="PackedScene" uid="uid://cjswdqmh7xb8l" path="res://Assets/Hats/Helmet_Grade_04.glb" id="6_3dw4i"]
+[ext_resource type="PackedScene" uid="uid://7i48anppmcic" path="res://Assets/Hats/Helmet_Grade_05.glb" id="7_r2lkc"]
 
 [sub_resource type="Resource" id="Resource_38hwp"]
 script = ExtResource("3_4rqh2")
@@ -64,6 +68,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 script = ExtResource("2_4rqh2")
 cost = 20
 modificator = SubResource("Resource_4rqh2")
+hat_scene = ExtResource("4_oj24t")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_whebj"]
@@ -75,6 +80,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 script = ExtResource("2_4rqh2")
 cost = 150
 modificator = SubResource("Resource_whebj")
+hat_scene = ExtResource("5_776t0")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_33tk5"]
@@ -86,6 +92,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 script = ExtResource("2_4rqh2")
 cost = 350
 modificator = SubResource("Resource_33tk5")
+hat_scene = ExtResource("6_3dw4i")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_bbs4j"]
@@ -97,6 +104,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 script = ExtResource("2_4rqh2")
 cost = 800
 modificator = SubResource("Resource_bbs4j")
+hat_scene = ExtResource("7_r2lkc")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_oj24t"]

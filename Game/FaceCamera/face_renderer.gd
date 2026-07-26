@@ -130,13 +130,24 @@ func set_head_rotation(pitch: float, yaw: float) -> void:
 		lean * CAMERA_DEPTH_OFFSET
 		)
 
+var current_hat : Node3D = null
+
+func spawn_hat_from_scene(hat_scene : PackedScene) -> void:
+	if current_hat:
+		current_hat.queue_free()
+		current_hat = null
+	if hat_scene:
+		current_hat = hat_scene.instantiate() as Node3D
+		hat_socket.add_child(current_hat)
+
 func set_hat(hat_node: Node3D) -> void:
-	if hat_node == null:
-		return
 	for child in hat_socket.get_children():
-		if child == hat_node: #hack for cases when we set the same hat multiple times, otherwise it will set the hat that is already queued for deletion
+		if child == current_hat: #hack for cases when we set the same hat multiple times, otherwise it will set the hat that is already queued for deletion
 			return
 		child.queue_free()
+	current_hat = hat_node
+	if hat_node == null:
+		return
 	var hat := hat_node.get_child(0) as MeshInstance3D
 	hat.position.y = 0.15
 	hat.scale.x = 0.4
@@ -145,5 +156,6 @@ func set_hat(hat_node: Node3D) -> void:
 	hat_socket.add_child(hat_node)
 
 func init_hat() -> void:
-	if Game.player_state.max_health.value > 100:
-		set_hat(upgraded_hat)
+	pass
+	#if Game.player_state.max_health.value > 100:
+		#set_hat(upgraded_hat)

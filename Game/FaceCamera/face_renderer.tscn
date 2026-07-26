@@ -3,12 +3,6 @@
 [ext_resource type="Script" uid="uid://bn4mchnuimex6" path="res://Game/FaceCamera/face_renderer.gd" id="1_j2mii"]
 [ext_resource type="PackedScene" uid="uid://cvrulovj2gncb" path="res://Assets/Characters/Main_character.glb" id="3_327gd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2mii"]
-albedo_color = Color(0.40392157, 0.34901962, 1, 1)
-
-[sub_resource type="TorusMesh" id="TorusMesh_m65h4"]
-material = SubResource("StandardMaterial3D_j2mii")
-
 [node name="FaceRenderer" type="Node3D" unique_id=1203992604]
 script = ExtResource("1_j2mii")
 
@@ -28,11 +22,7 @@ unique_name_in_owner = true
 
 [node name="HatSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=774683758]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
-
-[node name="HatMeshPlaceholder" type="MeshInstance3D" parent="SubViewport/Model/HeadPivot/HatSocket" unique_id=1410889476]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("TorusMesh_m65h4")
+transform = Transform3D(0.24981369, -0.009649809, -1.6287416e-11, 0.009649809, 0.24981369, 8.436131e-10, -1.6287416e-11, -8.436131e-10, 0.25, 0.075172536, 4.448689, 0.10930423)
 
 [node name="CameraRig" type="Node3D" parent="SubViewport/Model" unique_id=1048820645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

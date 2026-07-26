@@ -46,6 +46,10 @@ visible = false
 unique_name_in_owner = true
 transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, -0.163, 0.66999954, 21.358)
 
+[node name="HatSocket" type="Node3D" parent="Main_character2" unique_id=1513978765]
+unique_name_in_owner = true
+transform = Transform3D(-0.2498137, -0.009649813, -1.4901161e-08, -0.009649812, 0.24981372, -4.656613e-10, 0, -5.771137e-10, -0.25, 0.075172536, 4.448689, 0.10930423)
+
 [node name="npc1" parent="." unique_id=1488702158 instance=ExtResource("8_iap64")]
 unique_name_in_owner = true
 transform = Transform3D(0.3313337, 0, 0.5002179, 0, 0.59999996, 0, -0.5002179, 0, 0.3313337, -2.3909369, 0.6449466, 16.546146)
