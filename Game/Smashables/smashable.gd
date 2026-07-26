@@ -10,15 +10,20 @@ extends Node3D
 
 signal destroyed(target: Smashable)
 var _destroyed : bool = false
-var _view : Node3D = null
 
-@onready var view: SmashableView = %SmashableView
-@onready var placeholder_mesh: MeshInstance3D = view.mesh
+@onready var _view: SmashableView = %SmashableView
+@onready var _mesh: MeshInstance3D = _view.mesh
+
+enum DamageStage {
+	INTACT,
+	DAMAGED,
+	BROKEN
+}
+
+var _stage := DamageStage.INTACT
 
 func _ready() -> void:
 	apply_stats(data)
-	# TODO: implement SmashableViews
-	_view = placeholder_mesh
 
 func _process(delta: float) -> void:
 	pass
@@ -43,11 +48,14 @@ func apply_damage(amount: float) -> void:
 	take_damage(amount)
 
 func _on_hit_occurred(info: HitInfo) -> void:
-	var damage_number: DamageNumber = damage_number_scene.instantiate()
-	damage_number.damage_value = info.damage_to_target_modified
-	damage_number.is_crit = info.attacker_crit
-	add_child(damage_number)
-	damage_number.global_position = global_position
+	if info.target == self:
+		var damage_number: DamageNumber = damage_number_scene.instantiate()
+		damage_number.damage_value = info.damage_to_target_modified
+		damage_number.is_crit = info.attacker_crit
+		add_child(damage_number)
+		damage_number.global_position = global_position
+		_view.play_hit()
+		_update_damage_stage()
 
 func take_damage(amount: float) -> void:
 	health.add(-amount)
@@ -55,9 +63,23 @@ func take_damage(amount: float) -> void:
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if not _destroyed:
 		#print("Smashable HP left: %f" % [new_value])
-		if new_value <= max_health.value / 2:
-			pass
 		if new_value <= 0.0:
 			_destroyed = true
 			_view.visible = false
 			destroyed.emit(self)
+
+func _update_damage_stage() -> void:
+	var ratio := health.value / max_health.value
+
+	if ratio <= 0.0:
+		if _stage != DamageStage.BROKEN:
+			_stage = DamageStage.BROKEN
+			_mesh.mesh = data.broken_mesh
+	elif ratio <= 0.5:
+		if _stage != DamageStage.DAMAGED:
+			_stage = DamageStage.DAMAGED
+			_mesh.mesh = data.damaged_mesh
+	else:
+		if _stage != DamageStage.INTACT:
+			_stage = DamageStage.INTACT
+			_mesh.mesh = data.intact_mesh
