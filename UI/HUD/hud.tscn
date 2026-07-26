@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="10_4h73s"]
 [ext_resource type="Texture2D" uid="uid://c4cvh12vet24w" path="res://Game/Tutorial/InputHints/mouse_vertical.svg" id="11_bcirh"]
 [ext_resource type="Texture2D" uid="uid://blhu2xc3pexh8" path="res://Game/Tutorial/InputHints/mouse_horizontal.svg" id="12_4h73s"]
+[ext_resource type="Texture2D" uid="uid://bri1hvp3bevi7" path="res://Game/Tutorial/InputHints/mouse_right.svg" id="14_h0uwq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
 
@@ -177,4 +178,44 @@ patch_margin_bottom = 24
 [node name="TextureRect" type="TextureRect" parent="StunTutorial/MarginContainer" unique_id=1228590986]
 layout_mode = 2
 texture = ExtResource("12_4h73s")
+expand_mode = 4
+
+[node name="BeerTutorial" type="Control" parent="." unique_id=1550087932]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_h1lrf")
+tag = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="BeerTutorial" unique_id=452442048]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="BeerTutorial/MarginContainer" unique_id=937456776]
+self_modulate = Color(0.07, 0.07, 0.07, 0.60784316)
+layout_mode = 2
+texture = ExtResource("10_4h73s")
+region_rect = Rect2(32, 32, 192, 192)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="BeerTutorial/MarginContainer" unique_id=829623337]
+layout_mode = 2
+texture = ExtResource("14_h0uwq")
 expand_mode = 4
