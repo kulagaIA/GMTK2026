@@ -11,3 +11,8 @@ extends Resource
 @export var broken_mesh: Mesh
 
 @export var debris_meshes: Array[Mesh]
+
+@export var normal_hits: Array[AudioStream]
+@export var metal_hits: Array[AudioStream]
+@export var crit_hits: Array[AudioStream]
+@export var destroy: Array[AudioStream]

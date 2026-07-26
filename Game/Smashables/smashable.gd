@@ -14,6 +14,8 @@ var _destroyed : bool = false
 @onready var _view: SmashableView = %SmashableView
 @onready var _mesh: MeshInstance3D = _view.mesh
 
+@onready var _sound_player: SmashableSoundPlayer = %SmashableSoundPlayer
+
 enum DamageStage {
 	INTACT,
 	DAMAGED,
@@ -35,6 +37,7 @@ func apply_stats(stats: SmashableResource) -> void:
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
 	_view.configure(stats)
+	_sound_player.configure(stats)
 
 func get_base_damage() -> float:
 	return damage.value
@@ -56,7 +59,17 @@ func _on_hit_occurred(info: HitInfo) -> void:
 		add_child(damage_number)
 		damage_number.global_position = global_position
 		_view.play_hit()
+		var hit_sound_info: HitSoundInfo = _construct_hit_sound_info(info)
+		_sound_player.play_hit(hit_sound_info)
 		_update_damage_stage()
+
+func _construct_hit_sound_info(info: HitInfo) -> HitSoundInfo:
+	var hit_sound_info = HitSoundInfo.new()
+	if info.attacker_crit == true:
+		hit_sound_info.is_crit = true
+	if Game.player_state.max_health.value > 100:
+		hit_sound_info.hit_type = SmashableSoundPlayer.HitSoundType.METAL
+	return hit_sound_info
 
 func take_damage(amount: float) -> void:
 	health.add(-amount)

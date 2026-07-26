@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c3c1fupr2115r"]
+
+[ext_resource type="Script" uid="uid://c3a4tb67127mn" path="res://Game/Smashables/smashable_sound_player.gd" id="1_54bli"]
+
+[node name="SmashableSoundPlayer" type="Node" unique_id=101999043]
+script = ExtResource("1_54bli")
+
+[node name="HitEffectsPlayer" type="AudioStreamPlayer3D" parent="." unique_id=644210455]
+unique_name_in_owner = true
+
+[node name="CritEffectsPlayer" type="AudioStreamPlayer" parent="." unique_id=547158447]
+unique_name_in_owner = true
