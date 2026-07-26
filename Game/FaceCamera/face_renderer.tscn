@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bt4yv0wn4lugx"]
 
 [ext_resource type="Script" uid="uid://bn4mchnuimex6" path="res://Game/FaceCamera/face_renderer.gd" id="1_j2mii"]
-[ext_resource type="PackedScene" uid="uid://cx8wy8o7yobst" path="res://Assets/Level/Walls/Character_Place_holder.glb" id="2_327gd"]
+[ext_resource type="PackedScene" uid="uid://cvrulovj2gncb" path="res://Assets/Characters/Main_character.glb" id="3_327gd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2mii"]
 albedo_color = Color(0.40392157, 0.34901962, 1, 1)
@@ -16,16 +16,15 @@ script = ExtResource("1_j2mii")
 unique_name_in_owner = true
 
 [node name="Model" type="Node3D" parent="SubViewport" unique_id=1120991714]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.935, 2.903, 13.748)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="HeadPivot" type="Node3D" parent="SubViewport/Model" unique_id=767502014]
 unique_name_in_owner = true
 
 [node name="HeadSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=901053680]
 
-[node name="HeadMeshPlaceholder" parent="SubViewport/Model/HeadPivot/HeadSocket" unique_id=129976544 instance=ExtResource("2_327gd")]
+[node name="HeadMeshPlaceholder" parent="SubViewport/Model/HeadPivot/HeadSocket" unique_id=124777227 instance=ExtResource("3_327gd")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="HatSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=774683758]
 unique_name_in_owner = true
@@ -36,6 +35,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 mesh = SubResource("TorusMesh_m65h4")
 
 [node name="CameraRig" type="Node3D" parent="SubViewport/Model" unique_id=1048820645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Camera" type="Camera3D" parent="SubViewport/Model/CameraRig" unique_id=712750535]
 unique_name_in_owner = true

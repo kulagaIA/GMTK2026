@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://debf5wpg4nx2d" path="res://UI/HUD/ComboTracker/combo_tracker.gd" id="1_a836q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m65h4"]
+bg_color = Color(1, 1, 1, 0.7137255)
+
 [node name="ComboCounter" type="Control" unique_id=1274678432]
 layout_mode = 3
 anchors_preset = 0
@@ -17,14 +20,26 @@ offset_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=486897438]
 layout_mode = 2
 
-[node name="LevelVisualsRoot" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=39307391]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=282912729]
 layout_mode = 2
+theme_override_constants/margin_top = -20
+theme_override_constants/margin_bottom = -20
+
+[node name="RankLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=2065152918]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 96
+text = "  f  "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="ComboLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=765298417]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 24
 text = "COMBO LVL 0"
 
@@ -32,4 +47,5 @@ text = "COMBO LVL 0"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_m65h4")
 show_percentage = false

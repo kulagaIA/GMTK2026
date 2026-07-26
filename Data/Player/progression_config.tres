@@ -7,63 +7,107 @@
 
 [sub_resource type="Resource" id="Resource_38hwp"]
 script = ExtResource("3_4rqh2")
-mod_value = 10.0
+mod_value = 5.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_82dd2"]
 script = ExtResource("2_4rqh2")
-cost = 10
+cost = 80
 modificator = SubResource("Resource_38hwp")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_8tvb6"]
 script = ExtResource("3_4rqh2")
-mod_value = 20.0
+mod_value = 10.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_g0y5s"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 200
 modificator = SubResource("Resource_8tvb6")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_ya7kw"]
+script = ExtResource("3_4rqh2")
+mod_value = 25.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_mvwd5"]
+script = ExtResource("2_4rqh2")
+cost = 640
+modificator = SubResource("Resource_ya7kw")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_m2ej7"]
+script = ExtResource("3_4rqh2")
+mod_value = 55.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_2jo86"]
+script = ExtResource("2_4rqh2")
+cost = 1000
+modificator = SubResource("Resource_m2ej7")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_qe6tj"]
 script = ExtResource("1_37fus")
 target_attribute = 1
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_82dd2"), SubResource("Resource_g0y5s")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_82dd2"), SubResource("Resource_g0y5s"), SubResource("Resource_mvwd5"), SubResource("Resource_2jo86")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_4rqh2"]
 script = ExtResource("3_4rqh2")
-mod_value = 10.0
+mod_value = 40.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_hkbii"]
 script = ExtResource("2_4rqh2")
-cost = 10
+cost = 20
 modificator = SubResource("Resource_4rqh2")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_whebj"]
 script = ExtResource("3_4rqh2")
-mod_value = 20.0
+mod_value = 60.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_aqhsy"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 150
 modificator = SubResource("Resource_whebj")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_33tk5"]
+script = ExtResource("3_4rqh2")
+mod_value = 70.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_aknjk"]
+script = ExtResource("2_4rqh2")
+cost = 350
+modificator = SubResource("Resource_33tk5")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_bbs4j"]
+script = ExtResource("3_4rqh2")
+mod_value = 80.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_xnrpl"]
+script = ExtResource("2_4rqh2")
+cost = 800
+modificator = SubResource("Resource_bbs4j")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_oj24t"]
 script = ExtResource("1_37fus")
 target_attribute = 2
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_hkbii"), SubResource("Resource_aqhsy")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_hkbii"), SubResource("Resource_aqhsy"), SubResource("Resource_aknjk"), SubResource("Resource_xnrpl")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_776t0"]
 script = ExtResource("3_4rqh2")
-mod_value = 10.0
+mod_value = 5.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_3dw4i"]
@@ -74,19 +118,41 @@ metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_r2lkc"]
 script = ExtResource("3_4rqh2")
-mod_value = 20.0
+mod_value = 10.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_w4qko"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 290
 modificator = SubResource("Resource_r2lkc")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_hxixs"]
+script = ExtResource("3_4rqh2")
+mod_value = 30.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_flhyh"]
+script = ExtResource("2_4rqh2")
+cost = 600
+modificator = SubResource("Resource_hxixs")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_yeueb"]
+script = ExtResource("3_4rqh2")
+mod_value = 40.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_qrafl"]
+script = ExtResource("2_4rqh2")
+cost = 900
+modificator = SubResource("Resource_yeueb")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_2o88b"]
 script = ExtResource("1_37fus")
 target_attribute = 5
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_3dw4i"), SubResource("Resource_w4qko")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_3dw4i"), SubResource("Resource_w4qko"), SubResource("Resource_flhyh"), SubResource("Resource_qrafl")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_ry0np"]
@@ -96,53 +162,97 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_xdk4a"]
 script = ExtResource("2_4rqh2")
-cost = 10
+cost = 70
 modificator = SubResource("Resource_ry0np")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_oi75r"]
 script = ExtResource("3_4rqh2")
-mod_value = 5.0
+mod_value = 10.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_elgby"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 160
 modificator = SubResource("Resource_oi75r")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_eeyvi"]
+script = ExtResource("3_4rqh2")
+mod_value = 20.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_n75l2"]
+script = ExtResource("2_4rqh2")
+cost = 333
+modificator = SubResource("Resource_eeyvi")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_xajdt"]
+script = ExtResource("3_4rqh2")
+mod_value = 40.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_ht04b"]
+script = ExtResource("2_4rqh2")
+cost = 777
+modificator = SubResource("Resource_xajdt")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_wj56m"]
 script = ExtResource("1_37fus")
 target_attribute = 7
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_xdk4a"), SubResource("Resource_elgby")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_xdk4a"), SubResource("Resource_elgby"), SubResource("Resource_n75l2"), SubResource("Resource_ht04b")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_4uhmf"]
 script = ExtResource("3_4rqh2")
-mod_value = 0.1
+mod_value = 0.3
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_02wql"]
 script = ExtResource("2_4rqh2")
-cost = 10
+cost = 100
 modificator = SubResource("Resource_4uhmf")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_t6603"]
 script = ExtResource("3_4rqh2")
-mod_value = 0.1
+mod_value = 0.5
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_nlcfx"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 200
 modificator = SubResource("Resource_t6603")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_r4i53"]
+script = ExtResource("3_4rqh2")
+mod_value = 0.7
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_ml7hl"]
+script = ExtResource("2_4rqh2")
+cost = 400
+modificator = SubResource("Resource_r4i53")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_jrd3u"]
+script = ExtResource("3_4rqh2")
+mod_value = 1.3
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_u8v0s"]
+script = ExtResource("2_4rqh2")
+cost = 800
+modificator = SubResource("Resource_jrd3u")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_yytq6"]
 script = ExtResource("1_37fus")
 target_attribute = 8
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_02wql"), SubResource("Resource_nlcfx")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_02wql"), SubResource("Resource_nlcfx"), SubResource("Resource_ml7hl"), SubResource("Resource_u8v0s")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_tqauo"]
@@ -152,7 +262,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_m65h4"]
 script = ExtResource("2_4rqh2")
-cost = 10
+cost = 100
 modificator = SubResource("Resource_tqauo")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
@@ -163,14 +273,25 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_a5vg1"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 400
 modificator = SubResource("Resource_nxx3g")
+metadata/_custom_type_script = "uid://b34o7ah7chudh"
+
+[sub_resource type="Resource" id="Resource_jis7j"]
+script = ExtResource("3_4rqh2")
+mod_value = 1.0
+metadata/_custom_type_script = "uid://befawv230b71n"
+
+[sub_resource type="Resource" id="Resource_xqvuf"]
+script = ExtResource("2_4rqh2")
+cost = 700
+modificator = SubResource("Resource_jis7j")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_i41wu"]
 script = ExtResource("1_37fus")
 target_attribute = 10
-levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_m65h4"), SubResource("Resource_a5vg1")])
+levels = Array[ExtResource("2_4rqh2")]([SubResource("Resource_m65h4"), SubResource("Resource_a5vg1"), SubResource("Resource_xqvuf")])
 metadata/_custom_type_script = "uid://drdarr315r058"
 
 [resource]

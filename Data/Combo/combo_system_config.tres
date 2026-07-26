@@ -1,17 +1,73 @@
 [gd_resource type="Resource" script_class="SmashComboConfig" format=3 uid="uid://cwwwdw1dr2li4"]
 
 [ext_resource type="Script" uid="uid://ddpjin2vnay7w" path="res://Game/Config/combo_level_config.gd" id="1_m65h4"]
-[ext_resource type="PackedScene" uid="uid://cyc6phgocvr62" path="res://UI/HUD/ComboTracker/Levels/combo_level_placeholder.tscn" id="2_a5vg1"]
 [ext_resource type="Script" uid="uid://b66le32xijm5v" path="res://Game/Config/combo_config.gd" id="2_tqauo"]
 
 [sub_resource type="Resource" id="Resource_j2mii"]
 script = ExtResource("1_m65h4")
-combo_level_visuals = ExtResource("2_a5vg1")
-combo_points_per_hit = 10.0
+label = "  C  "
+color = Color(0.42, 0.42, 0.42, 1)
+combo_meter_to_next_level = 50.0
+cooling_rate = 5.0
+combo_points_per_hit = 5.0
+combo_points_per_smash = 0.0
+metadata/_custom_type_script = "uid://ddpjin2vnay7w"
+
+[sub_resource type="Resource" id="Resource_a836q"]
+script = ExtResource("1_m65h4")
+label = "  B  "
+color = Color(0.17819999, 0.32274, 0.66, 1)
+combo_meter_to_next_level = 70.0
+cooling_rate = 5.0
+points_multiplier = 1.2
+combo_points_per_hit = 5.0
+combo_points_per_smash = 5.0
+metadata/_custom_type_script = "uid://ddpjin2vnay7w"
+
+[sub_resource type="Resource" id="Resource_i5ifl"]
+script = ExtResource("1_m65h4")
+label = "  A  "
+color = Color(0, 0.7772163, 0.30391786, 1)
+combo_meter_to_next_level = 80.0
+cooling_rate = 10.0
+points_multiplier = 1.5
+combo_points_per_hit = 5.0
 combo_points_per_smash = 10.0
+metadata/_custom_type_script = "uid://ddpjin2vnay7w"
+
+[sub_resource type="Resource" id="Resource_62xib"]
+script = ExtResource("1_m65h4")
+label = "  S  "
+color = Color(0.93, 0.89559, 0.2418, 1)
+cooling_rate = 20.0
+points_multiplier = 2.0
+combo_points_per_hit = 5.0
+combo_points_per_smash = 15.0
+metadata/_custom_type_script = "uid://ddpjin2vnay7w"
+
+[sub_resource type="Resource" id="Resource_sbm0o"]
+script = ExtResource("1_m65h4")
+label = " SS "
+color = Color(0.9526797, 0.42828575, 1.92523e-07, 1)
+combo_meter_to_next_level = 120.0
+cooling_rate = 30.0
+points_multiplier = 3.0
+combo_points_per_hit = 5.0
+combo_points_per_smash = 20.0
+metadata/_custom_type_script = "uid://ddpjin2vnay7w"
+
+[sub_resource type="Resource" id="Resource_4l343"]
+script = ExtResource("1_m65h4")
+label = "SSS"
+color = Color(0.9997273, 0.17495194, 0.12786734, 1)
+combo_meter_to_next_level = 250.0
+cooling_rate = 50.0
+points_multiplier = 4.0
+combo_points_per_hit = 8.0
+combo_points_per_smash = 30.0
 metadata/_custom_type_script = "uid://ddpjin2vnay7w"
 
 [resource]
 script = ExtResource("2_tqauo")
-levels = Array[ExtResource("1_m65h4")]([SubResource("Resource_j2mii")])
+levels = Array[ExtResource("1_m65h4")]([SubResource("Resource_j2mii"), SubResource("Resource_a836q"), SubResource("Resource_i5ifl"), SubResource("Resource_62xib"), SubResource("Resource_sbm0o"), SubResource("Resource_4l343")])
 metadata/_custom_type_script = "uid://b66le32xijm5v"
