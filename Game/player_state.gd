@@ -13,6 +13,8 @@ extends Node
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
 
+@export var ampplitude_to_damage: Curve
+
 const damge_number_scene: PackedScene = preload("res://Game/damage_number.tscn")
 
 var progression_config : SmashProgressionConfig:
@@ -61,7 +63,8 @@ func calculate_damage(info: HitInfo) -> float:
 		print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
 		damage_number.is_crit = true
-	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.7, 1.3)
+	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.0, 1.0)
+	headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(headVelocityAmplitudeMultiplier)
 	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	damage_number.damage_value = base_damage * multiplier * headVelocityAmplitudeMultiplier
 	add_child(damage_number)

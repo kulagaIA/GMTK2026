@@ -39,6 +39,11 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 #endregion
 
+#region kickback
+
+
+#endregion
+
 #region Input
 
 var _last_mouse_direction: int = 0
@@ -72,7 +77,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity
 		else:
 			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity
-
 
 const MIN_TILT = deg_to_rad(-90)
 const MAX_TILT = deg_to_rad(30)
