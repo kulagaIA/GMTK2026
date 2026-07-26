@@ -22,8 +22,8 @@ const CAMERA_VERTICAL_OFFSET := 0.30
 const CAMERA_DEPTH_OFFSET := -0.15
 
 @export var camera_movement_enabled : bool = true
-@export var camera_distance := -0.66
-@export var camera_height := 1.0
+@export var camera_distance := -1.4
+@export var camera_height := 4.85
 @export var camera_side := 0.0
 @export var camera_follow_speed := 8.0
 @export var shake_decay_speed := 4.0

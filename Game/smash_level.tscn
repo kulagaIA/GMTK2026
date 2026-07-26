@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fe8xe5gk7pid" path="res://Level.tscn" id="4_umyyp"]
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="5_lvwk5"]
 [ext_resource type="PackedScene" uid="uid://cx8wy8o7yobst" path="res://Assets/Level/Walls/Character_Place_holder.glb" id="6_lvwk5"]
+[ext_resource type="PackedScene" uid="uid://cvrulovj2gncb" path="res://Assets/Characters/Main_character.glb" id="7_rm2hi"]
 
 [node name="SmashLevel" type="Node3D" unique_id=1054562787]
 script = ExtResource("1_14wd1")
@@ -38,3 +39,7 @@ queue_tween_transition = 11
 
 [node name="Character_Place_holder2" parent="." unique_id=1078740081 instance=ExtResource("6_lvwk5")]
 transform = Transform3D(-0.75034815, 0, -0.6610428, 0, 1, 0, 0.6610428, 0, -0.75034815, 0.34270406, 1.597475, 21.58773)
+visible = false
+
+[node name="Main_character2" parent="." unique_id=124777227 instance=ExtResource("7_rm2hi")]
+transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, -0.16259664, 0.66988504, 21.357729)
