@@ -20,6 +20,7 @@ script = ExtResource("1_kwoj6")
 mouse_sensitivity = 0.2
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
+drinking_time = 1.0
 
 [node name="PivoPath3D" type="Path3D" parent="." unique_id=1214811779]
 unique_name_in_owner = true
