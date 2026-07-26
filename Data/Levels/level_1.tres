@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://de6bjjhhcii50" path="res://Game/Config/level_config.gd" id="1_rdqbj"]
 [ext_resource type="Script" uid="uid://7oi6fcvw5rs" path="res://Game/Config/smashables_pool.gd" id="2_0vxtx"]
-[ext_resource type="Resource" uid="uid://itv6qkmn24dq" path="res://Data/Smashables/_test_smashable.tres" id="3_lk221"]
+[ext_resource type="Resource" uid="uid://bvd323eodhvm1" path="res://Data/Smashables/melon_s.tres" id="2_m6tf1"]
 [ext_resource type="Resource" uid="uid://bptgos307bse8" path="res://Data/Smashables/melon_m.tres" id="3_m6tf1"]
 [ext_resource type="Resource" uid="uid://cbll2ut6crcju" path="res://Data/Smashables/melon_l.tres" id="4_6cmcy"]
 [ext_resource type="Resource" uid="uid://c3ymw1gbsw0at" path="res://Data/Smashables/melon_boss.tres" id="5_pkmhs"]
 
 [sub_resource type="Resource" id="Resource_uc0nm"]
 script = ExtResource("2_0vxtx")
-smashable = ExtResource("3_lk221")
+smashable = ExtResource("2_m6tf1")
 count = 34
 metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
