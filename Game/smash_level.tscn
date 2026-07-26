@@ -31,6 +31,9 @@ tag = 4
 
 [node name="SmashableQueue" parent="." unique_id=334214445 instance=ExtResource("5_lvwk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.801, 19.785)
+queue_spacing = 2.0
+queue_advance_time = 0.5
+queue_tween_transition = 11
 
 [node name="Character_Place_holder2" parent="." unique_id=1078740081 instance=ExtResource("6_lvwk5")]
 transform = Transform3D(-0.75034815, 0, -0.6610428, 0, 1, 0, 0.6610428, 0, -0.75034815, 0.34270406, 1.597475, 21.58773)
