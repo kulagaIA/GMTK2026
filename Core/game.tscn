@@ -32,7 +32,6 @@ default_player_stats = ExtResource("2_j36f3")
 default_level_config = ExtResource("3_gwpo4")
 progression_config = ExtResource("4_qe6tj")
 player_state_scene = ExtResource("4_gwpo4")
-combo_config = ExtResource("5_74v2q")
 title_scene = ExtResource("2_htkch")
 gameplay_scene = ExtResource("3_lqrbg")
 pause_menu_scene = ExtResource("3_52drc")
@@ -50,10 +49,15 @@ layer = 90
 [node name="Menu" type="CanvasLayer" parent="CanvasManager" unique_id=254975533]
 layer = 100
 
-[node name="ComboManager" type="Node" parent="." unique_id=1239443732]
+[node name="ComboManager" type="Node" parent="." unique_id=1239443732 node_paths=PackedStringArray("level_drop_cooldown")]
 unique_name_in_owner = true
 script = ExtResource("13_j0bao")
+level_drop_cooldown = NodePath("ComboLevelDecayCooldown")
+config = ExtResource("5_74v2q")
 metadata/_custom_type_script = "uid://dcmxkp5rre3ot"
+
+[node name="ComboLevelDecayCooldown" type="Timer" parent="ComboManager" unique_id=1870337502]
+one_shot = true
 
 [node name="GameStateMachine" type="Node" parent="." unique_id=305354416 node_paths=PackedStringArray("INITIAL_STATE")]
 unique_name_in_owner = true

@@ -1,21 +1,24 @@
 extends Label
 
+var combo_manager : ComboManager:
+	get:
+		return Game.combo_manager
+
+var config : SmashComboConfig:
+	get:
+		return combo_manager.config
+
 func _ready() -> void:
-	if Game.combo_manager:
-		Game.combo_manager.combo_changed.connect(_on_combo_changed)
-		Game.combo_manager.combo_broken.connect(_on_combo_broken)
-		_update_combo_text(Game.combo_manager.get_combo())
+	assert(combo_manager)
+	combo_manager.combo_level_changed.connect(_on_combo_level_changed)
+	_update_combo_level(combo_manager.current_level)
 
 func _exit_tree() -> void:
-	if Game.combo_manager:
-		Game.combo_manager.combo_changed.disconnect(_on_combo_changed)
-		Game.combo_manager.combo_broken.disconnect(_on_combo_broken)
+	if combo_manager:
+		combo_manager.combo_level_changed.disconnect(_on_combo_level_changed)
 
-func _on_combo_changed(_old_value: int, new_value: int) -> void:
-	_update_combo_text(new_value)
+func _on_combo_level_changed(_old_level: int, new_level: int) -> void:
+	_update_combo_level(new_level)
 
-func _on_combo_broken(_previous_combo: int) -> void:
-	text = "Combo BROKEN: %d" % [0]
-
-func _update_combo_text(value: int) -> void:
-	text = "Combo: %d" % [value]
+func _update_combo_level(value: int) -> void:
+	text = "Combo LVL %d" % [value]

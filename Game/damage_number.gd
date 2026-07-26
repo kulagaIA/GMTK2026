@@ -6,14 +6,14 @@ extends Node3D
 @export var speed_deviation: float = 3
 @export var size: float = .5
 @export var angle_deviation_deg: float = 15.0
-var damage_value: int
+var damage_value: float
 var is_crit: bool
 var velocity: Vector3
 
 @onready var label: Label3D = %Label
 
 func _ready() -> void:
-	label.text = str(damage_value)
+	label.text = str(int(damage_value))
 	if is_crit:
 		label.modulate = Color.DARK_RED
 	velocity = Vector3.ZERO

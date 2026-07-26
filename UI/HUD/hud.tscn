@@ -41,6 +41,7 @@ offset_left = 5.0
 offset_top = 150.0
 offset_right = 223.0
 offset_bottom = 217.0
+text = "Combo LVL 0"
 
 [node name="Timer" parent="." unique_id=1994011132 instance=ExtResource("3_te8l2")]
 unique_name_in_owner = true

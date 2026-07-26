@@ -6,7 +6,6 @@ extends Node
 
 func _ready() -> void:
 	reset_run()
-	combo_manager.initialize(combo_config)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_exit"):
@@ -47,7 +46,6 @@ var player : SmashPlayer = null
 
 var gameplay : SmashGameplay = null
 
-@export var combo_config : SmashComboConfig
 @onready var combo_manager : ComboManager = %ComboManager
 
 var cameras : Dictionary[SmashCamera.Tag, SmashCamera]
@@ -135,7 +133,7 @@ var _active_game_over_screen : Control
 
 func init_game_over(result : StageResult) -> void:
 	assert(not _active_game_over_screen)
-	combo_manager.decay_started = false
+	combo_manager.active = false
 	combo_manager.reset_combo()
 	stage_result = result
 	_active_game_over_screen = game_over_scene.instantiate() as Control
