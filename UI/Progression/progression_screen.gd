@@ -67,3 +67,6 @@ func update_info() -> void:
 	health_upgrader.update_info()
 	damage_upgrader.update_info()
 	timer_upgrader.update_info()
+	crit_chance_upgrader.update_info()
+	crit_multiplier_upgrader.update_info()
+	pivo_charges.update_info()

@@ -39,7 +39,7 @@ const NPC_ANIMATIONS := [
 		"weight": 90.0
 	},
 	{
-		"name": "ncp/dance",
+		"name": "npc/dance",
 		"weight": 10.0
 	}
 ]
