@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://dypd4ukj6o5rn"]
+
+[ext_resource type="FontFile" uid="uid://drt0yjm7noa8m" path="res://UI/Fonts/Balthazar_Regular.ttf" id="1_jjv7n"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_jjv7n")
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_jjv7n")

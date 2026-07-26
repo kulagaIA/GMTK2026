@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://dlv3rb2wbtn73"]
+
+[ext_resource type="FontFile" uid="uid://c480cviww4uuu" path="res://UI/Fonts/MORPHEUS.TTF" id="1_2lxye"]
+
+[resource]
+Label/fonts/font = ExtResource("1_2lxye")
