@@ -4,6 +4,7 @@ extends Control
 @onready var combo_label: Label = %ComboLabel
 @onready var level_visuals: Control = %LevelVisualsRoot
 @onready var combo_progress: ProgressBar = %ComboProgress
+@onready var rank_label: Label = %RankLabel
 
 var combo_manager : ComboManager:
 	get:
@@ -29,10 +30,7 @@ func _on_combo_level_changed(_old_level: int, new_level: int) -> void:
 	_update_combo_level(new_level)
 
 func _update_combo_level(value: int) -> void:
-	combo_label.text = "Combo LVL %d" % [value]
-	for visual in level_visuals.get_children():
-		visual.queue_free()
+	combo_label.text = "COMBO LVL %d" % [value]
 	var level_config := config.levels[value]
-	if level_config.combo_level_visuals:
-		var visuals := level_config.combo_level_visuals.instantiate() as Control
-		level_visuals.add_child(visuals)
+	rank_label.text = level_config.label
+	modulate = level_config.color

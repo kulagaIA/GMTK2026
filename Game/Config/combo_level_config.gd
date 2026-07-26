@@ -1,7 +1,9 @@
 class_name SmashComboLevelConfig
 extends Resource
 
-@export var combo_level_visuals : PackedScene = null
+@export var label : String = "F"
+
+@export var color : Color = Color.WHITE
 
 ## Upgrade combo to next level after gaining this much points
 @export var combo_meter_to_next_level : float = 100.0
