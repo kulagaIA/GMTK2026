@@ -3,7 +3,10 @@ extends Node
 
 signal combo_level_changed(old_level: int, new_level: int)
 
-var current_combo : float = 0
+var current_combo : float = 0.0
+var combo_progress : float:
+	get:
+		return current_combo / combo_meter_to_next_level
 var current_level : int = 0:
 	get:
 		return current_level
@@ -50,11 +53,13 @@ func process_hit(info : HitInfo) -> void:
 		combo_delta += level_config.combo_points_per_smash
 	add_combo(combo_delta)
 
-func add_combo(amount := 1) -> void:
-	var old := current_combo
+func add_combo(amount : float) -> void:
 	current_combo += amount
-	if current_level < max_level and current_combo > combo_meter_to_next_level:
-		increase_level()
+	if current_level < max_level:
+		if current_combo > combo_meter_to_next_level:
+			increase_level()
+	else:
+		current_combo = clamp(current_combo, 0.0, combo_meter_to_next_level)
 
 #endregion
 
@@ -65,8 +70,8 @@ func reset_combo() -> void:
 func increase_level() -> void:
 	if current_level >= max_level:
 		return
+	current_combo -= combo_meter_to_next_level
 	current_level += 1
-	current_combo = 0.0
 
 func try_decrease_level() -> void:
 	if not level_drop_cooldown or level_drop_cooldown.is_stopped():
