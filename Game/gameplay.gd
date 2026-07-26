@@ -103,8 +103,12 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	
 	hit_occurred.emit(info)
 
+func get_combo_points_nultiplier() -> float:
+	return Game.combo_manager.current_level_config.points_multiplier
+
 func _on_smashable_destroyed(target: Smashable) -> void:
-	Game.player_state.points.add(target.reward.value)
+	var base_reward := target.reward.value
+	Game.player_state.points.add(base_reward * get_combo_points_nultiplier())
 	queue_smashables(1)
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
