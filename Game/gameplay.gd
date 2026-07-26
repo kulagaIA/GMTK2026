@@ -12,6 +12,13 @@ var player_state: SmashPlayerState:
 @export var spawned_queue: SmashQueue
 var smashables: Array[SmashableResource] = []
 
+var num_smashables_left : int:
+	get:
+		var result := smashables.size() + spawned_queue.active_smashables.size()
+		if spawned_queue.current_smashable.health.value <= 0.0:
+			result -= 1
+		return result
+
 func _ready() -> void:
 	Game.gameplay = self
 	assert(player_state)
