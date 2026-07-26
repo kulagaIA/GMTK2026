@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func handle_gameplay_started() -> void:
 	face_renderer.init_hat()
+	pivo_mug.visible = player_state.pivo_charges.value > 0.0
 
 func handle_gameplay_ended() -> void:
 	_reset_neck(0.7)
