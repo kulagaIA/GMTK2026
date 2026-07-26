@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp4x2yq8aafff"]
 
 [ext_resource type="Script" uid="uid://c8dvt1lns1lgg" path="res://UI/Progression/progression_screen.gd" id="1_h64k1"]
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_wj56m"]
 [ext_resource type="PackedScene" uid="uid://bi4geqtwdtgpq" path="res://UI/Progression/Attributes/attribute_level_upgrader.tscn" id="2_1tcv4"]
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="3_qdwcu"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="4_wj56m"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wj56m")
 script = ExtResource("1_h64k1")
 
 [node name="Info" type="MarginContainer" parent="." unique_id=96208268]

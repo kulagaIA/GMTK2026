@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c6uqpxfa40845"]
 
+[ext_resource type="Theme" uid="uid://dlv3rb2wbtn73" path="res://UI/Themes/gameplay.tres" id="1_bcirh"]
 [ext_resource type="Script" uid="uid://c5absqcct10fa" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="PackedScene" uid="uid://bm3awdi33xxvt" path="res://UI/HUD/Stun/stun_screen.tscn" id="2_dhie7"]
 [ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerHealthTracker/dev_player_health_tracker.tscn" id="2_ing8j"]
@@ -20,9 +21,12 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_bcirh")
 script = ExtResource("1_ia7gp")
 
 [node name="StunScreen" parent="." unique_id=1573350455 instance=ExtResource("2_dhie7")]
