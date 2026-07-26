@@ -55,6 +55,9 @@ func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:
 @onready var health_upgrader: AttributeLevelUpgrader = %HealthUpgrader
 @onready var damage_upgrader: AttributeLevelUpgrader = %DamageUpgrader
 @onready var timer_upgrader: AttributeLevelUpgrader = %TimerUpgrader
+@onready var crit_chance_upgrader: AttributeLevelUpgrader = %CritChanceUpgrader
+@onready var crit_multiplier_upgrader: AttributeLevelUpgrader = %CritMultiplierUpgrader
+@onready var pivo_charges: AttributeLevelUpgrader = %"Pivo charges"
 
 func update_points() -> void:
 	point_label.text = "%d" % [points_available]
