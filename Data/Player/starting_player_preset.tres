@@ -4,8 +4,12 @@
 
 [resource]
 script = ExtResource("1_gcej8")
-initial_time = 15.0
+max_health = 50.0
+damage = 5.0
+initial_time = 5.0
+crit_chance = 5.0
 crit_multiplier = 1.2
+pivo_duration = 5.0
 pivo_cooldown = 2.0
 pivo_charges = 0
 metadata/_custom_type_script = "uid://dhpgcuy27qysf"
