@@ -28,6 +28,7 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
+visible = false
 layout_mode = 1
 offset_left = 28.0
 offset_top = 15.0
@@ -36,21 +37,25 @@ offset_bottom = 38.0
 
 [node name="DevComboTracker" parent="." unique_id=1076786393 instance=ExtResource("5_abcde")]
 layout_mode = 1
-offset_left = 28.0
-offset_top = 70.0
-offset_right = 242.0
-offset_bottom = 137.0
+offset_left = 5.0
+offset_top = 150.0
+offset_right = 223.0
+offset_bottom = 217.0
+text = "Combo LVL 0"
 
 [node name="Timer" parent="." unique_id=1994011132 instance=ExtResource("3_te8l2")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_top = 10.0
-offset_right = 0.0
-offset_bottom = 33.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 80.0
+offset_right = 50.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
 
 [node name="FaceDisplay" parent="." unique_id=2091583509 instance=ExtResource("4_qdh7y")]
 unique_name_in_owner = true
@@ -60,9 +65,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -100.0
-offset_top = 50.0
-offset_bottom = 33.0
+offset_left = -128.0
+offset_bottom = 178.0
 grow_horizontal = 0
 texture = SubResource("PlaceholderTexture2D_qdh7y")
 expand_mode = 3
@@ -70,16 +74,17 @@ stretch_mode = 5
 
 [node name="DevSmashablesQueueTracker" parent="." unique_id=795302497 instance=ExtResource("7_s83ig")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 16.0
-offset_top = 137.0
-offset_right = 278.0
-offset_bottom = 204.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -131.0
+offset_right = 131.0
+grow_horizontal = 2
 
 [node name="DevPointsTracker" parent="." unique_id=1959073645 instance=ExtResource("8_db5ks")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 14.0
-offset_top = 201.0
-offset_right = 276.0
-offset_bottom = 268.0
+offset_right = 189.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 36

@@ -30,18 +30,24 @@ func apply_stats(stats: SmashableResource) -> void:
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
 
-func calculate_damage(info: HitInfo) -> float:
-	var multiplier: float = 1.0
-	var base_damage: float = damage.value
-	return base_damage * multiplier
+func get_base_damage() -> float:
+	return damage.value
+
+# HACK: this is hard-coded to be damage to attacker, called before PlayerState
+func modify_hit(info: HitInfo) -> void:
+	info.damage_to_attacker_modified = info.damage_to_attacker_base
+
+const damage_number_scene: PackedScene = preload("res://Game/damage_number.tscn")
 
 func apply_damage(amount: float) -> void:
 	take_damage(amount)
 
 func _on_hit_occurred(info: HitInfo) -> void:
-	if info.target == self and info.attacker is SmashPlayerState:
-		var self_damage := (info.attacker as SmashPlayerState).calculate_damage(info)
-		apply_damage(self_damage)
+	var damage_number: DamageNumber = damage_number_scene.instantiate()
+	damage_number.damage_value = info.damage_to_target_modified
+	damage_number.is_crit = info.attacker_crit
+	add_child(damage_number)
+	damage_number.global_position = global_position
 
 func take_damage(amount: float) -> void:
 	health.add(-amount)

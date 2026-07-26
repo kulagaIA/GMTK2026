@@ -13,7 +13,7 @@ extends Node
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
 
-const damge_number_scene: PackedScene = preload("res://Game/damage_number.tscn")
+@export var ampplitude_to_damage: Curve
 
 var progression_config : SmashProgressionConfig:
 	get:
@@ -53,38 +53,35 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	pivo.modifiers[Attribute.Tag.CRIT_CHANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_crit_chance_multplier)
 	pivo.modifiers[Attribute.Tag.DAMAGE_RESISTANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_damage_resistance)
 
-func calculate_damage(info: HitInfo) -> float:
-	var multiplier: float = 1.0
-	var base_damage: float = damage.value
-	var damage_number: DamageNumber = damge_number_scene.instantiate()
-	if randf_range(0, 100) <= crit_chance.value:
-		print("crit occured! multiplier: %f" % [crit_multiplier.value])
-		multiplier *= crit_multiplier.value
-		damage_number.is_crit = true
-	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.7, 1.3)
-	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
-	damage_number.damage_value = base_damage * multiplier * headVelocityAmplitudeMultiplier
-	add_child(damage_number)
-	damage_number.global_position = info.target.global_position
-	return damage_number.damage_value
+func get_base_damage() -> float:
+	return damage.value
 
-func apply_damage(amount: float) -> void:
-	var multiplier: float = damage_resistance.value
-	take_damage(amount / multiplier)
+# HACK: this is hard-coded to be damage to attacker, called after Smashable
+func modify_hit(info: HitInfo) -> void:
+	var multiplier: float = 1.0
+	var base_damage: float = info.damage_to_target_base
+	if randf_range(0, 100) <= crit_chance.value:
+		#print("crit occured! multiplier: %f" % [crit_multiplier.value])
+		multiplier *= crit_multiplier.value
+		info.attacker_crit = true
+	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.0, 1.0)
+	headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(headVelocityAmplitudeMultiplier)
+	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
+	info.damage_to_target_modified = base_damage * multiplier * headVelocityAmplitudeMultiplier
+	info.damage_to_attacker_modified /= damage_resistance.value
 
 func _on_hit_occurred(info: HitInfo) -> void:
-	if info.attacker == self and info.target is Smashable:
-		var self_damage := (info.target as Smashable).calculate_damage(info)
-		apply_damage(self_damage)
+	pass
+
+func apply_damage(amount: float) -> void:
+	take_damage(amount)
 
 func take_damage(amount: float) -> void:
 	if health != null:
 		health.add(-amount)
 
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
-	#print("Player HP left: %f" % [new_value])
 	if new_value <= 0.0:
-		#Game.loose()
 		pass
 
 func upgrade_attribute(attribute: Attribute.Tag, new_level: int) -> void:

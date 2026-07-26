@@ -12,6 +12,13 @@ var player_state: SmashPlayerState:
 @export var spawned_queue: SmashQueue
 var smashables: Array[SmashableResource] = []
 
+var num_smashables_left : int:
+	get:
+		var result := smashables.size() + spawned_queue.active_smashables.size()
+		if spawned_queue.current_smashable.health.value <= 0.0:
+			result -= 1
+		return result
+
 func _ready() -> void:
 	Game.gameplay = self
 	assert(player_state)
@@ -33,7 +40,7 @@ func restart_gameplay() -> void:
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
 	await countdown.tree_exited
 	restart_gameplay_timer()
-	Game.combo_manager.decay_started = true
+	Game.combo_manager.active = true
 	player.handle_gameplay_started()
 
 func cleanup_gameplay() -> void:
@@ -68,7 +75,6 @@ func _on_player_hit(velocity: float, amplitude: float) -> void:
 
 func apply_single_hit(velocity: float, amplitude: float) -> void:
 	player.face_renderer.set_head_color(Color.YELLOW)
-	Game.combo_manager.add_combo()
 	if player_state == null or smashables.is_empty():
 		return
 
@@ -76,15 +82,33 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	if target_smashable == null:
 		return
 	
-	var info:= HitInfo.new()
+	var info := HitInfo.new()
 	info.attacker = player_state
 	info.target = target_smashable
 	info.velocity = velocity
 	info.amplitude = amplitude
+	
+	info.damage_to_target_base = player_state.damage.value
+	info.damage_to_attacker_base = target_smashable.damage.value
+
+	# HACK: this is just sad
+	target_smashable.modify_hit(info)
+	player_state.modify_hit(info)
+	
+	info.target_smashed = target_smashable.health.value <= info.damage_to_target_modified
+	info.attacker_stunned = player_state.health.value <= info.damage_to_attacker_modified
+	
+	target_smashable.apply_damage(info.damage_to_target_modified)
+	player_state.apply_damage(info.damage_to_attacker_modified)
+	
 	hit_occurred.emit(info)
 
+func get_combo_points_nultiplier() -> float:
+	return Game.combo_manager.current_level_config.points_multiplier
+
 func _on_smashable_destroyed(target: Smashable) -> void:
-	Game.player_state.points.add(target.reward.value)
+	var base_reward := target.reward.value
+	Game.player_state.points.add(base_reward * get_combo_points_nultiplier())
 	queue_smashables(1)
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])

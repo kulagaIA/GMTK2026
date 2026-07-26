@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c6uqpxfa40845" path="res://UI/HUD/hud.tscn" id="18_kcwrq"]
 [ext_resource type="Script" uid="uid://cfi2u2nfo47fs" path="res://Core/States/progression_game_state.gd" id="18_sbld0"]
 [ext_resource type="Script" uid="uid://dqilioqh70fiv" path="res://Core/States/victory_game_state.gd" id="19_eg2hk"]
+[ext_resource type="PackedScene" uid="uid://clo8w5h8inyox" path="res://Game/Sound/sound_manager.tscn" id="22_sbld0"]
 
 [node name="Game" type="Node" unique_id=736238743]
 process_mode = 3
@@ -31,7 +32,6 @@ default_player_stats = ExtResource("2_j36f3")
 default_level_config = ExtResource("3_gwpo4")
 progression_config = ExtResource("4_qe6tj")
 player_state_scene = ExtResource("4_gwpo4")
-combo_config = ExtResource("5_74v2q")
 title_scene = ExtResource("2_htkch")
 gameplay_scene = ExtResource("3_lqrbg")
 pause_menu_scene = ExtResource("3_52drc")
@@ -49,10 +49,15 @@ layer = 90
 [node name="Menu" type="CanvasLayer" parent="CanvasManager" unique_id=254975533]
 layer = 100
 
-[node name="ComboManager" type="Node" parent="." unique_id=1239443732]
+[node name="ComboManager" type="Node" parent="." unique_id=1239443732 node_paths=PackedStringArray("level_drop_cooldown")]
 unique_name_in_owner = true
 script = ExtResource("13_j0bao")
+level_drop_cooldown = NodePath("ComboLevelDecayCooldown")
+config = ExtResource("5_74v2q")
 metadata/_custom_type_script = "uid://dcmxkp5rre3ot"
+
+[node name="ComboLevelDecayCooldown" type="Timer" parent="ComboManager" unique_id=1870337502]
+one_shot = true
 
 [node name="GameStateMachine" type="Node" parent="." unique_id=305354416 node_paths=PackedStringArray("INITIAL_STATE")]
 unique_name_in_owner = true
@@ -83,4 +88,7 @@ metadata/_custom_type_script = "uid://4ab8024ypye"
 script = ExtResource("19_eg2hk")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
+[node name="SoundManager" parent="." unique_id=1031725714 instance=ExtResource("22_sbld0")]
+
 [connection signal="state_changed" from="GameStateMachine" to="." method="_on_game_state_changed"]
+[connection signal="state_changed" from="GameStateMachine" to="SoundManager" method="_on_game_state_machine_state_changed"]

@@ -1,11 +1,8 @@
 class_name HUD
 extends Control
 
-@onready var dev_smashables_queue_tracker: DevSmashableQueueTracker = %DevSmashablesQueueTracker
-@onready var dev_points_tracker: DevPointsTracker = %DevPointsTracker
+
 func _ready() -> void:
-	dev_smashables_queue_tracker.set_number_to_display(Game.gameplay.smashables.size())
-	dev_points_tracker.set_number_to_display(Game.player_state.points.value)
 	Game.player.stun_status_changed.connect(_on_player_stunned)
 	var texture := Game.player.face_renderer.get_texture() as ViewportTexture
 	set_face_texture(texture)
@@ -31,7 +28,6 @@ const vignette_scene: PackedScene = preload("res://UI/PP/vignette.tscn")
 var vignette: Vignette = null
 
 func _update_vignette() -> void:
-	return
 	if vignette == null:
 		vignette = vignette_scene.instantiate() as Vignette
 		add_child(vignette)
