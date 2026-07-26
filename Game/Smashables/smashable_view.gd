@@ -7,6 +7,7 @@ extends Node3D
 func configure(data: SmashableResource) -> void:
 	mesh.mesh = data.intact_mesh
 	_debris_meshes = data.debris_meshes
+	scale = Vector3.ONE * data.scale
 
 #region Play Hit
 

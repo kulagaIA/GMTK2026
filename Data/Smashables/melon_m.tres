@@ -21,6 +21,7 @@
 [resource]
 script = ExtResource("17_u7ssq")
 display_name = "Test"
+scale = 0.7
 health = 50
 damage = 10
 reward = 50
