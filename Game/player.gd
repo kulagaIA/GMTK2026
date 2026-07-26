@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func handle_gameplay_started() -> void:
 	face_renderer.init_hat()
+	pivo_mug.visible = player_state.pivo_charges.value > 0.0
 
 func handle_gameplay_ended() -> void:
 	_reset_neck(0.7)
@@ -39,24 +40,21 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 #endregion
 
-#region kickback
-
-
-#endregion
-
 #region Input
 
 var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("pivo"):
-		if player_state.pivo_charges.value >= 1:
-			print("%d" % [player_state.pivo_charges.value])
+		if player_state.pivo_charges.value >= 1 and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
 			if player_state.pivo.is_available():
-				player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
-				player_state.pivo.activate()
+				_drinking_pivo = true
+				_start_drinking_pivo()
+				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
+				#print("pivo charges left %d" % [player_state.pivo_charges.value])
 		else:
-			print("out of pivo")
+			#print("out of pivo")
+			pass
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -67,7 +65,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Mouse input
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _mouse_moving:
+	if _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned:
 			var direction: int = signi(event.relative.x)
@@ -138,7 +136,7 @@ func _consume_mouse_input(delta : float) -> void:
 	_mouse_rotation.y = clamp(_mouse_rotation.y, MIN_TURN, MAX_TURN)
 	
 	var sensitivity_curve := get_sensitivity_curve(_input_pitch)
-	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress)
+	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress) + _kickback_acceleration
 	if _neck_velocity < 0.0:
 		_neck_peak_velocity = max(_neck_peak_velocity, -_neck_velocity)
 	
@@ -154,6 +152,7 @@ func _consume_mouse_input(delta : float) -> void:
 				)
 			neck_strike_amplitude = 0.0
 			_neck_peak_velocity = 0.0
+			_add_kickback()
 		_neck_velocity = 0.0
 		_neck_acceleration = 0.0
 	
@@ -211,6 +210,7 @@ func stun() -> void:
 	stunned = true
 	stun_recovery = 0
 	_reset_neck(0.7)
+	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
 	stun_status_changed.emit(stunned)
 
 func _reset_neck(duration : float) -> void:
@@ -222,6 +222,7 @@ func unstun() -> void:
 	if not stunned:
 		return
 	stunned = false
+	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.STUN)
 	stun_status_changed.emit(stunned)
 	var tween := get_tree().create_tween()
 	tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
@@ -238,5 +239,38 @@ func shake_head() -> void:
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if new_value <= 0.0 and not stunned:
 		stun()
+
+#endregion
+#region Kickback
+
+@export var kickback_time: float = .5
+@export var kickback_speed: float = 150
+var _kickback_acceleration: float = 0
+
+func _add_kickback() -> void:
+	var tween: Tween = get_tree().create_tween()
+	_kickback_acceleration = kickback_speed
+	tween.tween_property(self, "_kickback_acceleration", 0, kickback_time).set_ease(Tween.EASE_OUT)
+
+#endregion
+#region pivoanim
+var _drinking_pivo: bool = false
+
+@onready var pivo_path: Path3D = %PivoPath3D
+@onready var pivo_path_follow: PathFollow3D = %PivoPathFollow3D
+@onready var pivo_mug: Node3D = %PivoMug
+
+@export var drinking_time: float = 2
+
+func _start_drinking_pivo() -> void:
+	pivo_path_follow.progress_ratio = 0
+	_reset_neck(drinking_time / 2 - .2)
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(pivo_path_follow, "progress_ratio", 1, drinking_time / 2).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(pivo_path_follow, "progress_ratio", 0, drinking_time / 2).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	_drinking_pivo = false
+	player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
+	player_state.pivo.activate()
 
 #endregion

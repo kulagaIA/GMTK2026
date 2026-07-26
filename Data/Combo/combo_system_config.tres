@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="SmashComboConfig" format=3 uid="uid://cwwwdw1dr2li4"]
 
 [ext_resource type="Script" uid="uid://ddpjin2vnay7w" path="res://Game/Config/combo_level_config.gd" id="1_m65h4"]
+[ext_resource type="PackedScene" uid="uid://cyc6phgocvr62" path="res://UI/HUD/ComboTracker/Levels/combo_level_placeholder.tscn" id="2_a5vg1"]
 [ext_resource type="Script" uid="uid://b66le32xijm5v" path="res://Game/Config/combo_config.gd" id="2_tqauo"]
 
 [sub_resource type="Resource" id="Resource_j2mii"]
 script = ExtResource("1_m65h4")
+combo_level_visuals = ExtResource("2_a5vg1")
+combo_points_per_hit = 10.0
+combo_points_per_smash = 10.0
 metadata/_custom_type_script = "uid://ddpjin2vnay7w"
 
 [resource]

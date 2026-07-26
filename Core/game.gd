@@ -20,6 +20,8 @@ func toggle_mouse_cursor() -> void:
 
 #region Jam
 
+@onready var tutorial_manager: Tutorial = %TutorialManager
+
 @export var default_player_stats : SmashPlayerPreset
 var _player_stats_override : SmashPlayerPreset
 var starting_player_stats : SmashPlayerPreset:

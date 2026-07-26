@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dpoay026t1lnn"]
 
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_iyy2y"]
 [ext_resource type="Script" uid="uid://c6v81rd7nylrq" path="res://UI/MainMenu/main_menu.gd" id="1_jld46"]
 [ext_resource type="Script" uid="uid://mhbgol2lxq6b" path="res://UI/Dev/dev_load_scene_button.gd" id="2_h8rmy"]
 [ext_resource type="PackedScene" uid="uid://g8x4b47cjbv2" path="res://TestScenes3D/test_gym_3d.tscn" id="2_t17p2"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_iyy2y")
 script = ExtResource("1_jld46")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=487912128]
@@ -47,6 +49,7 @@ scene_to_load = ExtResource("3_3jj5y")
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=2017876094]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 text = "Credits"

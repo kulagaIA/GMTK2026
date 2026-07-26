@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c7x3ovf6y8c2m"]
+
+[ext_resource type="Script" uid="uid://debf5wpg4nx2d" path="res://UI/HUD/ComboTracker/combo_tracker.gd" id="1_a836q"]
+
+[node name="ComboCounter" type="Control" unique_id=1274678432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a836q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=832477678]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=486897438]
+layout_mode = 2
+
+[node name="LevelVisualsRoot" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=39307391]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ComboLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=765298417]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "COMBO LVL 0"
+
+[node name="ComboProgress" type="ProgressBar" parent="VBoxContainer" unique_id=36871539]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+show_percentage = false

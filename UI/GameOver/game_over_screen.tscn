@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://mbpwhjgv7obw"]
 
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_g1glf"]
 [ext_resource type="Script" uid="uid://dpiug3vcqj0mf" path="res://UI/GameOver/game_over_screen.gd" id="1_xixk0"]
 
 [node name="GameOver" type="Control" unique_id=2127473529]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_g1glf")
 script = ExtResource("1_xixk0")
 
 [node name="BG" type="PanelContainer" parent="." unique_id=1065690763]
@@ -61,7 +63,7 @@ offset_bottom = 167.0
 grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 96
 text = "You Win"
 horizontal_alignment = 1
 
@@ -79,7 +81,7 @@ offset_bottom = 167.0
 grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 96
 text = "Time's up!"
 horizontal_alignment = 1
 

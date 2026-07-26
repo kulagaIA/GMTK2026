@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cfi2u2nfo47fs" path="res://Core/States/progression_game_state.gd" id="18_sbld0"]
 [ext_resource type="Script" uid="uid://dqilioqh70fiv" path="res://Core/States/victory_game_state.gd" id="19_eg2hk"]
 [ext_resource type="PackedScene" uid="uid://clo8w5h8inyox" path="res://Game/Sound/sound_manager.tscn" id="22_sbld0"]
+[ext_resource type="PackedScene" uid="uid://fc6rtwowot7p" path="res://Game/Tutorial/tutorial_manager.tscn" id="23_eg2hk"]
 
 [node name="Game" type="Node" unique_id=736238743]
 process_mode = 3
@@ -89,6 +90,10 @@ script = ExtResource("19_eg2hk")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="SoundManager" parent="." unique_id=1031725714 instance=ExtResource("22_sbld0")]
+master_volume = 0.2
+
+[node name="TutorialManager" parent="." unique_id=1951017320 instance=ExtResource("23_eg2hk")]
+unique_name_in_owner = true
 
 [connection signal="state_changed" from="GameStateMachine" to="." method="_on_game_state_changed"]
 [connection signal="state_changed" from="GameStateMachine" to="SoundManager" method="_on_game_state_machine_state_changed"]

@@ -25,6 +25,7 @@ func _ready() -> void:
 	player_state.reset()
 	assert(spawned_queue)
 	spawned_queue.smashable_spawned.connect(_on_smashable_queue_smashable_spawned)
+	hit_occurred.connect(Game.combo_manager.process_hit)
 	timer.timeout.connect(_on_timer_depleted)
 
 
@@ -39,6 +40,9 @@ func restart_gameplay() -> void:
 	var countdown := countdown_scene.instantiate() as Control
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
 	await countdown.tree_exited
+	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
+	if player_state.pivo_charges.value > 0.0:
+		Game.tutorial_manager.request_tutorial(Tutorial.Tag.BEER)
 	restart_gameplay_timer()
 	Game.combo_manager.active = true
 	player.handle_gameplay_started()
@@ -109,10 +113,13 @@ func get_combo_points_nultiplier() -> float:
 func _on_smashable_destroyed(target: Smashable) -> void:
 	var base_reward := target.reward.value
 	Game.player_state.points.add(base_reward * get_combo_points_nultiplier())
+	if smashables.is_empty() and (spawned_queue.active_smashables.is_empty() or (spawned_queue.active_smashables.size() == 1 and target == spawned_queue.current_smashable)):
+		Game.win()
 	queue_smashables(1)
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
 	smashable_destroyed.emit(smashables)
+	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.SWING)
 
 #endregion
 

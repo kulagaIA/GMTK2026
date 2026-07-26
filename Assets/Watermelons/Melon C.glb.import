@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="ArrayMesh"
 importer_version=1
-type="PackedScene"
+type="ArrayMesh"
 uid="uid://d1omce3vskco5"
-path="res://.godot/imported/Melon C.glb-7f463f6ecb82bf5ac6edfc23cc0bf4c5.scn"
+path="res://.godot/imported/Melon C.glb-7f463f6ecb82bf5ac6edfc23cc0bf4c5.res"
 
 [deps]
 
 source_file="res://Assets/Watermelons/Melon C.glb"
-dest_files=["res://.godot/imported/Melon C.glb-7f463f6ecb82bf5ac6edfc23cc0bf4c5.scn"]
+dest_files=["res://.godot/imported/Melon C.glb-7f463f6ecb82bf5ac6edfc23cc0bf4c5.res"]
 
 [params]
 

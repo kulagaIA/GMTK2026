@@ -5,12 +5,36 @@
 [ext_resource type="PackedScene" uid="uid://bt4yv0wn4lugx" path="res://Game/FaceCamera/face_renderer.tscn" id="3_xhrf0"]
 [ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="4_c5leg"]
 [ext_resource type="Curve" uid="uid://c7h5skm7oet3r" path="res://Data/Player/mouse_sensitivity_rise_curve.tres" id="4_oyrjc"]
+[ext_resource type="PackedScene" uid="uid://ddc2md0ktb1me" path="res://Assets/Level/Props/Mug_01.glb" id="6_oyrjc"]
+
+[sub_resource type="Curve3D" id="Curve3D_oyrjc"]
+bake_interval = 85.53
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.4624595, -1.263044, -1.8291066, 0, 0, 0, 0, 0, 0, 0.45431453, -0.8783989, -1.8327122, 0, 0, 0, 0, 0, 0, 0.25245345, -0.301301, -1.3909434, 0, 0, 0, 0, 0, 0, 0.005940944, -0.25052142, -0.76364547),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Player" type="Node3D" unique_id=1978419293]
 script = ExtResource("1_kwoj6")
 mouse_sensitivity = 0.2
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
+drinking_time = 1.0
+
+[node name="PivoPath3D" type="Path3D" parent="." unique_id=1214811779]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33607596, 3.0144725, -0.017130569)
+curve = SubResource("Curve3D_oyrjc")
+debug_custom_color = Color(1, 1, 1, 1)
+
+[node name="PivoPathFollow3D" type="PathFollow3D" parent="PivoPath3D" unique_id=308779484]
+unique_name_in_owner = true
+transform = Transform3D(5.960283e-08, 0.99971217, 0.021166725, -0.009372438, 0.02116577, -0.9996695, -0.9999256, -0.00019835161, 0.00937004, 0.4624595, -1.263044, -1.8291066)
+
+[node name="PivoMug" parent="PivoPath3D/PivoPathFollow3D" unique_id=1856103908 instance=ExtResource("6_oyrjc")]
+unique_name_in_owner = true
+transform = Transform3D(0.6794414, -1.4012068e-08, 0.73373, -0.7337299, -3.2072357e-08, 0.6794415, 1.4012066e-08, -1.0000002, -3.2072357e-08, 0, 0, 0)
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=418279374]
 unique_name_in_owner = true
@@ -18,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
 
 [node name="Camera3D" parent="CameraPivot" unique_id=1891859281 instance=ExtResource("4_c5leg")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79999995, 0)
 tag = 3
 
 [node name="FaceRenderer" parent="." unique_id=1238039156 instance=ExtResource("3_xhrf0")]

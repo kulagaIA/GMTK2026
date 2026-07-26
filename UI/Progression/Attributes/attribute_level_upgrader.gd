@@ -66,6 +66,7 @@ func try_upgrade() -> bool:
 	if points_available < cost:
 		print("Not enough points")
 		return false
+	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.PROGRESSION)
 	points_attribute.add(-cost)
 	player.upgrade_attribute(target_attribute, get_next_level())
 	upgraded.emit(target_attribute)
