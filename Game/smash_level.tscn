@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fe8xe5gk7pid" path="res://Level.tscn" id="4_umyyp"]
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="5_lvwk5"]
 [ext_resource type="PackedScene" uid="uid://cx8wy8o7yobst" path="res://Assets/Level/Walls/Character_Place_holder.glb" id="6_lvwk5"]
+[ext_resource type="PackedScene" uid="uid://my52x05e026m" path="res://Assets/Characters/NPS Idle Animation.glb" id="8_iap64"]
 [ext_resource type="PackedScene" uid="uid://cs85r6pdkpd1u" path="res://Assets/Characters/GG - idle 1.glb" id="8_on6nt"]
 
 [node name="SmashLevel" type="Node3D" unique_id=1054562787]
@@ -44,3 +45,19 @@ visible = false
 [node name="Main_character2" parent="." unique_id=1116912929 instance=ExtResource("8_on6nt")]
 unique_name_in_owner = true
 transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, -0.163, 0.66999954, 21.358)
+
+[node name="npc1" parent="." unique_id=1488702158 instance=ExtResource("8_iap64")]
+unique_name_in_owner = true
+transform = Transform3D(0.3313337, 0, 0.5002179, 0, 0.59999996, 0, -0.5002179, 0, 0.3313337, -2.3909369, 0.6449466, 16.546146)
+
+[node name="npc2" parent="." unique_id=1522829206 instance=ExtResource("8_iap64")]
+unique_name_in_owner = true
+transform = Transform3D(0.3669774, 0, -0.47468683, 0, 0.59999996, 0, 0.47468683, 0, 0.3669774, 6.400922, 0.19711304, 15.525027)
+
+[node name="npc3" parent="." unique_id=1351181184 instance=ExtResource("8_iap64")]
+unique_name_in_owner = true
+transform = Transform3D(0.31945384, 0, 0.507887, 0, 0.59999996, 0, -0.507887, 0, 0.31945384, -9.362749, 0.09959936, 13.3721895)
+
+[node name="npc4" parent="." unique_id=622229568 instance=ExtResource("8_iap64")]
+unique_name_in_owner = true
+transform = Transform3D(0.28232402, 0, -0.5294272, 0, 0.59999996, 0, 0.5294272, 0, 0.28232402, 2.369339, 0.011543274, 12.242907)
