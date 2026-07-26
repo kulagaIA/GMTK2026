@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://bt4yv0wn4lugx"]
 
 [ext_resource type="Script" uid="uid://bn4mchnuimex6" path="res://Game/FaceCamera/face_renderer.gd" id="1_j2mii"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_j2mii"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5f2x"]
-albedo_color = Color(1, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://cx8wy8o7yobst" path="res://Assets/Level/Walls/Character_Place_holder.glb" id="2_327gd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2mii"]
 albedo_color = Color(0.40392157, 0.34901962, 1, 1)
@@ -13,55 +9,37 @@ albedo_color = Color(0.40392157, 0.34901962, 1, 1)
 [sub_resource type="TorusMesh" id="TorusMesh_m65h4"]
 material = SubResource("StandardMaterial3D_j2mii")
 
-[sub_resource type="BoxMesh" id="BoxMesh_h10kl"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g50ce"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g50ce"]
-panorama = SubResource("PlaceholderTexture2D_g50ce")
-
-[sub_resource type="Sky" id="Sky_b5f2x"]
-sky_material = SubResource("PanoramaSkyMaterial_g50ce")
-
-[sub_resource type="Environment" id="Environment_h10kl"]
-background_mode = 2
-sky = SubResource("Sky_b5f2x")
-
-[node name="FaceRenderer" type="SubViewport" unique_id=1238039156]
-own_world_3d = true
-render_target_update_mode = 4
+[node name="FaceRenderer" type="Node3D" unique_id=1203992604]
 script = ExtResource("1_j2mii")
 
-[node name="Camera" type="Camera3D" parent="." unique_id=712750535]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=578541190]
-transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
-
-[node name="Model" type="Node3D" parent="." unique_id=1120991714]
-
-[node name="HeadPivot" type="Node3D" parent="Model" unique_id=767502014]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=919481621]
 unique_name_in_owner = true
 
-[node name="HeadSocket" type="Node3D" parent="Model/HeadPivot" unique_id=901053680]
+[node name="Model" type="Node3D" parent="SubViewport" unique_id=1120991714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.935, 2.903, 13.748)
 
-[node name="HeadMeshPlaceholder" type="MeshInstance3D" parent="Model/HeadPivot/HeadSocket" unique_id=2050900522]
-unique_name_in_owner = true
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
-mesh = SubResource("BoxMesh_j2mii")
-surface_material_override/0 = SubResource("StandardMaterial3D_b5f2x")
-
-[node name="HatSocket" type="Node3D" parent="Model/HeadPivot" unique_id=774683758]
+[node name="HeadPivot" type="Node3D" parent="SubViewport/Model" unique_id=767502014]
 unique_name_in_owner = true
 
-[node name="HatMeshPlaceholder" type="MeshInstance3D" parent="Model/HeadPivot/HatSocket" unique_id=1410889476]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.33, 0)
+[node name="HeadSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=901053680]
+
+[node name="HeadMeshPlaceholder" parent="SubViewport/Model/HeadPivot/HeadSocket" unique_id=129976544 instance=ExtResource("2_327gd")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="HatSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=774683758]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+
+[node name="HatMeshPlaceholder" type="MeshInstance3D" parent="SubViewport/Model/HeadPivot/HatSocket" unique_id=1410889476]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 mesh = SubResource("TorusMesh_m65h4")
 
-[node name="BodyPlaceholder" type="MeshInstance3D" parent="Model" unique_id=1103911654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
-mesh = SubResource("BoxMesh_h10kl")
+[node name="CameraRig" type="Node3D" parent="SubViewport/Model" unique_id=1048820645]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1874124929]
-environment = SubResource("Environment_h10kl")
+[node name="Camera" type="Camera3D" parent="SubViewport/Model/CameraRig" unique_id=712750535]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6999998)
+current = true
+
+[node name="LookTarget" type="Marker3D" parent="SubViewport/Model/CameraRig" unique_id=231508173]

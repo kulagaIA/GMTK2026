@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 	_process_camera(delta)
 
 func _on_hit_occurred(info: HitInfo) -> void:
+	face_renderer.shake(1.4)
 	pass
 
 #region HUD
