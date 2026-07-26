@@ -23,7 +23,7 @@ const CAMERA_DEPTH_OFFSET := -0.15
 
 @export var camera_movement_enabled : bool = true
 @export var camera_distance := -0.66
-@export var camera_height := 0.8
+@export var camera_height := 1.0
 @export var camera_side := 0.0
 @export var camera_follow_speed := 8.0
 @export var shake_decay_speed := 4.0
@@ -57,7 +57,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	head_pivot.position = head_pivot.position.lerp(_target_position, delta * HEAD_POSITION_INTERPOLATION_SPEED)
 	if camera_movement_enabled :
-		var target = head_pivot.global_position + Vector3.UP * 0.08
+		var target = head_pivot.global_position + Vector3.DOWN * 0.08
 		var desired_pos = target
 		desired_pos += head_pivot.global_basis.y * camera_height
 		desired_pos -= head_pivot.global_basis.z * camera_distance
@@ -87,6 +87,7 @@ func _process(delta: float) -> void:
 			delta * camera_follow_speed
 		)
 		camera.look_at(target, Vector3.UP)
+		camera.rotate_object_local(Vector3.RIGHT, deg_to_rad(50))
 
 func shake(strength: float) -> void:
 	_current_shake = max(_current_shake, strength)
