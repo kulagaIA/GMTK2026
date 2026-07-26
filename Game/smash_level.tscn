@@ -28,6 +28,7 @@ transform = Transform3D(0.99200493, -0.01756343, 0.124970876, 0, 0.9902682, 0.13
 tag = 4
 
 [node name="Level" parent="." unique_id=1296191574 instance=ExtResource("4_umyyp")]
+unique_name_in_owner = true
 
 [node name="SmashableQueue" parent="." unique_id=334214445 instance=ExtResource("5_lvwk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.801, 19.785)
