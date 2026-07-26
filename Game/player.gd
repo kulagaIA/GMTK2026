@@ -255,13 +255,15 @@ var _drinking_pivo: bool = false
 @onready var pivo_path_follow: PathFollow3D = %PivoPathFollow3D
 @onready var pivo_mug: Node3D = %PivoMug
 
+@export var drinking_time: float = 2
+
 func _start_drinking_pivo() -> void:
 	pivo_path_follow.progress_ratio = 0
 	var tween: Tween = get_tree().create_tween()
-	_reset_neck(0.7)
-	await tween.tween_property(pivo_path_follow, "progress_ratio", 1, 1).set_ease(Tween.EASE_IN_OUT).finished
+	_reset_neck(drinking_time / 2 - .2)
+	await tween.tween_property(pivo_path_follow, "progress_ratio", 1, drinking_time / 2).set_ease(Tween.EASE_IN_OUT).finished
 	tween = get_tree().create_tween()
-	await tween.tween_property(pivo_path_follow, "progress_ratio", 0, 1).set_ease(Tween.EASE_IN_OUT).finished
+	await tween.tween_property(pivo_path_follow, "progress_ratio", 0, drinking_time / 2).set_ease(Tween.EASE_IN_OUT).finished
 	player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
 	player_state.pivo.activate()
 
