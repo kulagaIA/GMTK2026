@@ -89,6 +89,7 @@ script = ExtResource("19_eg2hk")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="SoundManager" parent="." unique_id=1031725714 instance=ExtResource("22_sbld0")]
+master_volume = 0.2
 
 [connection signal="state_changed" from="GameStateMachine" to="." method="_on_game_state_changed"]
 [connection signal="state_changed" from="GameStateMachine" to="SoundManager" method="_on_game_state_machine_state_changed"]

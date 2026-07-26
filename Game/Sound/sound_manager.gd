@@ -5,7 +5,7 @@ extends Node
 @onready var melody: AudioStreamPlayer = %Melody
 @export var melody_volume_adjustment_time: float = 3.0
 var melody_volume_target: float = 0.0
-var master_volume: float = 1.0
+@export var master_volume: float = 1.0
 
 signal master_volume_changed(new_volume: float)
 

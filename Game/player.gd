@@ -39,22 +39,17 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 #endregion
 
-#region kickback
-
-
-#endregion
-
 #region Input
 
 var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("pivo"):
-		if player_state.pivo_charges.value >= 1:
-			print("%d" % [player_state.pivo_charges.value])
+		if player_state.pivo_charges.value >= 1 and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
 			if player_state.pivo.is_available():
-				player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
-				player_state.pivo.activate()
+				_drinking_pivo = true
+				_start_drinking_pivo()
+				print("pivo charges left %d" % [player_state.pivo_charges.value])
 		else:
 			print("out of pivo")
 	pass
@@ -67,7 +62,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Mouse input
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _mouse_moving:
+	if _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned:
 			var direction: int = signi(event.relative.x)
@@ -251,5 +246,23 @@ func _add_kickback() -> void:
 	var tween: Tween = get_tree().create_tween()
 	_kickback_acceleration = kickback_speed
 	tween.tween_property(self, "_kickback_acceleration", 0, kickback_time).set_ease(Tween.EASE_OUT)
+
+#endregion
+#region pivoanim
+var _drinking_pivo: bool = false
+
+@onready var pivo_path: Path3D = %PivoPath3D
+@onready var pivo_path_follow: PathFollow3D = %PivoPathFollow3D
+@onready var pivo_mug: Node3D = %PivoMug
+
+func _start_drinking_pivo() -> void:
+	pivo_path_follow.progress_ratio = 0
+	var tween: Tween = get_tree().create_tween()
+	_reset_neck(0.7)
+	await tween.tween_property(pivo_path_follow, "progress_ratio", 1, 1).set_ease(Tween.EASE_IN_OUT).finished
+	tween = get_tree().create_tween()
+	await tween.tween_property(pivo_path_follow, "progress_ratio", 0, 1).set_ease(Tween.EASE_IN_OUT).finished
+	player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
+	player_state.pivo.activate()
 
 #endregion
