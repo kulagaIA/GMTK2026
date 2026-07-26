@@ -15,7 +15,7 @@ func _exit_tree() -> void:
 		gameplay.smashable_destroyed.disconnect(_on_smashable_destroyed)
 
 func set_number_to_display(number: int) -> void:
-	text = "$: %.0f" % [number]
+	text = ": %.0f" % [number]
 
 func _on_smashable_destroyed(smashables: Array[SmashableResource]) -> void:
 	update_count()

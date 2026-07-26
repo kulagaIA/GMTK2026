@@ -29,8 +29,6 @@ texture = ExtResource("4_s0rk6")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mti6b"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1bc"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mti6b"]
 texture = ExtResource("6_rp3xo")
 
@@ -53,52 +51,72 @@ theme = ExtResource("1_wj56m")
 script = ExtResource("1_h64k1")
 
 [node name="Panel" type="Panel" parent="." unique_id=1803264033]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_4kxuq")
 
 [node name="Panel3" type="Panel" parent="." unique_id=1889343771]
-layout_mode = 0
-offset_left = 665.0
-offset_top = 26.0
-offset_right = 1076.0
-offset_bottom = 98.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52000004
+anchor_top = 0.036000002
+anchor_right = 0.84400004
+anchor_bottom = 0.136
+offset_left = -0.6000366
+offset_top = 0.07999802
+offset_right = -4.3200684
+offset_bottom = 0.0799942
 theme_override_styles/panel = SubResource("StyleBoxTexture_62yky")
 
-[node name="TextEdit" type="TextEdit" parent="Panel3" unique_id=1747875055]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 15.0
-offset_right = 383.0
-offset_bottom = 58.0
+[node name="TextEdit" type="Label" parent="Panel3" unique_id=2130455727]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.208
+anchor_right = 0.93200004
+anchor_bottom = 0.85400003
+offset_left = 0.05199814
+offset_top = 0.024000168
+offset_right = -0.052001953
+offset_bottom = -3.4880028
 theme_override_colors/font_color = Color(0.81757176, 0.5918121, 0.31368482, 1)
 theme_override_fonts/font = ExtResource("5_lnyxp")
 theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4kxuq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mti6b")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_mm1bc")
 text = "Upgrades"
+vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="." unique_id=1736499337]
-layout_mode = 0
-offset_left = 1080.0
-offset_top = 15.0
-offset_right = 1256.0
-offset_bottom = 112.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84400004
+anchor_top = 0.021000002
+anchor_right = 0.98100007
+anchor_bottom = 0.156
+offset_left = -0.32006836
+offset_top = -0.12000084
+offset_right = 0.3199463
+offset_bottom = -0.3199997
 theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
 
 [node name="PointLabel" type="Label" parent="Panel2" unique_id=1364749207]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -82.0
-offset_top = 37.0
-offset_right = -28.0
-offset_bottom = 65.0
+anchors_preset = -1
+anchor_left = 0.53400004
+anchor_top = 0.381
+anchor_right = 0.841
+anchor_bottom = 0.67
+offset_left = 0.015991211
+offset_top = 0.042999268
+offset_right = -0.01600647
+offset_bottom = 0.010002136
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
 theme_override_fonts/font = ExtResource("5_lnyxp")
@@ -106,15 +124,15 @@ text = "1000"
 
 [node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=1745380702]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = -24.0
-offset_right = -92.0
-offset_bottom = 24.0
+anchors_preset = -1
+anchor_left = 0.18200001
+anchor_top = 0.25300002
+anchor_right = 0.47700003
+anchor_bottom = 0.74700004
+offset_left = -0.032001495
+offset_top = -0.041002274
+offset_right = 0.04799652
+offset_bottom = 0.040992737
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("7_5uakg")
@@ -122,13 +140,14 @@ texture = ExtResource("7_5uakg")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1037505900]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 66.0
-offset_top = 117.0
-offset_right = -121.0
-offset_bottom = -132.0
+anchor_left = 0.55200005
+anchor_top = 0.162
+anchor_right = 0.90500003
+anchor_bottom = 0.81700003
+offset_left = -0.5600586
+offset_top = 0.3600006
+offset_right = 0.5999756
+offset_bottom = -0.24005127
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 10
@@ -140,6 +159,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1825778341]
 layout_mode = 2
 texture = ExtResource("8_ou33j")
+stretch_mode = 5
 
 [node name="HealthLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1945423147]
 layout_mode = 2
@@ -161,6 +181,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=269625216]
 layout_mode = 2
 texture = ExtResource("10_fiv3w")
+stretch_mode = 5
 
 [node name="DamageLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1806006289]
 layout_mode = 2
@@ -180,6 +201,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=1909006246]
 layout_mode = 2
 texture = ExtResource("11_aaqxj")
+stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1204130278]
 layout_mode = 2
@@ -199,6 +221,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4" unique_id=1779524931]
 layout_mode = 2
 texture = ExtResource("12_2toln")
+stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=340295577]
 layout_mode = 2
@@ -218,6 +241,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer5" unique_id=486364668]
 layout_mode = 2
 texture = ExtResource("13_42rac")
+stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer5" unique_id=1684048685]
 layout_mode = 2
@@ -237,6 +261,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer6" unique_id=1549761514]
 layout_mode = 2
 texture = ExtResource("14_eeoo1")
+stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer6" unique_id=2004280899]
 layout_mode = 2
@@ -251,15 +276,15 @@ target_attribute = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 153.0
-offset_top = 241.0
-offset_right = 462.0
-offset_bottom = 345.0
+anchors_preset = -1
+anchor_left = 0.62
+anchor_top = 0.83500004
+anchor_right = 0.86100006
+anchor_bottom = 0.97900003
+offset_left = -0.5999756
+offset_top = -0.2000122
+offset_right = -0.080078125
+offset_bottom = 0.11999512
 grow_horizontal = 2
 grow_vertical = 2
 

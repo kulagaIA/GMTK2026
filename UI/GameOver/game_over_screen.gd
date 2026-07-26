@@ -37,6 +37,7 @@ func _on_restart_button_pressed() -> void:
 
 func _on_title_button_pressed() -> void:
 	Game.quit_to_title()
+	#get_tree().reload_current_scene()
 
 
 func _on_quit_button_pressed() -> void:

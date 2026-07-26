@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
 [ext_resource type="PackedScene" uid="uid://desxqv8rcmelh" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.tscn" id="7_s83ig"]
 [ext_resource type="PackedScene" uid="uid://cnbg5s70g4n6i" path="res://UI/HUD/PointsTracker/dev_points_tracker.tscn" id="8_db5ks"]
+[ext_resource type="Texture2D" uid="uid://dqcox7cumw33i" path="res://UI/Progression/Assets/watermelonn_icon.png" id="9_adata"]
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="9_h1lrf"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="10_4h73s"]
 [ext_resource type="Texture2D" uid="uid://c4cvh12vet24w" path="res://Game/Tutorial/InputHints/mouse_vertical.svg" id="11_bcirh"]
@@ -91,12 +92,23 @@ offset_left = -131.0
 offset_right = 131.0
 grow_horizontal = 2
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=510534195]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 70.0
+offset_bottom = 70.0
+texture = ExtResource("9_adata")
+
 [node name="DevPointsTracker" parent="." unique_id=1959073645 instance=ExtResource("8_db5ks")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 189.0
-offset_bottom = 50.0
+offset_left = 77.0
+offset_top = 15.0
+offset_right = 266.0
+offset_bottom = 65.0
 theme_override_font_sizes/font_size = 36
+text = ": 100"
 
 [node name="SwingTutorial" type="Control" parent="." unique_id=2026119451]
 visible = false

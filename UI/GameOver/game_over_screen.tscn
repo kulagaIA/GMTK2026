@@ -40,10 +40,18 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Progression"
 
+[node name="Control2" type="Control" parent="BG/CenterContainer/ButtonsVBox" unique_id=1944295974]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
 [node name="TitleButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=1179927656]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit to Title"
+
+[node name="Control" type="Control" parent="BG/CenterContainer/ButtonsVBox" unique_id=1287918139]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
 
 [node name="QuitButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=393799228]
 unique_name_in_owner = true
