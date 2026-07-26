@@ -111,6 +111,8 @@ func get_combo_points_nultiplier() -> float:
 func _on_smashable_destroyed(target: Smashable) -> void:
 	var base_reward := target.reward.value
 	Game.player_state.points.add(base_reward * get_combo_points_nultiplier())
+	if smashables.is_empty() and (spawned_queue.active_smashables.is_empty() or (spawned_queue.active_smashables.size() == 1 and target == spawned_queue.current_smashable)):
+		Game.win()
 	queue_smashables(1)
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])

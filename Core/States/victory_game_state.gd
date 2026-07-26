@@ -5,6 +5,7 @@ extends GameState
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Game.init_game_over(Game.StageResult.WIN)
 
 func exit(next_state : State) -> void:
 	super.exit(next_state)

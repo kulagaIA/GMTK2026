@@ -113,7 +113,7 @@ layout_mode = 2
 [node name="TimerLabel" type="Label" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=2004280899]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Pivo Charges:"
+text = "Beer Charges:"
 
 [node name="Pivo charges" parent="Info/HBoxContainer/VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
 layout_mode = 2
