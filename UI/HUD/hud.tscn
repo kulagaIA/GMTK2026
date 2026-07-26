@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
 [ext_resource type="PackedScene" uid="uid://desxqv8rcmelh" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.tscn" id="7_s83ig"]
 [ext_resource type="PackedScene" uid="uid://cnbg5s70g4n6i" path="res://UI/HUD/PointsTracker/dev_points_tracker.tscn" id="8_db5ks"]
+[ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="9_h1lrf"]
+[ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="10_4h73s"]
+[ext_resource type="Texture2D" uid="uid://c4cvh12vet24w" path="res://Game/Tutorial/InputHints/mouse_vertical.svg" id="11_bcirh"]
+[ext_resource type="Texture2D" uid="uid://blhu2xc3pexh8" path="res://Game/Tutorial/InputHints/mouse_horizontal.svg" id="12_4h73s"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
 
@@ -87,3 +91,86 @@ layout_mode = 0
 offset_right = 189.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 36
+
+[node name="SwingTutorial" type="Control" parent="." unique_id=2026119451]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_h1lrf")
+tag = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SwingTutorial" unique_id=1555394895]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SwingTutorial/MarginContainer" unique_id=1735180911]
+self_modulate = Color(0.07, 0.07, 0.07, 0.60784316)
+layout_mode = 2
+texture = ExtResource("10_4h73s")
+region_rect = Rect2(32, 32, 192, 192)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="SwingTutorial/MarginContainer" unique_id=514678369]
+layout_mode = 2
+texture = ExtResource("11_bcirh")
+expand_mode = 4
+
+[node name="StunTutorial" type="Control" parent="." unique_id=1461108633]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_h1lrf")
+tag = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StunTutorial" unique_id=2142176788]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StunTutorial/MarginContainer" unique_id=1931366018]
+self_modulate = Color(0.07, 0.07, 0.07, 0.60784316)
+layout_mode = 2
+texture = ExtResource("10_4h73s")
+region_rect = Rect2(32, 32, 192, 192)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="StunTutorial/MarginContainer" unique_id=1228590986]
+layout_mode = 2
+texture = ExtResource("12_4h73s")
+expand_mode = 4

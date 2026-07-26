@@ -40,6 +40,7 @@ func restart_gameplay() -> void:
 	var countdown := countdown_scene.instantiate() as Control
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
 	await countdown.tree_exited
+	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
 	restart_gameplay_timer()
 	Game.combo_manager.active = true
 	player.handle_gameplay_started()
@@ -114,6 +115,7 @@ func _on_smashable_destroyed(target: Smashable) -> void:
 	spawned_queue.advance_queue()
 	print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
 	smashable_destroyed.emit(smashables)
+	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.SWING)
 
 #endregion
 

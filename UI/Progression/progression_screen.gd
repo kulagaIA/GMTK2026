@@ -22,6 +22,7 @@ var points_available : int:
 func _ready() -> void:
 	update_points()
 	#tree.purchase_requested.connect(_on_leaf_purchase_requested)
+	Game.tutorial_manager.request_tutorial(Tutorial.Tag.PROGRESSION)
 
 func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 	if purchased.has(leaf.name):
