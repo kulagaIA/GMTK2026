@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="1_q50ae"]
 [ext_resource type="SphereMesh" uid="uid://cpoc84idqgp0s" path="res://Assets/Smashables/Placeholder/default_broken.tres" id="1_tgj7i"]
-[ext_resource type="SphereMesh" uid="uid://3e1wwmt4ueas" path="res://Assets/Smashables/Placeholder/default_damaged.tres" id="2_erdlo"]
-[ext_resource type="SphereMesh" uid="uid://dtiarkcysoww" path="res://Assets/Smashables/Placeholder/default_intact.tres" id="3_b8ns1"]
+[ext_resource type="ArrayMesh" uid="uid://cbkbxsotbvo7p" path="res://Assets/Watermelons/Melon A DAMAGE.glb" id="2_tgj7i"]
+[ext_resource type="ArrayMesh" uid="uid://crlt3y46oh56o" path="res://Assets/Watermelons/Melon A.glb" id="3_erdlo"]
 
 [resource]
 script = ExtResource("1_q50ae")
 display_name = "Test"
-intact_mesh = ExtResource("3_b8ns1")
-damaged_mesh = ExtResource("2_erdlo")
+intact_mesh = ExtResource("3_erdlo")
+damaged_mesh = ExtResource("2_tgj7i")
 broken_mesh = ExtResource("1_tgj7i")
 metadata/_custom_type_script = "uid://btpfuiq3co3bj"

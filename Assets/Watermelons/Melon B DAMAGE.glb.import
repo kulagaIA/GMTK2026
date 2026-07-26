@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="ArrayMesh"
 importer_version=1
-type="PackedScene"
+type="ArrayMesh"
 uid="uid://dtno71th2s6bk"
-path="res://.godot/imported/Melon B DAMAGE.glb-9574e799cb13d803e439f3d4bbd2d71a.scn"
+path="res://.godot/imported/Melon B DAMAGE.glb-9574e799cb13d803e439f3d4bbd2d71a.res"
 
 [deps]
 
 source_file="res://Assets/Watermelons/Melon B DAMAGE.glb"
-dest_files=["res://.godot/imported/Melon B DAMAGE.glb-9574e799cb13d803e439f3d4bbd2d71a.scn"]
+dest_files=["res://.godot/imported/Melon B DAMAGE.glb-9574e799cb13d803e439f3d4bbd2d71a.res"]
 
 [params]
 

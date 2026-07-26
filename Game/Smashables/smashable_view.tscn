@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d010me13jyk41" path="res://Game/Smashables/smashable_view.gd" id="1_5lyeh"]
 [ext_resource type="PackedScene" uid="uid://dyh0uohvybqlq" path="res://Assets/Smashables/Placeholder/default_intact.tscn" id="2_lxjse"]
+[ext_resource type="ArrayMesh" uid="uid://cbkbxsotbvo7p" path="res://Assets/Watermelons/Melon A DAMAGE.glb" id="3_4ggf6"]
 
 [node name="SmashableView" type="Node3D" unique_id=164980757]
 script = ExtResource("1_5lyeh")
@@ -12,3 +13,5 @@ unique_name_in_owner = true
 
 [node name="Mesh" parent="VisualRoot" unique_id=826012177 instance=ExtResource("2_lxjse")]
 unique_name_in_owner = true
+transform = Transform3D(-0.06272983, -0.7900894, -0.6097734, -0.9980212, 0.052304093, 0.034899496, 0.004319923, 0.61075604, -0.79180706, 0, 0.2, 0)
+mesh = ExtResource("3_4ggf6")

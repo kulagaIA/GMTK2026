@@ -34,6 +34,7 @@ func apply_stats(stats: SmashableResource) -> void:
 	health.set_value(stats.health)
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
+	_mesh.mesh = data.intact_mesh
 
 func get_base_damage() -> float:
 	return damage.value

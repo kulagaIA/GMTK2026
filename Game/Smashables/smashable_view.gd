@@ -2,19 +2,14 @@ class_name SmashableView
 extends Node3D
 
 @export_group("Hit Animation")
-
 @export_range(0.5, 1.0, 0.01)
 var hit_vertical_scale := 0.75
-
 @export_range(1.0, 1.5, 0.01)
 var hit_horizontal_scale := 1.15
-
 @export_range(0.0, 0.5, 0.01)
 var hit_bounce_height := 0.08
-
 @export_range(0.01, 1.0, 0.01)
 var hit_compress_duration := 0.08
-
 @export_range(0.01, 1.0, 0.01)
 var hit_recover_duration := 0.18
 
