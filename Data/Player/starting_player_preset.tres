@@ -7,4 +7,7 @@ script = ExtResource("1_gcej8")
 initial_time = 15.0
 crit_multiplier = 1.2
 pivo_cooldown = 2.0
+pivo_damage_resistance = 1.0
+pivo_crit_chance_multplier = 1.0
+pivo_charges = 0
 metadata/_custom_type_script = "uid://dhpgcuy27qysf"
