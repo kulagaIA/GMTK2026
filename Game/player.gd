@@ -138,7 +138,7 @@ func _consume_mouse_input(delta : float) -> void:
 	_mouse_rotation.y = clamp(_mouse_rotation.y, MIN_TURN, MAX_TURN)
 	
 	var sensitivity_curve := get_sensitivity_curve(_input_pitch)
-	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress)
+	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress) + _kickback_acceleration
 	if _neck_velocity < 0.0:
 		_neck_peak_velocity = max(_neck_peak_velocity, -_neck_velocity)
 	
@@ -154,6 +154,7 @@ func _consume_mouse_input(delta : float) -> void:
 				)
 			neck_strike_amplitude = 0.0
 			_neck_peak_velocity = 0.0
+			_add_kickback()
 		_neck_velocity = 0.0
 		_neck_acceleration = 0.0
 	
@@ -238,5 +239,17 @@ func shake_head() -> void:
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if new_value <= 0.0 and not stunned:
 		stun()
+
+#endregion
+#region Kickback
+
+@export var kickback_time: float = .5
+@export var kickback_speed: float = 150
+var _kickback_acceleration: float = 0
+
+func _add_kickback() -> void:
+	var tween: Tween = get_tree().create_tween()
+	_kickback_acceleration = kickback_speed
+	tween.tween_property(self, "_kickback_acceleration", 0, kickback_time).set_ease(Tween.EASE_OUT)
 
 #endregion
