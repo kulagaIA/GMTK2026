@@ -31,7 +31,6 @@ const vignette_scene: PackedScene = preload("res://UI/PP/vignette.tscn")
 var vignette: Vignette = null
 
 func _update_vignette() -> void:
-	return
 	if vignette == null:
 		vignette = vignette_scene.instantiate() as Vignette
 		add_child(vignette)
