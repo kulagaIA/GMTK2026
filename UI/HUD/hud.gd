@@ -4,7 +4,7 @@ extends Control
 
 func _ready() -> void:
 	Game.player.stun_status_changed.connect(_on_player_stunned)
-	var texture := Game.player.face_renderer.get_texture() as ViewportTexture
+	var texture := Game.player.face_renderer.subviewport.get_texture() as ViewportTexture
 	set_face_texture(texture)
 	Game.player_state.health.value_changed.connect(_on_health_value_changed)
 

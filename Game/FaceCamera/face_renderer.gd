@@ -1,5 +1,5 @@
 class_name FaceRenderer
-extends SubViewport
+extends Node3D
 
 
 #region face movement constants
@@ -22,12 +22,18 @@ const CAMERA_VERTICAL_OFFSET := 0.30
 const CAMERA_DEPTH_OFFSET := -0.15
 
 @export var camera_movement_enabled : bool = true
+@export var camera_distance := -0.66
+@export var camera_height := 0.8
+@export var camera_side := 0.0
+@export var camera_follow_speed := 8.0
+@export var shake_decay_speed := 4.0
 #endregion
 
 @onready var head_pivot: Node3D = %HeadPivot
-@onready var head_mesh: MeshInstance3D = %HeadMeshPlaceholder
+@onready var head_mesh: Node3D = %HeadMeshPlaceholder
 @onready var hat_socket: Node3D = %HatSocket
 @onready var camera: Camera3D = %Camera
+@onready var subviewport: SubViewport = %SubViewport
 
 var upgraded_hat := preload("res://Assets/Hats/UpgradedHat.tscn").instantiate() as Node3D
 
@@ -37,6 +43,9 @@ var _target_position: Vector3
 var _camera_rest_position: Vector3
 var _camera_target_position: Vector3
 var _camera_rest_rotation: Vector3
+
+var _current_shake := 0.0
+var _shake_offset := Vector3.ZERO
 
 func _ready() -> void:
 	_head_rest_position = head_pivot.position
@@ -48,15 +57,45 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	head_pivot.position = head_pivot.position.lerp(_target_position, delta * HEAD_POSITION_INTERPOLATION_SPEED)
 	if camera_movement_enabled :
-		camera.position = camera.position.lerp(
-			_camera_target_position,
-			delta * CAMERA_POSITION_INTERPOLATION_SPEED
-			)
+		var target = head_pivot.global_position + Vector3.UP * 0.08
+		var desired_pos = target
+		desired_pos += head_pivot.global_basis.y * camera_height
+		desired_pos -= head_pivot.global_basis.z * camera_distance
+		desired_pos += head_pivot.global_basis.x * camera_side
+		_current_shake = move_toward(
+			_current_shake,
+			0.0,
+			delta * shake_decay_speed
+		)
+		_shake_offset = _shake_offset.lerp(
+			Vector3(
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0),
+				randf_range(-1.0, 1.0)
+			) * _current_shake,
+			delta * 20.0
+		)
+		var shake_offset: Vector3 = Vector3(
+			randf_range(-1.0, 1.0),
+			randf_range(-1.0, 1.0),
+			randf_range(-1.0, 1.0)
+			) * _current_shake
+
+		desired_pos += shake_offset
+		camera.global_position = camera.global_position.lerp(
+			desired_pos,
+			delta * camera_follow_speed
+		)
+		camera.look_at(target, Vector3.UP)
+
+func shake(strength: float) -> void:
+	_current_shake = max(_current_shake, strength)
 
 func set_head_color(color: Color) -> void:
-	var material := head_mesh.get_active_material(0).duplicate()
-	material.albedo_color = color
-	head_mesh.set_surface_override_material(0, material)
+	print("seta head color")
+	#var material := head_mesh.get_active_material(0).duplicate()
+	#material.albedo_color = color
+	#head_mesh.set_surface_override_material(0, material)
 
 func set_head_rotation(pitch: float, yaw: float) -> void:
 	var head_pitch : float = clamp(
@@ -98,10 +137,10 @@ func set_hat(hat_node: Node3D) -> void:
 			return
 		child.queue_free()
 	var hat := hat_node.get_child(0) as MeshInstance3D
-	hat.position.y = 0.33
-	hat.scale.x = 0.6
-	hat.scale.y = 0.6
-	hat.scale.z = 0.6
+	hat.position.y = 0.15
+	hat.scale.x = 0.4
+	hat.scale.y = 0.4
+	hat.scale.z = 0.4
 	hat_socket.add_child(hat_node)
 
 func init_hat() -> void:
