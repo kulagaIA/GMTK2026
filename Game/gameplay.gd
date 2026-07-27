@@ -79,7 +79,8 @@ func _on_player_hit(velocity: float, amplitude: float) -> void:
 
 func apply_single_hit(velocity: float, amplitude: float) -> void:
 	player.face_renderer.set_head_color(Color.YELLOW)
-	if player_state == null or smashables.is_empty():
+	#if player_state == null or num_smashables_left < 1:
+	if player_state == null:
 		return
 
 	var target_smashable: Smashable = spawned_queue.current_smashable
