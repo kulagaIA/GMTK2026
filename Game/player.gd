@@ -47,10 +47,9 @@ func _on_hit_occurred(info: HitInfo) -> void:
 var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("pivo"):
-		if player_state.pivo_charges.value >= 1 and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
+	if Input.is_action_just_pressed("pivo"):
+		if player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
 			if player_state.pivo.is_available():
-				_drinking_pivo = true
 				_start_drinking_pivo()
 				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
 				#print("pivo charges left %d" % [player_state.pivo_charges.value])
@@ -265,6 +264,7 @@ var _drinking_pivo: bool = false
 @export var drinking_time: float = 2
 
 func _start_drinking_pivo() -> void:
+	_drinking_pivo = true
 	pivo_path_follow.progress_ratio = 0
 	_reset_neck(drinking_time / 2 - .2)
 	var tween: Tween = get_tree().create_tween()
