@@ -32,7 +32,7 @@ func unpause() -> void:
 
 func _on_restart_button_pressed() -> void:
 	#Game.load_gameplay_scene()
-	Game.change_game_state(GameState.PROGRESSION)
+	Game.change_game_state(GameState.GAMEPLAY)
 
 
 func _on_title_button_pressed() -> void:

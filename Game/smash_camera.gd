@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 
 func fly_and_reparent(target : Node3D, duration : float) -> void:
 	assert(target)
+	if target == get_parent():
+		return
 	if duration > 0.0:
 		var tween := get_tree().create_tween()
 		tween.parallel().tween_property(self, "global_position", target.global_position, duration)
@@ -31,6 +33,8 @@ func fly_and_reparent(target : Node3D, duration : float) -> void:
 
 func reparent_and_fly(target : Node3D, duration : float) -> void:
 	assert(target)
+	if target == get_parent():
+		return
 	reparent(target, true)
 	if duration > 0.0:
 		var tween := get_tree().create_tween()
