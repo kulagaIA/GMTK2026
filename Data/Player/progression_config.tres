@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_xnrpl"]
 script = ExtResource("2_4rqh2")
-cost = 1200
+cost = 1500
 modificator = SubResource("Resource_bbs4j")
 hat_scene = ExtResource("7_r2lkc")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
@@ -103,7 +103,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_2jo86"]
 script = ExtResource("2_4rqh2")
-cost = 1400
+cost = 1600
 modificator = SubResource("Resource_m2ej7")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
@@ -153,7 +153,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_qrafl"]
 script = ExtResource("2_4rqh2")
-cost = 1600
+cost = 1999
 modificator = SubResource("Resource_yeueb")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
