@@ -86,6 +86,8 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	var target_smashable: Smashable = spawned_queue.current_smashable
 	if target_smashable == null:
 		return
+	if target_smashable.health.value <= 0.0:
+		return
 	
 	var info := HitInfo.new()
 	info.attacker = player_state
