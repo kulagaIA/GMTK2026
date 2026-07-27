@@ -20,7 +20,7 @@
 
 [resource]
 script = ExtResource("1_21x0e")
-display_name = "Test"
+display_name = "Boss"
 health = 10000
 damage = 60
 reward = 10000

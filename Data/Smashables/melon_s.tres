@@ -20,7 +20,7 @@
 
 [resource]
 script = ExtResource("17_6uhfl")
-display_name = "Test"
+display_name = "Small"
 scale = 0.5
 health = 15
 damage = 5

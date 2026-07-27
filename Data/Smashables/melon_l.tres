@@ -20,8 +20,8 @@
 
 [resource]
 script = ExtResource("17_qgjur")
-display_name = "Test"
-scale = 0.7
+display_name = "Large"
+scale = 0.9
 health = 500
 damage = 30
 reward = 200
