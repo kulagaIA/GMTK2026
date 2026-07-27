@@ -22,7 +22,7 @@
 script = ExtResource("17_qgjur")
 display_name = "Test"
 scale = 0.7
-health = 200
+health = 400
 damage = 20
 reward = 200
 intact_mesh = ExtResource("10_xue1a")
