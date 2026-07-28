@@ -72,6 +72,7 @@ func increase_level() -> void:
 		return
 	current_combo -= combo_meter_to_next_level
 	current_level += 1
+	level_drop_cooldown.start()
 
 func try_decrease_level() -> void:
 	if not level_drop_cooldown or level_drop_cooldown.is_stopped():
