@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://dlv3rb2wbtn73" path="res://UI/Themes/gameplay.tres" id="1_bcirh"]
 [ext_resource type="Script" uid="uid://c5absqcct10fa" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
-[ext_resource type="PackedScene" uid="uid://bm3awdi33xxvt" path="res://UI/HUD/Stun/stun_screen.tscn" id="2_dhie7"]
 [ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerHealthTracker/dev_player_health_tracker.tscn" id="2_ing8j"]
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
@@ -13,7 +12,6 @@
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="9_h1lrf"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="10_4h73s"]
 [ext_resource type="Texture2D" uid="uid://c4cvh12vet24w" path="res://Game/Tutorial/InputHints/mouse_vertical.svg" id="11_bcirh"]
-[ext_resource type="Texture2D" uid="uid://blhu2xc3pexh8" path="res://Game/Tutorial/InputHints/mouse_horizontal.svg" id="12_4h73s"]
 [ext_resource type="Texture2D" uid="uid://bri1hvp3bevi7" path="res://Game/Tutorial/InputHints/mouse_right.svg" id="14_h0uwq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
@@ -30,12 +28,6 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_bcirh")
 script = ExtResource("1_ia7gp")
-
-[node name="StunScreen" parent="." unique_id=1573350455 instance=ExtResource("2_dhie7")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-mouse_filter = 2
 
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
 layout_mode = 1
@@ -120,6 +112,7 @@ text = ": 100"
 
 [node name="SwingTutorial" type="Control" parent="." unique_id=2026119451]
 visible = false
+z_index = 20
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,50 +153,9 @@ layout_mode = 2
 texture = ExtResource("11_bcirh")
 expand_mode = 4
 
-[node name="StunTutorial" type="Control" parent="." unique_id=1461108633]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("9_h1lrf")
-tag = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="StunTutorial" unique_id=2142176788]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="StunTutorial/MarginContainer" unique_id=1931366018]
-self_modulate = Color(0.07, 0.07, 0.07, 0.60784316)
-layout_mode = 2
-texture = ExtResource("10_4h73s")
-region_rect = Rect2(32, 32, 192, 192)
-patch_margin_left = 24
-patch_margin_top = 24
-patch_margin_right = 24
-patch_margin_bottom = 24
-
-[node name="TextureRect" type="TextureRect" parent="StunTutorial/MarginContainer" unique_id=1228590986]
-layout_mode = 2
-texture = ExtResource("12_4h73s")
-expand_mode = 4
-
 [node name="BeerTutorial" type="Control" parent="." unique_id=1550087932]
 visible = false
+z_index = 20
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

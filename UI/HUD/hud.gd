@@ -24,12 +24,30 @@ func _process(delta: float) -> void:
 func set_face_texture(texture: Texture2D):
 	face_display.texture = texture
 
-@onready var stun_screen: Control = %StunScreen
+#region PP_Stun
+
+const stun_effect_scene = preload("uid://bm3awdi33xxvt")
+var stun_effect : Control = null
 
 func _on_player_stunned(stunned: bool) -> void:
-	stun_screen.visible = stunned
+	if stunned:
+		_show_stun()
+	else:
+		_hide_stun()
 
-#region PP
+func _show_stun() -> void:
+	if not stun_effect:
+		stun_effect = stun_effect_scene.instantiate() as Control
+		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, stun_effect)
+
+func _hide_stun() -> void:
+	if stun_effect:
+		stun_effect.queue_free()
+		stun_effect = null
+
+#endregion
+
+#region PP_Hurt
 
 @export var hurt_threshold_ratio: float = 0.3
 var hurt_threshold: float:
@@ -62,6 +80,10 @@ func _hide_hurt() -> void:
 
 func _on_health_value_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
 	_update_hurt()
+
+#endregion
+
+#region PP_Beer
 
 const beer_effect_scene: PackedScene = preload("uid://ch4beou2s2owh")
 var beer_effect: Control = null

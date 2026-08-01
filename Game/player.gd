@@ -215,8 +215,8 @@ func stun() -> void:
 	stunned = true
 	stun_recovery = 0
 	_reset_neck(0.7)
-	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
 	stun_status_changed.emit(stunned)
+	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
 
 func _reset_neck(duration : float) -> void:
 	var tween := get_tree().create_tween()
