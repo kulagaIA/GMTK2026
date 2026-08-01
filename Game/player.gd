@@ -16,14 +16,18 @@ func _ready() -> void:
 	neck_position = starting_neck_position
 	neck_strike_amplitude = neck_position
 
+var _gameplay_started : bool = false
+
 func handle_gameplay_started() -> void:
 	face_renderer.init_hat()
 	pivo_mug.visible = player_state.pivo_charges.value > 0.0
 	update_hat()
+	_gameplay_started = true
 
 func handle_gameplay_ended() -> void:
 	_reset_neck(0.7)
 	unstun()
+	_gameplay_started = false
 
 func _exit_tree() -> void:
 	pass
@@ -47,7 +51,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 var _last_mouse_direction: int = 0
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("pivo"):
+	if _gameplay_started and Input.is_action_just_pressed("pivo"):
 		if player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
 			if player_state.pivo.is_available():
 				_start_drinking_pivo()
