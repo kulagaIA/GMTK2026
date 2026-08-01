@@ -14,12 +14,14 @@ func _ready() -> void:
 	var texture := Game.player.face_renderer.subviewport.get_texture() as ViewportTexture
 	set_face_texture(texture)
 	health.value_changed.connect(_on_health_value_changed)
+	Game.player_state.pivo.state_changed.connect(_on_pivo_state_changed)
 
 func _process(delta: float) -> void:
 	pass
 
+@onready var face_display: TextureRect = %FaceDisplay
+
 func set_face_texture(texture: Texture2D):
-	var face_display := get_node("%FaceDisplay") as TextureRect
 	face_display.texture = texture
 
 @onready var stun_screen: Control = %StunScreen
@@ -37,21 +39,50 @@ var hurt_threshold: float:
 const hurt_effect_scene: PackedScene = preload("uid://puarbl8g8rtt")
 var hurt_effect: Vignette = null
 
-func _update_vignette() -> void:
+func _update_hurt() -> void:
+	#if beer_active:
+		#_hide_hurt()
+		#return
+	if health.value <= hurt_threshold:
+		_show_hurt()
+	else:
+		_hide_hurt()
+	if hurt_effect:
+		hurt_effect.alpha = clampf(1 - health.value / hurt_threshold, 0, 1)
+
+func _show_hurt() -> void:
 	if not hurt_effect:
 		hurt_effect = hurt_effect_scene.instantiate() as Vignette
-		Game.canvas_manager.set_layer_content(JamUtils.layer_ui_post_process, hurt_effect)
-	hurt_effect.alpha = clampf(1 - health.value / hurt_threshold, 0, 1)
+		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, hurt_effect)
 
-func _remove_vignette() -> void:
+func _hide_hurt() -> void:
 	if hurt_effect:
 		hurt_effect.queue_free()
 		hurt_effect = null
 
 func _on_health_value_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
-	if new_value <= hurt_threshold:
-		_update_vignette()
+	_update_hurt()
+
+const beer_effect_scene: PackedScene = preload("uid://ch4beou2s2owh")
+var beer_effect: Control = null
+var beer_active : bool = false
+
+func _on_pivo_state_changed(new_state : Ability.State) -> void:
+	beer_active = new_state == Ability.State.ACTIVE
+	if beer_active:
+		_show_pivo()
 	else:
-		_remove_vignette()
+		_hide_pivo()
+	#_update_hurt()
+
+func _show_pivo() -> void:
+	if not beer_effect:
+		beer_effect = beer_effect_scene.instantiate() as Control
+		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, beer_effect)
+
+func _hide_pivo() -> void:
+	if beer_effect:
+		beer_effect.queue_free()
+		beer_effect = null
 
 #endregion

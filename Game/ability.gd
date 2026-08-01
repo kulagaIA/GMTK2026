@@ -3,7 +3,7 @@ extends Node
 
 enum State {AVAILABLE, ACTIVE, COOLDOWN}
 
-signal state_changed(State)
+signal state_changed(new_state : State)
 
 @export var cooldown: float
 @export var duration: float

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ch4beou2s2owh"]
+
+[ext_resource type="Script" uid="uid://cv8ihw0ql73sb" path="res://UI/PP/Beer/beer_effect.gd" id="1_15y4i"]
+[ext_resource type="PackedScene" uid="uid://drjebu1qnini8" path="res://UI/PP/vignette.tscn" id="2_h8hc3"]
+[ext_resource type="Shader" uid="uid://c4c5ubol03tv0" path="res://UI/PP/vignette.gdshader" id="3_wur1w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15y4i"]
+resource_local_to_scene = true
+shader = ExtResource("3_wur1w")
+shader_parameter/alpha = 0.18
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+shader_parameter/color = Vector4(0, 0, 0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tp06f"]
+size = Vector2(20, 20)
+
+[node name="BeerEffect" type="Control" unique_id=460222584]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_15y4i")
+
+[node name="Vignette" parent="." unique_id=2117956088 instance=ExtResource("2_h8hc3")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_15y4i")
+layout_mode = 1
+vignette_color = Color(1, 0.69411767, 0, 0.74509805)
+alpha = 0.18
+
+[node name="Bubbles" type="CPUParticles2D" parent="." unique_id=962067822]
+unique_name_in_owner = true
+position = Vector2(640, 740)
+amount = 100
+texture = SubResource("PlaceholderTexture2D_tp06f")
+lifetime = 3.0
+preprocess = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(640, 1)
+gravity = Vector2(0, -80)
