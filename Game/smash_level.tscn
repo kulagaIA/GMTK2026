@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="3_hec4b"]
 [ext_resource type="PackedScene" uid="uid://fe8xe5gk7pid" path="res://Level.tscn" id="4_umyyp"]
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="5_lvwk5"]
-[ext_resource type="PackedScene" uid="uid://cx8wy8o7yobst" path="res://Assets/Level/Walls/Character_Place_holder.glb" id="6_lvwk5"]
 [ext_resource type="PackedScene" uid="uid://my52x05e026m" path="res://Assets/Characters/NPS Idle Animation.glb" id="8_iap64"]
 [ext_resource type="PackedScene" uid="uid://cs85r6pdkpd1u" path="res://Assets/Characters/GG - idle 1.glb" id="8_on6nt"]
 
@@ -26,7 +25,7 @@ current = true
 tag = 1
 
 [node name="ProgressionCamera" parent="." unique_id=1334473311 instance=ExtResource("3_hec4b")]
-transform = Transform3D(0.99200493, -0.01756343, 0.124970876, 0, 0.9902682, 0.13917248, -0.12619902, -0.13805978, 0.9823509, 2.6023417, 2.5140536, 24.009396)
+transform = Transform3D(0.97394466, -0.031562414, 0.22457927, -1.8477532e-09, 0.9902683, 0.1391725, -0.22678632, -0.13554628, 0.9644664, 2.6023417, 2.5140536, 24.009396)
 tag = 4
 
 [node name="Level" parent="." unique_id=1296191574 instance=ExtResource("4_umyyp")]
@@ -39,13 +38,9 @@ queue_advance_delay = 0.5
 queue_advance_time = 0.4
 queue_tween_transition = 11
 
-[node name="Character_Place_holder2" parent="." unique_id=1078740081 instance=ExtResource("6_lvwk5")]
-transform = Transform3D(-0.75034815, 0, -0.6610428, 0, 1, 0, 0.6610428, 0, -0.75034815, 0.34270406, 1.597475, 21.58773)
-visible = false
-
 [node name="Main_character2" parent="." unique_id=1116912929 instance=ExtResource("8_on6nt")]
 unique_name_in_owner = true
-transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, -0.163, 0.66999954, 21.358)
+transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, 0.12705837, 0.66999954, 21.534143)
 
 [node name="HatSocket" type="Node3D" parent="Main_character2" unique_id=1513978765]
 unique_name_in_owner = true
