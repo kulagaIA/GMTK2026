@@ -4,17 +4,14 @@
 [ext_resource type="Script" uid="uid://qvfulmhika5i" path="res://UI/PP/vignette.gd" id="1_hei4x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cwa0k"]
+resource_local_to_scene = true
 shader = ExtResource("1_4b87i")
 shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 shader_parameter/color = Vector4(0, 0, 0, 0)
 
-[node name="Vignette" type="CanvasLayer" unique_id=1579675382]
-script = ExtResource("1_hei4x")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2117956088]
-unique_name_in_owner = true
+[node name="Vignette" type="ColorRect" unique_id=2117956088]
 material = SubResource("ShaderMaterial_cwa0k")
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,3 +20,4 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_behavior_recursive = 1
 mouse_behavior_recursive = 1
+script = ExtResource("1_hei4x")

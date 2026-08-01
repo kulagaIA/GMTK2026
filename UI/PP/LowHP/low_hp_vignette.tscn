@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://puarbl8g8rtt"]
+
+[ext_resource type="PackedScene" uid="uid://drjebu1qnini8" path="res://UI/PP/vignette.tscn" id="1_rexi3"]
+[ext_resource type="Shader" uid="uid://c4c5ubol03tv0" path="res://UI/PP/vignette.gdshader" id="2_vlsrh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpfi6"]
+resource_local_to_scene = true
+shader = ExtResource("2_vlsrh")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+shader_parameter/color = Vector4(0, 0, 0, 0)
+
+[node name="LowHpVignette" unique_id=2117956088 instance=ExtResource("1_rexi3")]
+material = SubResource("ShaderMaterial_gpfi6")
+vignette_color = Color(0.55, 0, 0, 0.79607844)
