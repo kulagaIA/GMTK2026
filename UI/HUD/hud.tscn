@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="9_h1lrf"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="10_4h73s"]
 [ext_resource type="Texture2D" uid="uid://c4cvh12vet24w" path="res://Game/Tutorial/InputHints/mouse_vertical.svg" id="11_bcirh"]
+[ext_resource type="Texture2D" uid="uid://blhu2xc3pexh8" path="res://Game/Tutorial/InputHints/mouse_horizontal.svg" id="14_adata"]
 [ext_resource type="Texture2D" uid="uid://bri1hvp3bevi7" path="res://Game/Tutorial/InputHints/mouse_right.svg" id="14_h0uwq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qdh7y"]
@@ -110,6 +111,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = ": 100"
 
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=274314730]
+unique_name_in_owner = true
+
 [node name="SwingTutorial" type="Control" parent="." unique_id=2026119451]
 visible = false
 z_index = 20
@@ -194,4 +198,47 @@ patch_margin_bottom = 24
 [node name="TextureRect" type="TextureRect" parent="BeerTutorial/MarginContainer" unique_id=829623337]
 layout_mode = 2
 texture = ExtResource("14_h0uwq")
+expand_mode = 4
+
+[node name="StunTutorial" type="Control" parent="." unique_id=1368384271]
+visible = false
+z_index = 20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_h1lrf")
+tag = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StunTutorial" unique_id=438910406]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StunTutorial/MarginContainer" unique_id=343604153]
+self_modulate = Color(0.07, 0.07, 0.07, 0.60784316)
+layout_mode = 2
+texture = ExtResource("10_4h73s")
+region_rect = Rect2(32, 32, 192, 192)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="StunTutorial/MarginContainer" unique_id=1885746193]
+layout_mode = 2
+texture = ExtResource("14_adata")
 expand_mode = 4

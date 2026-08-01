@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 func set_face_texture(texture: Texture2D):
 	face_display.texture = texture
 
+@onready var post_process_layer: CanvasLayer = %PostProcessLayer
+
 #region PP_Stun
 
 const stun_effect_scene = preload("uid://bm3awdi33xxvt")
@@ -38,7 +40,7 @@ func _on_player_stunned(stunned: bool) -> void:
 func _show_stun() -> void:
 	if not stun_effect:
 		stun_effect = stun_effect_scene.instantiate() as Control
-		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, stun_effect)
+		Game.canvas_manager._push_content_to_layer(post_process_layer, stun_effect)
 
 func _hide_stun() -> void:
 	if stun_effect:
@@ -71,7 +73,7 @@ func _update_hurt() -> void:
 func _show_hurt() -> void:
 	if not hurt_effect:
 		hurt_effect = hurt_effect_scene.instantiate() as Vignette
-		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, hurt_effect)
+		Game.canvas_manager._push_content_to_layer(post_process_layer, hurt_effect)
 
 func _hide_hurt() -> void:
 	if hurt_effect:
@@ -100,7 +102,7 @@ func _on_pivo_state_changed(new_state : Ability.State) -> void:
 func _show_pivo() -> void:
 	if not beer_effect:
 		beer_effect = beer_effect_scene.instantiate() as Control
-		Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_post_process, beer_effect)
+		Game.canvas_manager._push_content_to_layer(post_process_layer, beer_effect)
 
 func _hide_pivo() -> void:
 	if beer_effect:
