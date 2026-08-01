@@ -13,6 +13,7 @@ const nodepath_health := "Health"
 
 # UI layers:
 const layer_ui_menu := &"Menu"
+const layer_ui_post_process := &"PostProcess"
 const layer_ui_info := &"Info"
 const layer_ui_hud := &"HUD"
 

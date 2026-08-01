@@ -18,6 +18,7 @@ func enter(prev_state : State) -> void:
 
 func exit(next_state : State) -> void:
 	_hide_hud()
+	Game.canvas_manager.clear_layer(JamUtils.layer_ui_post_process)
 	Game.gameplay.hit_occurred.disconnect(Game.player_state._on_hit_occurred)
 	Game.player_state.health.value_changed.disconnect(Game.player._on_health_value_changed)
 	Game.gameplay.stop_gameplay()

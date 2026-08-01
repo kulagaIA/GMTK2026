@@ -43,6 +43,9 @@ progression_scene = ExtResource("9_4qclw")
 [node name="HUD" type="CanvasLayer" parent="CanvasManager" unique_id=994595691]
 layer = 55
 
+[node name="PostProcess" type="CanvasLayer" parent="CanvasManager" unique_id=1659113986]
+layer = 100
+
 [node name="Info" type="CanvasLayer" parent="CanvasManager" unique_id=295768340]
 layer = 90
 
