@@ -30,10 +30,20 @@ const CAMERA_DEPTH_OFFSET := -0.15
 #endregion
 
 @onready var head_pivot: Node3D = %HeadPivot
-@onready var head_mesh: Node3D = %HeadMeshPlaceholder
+@onready var head_mesh: Node3D = %HeadMesh
 @onready var hat_socket: Node3D = %HatSocket
 @onready var camera: Camera3D = %Camera
 @onready var subviewport: SubViewport = %SubViewport
+
+var _cached_actual_head : Node3D
+func get_actual_head() -> Node3D:
+	if not _cached_actual_head:
+		# Shameless hardcode
+		_cached_actual_head = head_mesh.get_node("Main_character/torso/neck/head") as Node3D
+	return _cached_actual_head
+
+func get_head_position() -> Vector3:
+	return get_actual_head().global_position
 
 var upgraded_hat := preload("res://Assets/Hats/UpgradedHat.tscn").instantiate() as Node3D
 
@@ -86,8 +96,8 @@ func _process(delta: float) -> void:
 			desired_pos,
 			delta * camera_follow_speed
 		)
-		camera.look_at(target, Vector3.UP)
-		camera.rotate_object_local(Vector3.RIGHT, deg_to_rad(50))
+		camera.look_at(get_head_position(), Vector3.UP)
+		#camera.rotate_object_local(Vector3.RIGHT, deg_to_rad(50))
 
 func shake(strength: float) -> void:
 	_current_shake = max(_current_shake, strength)

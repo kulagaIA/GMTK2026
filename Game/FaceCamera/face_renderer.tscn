@@ -10,14 +10,14 @@ script = ExtResource("1_j2mii")
 unique_name_in_owner = true
 
 [node name="Model" type="Node3D" parent="SubViewport" unique_id=1120991714]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -3)
 
 [node name="HeadPivot" type="Node3D" parent="SubViewport/Model" unique_id=767502014]
 unique_name_in_owner = true
 
 [node name="HeadSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=901053680]
 
-[node name="HeadMeshPlaceholder" parent="SubViewport/Model/HeadPivot/HeadSocket" unique_id=124777227 instance=ExtResource("3_327gd")]
+[node name="HeadMesh" parent="SubViewport/Model/HeadPivot/HeadSocket" unique_id=124777227 instance=ExtResource("3_327gd")]
 unique_name_in_owner = true
 
 [node name="HatSocket" type="Node3D" parent="SubViewport/Model/HeadPivot" unique_id=774683758]
