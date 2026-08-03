@@ -41,9 +41,11 @@ progression_scene = ExtResource("9_4qclw")
 [node name="CanvasManager" parent="." unique_id=2009050083 instance=ExtResource("2_xt2r0")]
 
 [node name="HUD" type="CanvasLayer" parent="CanvasManager" unique_id=994595691]
+process_mode = 1
 layer = 55
 
 [node name="PostProcess" type="CanvasLayer" parent="CanvasManager" unique_id=1659113986]
+process_mode = 1
 layer = 65
 
 [node name="Info" type="CanvasLayer" parent="CanvasManager" unique_id=295768340]
