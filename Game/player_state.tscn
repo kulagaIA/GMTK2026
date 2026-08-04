@@ -3,28 +3,46 @@
 [ext_resource type="Script" uid="uid://bmha13xw6n5oj" path="res://Game/player_state.gd" id="1_uc0nm"]
 [ext_resource type="Curve" uid="uid://cjla5fq2a3p0" path="res://Data/Player/amplitude_to_damage.tres" id="2_335wy"]
 [ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_dr5hc"]
+[ext_resource type="Curve" uid="uid://bvmtaogrw1vd2" path="res://Data/Player/stamina_regen_curve.tres" id="2_prx7l"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Gameplay/Atributes/dynamic_attribute.gd" id="3_dr5hc"]
 [ext_resource type="Script" uid="uid://bdk6eoil4y7aq" path="res://Game/ability.gd" id="4_i41wu"]
 
 [node name="PlayerState" type="Node" unique_id=1386542611]
 script = ExtResource("1_uc0nm")
+stamina_regen_curve = ExtResource("2_prx7l")
 ampplitude_to_damage = ExtResource("2_335wy")
 
-[node name="MaxHealth" type="Node" parent="." unique_id=1706195292]
+[node name="MaxStamina" type="Node" parent="." unique_id=1706195292]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
 _starting_value = 100.0
 tag = 2
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
-[node name="Health" type="Node" parent="." unique_id=731821363]
+[node name="Stamina" type="Node" parent="." unique_id=2036006554]
 unique_name_in_owner = true
-script = ExtResource("2_dr5hc")
+script = ExtResource("3_dr5hc")
 _starting_value = 100.0
 has_max_value = true
 max_value = 100.0
 tag = 3
-metadata/_custom_type_script = "uid://d23my1rvaun41"
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="StaminaRegen" type="Node" parent="." unique_id=292950122]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+_starting_value = 20.0
+has_max_value = true
+max_value = 20.0
+tag = 3
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="StaminaRegenRate" type="Node" parent="." unique_id=1300820611]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+has_max_value = true
+tag = 3
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
 [node name="Damage" type="Node" parent="." unique_id=500112805]
 unique_name_in_owner = true
@@ -79,4 +97,4 @@ min_value = 0.1
 tag = 9
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
-[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
+[connection signal="value_changed" from="Stamina" to="." method="_on_health_value_changed"]

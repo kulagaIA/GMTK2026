@@ -1,8 +1,10 @@
 class_name SmashPlayerState
 extends Node
 
-@onready var max_health: DynamicAttribute = %MaxHealth
-@onready var health: SimpleAttribute = %Health
+@onready var max_stamina: DynamicAttribute = %MaxStamina
+@onready var stamina: DynamicAttribute = %Stamina
+@onready var stamina_regen: DynamicAttribute = %StaminaRegen
+@onready var stamina_regen_rate: DynamicAttribute = %StaminaRegenRate
 @onready var damage: DynamicAttribute = %Damage
 @onready var sensitivity: DynamicAttribute = %Sensitivity
 @onready var points: SimpleAttribute = %Points
@@ -12,6 +14,8 @@ extends Node
 @onready var pivo: Ability = %Pivo
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
+
+@export var stamina_regen_curve: Curve
 
 @export var ampplitude_to_damage: Curve
 
@@ -24,22 +28,25 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	pass
+	regenerate_stamina(delta)
 
 func reset() -> void:
 	pivo.reset()
 	for mod in pivo_charges.get_children().filter(func(node)->bool: return node is AttributeMod):
 		if (mod as AttributeMod).value < 0:
 			pivo_charges.remove_modifier(mod)
-	health.max_value = max_health.value
-	health.set_value(max_health.value)
+	stamina.max_value = max_stamina.value
+	stamina.set_value(max_stamina.value)
 
 func apply_stats(stats: SmashPlayerPreset) -> void:
 	if stats == null:
 		return
 	
-	max_health.set_value(stats.max_health)
-	health.set_value(stats.max_health)
+	max_stamina.set_value(stats.max_stamina)
+	stamina.set_value(stats.max_stamina)
+	stamina_regen.set_value(stats.stamina_regen)
+	stamina_regen_rate.set_value(stats.stamina_regen_rate)
+	stamina_regen_curve = stats.stamina_regen_curve
 	damage.set_value(stats.damage)
 	sensitivity.set_value(stats.sensitivity)
 	points.set_value(stats.points)
@@ -74,15 +81,25 @@ func _on_hit_occurred(info: HitInfo) -> void:
 	pass
 
 func apply_damage(amount: float) -> void:
-	take_damage(amount)
+	consume_stamina(amount)
 
-func take_damage(amount: float) -> void:
-	if health != null:
-		health.add(-amount)
+func consume_stamina(amount: float) -> void:
+	if stamina != null:
+		stamina.add(-amount)
 
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if new_value <= 0.0:
 		pass
+
+func regenerate_stamina(delta: float) -> void:
+	if stamina.value >= max_stamina.value:
+		return
+	var stamina_percent := stamina.value / max_stamina.value
+	var regen_multiplier := stamina_regen_curve.sample_baked(stamina_percent)
+	var regen := stamina_regen.value * stamina_regen_rate.value * regen_multiplier * delta
+	stamina.add(regen)
+	if stamina.value > max_stamina.value:
+		stamina.set_value(max_stamina.value)
 
 func upgrade_attribute(attribute: Attribute.Tag, new_level: int) -> void:
 	var current_level := progression_data.get_attribute_level(attribute)

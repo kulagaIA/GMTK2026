@@ -3,11 +3,11 @@ extends Control
 
 var health : Attribute:
 	get:
-		return Game.player_state.health
+		return Game.player_state.stamina
 
 var max_health : Attribute:
 	get:
-		return Game.player_state.max_health
+		return Game.player_state.max_stamina
 
 func _ready() -> void:
 	Game.player.stun_status_changed.connect(_on_player_stunned)
