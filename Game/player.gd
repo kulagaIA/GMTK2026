@@ -207,7 +207,7 @@ var stun_recovery_per_shake : float:
 		return (stun_recovery_target + 1.0) / stun_shakes_to_recover
 var health_recovery_per_shake : float:
 	get:
-		return player_state.max_health.value / stun_shakes_to_recover
+		return player_state.max_stamina.value / stun_shakes_to_recover
 
 func stun() -> void:
 	if stunned:
@@ -236,7 +236,7 @@ func unstun() -> void:
 func shake_head() -> void:
 	if not stunned:
 		return
-	player_state.health.add(health_recovery_per_shake)
+	player_state.stamina.add(health_recovery_per_shake)
 	stun_recovery += stun_recovery_per_shake
 	if stun_recovery >= stun_recovery_target:
 		unstun()
@@ -283,8 +283,8 @@ func _start_drinking_pivo() -> void:
 
 
 func update_hat() -> void:
-	var hp_level : int = player_state.progression_data.get_attribute_level(Attribute.Tag.MAX_HEALTH)
+	var hp_level : int = player_state.progression_data.get_attribute_level(Attribute.Tag.MAX_STAMINA)
 	if hp_level >= 0:
-		var hp_progression : AttributeProgressionInfo = Game.progression_config.get_progression_for_attribute(Attribute.Tag.MAX_HEALTH)
+		var hp_progression : AttributeProgressionInfo = Game.progression_config.get_progression_for_attribute(Attribute.Tag.MAX_STAMINA)
 		var hat_scene := hp_progression.levels[hp_level].hat_scene
 		face_renderer.spawn_hat_from_scene(hat_scene)

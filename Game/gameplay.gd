@@ -103,7 +103,7 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	player_state.modify_hit(info)
 	
 	info.target_smashed = target_smashable.health.value <= info.damage_to_target_modified
-	info.attacker_stunned = player_state.health.value <= info.damage_to_attacker_modified
+	info.attacker_stunned = player_state.stamina.value <= info.damage_to_attacker_modified
 	
 	target_smashable.apply_damage(info.damage_to_target_modified)
 	player_state.apply_damage(info.damage_to_attacker_modified)

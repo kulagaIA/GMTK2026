@@ -67,7 +67,7 @@ func _construct_hit_sound_info(info: HitInfo) -> HitSoundInfo:
 	var hit_sound_info = HitSoundInfo.new()
 	if info.attacker_crit == true:
 		hit_sound_info.is_crit = true
-	if Game.player_state.max_health.value > 100:
+	if Game.player_state.max_stamina.value > 100:
 		hit_sound_info.hit_type = SmashableSoundPlayer.HitSoundType.METAL
 	return hit_sound_info
 

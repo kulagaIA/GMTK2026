@@ -12,7 +12,7 @@ func enter(prev_state : State) -> void:
 	assert(target_camera)
 	await camera.fly_and_reparent(target_camera, 2.5)
 	Game.gameplay.hit_occurred.connect(Game.player_state._on_hit_occurred)
-	Game.player_state.health.value_changed.connect(Game.player._on_health_value_changed)
+	Game.player_state.stamina.value_changed.connect(Game.player._on_health_value_changed)
 	Game.gameplay.restart_gameplay()
 	_show_hud()
 
@@ -20,7 +20,7 @@ func exit(next_state : State) -> void:
 	_hide_hud()
 	Game.canvas_manager.clear_layer(JamUtils.layer_ui_post_process)
 	Game.gameplay.hit_occurred.disconnect(Game.player_state._on_hit_occurred)
-	Game.player_state.health.value_changed.disconnect(Game.player._on_health_value_changed)
+	Game.player_state.stamina.value_changed.disconnect(Game.player._on_health_value_changed)
 	Game.gameplay.stop_gameplay()
 	super.exit(next_state)
 

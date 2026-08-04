@@ -2,7 +2,10 @@ class_name SmashPlayerPreset
 extends Resource
 
 @export var display_name: String = "Base Player"
-@export var max_health: float = 100
+@export var max_stamina: float = 100
+@export var stamina_regen: float = 1
+@export var stamina_regen_rate: float = 1
+@export var stamina_regen_curve: Curve =  preload("res://Data/Player/stamina_regen_curve.tres")
 @export var damage: float = 20
 @export_storage var sensitivity: float = 1
 @export var points: int = 0
