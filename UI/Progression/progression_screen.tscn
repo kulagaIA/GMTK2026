@@ -235,6 +235,7 @@ layout_mode = 2
 target_attribute = 7
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=261476725]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
