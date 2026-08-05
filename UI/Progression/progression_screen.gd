@@ -57,7 +57,7 @@ func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:
 @onready var timer_upgrader: AttributeLevelUpgrader = %TimerUpgrader
 @onready var crit_chance_upgrader: AttributeLevelUpgrader = %CritChanceUpgrader
 @onready var crit_multiplier_upgrader: AttributeLevelUpgrader = %CritMultiplierUpgrader
-@onready var pivo_charges: AttributeLevelUpgrader = %"Pivo charges"
+@onready var pivo_charge_per_hit: AttributeLevelUpgrader = %PivoChargePerHit
 
 func update_points() -> void:
 	point_label.text = "%d" % [points_available]
@@ -69,4 +69,4 @@ func update_info() -> void:
 	timer_upgrader.update_info()
 	crit_chance_upgrader.update_info()
 	crit_multiplier_upgrader.update_info()
-	pivo_charges.update_info()
+	pivo_charge_per_hit.update_info()

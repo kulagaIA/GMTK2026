@@ -14,6 +14,7 @@ extends Node
 @onready var pivo: Ability = %Pivo
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
+@onready var pivo_charge_per_hit: DynamicAttribute = %PivoChargePerHit
 
 @export var stamina_regen_curve: Curve
 
@@ -32,9 +33,7 @@ func _process(delta: float) -> void:
 
 func reset() -> void:
 	pivo.reset()
-	for mod in pivo_charges.get_children().filter(func(node)->bool: return node is AttributeMod):
-		if (mod as AttributeMod).value < 0:
-			pivo_charges.remove_modifier(mod)
+	pivo_charges.set_value(0)
 	stamina.max_value = max_stamina.value
 	stamina.set_value(max_stamina.value)
 
@@ -59,6 +58,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	pivo.cooldown = stats.pivo_cooldown
 	pivo.modifiers[Attribute.Tag.CRIT_CHANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_crit_chance_multplier)
 	pivo.modifiers[Attribute.Tag.DAMAGE_RESISTANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_damage_resistance)
+	pivo_charge_per_hit.set_value(stats.pivo_charge_per_hit)
 
 func get_base_damage() -> float:
 	return damage.value
@@ -78,7 +78,7 @@ func modify_hit(info: HitInfo) -> void:
 	info.damage_to_attacker_modified /= damage_resistance.value
 
 func _on_hit_occurred(info: HitInfo) -> void:
-	pass
+	pivo_charges.add(pivo_charge_per_hit.value)
 
 func apply_damage(amount: float) -> void:
 	consume_stamina(amount)

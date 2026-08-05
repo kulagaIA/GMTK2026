@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="SmashPlayerPreset" format=3 uid="uid://bu87yosbbamu0"]
 
 [ext_resource type="Script" uid="uid://dhpgcuy27qysf" path="res://Game/Config/player_preset.gd" id="1_gcej8"]
+[ext_resource type="Curve" uid="uid://bvmtaogrw1vd2" path="res://Data/Player/stamina_regen_curve.tres" id="2_0rt7g"]
 
 [resource]
 script = ExtResource("1_gcej8")
@@ -13,4 +14,5 @@ pivo_cooldown = 2.0
 pivo_damage_resistance = 2.0
 pivo_crit_chance_multplier = 2.0
 pivo_charges = 0
+pivo_charge_per_hit = 0.2
 metadata/_custom_type_script = "uid://dhpgcuy27qysf"

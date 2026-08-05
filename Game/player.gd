@@ -20,7 +20,6 @@ var _gameplay_started : bool = false
 
 func handle_gameplay_started() -> void:
 	face_renderer.init_hat()
-	pivo_mug.visible = player_state.pivo_charges.value > 0.0
 	update_hat()
 	_gameplay_started = true
 
@@ -258,7 +257,7 @@ func _add_kickback() -> void:
 	tween.tween_property(self, "_kickback_acceleration", 0, kickback_time).set_ease(Tween.EASE_OUT)
 
 #endregion
-#region pivoanim
+#region pivo anim
 var _drinking_pivo: bool = false
 
 @onready var pivo_path: Path3D = %PivoPath3D

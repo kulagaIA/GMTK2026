@@ -41,7 +41,7 @@ metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
 has_max_value = true
-tag = 3
+tag = 11
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
 [node name="Damage" type="Node" parent="." unique_id=500112805]
@@ -96,5 +96,11 @@ script = ExtResource("3_dr5hc")
 min_value = 0.1
 tag = 9
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="PivoChargePerHit" type="Node" parent="." unique_id=254355559]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+tag = 12
+metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [connection signal="value_changed" from="Stamina" to="." method="_on_health_value_changed"]

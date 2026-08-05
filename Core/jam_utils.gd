@@ -84,6 +84,7 @@ static func get_attributes(target : Node) -> Array[Attribute]:
 ## Returns first attribute found that matches given tag
 static func find_tagged_attribute(target : Node, tag : Attribute.Tag) -> Attribute:
 	# TODO: optimize
+	
 	var attributes := get_attributes(target)
 	for attribute in attributes:
 		if attribute.tag == tag:
