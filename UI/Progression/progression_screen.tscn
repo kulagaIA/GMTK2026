@@ -270,10 +270,10 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
 text = "Beer Charges:"
 
-[node name="Pivo charges" parent="VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
+[node name="PivoChargePerHit" parent="VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
-target_attribute = 10
+target_attribute = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
 layout_mode = 1
@@ -355,5 +355,5 @@ expand_mode = 4
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer3/TimerUpgrader" to="." method="_on_attribute_upgraded"]
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer4/CritChanceUpgrader" to="." method="_on_attribute_upgraded"]
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer5/CritMultiplierUpgrader" to="." method="_on_attribute_upgraded"]
-[connection signal="upgraded" from="VBoxContainer/HBoxContainer6/Pivo charges" to="." method="_on_attribute_upgraded"]
+[connection signal="upgraded" from="VBoxContainer/HBoxContainer6/PivoChargePerHit" to="." method="_on_attribute_upgraded"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

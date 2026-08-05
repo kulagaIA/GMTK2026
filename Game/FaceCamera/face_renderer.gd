@@ -103,10 +103,7 @@ func shake(strength: float) -> void:
 	_current_shake = max(_current_shake, strength)
 
 func set_head_color(color: Color) -> void:
-	print("seta head color")
-	#var material := head_mesh.get_active_material(0).duplicate()
-	#material.albedo_color = color
-	#head_mesh.set_surface_override_material(0, material)
+	pass
 
 func set_head_rotation(pitch: float, yaw: float) -> void:
 	var head_pitch : float = clamp(

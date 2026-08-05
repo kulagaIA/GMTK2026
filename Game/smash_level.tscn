@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="5_lvwk5"]
 [ext_resource type="PackedScene" uid="uid://my52x05e026m" path="res://Assets/Characters/NPS Idle Animation.glb" id="8_iap64"]
 [ext_resource type="PackedScene" uid="uid://cs85r6pdkpd1u" path="res://Assets/Characters/GG - idle 1.glb" id="8_on6nt"]
+[ext_resource type="PackedScene" uid="uid://cm162c22wvvce" path="res://Assets/Characters/Gnome Redhead VER 2.glb" id="8_shv8l"]
 
 [node name="SmashLevel" type="Node3D" unique_id=1054562787]
 script = ExtResource("1_14wd1")
@@ -46,18 +47,18 @@ transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.
 unique_name_in_owner = true
 transform = Transform3D(-0.2498137, -0.009649813, -1.4901161e-08, -0.009649812, 0.24981372, -4.656613e-10, 0, -5.771137e-10, -0.25, 0.075172536, 4.448689, 0.10930423)
 
-[node name="npc1" parent="." unique_id=1488702158 instance=ExtResource("8_iap64")]
+[node name="npc1" parent="." unique_id=1488702158 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
 transform = Transform3D(0.3313337, 0, 0.5002179, 0, 0.59999996, 0, -0.5002179, 0, 0.3313337, -2.3909369, 0.6449466, 16.546146)
 
-[node name="npc2" parent="." unique_id=1522829206 instance=ExtResource("8_iap64")]
+[node name="npc2" parent="." unique_id=1522829206 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
 transform = Transform3D(0.3669774, 0, -0.47468683, 0, 0.59999996, 0, 0.47468683, 0, 0.3669774, 6.400922, 0.19711304, 15.525027)
 
-[node name="npc3" parent="." unique_id=1351181184 instance=ExtResource("8_iap64")]
+[node name="npc3" parent="." unique_id=1351181184 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
 transform = Transform3D(0.31945384, 0, 0.507887, 0, 0.59999996, 0, -0.507887, 0, 0.31945384, -9.362749, 0.09959936, 13.3721895)
 
-[node name="npc4" parent="." unique_id=622229568 instance=ExtResource("8_iap64")]
+[node name="npc4" parent="." unique_id=622229568 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
 transform = Transform3D(0.28232402, 0, -0.5294272, 0, 0.59999996, 0, 0.5294272, 0, 0.28232402, 2.369339, 0.011543274, 12.242907)

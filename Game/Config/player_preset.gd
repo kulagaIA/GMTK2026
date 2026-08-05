@@ -17,3 +17,4 @@ extends Resource
 @export var pivo_damage_resistance: float = 1.0
 @export var pivo_crit_chance_multplier: float = 1.0
 @export var pivo_charges: int = 1
+@export var pivo_charge_per_hit: float = 0.2
