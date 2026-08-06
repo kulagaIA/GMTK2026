@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://uij46cficj03"]
 
 [ext_resource type="Script" uid="uid://kx5ljt6n2eab" path="res://UI/PauseMenu/pause_menu.gd" id="1_t3iro"]
+[ext_resource type="Script" uid="uid://ce3qsmnhwei1y" path="res://UI/web_helper_button.gd" id="2_w5vkt"]
 
 [node name="PauseMenu" type="Control" unique_id=2127473529]
 process_mode = 3
@@ -41,6 +42,8 @@ text = "Quit to Title"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit to Desktop"
+script = ExtResource("2_w5vkt")
+hide_in_web_build = true
 
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/TitleButton" to="." method="_on_title_button_pressed"]

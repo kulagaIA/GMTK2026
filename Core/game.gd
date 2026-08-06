@@ -20,6 +20,8 @@ func toggle_mouse_cursor() -> void:
 
 #region Jam
 
+var mouse_sensitivity_setting : float = 1.0
+
 @onready var tutorial_manager: Tutorial = %TutorialManager
 
 @export var default_player_stats : SmashPlayerPreset

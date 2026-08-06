@@ -46,18 +46,11 @@ func get_base_damage() -> float:
 func modify_hit(info: HitInfo) -> void:
 	info.damage_to_attacker_modified = info.damage_to_attacker_base
 
-const damage_number_scene: PackedScene = preload("res://Game/damage_number.tscn")
-
 func apply_damage(amount: float) -> void:
 	take_damage(amount)
 
 func _on_hit_occurred(info: HitInfo) -> void:
 	if info.target == self:
-		var damage_number: DamageNumber = damage_number_scene.instantiate()
-		damage_number.damage_value = info.damage_to_target_modified
-		damage_number.is_crit = info.attacker_crit
-		add_child(damage_number)
-		damage_number.global_position = global_position
 		_view.play_hit()
 		var hit_sound_info: HitSoundInfo = _construct_hit_sound_info(info)
 		_sound_player.play_hit(hit_sound_info)

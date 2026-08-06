@@ -19,7 +19,7 @@ func _gui_input(event: InputEvent) -> void:
 		unpause()
 
 func unpause() -> void:
-	Input.mouse_mode = saved_mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	queue_free()
 
 
@@ -29,6 +29,7 @@ func _on_resume_button_pressed() -> void:
 
 func _on_title_button_pressed() -> void:
 	Game.change_game_state(GameState.MENU)
+	queue_free()
 
 
 func _on_quit_button_pressed() -> void:

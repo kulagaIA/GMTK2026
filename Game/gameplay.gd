@@ -30,7 +30,7 @@ func _ready() -> void:
 	player_state.reset()
 	assert(spawned_queue)
 	spawned_queue.smashable_spawned.connect(_on_smashable_queue_smashable_spawned)
-	hit_occurred.connect(Game.combo_manager.process_hit)
+	#hit_occurred.connect(Game.combo_manager.process_hit)
 	timer.timeout.connect(_on_timer_depleted)
 
 

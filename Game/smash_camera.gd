@@ -13,7 +13,7 @@ static func get_active() -> SmashCamera:
 	return get_by_tag(Tag.ACTIVE)
 
 static func get_by_tag(target_camera : Tag) -> SmashCamera:
-	return Game.cameras[target_camera]
+	return Game.cameras.get(target_camera)
 
 func _process(delta: float) -> void:
 	pass
