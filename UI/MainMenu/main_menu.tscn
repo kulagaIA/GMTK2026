@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://mhbgol2lxq6b" path="res://UI/Dev/dev_load_scene_button.gd" id="2_h8rmy"]
 [ext_resource type="PackedScene" uid="uid://g8x4b47cjbv2" path="res://TestScenes3D/test_gym_3d.tscn" id="2_t17p2"]
 [ext_resource type="PackedScene" uid="uid://b6ljrakpbtk2o" path="res://TestScenes2D/test_gym_2d.tscn" id="3_3jj5y"]
+[ext_resource type="Script" uid="uid://ce3qsmnhwei1y" path="res://UI/web_helper_button.gd" id="6_trkrl"]
 
 [node name="MainMenu" type="Control" unique_id=362125495]
 layout_mode = 3
@@ -58,6 +59,8 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+script = ExtResource("6_trkrl")
+hide_in_web_build = true
 
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/CreditsButton" to="." method="_on_credits_button_pressed"]

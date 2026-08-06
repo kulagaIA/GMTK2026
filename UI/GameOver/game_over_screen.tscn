@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_g1glf"]
 [ext_resource type="Script" uid="uid://dpiug3vcqj0mf" path="res://UI/GameOver/game_over_screen.gd" id="1_xixk0"]
+[ext_resource type="Script" uid="uid://ce3qsmnhwei1y" path="res://UI/web_helper_button.gd" id="3_m6qc7"]
 
 [node name="GameOver" type="Control" unique_id=2127473529]
 process_mode = 3
@@ -33,19 +34,19 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=1676492337]
+[node name="Progression" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=909459061]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Next Run"
+text = "Progression"
 
 [node name="Control" type="Control" parent="BG/CenterContainer/ButtonsVBox" unique_id=1287918139]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="Progression" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=909459061]
+[node name="RestartButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=1676492337]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Progression"
+text = "Skip to Next Run"
 
 [node name="Control2" type="Control" parent="BG/CenterContainer/ButtonsVBox" unique_id=1944295974]
 custom_minimum_size = Vector2(0, 80)
@@ -60,6 +61,8 @@ text = "Quit to Title"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit to Desktop"
+script = ExtResource("3_m6qc7")
+hide_in_web_build = true
 
 [node name="WinText" type="Label" parent="." unique_id=1649415750]
 unique_name_in_owner = true
@@ -96,7 +99,7 @@ theme_override_font_sizes/font_size = 96
 text = "Time's up!"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/Progression" to="." method="_on_progression_pressed"]
+[connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/TitleButton" to="." method="_on_title_button_pressed"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
