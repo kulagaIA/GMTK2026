@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="3_hec4b"]
 [ext_resource type="PackedScene" uid="uid://fe8xe5gk7pid" path="res://Level.tscn" id="4_umyyp"]
 [ext_resource type="PackedScene" uid="uid://g2dyfrstvyyx" path="res://Game/Gameplay/smashable_queue.tscn" id="5_lvwk5"]
-[ext_resource type="PackedScene" uid="uid://my52x05e026m" path="res://Assets/Characters/NPS Idle Animation.glb" id="8_iap64"]
 [ext_resource type="PackedScene" uid="uid://cs85r6pdkpd1u" path="res://Assets/Characters/GG - idle 1.glb" id="8_on6nt"]
 [ext_resource type="PackedScene" uid="uid://cm162c22wvvce" path="res://Assets/Characters/Gnome Redhead VER 2.glb" id="8_shv8l"]
 
@@ -15,6 +14,7 @@ script = ExtResource("1_14wd1")
 [node name="Gameplay" parent="." unique_id=1557019137 node_paths=PackedStringArray("spawned_queue") instance=ExtResource("1_gs3im")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.830296)
 spawned_queue = NodePath("../SmashableQueue")
+seconds_before_bomb_skip = 1.0
 
 [node name="MenuCamera" parent="." unique_id=1560827527 instance=ExtResource("3_hec4b")]
 transform = Transform3D(0.67559046, -0.08665726, -0.73216665, 0, 0.9930685, -0.117536895, 0.7372771, 0.079406805, 0.6709076, -10.9732895, 2.308755, 20.046171)

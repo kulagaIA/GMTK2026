@@ -14,10 +14,15 @@ var smashables: Array[SmashableResource] = []
 
 var num_smashables_left : int:
 	get:
-		var result := smashables.size() + spawned_queue.active_smashables.size()
+		var result := smashables.filter(
+			func(smashable : SmashableResource): return smashable.display_name != "Bomb").size() + spawned_queue.active_smashables.filter(
+			func(smashable : Smashable): return smashable.data.display_name != "Bomb").size()
 		if spawned_queue.current_smashable.health.value <= 0.0:
 			result -= 1
 		return result
+
+const BOMB_RESOURCE = preload("res://Data/Smashables/bomb.tres")
+@export var seconds_before_bomb_skip: float = 1.5
 
 func _ready() -> void:
 	Game.gameplay = self
@@ -29,9 +34,20 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_depleted)
 
 
-@warning_ignore("unused_parameter")
+var seconds_since_bomb : float = 0
 func _process(delta: float) -> void:
-	pass
+	if((spawned_queue.current_smashable)
+		&& (spawned_queue.current_smashable.data.display_name == 'Bomb')
+		&& (Game.game_state_machine.current_state.name == "Gameplay")):
+		seconds_since_bomb += delta
+	if (seconds_since_bomb >= seconds_before_bomb_skip):
+		print("bomb skipped")
+		seconds_since_bomb = 0
+		queue_smashables(1)
+		spawned_queue.advance_queue()
+		print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
+		smashable_destroyed.emit(smashables)
+
 
 func restart_gameplay() -> void:
 	cleanup_gameplay()
@@ -135,10 +151,38 @@ func _on_smashable_destroyed(target: Smashable) -> void:
 func load_level(config: SmashLevelConfig) -> void:
 	if config == null:
 		return
+		
+	var pools : Array[SmashablesPool] = Game.level_config.pools
+	var bomb_count : int = randi_range(Game.level_config.bomb_min_amount, Game.level_config.bomb_max_amount)
+	var available_positions: Array[int] = []
+	var pools_sum_size : int = 0
+	for pool : SmashablesPool in pools:
+		pools_sum_size += pool.count
+	for i in range(Game.level_config.bomb_min_space_between, pools_sum_size - Game.level_config.bomb_min_space_between):
+		available_positions.append(i)
+	available_positions.shuffle()
+	var selected_positions: Array[int] = []
+	
+	for position in available_positions:
+		var valid := true
+		for selected in selected_positions:
+			if abs(position - selected) <= Game.level_config.bomb_min_space_between:
+				valid = false
+				break
+		if valid:
+			selected_positions.append(position)
+			if selected_positions.size() >= bomb_count:
+				break
+	selected_positions.sort()
 
+	print("inserted bombs on positions ", selected_positions)
+	var current_insert_pos = 0
 	for pool in config.pools:
 		for idx in range(pool.count):
+			if selected_positions.find(current_insert_pos) != -1 :
+				smashables.append(BOMB_RESOURCE.duplicate(true))
 			smashables.append(pool.smashable)
+			current_insert_pos += 1
 	queue_smashables(spawned_queue.queue_size)
 
 func _on_smashable_queue_smashable_spawned(smashable: Smashable) -> void:
