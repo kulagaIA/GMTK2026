@@ -17,7 +17,6 @@ point_count = 4
 
 [node name="Player" type="Node3D" unique_id=1978419293]
 script = ExtResource("1_kwoj6")
-mouse_sensitivity = 0.2
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
 drinking_time = 1.0

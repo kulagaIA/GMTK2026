@@ -98,7 +98,9 @@ var flip_mouse_y : bool = true
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 
-@export var mouse_sensitivity : float = .5
+var mouse_sensitivity : float:
+	get:
+		return Game.mouse_sensitivity_setting
 
 var min_neck_position : float = 0.0
 @export var max_neck_position : float = 100.0
