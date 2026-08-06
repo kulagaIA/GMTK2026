@@ -6,6 +6,8 @@
 
 [node name="SmashableView" type="Node3D" unique_id=164980757]
 script = ExtResource("1_5lyeh")
+hit_horizontal_scale = 1.5
+hit_bounce_height = 0.5
 hit_recover_duration = 0.5
 
 [node name="VisualRoot" type="Node3D" parent="." unique_id=1266849336]

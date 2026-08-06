@@ -33,4 +33,7 @@ metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 [resource]
 script = ExtResource("1_rdqbj")
 pools = Array[ExtResource("2_0vxtx")]([SubResource("Resource_uc0nm"), SubResource("Resource_4531b"), SubResource("Resource_bw48f"), SubResource("Resource_kxj8v")])
+bomb_min_amount = 20
+bomb_max_amount = 30
+bomb_min_space_between = 1
 metadata/_custom_type_script = "uid://de6bjjhhcii50"
