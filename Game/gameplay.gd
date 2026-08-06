@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 		seconds_since_bomb += delta
 	if (seconds_since_bomb >= seconds_before_bomb_skip):
 		print("bomb skipped")
+		spawned_queue.current_smashable.apply_damage(100)
 		seconds_since_bomb = 0
 		queue_smashables(1)
 		spawned_queue.advance_queue()
