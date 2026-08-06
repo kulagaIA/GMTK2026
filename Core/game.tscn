@@ -56,7 +56,7 @@ layer = 100
 
 [node name="ComboManager" type="Node" parent="." unique_id=1239443732 node_paths=PackedStringArray("level_drop_cooldown")]
 unique_name_in_owner = true
-process_mode = 1
+process_mode = 4
 script = ExtResource("13_j0bao")
 level_drop_cooldown = NodePath("ComboLevelDecayCooldown")
 config = ExtResource("5_74v2q")
