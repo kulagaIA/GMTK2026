@@ -5,6 +5,12 @@ extends GameState
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
+	if not get_tree().current_scene.is_node_ready():
+		await get_tree().current_scene.ready
+	var camera := SmashCamera.get_active()
+	var target_camera := SmashCamera.get_by_tag(SmashCamera.Tag.MENU)
+	if camera and target_camera:
+		await camera.fly_and_reparent(target_camera, 2.5)
 	var main_menu := main_menu_scene.instantiate() as Control
 	if main_menu:
 		Game.canvas_manager.set_layer_content(JamUtils.layer_ui_menu, main_menu)
