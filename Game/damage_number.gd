@@ -18,8 +18,8 @@ func _ready() -> void:
 		label.modulate = Color.DARK_RED
 	velocity = Vector3.ZERO
 	velocity.y = randfn(speed, speed_deviation)
-	velocity = velocity.rotated(Vector3.FORWARD, deg_to_rad(randfn(0, 15.0)))
-	velocity = velocity.rotated(Vector3.RIGHT, deg_to_rad(randfn(-5.0, 15.0)))
+	velocity = velocity.rotated(Vector3.FORWARD, deg_to_rad(randfn(0, angle_deviation_deg)))
+	velocity = velocity.rotated(Vector3.RIGHT, deg_to_rad(randfn(-5.0, angle_deviation_deg)))
 	label.scale = Vector3(size, size, size)
 
 func _process(delta: float) -> void:

@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://dlv3rb2wbtn73" path="res://UI/Themes/gameplay.tres" id="1_bcirh"]
 [ext_resource type="Script" uid="uid://c5absqcct10fa" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
 [ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerStaminaTracker/dev_player_stamina_tracker.tscn" id="2_ing8j"]
+[ext_resource type="PackedScene" uid="uid://c1fu6su2mvk84" path="res://UI/HUD/DamageNumbers/damage_numbers_overlay.tscn" id="3_a0tlv"]
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
@@ -30,6 +31,9 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_bcirh")
 script = ExtResource("1_ia7gp")
+
+[node name="DamageNumbersOverlay" parent="." unique_id=462550679 instance=ExtResource("3_a0tlv")]
+layout_mode = 1
 
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
 layout_mode = 1
