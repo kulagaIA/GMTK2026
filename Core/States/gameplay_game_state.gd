@@ -1,10 +1,14 @@
 class_name GameplayGameState
 extends GameState
 
+@export var autopause_delay : float = 0.5
+var _uncaptured_time : float = 0.0
+
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_uncaptured_time = 0.0
 	assert(Game.gameplay)
 	var camera := SmashCamera.get_active()
 	var target_camera := SmashCamera.get_by_tag(SmashCamera.Tag.GAMEPLAY)
@@ -26,6 +30,11 @@ func exit(next_state : State) -> void:
 
 func update(delta: float) -> void:
 	super.update(delta)
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not get_tree().paused:
+		_uncaptured_time += delta
+		if _uncaptured_time > autopause_delay:
+			_uncaptured_time = 0.0
+			Game.open_pause_menu()
 
 func physics_update(delta: float) -> void:
 	super.physics_update(delta)

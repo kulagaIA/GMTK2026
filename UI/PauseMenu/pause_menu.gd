@@ -19,7 +19,7 @@ func _gui_input(event: InputEvent) -> void:
 		unpause()
 
 func unpause() -> void:
-	Input.mouse_mode = saved_mouse_mode
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	queue_free()
 
 
