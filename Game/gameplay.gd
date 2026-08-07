@@ -35,20 +35,22 @@ func _ready() -> void:
 
 
 var seconds_since_bomb : float = 0
+var bomb_clearing = false
 func _process(delta: float) -> void:
 	if((spawned_queue.current_smashable)
 		&& (spawned_queue.current_smashable.data.display_name == 'Bomb')
 		&& (Game.game_state_machine.current_state.name == "Gameplay")):
 		seconds_since_bomb += delta
-	if (seconds_since_bomb >= seconds_before_bomb_skip):
+	if (seconds_since_bomb >= seconds_before_bomb_skip && bomb_clearing == false):
 		print("bomb skipped")
+		bomb_clearing = true
 		spawned_queue.current_smashable.apply_damage(100)
 		seconds_since_bomb = 0
 		queue_smashables(1)
 		spawned_queue.advance_queue()
 		print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
 		smashable_destroyed.emit(smashables)
-
+		bomb_clearing = false
 
 func restart_gameplay() -> void:
 	cleanup_gameplay()
