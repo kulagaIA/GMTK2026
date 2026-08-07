@@ -19,7 +19,6 @@ func _ready() -> void:
 var _gameplay_started : bool = false
 
 func handle_gameplay_started() -> void:
-	face_renderer.init_hat()
 	update_hat()
 	_gameplay_started = true
 
@@ -282,10 +281,19 @@ func _start_drinking_pivo() -> void:
 
 #endregion
 
-
+var current_hat : Node3D = null
 func update_hat() -> void:
 	var hp_level : int = player_state.progression_data.get_attribute_level(Attribute.Tag.MAX_STAMINA)
 	if hp_level >= 0:
 		var hp_progression : AttributeProgressionInfo = Game.progression_config.get_progression_for_attribute(Attribute.Tag.MAX_STAMINA)
 		var hat_scene := hp_progression.levels[hp_level].hat_scene
 		face_renderer.spawn_hat_from_scene(hat_scene)
+		if current_hat:
+			current_hat.queue_free()
+			current_hat = null
+		if hat_scene:
+			current_hat = hat_scene.instantiate() as Node3D
+			current_hat.scale = Vector3(-0.25, 0.25, 0.25)
+			current_hat.position = Vector3(0.0, -0.15, 0.05)
+			current_hat.rotation_degrees.x = 180.0
+			Game.player_head.add_child(current_hat)

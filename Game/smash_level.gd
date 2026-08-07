@@ -110,6 +110,9 @@ func _ready() -> void:
 	animation_player_npc4.play("npc/idle")
 	animation_player_npc4.animation_finished.connect(_on_animation_finished_npc_4)
 	
+	var head = char.find_child("head_bone", true, false)
+	Game.player_head = head
+	
 func _on_animation_finished(_animation_name: StringName) -> void:
 	play_random_animation()
 

@@ -62,7 +62,6 @@ func _ready() -> void:
 	_camera_rest_position = camera.position
 	_camera_target_position = _camera_rest_position
 	_camera_rest_rotation = camera.rotation
-	init_hat()
 
 func _process(delta: float) -> void:
 	head_pivot.position = head_pivot.position.lerp(_target_position, delta * HEAD_POSITION_INTERPOLATION_SPEED)
@@ -146,23 +145,3 @@ func spawn_hat_from_scene(hat_scene : PackedScene) -> void:
 	if hat_scene:
 		current_hat = hat_scene.instantiate() as Node3D
 		hat_socket.add_child(current_hat)
-
-func set_hat(hat_node: Node3D) -> void:
-	for child in hat_socket.get_children():
-		if child == current_hat: #hack for cases when we set the same hat multiple times, otherwise it will set the hat that is already queued for deletion
-			return
-		child.queue_free()
-	current_hat = hat_node
-	if hat_node == null:
-		return
-	var hat := hat_node.get_child(0) as MeshInstance3D
-	hat.position.y = 0.15
-	hat.scale.x = 0.4
-	hat.scale.y = 0.4
-	hat.scale.z = 0.4
-	hat_socket.add_child(hat_node)
-
-func init_hat() -> void:
-	pass
-	#if Game.player_state.max_health.value > 100:
-		#set_hat(upgraded_hat)
