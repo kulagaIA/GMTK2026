@@ -43,6 +43,11 @@ queue_tween_transition = 11
 unique_name_in_owner = true
 transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, 0.12705837, 0.66999954, 21.534143)
 
+[node name="head_bone" type="BoneAttachment3D" parent="Main_character2/RIG/Skeleton3D" parent_id_path=PackedInt32Array(1116912929, 912763886) index="36" unique_id=1167572101]
+transform = Transform3D(-1, -4.931419e-08, 2.3550847e-07, 9.715432e-09, -0.98609823, -0.16616149, 2.4040344e-07, -0.16616145, 0.9860986, 0.08757978, 4.390349, 0.17937657)
+bone_name = "head_2"
+bone_idx = 17
+
 [node name="HatSocket" type="Node3D" parent="Main_character2" unique_id=1513978765]
 unique_name_in_owner = true
 transform = Transform3D(-0.2498137, -0.009649813, -1.4901161e-08, -0.009649812, 0.24981372, -4.656613e-10, 0, -5.771137e-10, -0.25, 0.075172536, 4.448689, 0.10930423)
@@ -62,3 +67,6 @@ transform = Transform3D(0.31945384, 0, 0.507887, 0, 0.59999996, 0, -0.507887, 0,
 [node name="npc4" parent="." unique_id=622229568 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
 transform = Transform3D(0.28232402, 0, -0.5294272, 0, 0.59999996, 0, 0.5294272, 0, 0.28232402, 2.369339, 0.011543274, 12.242907)
+
+[editable path="Level"]
+[editable path="Main_character2"]

@@ -50,6 +50,7 @@ func _on_back_pressed() -> void:
 	Game.change_game_state(GameState.GAMEPLAY)
 
 func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:
+	Game.player.update_hat()
 	update_info()
 
 @onready var health_upgrader: AttributeLevelUpgrader = %HealthUpgrader

@@ -5,7 +5,7 @@ extends Control
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
-	Game.gameplay.player.face_renderer.init_hat()
+	pass
 
 
 func _process(delta: float) -> void:

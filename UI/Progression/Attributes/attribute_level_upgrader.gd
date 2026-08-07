@@ -71,6 +71,7 @@ func try_upgrade() -> bool:
 	player.upgrade_attribute(target_attribute, get_next_level())
 	upgraded.emit(target_attribute)
 	update_info()
+	Game.player.update_hat()
 	return true
 
 @onready var level_label: Label = %LevelLabel
