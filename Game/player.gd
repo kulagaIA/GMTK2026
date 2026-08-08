@@ -184,12 +184,12 @@ func _consume_mouse_input(delta : float) -> void:
 var _camera_rotation : Vector3
 
 func _process_camera(delta : float) -> void:
-	_camera_rotation = Vector3(neck_tilt, 0, 0)
+	_camera_rotation = Vector3(neck_tilt, _player_rotation.y, 0)
 	
 	camera_pivot.transform.basis = Basis.from_euler(_camera_rotation)
 	camera_pivot.rotation.z = 0
 	
-	global_transform.basis = Basis.from_euler(_player_rotation)
+	#global_transform.basis = Basis.from_euler(_player_rotation)
 
 	face_renderer.set_head_rotation(_camera_rotation.x, _player_rotation.y)
 
