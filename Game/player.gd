@@ -70,12 +70,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _gameplay_started and _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned or allow_turning:
-			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * horizontal_sensitivity_multiplier
+			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
 		if not stunned:
-			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * vertical_sensitivity_multiplier
+			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * sensitivity_multiplier.x
 
 const MIN_TILT = deg_to_rad(-80)
 const MAX_TILT = deg_to_rad(40)
+const ZERO_TILT = deg_to_rad(-10)
 
 #const MIN_TURN = deg_to_rad(-40)
 const MAX_TURN = deg_to_rad(40)
@@ -97,8 +98,7 @@ var _input_pitch : float
 
 var flip_mouse_x : bool = true
 var flip_mouse_y : bool = true
-@export var vertical_sensitivity_multiplier : float = 1.0
-@export var horizontal_sensitivity_multiplier : float = 0.2
+@export var sensitivity_multiplier : Vector2 = Vector2(1.0, 0.1)
 
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
@@ -110,6 +110,7 @@ var mouse_sensitivity : float:
 var min_neck_position : float = 0.0
 @export var max_neck_position : float = 100.0
 var neck_position : float = 0.0
+@export var max_mouse_speed : Vector2 = Vector2(100.0, 50.0)
 
 var neck_strike_amplitude : float = 0.0
 @export var min_strike_amplitude : float = 20.0
@@ -119,7 +120,7 @@ var max_strike_amplitude : float:
 
 var starting_neck_position : float:
 	get:
-		return remap(0.0, MAX_TILT, MIN_TILT, max_neck_position, min_neck_position)
+		return remap(ZERO_TILT, MAX_TILT, MIN_TILT, max_neck_position, min_neck_position)
 var neck_rise_progress : float:
 	get:
 		return remap(neck_position, min_neck_position, max_neck_position, 0.0, 1.0)
@@ -144,6 +145,10 @@ func get_sensitivity_curve(direction : float) -> Curve:
 		return neck_fall_sensitivity
 
 func _consume_mouse_input(delta : float) -> void:
+	var max_offset := max_mouse_speed #* delta
+	_input_pitch = clamp(_input_pitch, -max_offset.x, max_offset.x)
+	_input_yaw = clamp(_input_yaw, -max_offset.y, max_offset.y)
+	
 	_mouse_rotation.x += _input_pitch * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, MIN_TILT, MAX_TILT)
 	var turn_limit := neck_turn_limit
