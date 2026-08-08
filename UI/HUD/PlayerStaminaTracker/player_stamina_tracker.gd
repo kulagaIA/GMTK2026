@@ -16,5 +16,6 @@ func _on_player_stamina_value_changed(attribute: Attribute, new_value: float, ol
 	show_value(new_value)
 
 func show_value(value : float) -> void:
-	dev_progress_bar.value = value
-	progress_indicator.position.y = size.y * Game.player_state.stamina.percent
+	var percent := Game.player_state.stamina.percent
+	dev_progress_bar.value = percent * dev_progress_bar.max_value
+	progress_indicator.position.y = size.y * percent
