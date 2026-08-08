@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dlv3rb2wbtn73" path="res://UI/Themes/gameplay.tres" id="1_bcirh"]
 [ext_resource type="Script" uid="uid://c5absqcct10fa" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
-[ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerStaminaTracker/dev_player_stamina_tracker.tscn" id="2_ing8j"]
+[ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerStaminaTracker/player_stamina_tracker.tscn" id="2_ing8j"]
 [ext_resource type="PackedScene" uid="uid://c1fu6su2mvk84" path="res://UI/HUD/DamageNumbers/damage_numbers_overlay.tscn" id="3_a0tlv"]
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
@@ -38,14 +38,14 @@ layout_mode = 1
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.314
-anchor_top = 1.0
-anchor_right = 0.314
-anchor_bottom = 1.0
-offset_left = -74.92001
-offset_top = -167.0
-offset_right = 75.07999
-offset_bottom = -96.0
+anchor_left = 0.25500003
+anchor_top = 0.59900004
+anchor_right = 0.294
+anchor_bottom = 0.95600003
+offset_left = 0.5999756
+offset_top = -0.2800293
+offset_right = -0.32000732
+offset_bottom = -0.32000732
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -81,13 +81,15 @@ unique_name_in_owner = true
 top_level = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 34.0
-offset_top = -293.0
-offset_right = 293.0
-offset_bottom = -34.0
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.59300005
+anchor_right = 0.22900002
+anchor_bottom = 0.95300007
+offset_left = -0.5600014
+offset_top = 0.03994751
+offset_right = -0.120025635
+offset_bottom = -0.16003418
 grow_vertical = 0
 texture = SubResource("PlaceholderTexture2D_qdh7y")
 expand_mode = 3

@@ -43,6 +43,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 		return
 	
 	max_stamina.set_value(stats.max_stamina)
+	stamina.max_value = stats.max_stamina
 	stamina.set_value(stats.max_stamina)
 	stamina_regen.set_value(stats.stamina_regen)
 	stamina_regen_rate.set_value(stats.stamina_regen_rate)
@@ -96,8 +97,7 @@ func _on_health_value_changed(attribute: Attribute, new_value: float, old_value:
 func regenerate_stamina(delta: float) -> void:
 	if stamina.value >= max_stamina.value:
 		return
-	var stamina_percent := stamina.value / max_stamina.value
-	var regen_multiplier := stamina_regen_curve.sample_baked(stamina_percent)
+	var regen_multiplier := stamina_regen_curve.sample_baked(stamina.percent)
 	var regen := stamina_regen.value * stamina_regen_rate.value * regen_multiplier * delta
 	stamina.add(regen)
 	if stamina.value > max_stamina.value:

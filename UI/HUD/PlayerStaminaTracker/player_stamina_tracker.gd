@@ -1,4 +1,7 @@
-extends ProgressBar
+extends Control
+
+@onready var dev_progress_bar: ProgressBar = %DevProgressBar
+@onready var progress_indicator: TextureRect = %ProgressIndicator
 
 func _ready() -> void:
 	if Game.player_state:
@@ -13,4 +16,5 @@ func _on_player_stamina_value_changed(attribute: Attribute, new_value: float, ol
 	show_value(new_value)
 
 func show_value(value : float) -> void:
-	self.value = value
+	dev_progress_bar.value = value
+	progress_indicator.position.y = size.y * Game.player_state.stamina.percent

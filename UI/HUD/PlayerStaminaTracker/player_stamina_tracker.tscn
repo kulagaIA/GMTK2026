@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bhap6c3ld4428"]
+
+[ext_resource type="Script" uid="uid://ddvi8nes2423y" path="res://UI/HUD/PlayerStaminaTracker/player_stamina_tracker.gd" id="1_c3r86"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tp06f"]
+
+[node name="PlayerStaminaTracker" type="Control" unique_id=2064386753]
+layout_mode = 3
+anchor_top = 0.83100003
+anchor_right = 0.045
+anchor_bottom = 1.0
+offset_top = 9.679993
+offset_right = 0.3999977
+grow_vertical = 0
+script = ExtResource("1_c3r86")
+
+[node name="DevProgressBar" type="ProgressBar" parent="." unique_id=595101511]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressIndicator" type="TextureRect" parent="." unique_id=1550693296]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_tp06f")
