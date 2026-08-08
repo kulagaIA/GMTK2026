@@ -46,4 +46,4 @@ func _on_player_pivo_charges_value_changed(attribute: Attribute, new_value: floa
 func show_value(value : float) -> void:
 	progress = fmod(value, 1.0)
 	queue_redraw()
-	counter.text = " " + str(int(value)) 
+	counter.text = str(int(value)) 
