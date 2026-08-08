@@ -90,7 +90,6 @@ func stop_gameplay_timer() -> void:
 	timer.stop()
 
 func _on_timer_depleted() -> void:
-	await stop_gameplay()
 	Game.change_game_state(GameState.ROUND_OVER)
 
 #endregion

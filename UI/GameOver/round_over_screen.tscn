@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://djrvg3jh7j6nq"]
+
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_mwma7"]
+[ext_resource type="Script" uid="uid://cvq2jl3qvsn0k" path="res://UI/GameOver/round_over_screen.gd" id="2_1e1nl"]
+
+[node name="RoundOverScreen" type="Control" unique_id=830209055]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mwma7")
+script = ExtResource("2_1e1nl")
+
+[node name="RoundOverText" type="Label" parent="." unique_id=1444043972]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 82.0
+offset_right = 640.0
+offset_bottom = 181.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 96
+text = "Time's up!"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=747572413]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
