@@ -77,10 +77,17 @@ func _unhandled_input(event: InputEvent) -> void:
 const MIN_TILT = deg_to_rad(-80)
 const MAX_TILT = deg_to_rad(40)
 
-const MIN_TURN = deg_to_rad(-20)
-const MAX_TURN = deg_to_rad(20)
-var shake_threshold : float = deg_to_rad(15.0) 
+#const MIN_TURN = deg_to_rad(-40)
+const MAX_TURN = deg_to_rad(40)
+var neck_turn_limit : float:
+	get:
+		return neck_turn_limit_curve.sample(neck_rise_progress) * MAX_TURN
+var shake_threshold_ratio : float = 0.7
+var shake_threshold : float:
+	get:
+		return shake_threshold_ratio * MAX_TURN
 var last_shake_direction : int = 0 
+@export var neck_turn_limit_curve : Curve
 
 const MAX_SWING_SPEED = 1500.0
 
@@ -139,8 +146,9 @@ func get_sensitivity_curve(direction : float) -> Curve:
 func _consume_mouse_input(delta : float) -> void:
 	_mouse_rotation.x += _input_pitch * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, MIN_TILT, MAX_TILT)
+	var turn_limit := neck_turn_limit
 	_mouse_rotation.y += _input_yaw * delta
-	_mouse_rotation.y = clamp(_mouse_rotation.y, MIN_TURN, MAX_TURN)
+	_mouse_rotation.y = clamp(_mouse_rotation.y, -turn_limit, turn_limit)
 	
 	var sensitivity_curve := get_sensitivity_curve(_input_pitch)
 	_neck_velocity = neck_speed * _input_pitch * sensitivity_curve.sample_baked(neck_rise_progress) + _kickback_acceleration

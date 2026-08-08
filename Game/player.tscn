@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1e26gyir4s3r"]
 
 [ext_resource type="Script" uid="uid://dydffqxmsh78n" path="res://Game/player.gd" id="1_kwoj6"]
+[ext_resource type="Curve" uid="uid://dqi5kr16y7g2j" path="res://Data/Player/neck_turn_limit_curve.tres" id="2_ltdye"]
 [ext_resource type="Curve" uid="uid://b3f1h88fpni0w" path="res://Data/Player/mouse_sensitivity_fall_curve.tres" id="3_c5leg"]
 [ext_resource type="PackedScene" uid="uid://bt4yv0wn4lugx" path="res://Game/FaceCamera/face_renderer.tscn" id="3_xhrf0"]
 [ext_resource type="PackedScene" uid="uid://bj1mvg2afo28f" path="res://Game/smash_camera.tscn" id="4_c5leg"]
@@ -17,6 +18,7 @@ point_count = 4
 
 [node name="Player" type="Node3D" unique_id=1978419293]
 script = ExtResource("1_kwoj6")
+neck_turn_limit_curve = ExtResource("2_ltdye")
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
 drinking_time = 1.0
