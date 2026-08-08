@@ -21,6 +21,11 @@ neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
 drinking_time = 1.0
 
+[node name="StaminaRegenTimer" type="Timer" parent="." unique_id=2120546619]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
 [node name="PivoPath3D" type="Path3D" parent="." unique_id=1214811779]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33607596, 3.0144725, -0.017130569)
@@ -46,3 +51,5 @@ tag = 3
 
 [node name="FaceRenderer" parent="." unique_id=1238039156 instance=ExtResource("3_xhrf0")]
 unique_name_in_owner = true
+
+[connection signal="timeout" from="StaminaRegenTimer" to="." method="_on_stamina_regen_timer_timeout"]

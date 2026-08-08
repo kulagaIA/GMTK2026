@@ -40,7 +40,6 @@ metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 [node name="StaminaRegenRate" type="Node" parent="." unique_id=1300820611]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
-has_max_value = true
 tag = 11
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 

@@ -21,6 +21,7 @@ var _gameplay_started : bool = false
 func handle_gameplay_started() -> void:
 	update_hat()
 	_gameplay_started = true
+	last_shake_direction = 0
 
 func handle_gameplay_ended() -> void:
 	_reset_neck(0.7)
@@ -46,8 +47,6 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 #region Input
 
-var _last_mouse_direction: int = 0
-
 func _input(event: InputEvent) -> void:
 	if _gameplay_started and Input.is_action_just_pressed("pivo"):
 		if player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
@@ -70,20 +69,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 	if _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
-		if stunned:
-			var direction: int = signi(event.relative.x)
-			if direction != _last_mouse_direction:
-				shake_head()
-			_last_mouse_direction = direction
-			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity
-		else:
-			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity
+		if stunned or allow_turning:
+			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * horizontal_sensitivity_multiplier
+		if not stunned:
+			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * vertical_sensitivity_multiplier
 
 const MIN_TILT = deg_to_rad(-80)
 const MAX_TILT = deg_to_rad(40)
 
 const MIN_TURN = deg_to_rad(-20)
 const MAX_TURN = deg_to_rad(20)
+var shake_threshold : float = deg_to_rad(15.0) 
+var last_shake_direction : int = 0 
 
 const MAX_SWING_SPEED = 1500.0
 
@@ -91,8 +88,10 @@ var _mouse_moving : bool = false
 var _input_yaw : float
 var _input_pitch : float
 
-var flip_mouse_x : bool = false
+var flip_mouse_x : bool = true
 var flip_mouse_y : bool = true
+@export var vertical_sensitivity_multiplier : float = 1.0
+@export var horizontal_sensitivity_multiplier : float = 0.2
 
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
@@ -120,6 +119,9 @@ var neck_rise_progress : float:
 var neck_tilt : float:
 	get:
 		return remap(neck_position, min_neck_position, max_neck_position, MIN_TILT, MAX_TILT)
+var neck_turn : float:
+	get:
+		return _mouse_rotation.y
 
 var _neck_velocity : float = 0.0
 var _neck_acceleration : float = 0.0
@@ -163,7 +165,10 @@ func _consume_mouse_input(delta : float) -> void:
 	
 	
 	if allow_turning:
-		_player_rotation = Vector3(0, _mouse_rotation.y, 0)
+		_player_rotation = Vector3(0, neck_turn, 0)
+		if abs(neck_turn) > shake_threshold and sign(neck_turn) != last_shake_direction:
+			last_shake_direction = sign(neck_turn)
+			shake_head()
 	else:
 		_player_rotation = Vector3.ZERO
 	
@@ -200,14 +205,7 @@ func _process_camera(delta : float) -> void:
 
 var stunned : bool = false
 var stun_recovery : float = 0.0
-@export var stun_recovery_target : float = 100.0
-@export var stun_shakes_to_recover : int = 15
-var stun_recovery_per_shake : float:
-	get:
-		return (stun_recovery_target + 1.0) / stun_shakes_to_recover
-var health_recovery_per_shake : float:
-	get:
-		return player_state.max_stamina.value / stun_shakes_to_recover
+@export var stun_recovery_ratio : float = 0.7
 
 func stun() -> void:
 	if stunned:
@@ -229,21 +227,32 @@ func unstun() -> void:
 	stunned = false
 	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.STUN)
 	stun_status_changed.emit(stunned)
-	var tween := get_tree().create_tween()
-	tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
-	await tween.finished
+	#var tween := get_tree().create_tween()
+	#tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
+	#await tween.finished
+
+var _stamina_recovery_boost_mod : AttributeMod = null
+@onready var stamina_regen_timer: Timer = %StaminaRegenTimer
 
 func shake_head() -> void:
-	if not stunned:
-		return
-	player_state.stamina.add(health_recovery_per_shake)
-	stun_recovery += stun_recovery_per_shake
-	if stun_recovery >= stun_recovery_target:
-		unstun()
+	print(_stamina_recovery_boost_mod)
+	if not _stamina_recovery_boost_mod:
+		var regen_info := AttributeModInfo.new()
+		regen_info.mod_type = AttributeModInfo.ModType.ADD_FLAT
+		regen_info.mod_value = Game.starting_player_stats.shake_regen_boost
+		_stamina_recovery_boost_mod = player_state.stamina_regen_rate.add_modifier(regen_info)
+	stamina_regen_timer.start(Game.starting_player_stats.shake_regen_duration)
+
+func _on_stamina_regen_timer_timeout() -> void:
+	if _stamina_recovery_boost_mod:
+		_stamina_recovery_boost_mod.remove()
+		_stamina_recovery_boost_mod = null
 
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if new_value <= 0.0 and not stunned:
 		stun()
+	elif stunned and new_value >= player_state.stamina.max_value * stun_recovery_ratio:
+		unstun()
 
 #endregion
 #region Kickback

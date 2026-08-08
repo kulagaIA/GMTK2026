@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_gcej8")
+stamina_regen = 20.0
+shake_regen_boost = 2.0
 damage = 5.0
 initial_time = 5.0
 crit_chance = 1.0
