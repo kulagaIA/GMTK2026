@@ -76,7 +76,7 @@ func cleanup_gameplay() -> void:
 func stop_gameplay() -> void:
 	stop_gameplay_timer()
 	Game.canvas_manager.clear_layer(JamUtils.layer_ui_info)
-	player.handle_gameplay_ended()
+	await player.handle_gameplay_ended()
 
 #region Timer
 
@@ -90,6 +90,7 @@ func stop_gameplay_timer() -> void:
 	timer.stop()
 
 func _on_timer_depleted() -> void:
+	await stop_gameplay()
 	Game.change_game_state(GameState.ROUND_OVER)
 
 #endregion
