@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm162c22wvvce"
-path="res://.godot/imported/Gnome Redhead VER 2.glb-61f6802ee698f4c33085528a465a1563.scn"
+uid="uid://vjiohtucicw4"
+path="res://.godot/imported/Throne.glb-ae7f11b1e3a8164006c3e96e7c359a91.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/Gnome Redhead VER 2.glb"
-dest_files=["res://.godot/imported/Gnome Redhead VER 2.glb-61f6802ee698f4c33085528a465a1563.scn"]
+source_file="res://Assets/Level/Props/Throne.glb"
+dest_files=["res://.godot/imported/Throne.glb-ae7f11b1e3a8164006c3e96e7c359a91.scn"]
 
 [params]
 
@@ -41,10 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"head_Mat": {
+"M_ThoneAndBomb": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Characters/Material/head_Mat.tres",
-"use_external/path": "uid://dlq17j8qnbx8m"
+"use_external/fallback_path": "res://Assets/Level/Props/Material/M_ThoneAndBomb.tres",
+"use_external/path": "uid://ch4bw7pemwgps"
 }
 }
 }

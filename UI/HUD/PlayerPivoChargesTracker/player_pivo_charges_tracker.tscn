@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djfwcxl578sxb"]
 
 [ext_resource type="Script" uid="uid://c3ovcydmouyyw" path="res://UI/HUD/PlayerPivoChargesTracker/player_pivo_charges_tracker.gd" id="1_rhwgg"]
-[ext_resource type="Texture2D" uid="uid://cup6mv12fr4ih" path="res://UI/Assets/beer_icon_placeholder.png" id="2_jpoxn"]
+[ext_resource type="Texture2D" uid="uid://djnh5niwb1k0t" path="res://UI/HUD/Assets/Krujka_0_CHARGE.png" id="2_h0tlf"]
 
 [node name="DevPlayerPivoChargesTracker" type="Control" unique_id=2065985214]
 layout_mode = 3
@@ -14,12 +14,15 @@ script = ExtResource("1_rhwgg")
 
 [node name="PivoIcon" type="TextureRect" parent="." unique_id=2119628459]
 unique_name_in_owner = true
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jpoxn")
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_h0tlf")
 expand_mode = 2
 stretch_mode = 5

@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://dqrk6k01gt7qa" path="res://Assets/Level/Props/Spoon_01.glb" id="25_33gbk"]
 [ext_resource type="PackedScene" uid="uid://bdhrb12s6cpqn" path="res://Assets/Level/Props/Flag_01.glb" id="26_jpwbr"]
 [ext_resource type="PackedScene" uid="uid://bpakkiydhmrw8" path="res://Assets/Level/Props/Flag_02.001.glb" id="27_kr1e0"]
-[ext_resource type="PackedScene" uid="uid://bqgptn73c0msw" path="res://Assets/Level/Props/Throne_01.glb" id="29_fmksp"]
 [ext_resource type="PackedScene" uid="uid://capw5r2pqhrpt" path="res://Assets/Level/Props/Carpet_01.glb" id="29_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://bbtem2es7lgsr" path="res://Assets/Level/Props/Fire_base_01.glb" id="29_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://csri5bny1jarv" path="res://Assets/Level/FX/fire.tscn" id="31_lwa2w"]
@@ -38,7 +37,9 @@
 [ext_resource type="PackedScene" uid="uid://b4urmxh40tcft" path="res://Assets/Level/Props/Stool_01.glb" id="35_jpwbr"]
 [ext_resource type="PackedScene" uid="uid://bryo8ft1qjhrs" path="res://Assets/Characters/King_Animation.glb" id="36_kr1e0"]
 [ext_resource type="PackedScene" uid="uid://ctvack3fkmrtd" path="res://Assets/Level/Props/Napkin_02.glb" id="36_yr3df"]
+[ext_resource type="PackedScene" uid="uid://vjiohtucicw4" path="res://Assets/Level/Props/Throne.glb" id="39_5ekwc"]
 [ext_resource type="Material" uid="uid://ew2lwh0abwys" path="res://Assets/Level/Walls/Material/Black_wall.tres" id="39_s8mmm"]
+[ext_resource type="PackedScene" uid="uid://dvw2lpc4hxr26" path="res://Assets/Level/Props/Puff.glb" id="40_i6xau"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -119,7 +120,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Raillng2" parent="Walls" unique_id=703663645 instance=ExtResource("12_yr3df")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 10.2)
+transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 10.2)
 
 [node name="Big_colums_022" parent="Walls" unique_id=197557269 instance=ExtResource("13_dss6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
@@ -269,7 +270,7 @@ omni_range = 8.253
 omni_attenuation = 2.0
 
 [node name="Flag_012" parent="." unique_id=69328931 instance=ExtResource("26_jpwbr")]
-transform = Transform3D(0.8203939, 0, 0, 0, 0.8203939, 0, 0, 0, 0.8203939, 0, 14.0199995, 4)
+transform = Transform3D(0.81219, 0, 0, 0, 0.81219, 0, 0, 0, 0.8203939, 0, 15.129999, 4)
 
 [node name="Flag_02_0012" parent="." unique_id=489661372 instance=ExtResource("27_kr1e0")]
 transform = Transform3D(0.59999996, 0, 0, 0, 0.5980842, 0.07984849, 0, -0.047909107, 0.9968069, -12.6, 7.1000004, 11)
@@ -306,7 +307,7 @@ area_attenuation = 2.0
 transform = Transform3D(-1, 0, -8.7422784e-08, -2.990035e-08, 0.9396927, 0.34202015, 8.2150535e-08, 0.34202015, -0.9396927, 0, 8.200002, -7.6403236)
 light_color = Color(0.8494492, 0.6222856, 0.40430313, 1)
 light_energy = 16.0
-area_range = 13.435
+area_range = 5.452
 area_attenuation = 2.0
 
 [node name="AreaLight3D2" type="AreaLight3D" parent="." unique_id=458937719]
@@ -322,9 +323,6 @@ light_color = Color(0.8065398, 0.49382997, 0.11877137, 1)
 light_energy = 16.0
 area_range = 8.999
 area_attenuation = 2.0
-
-[node name="Throne_012" parent="." unique_id=354419004 instance=ExtResource("29_fmksp")]
-transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 2.3, 4.0999994)
 
 [node name="Carpet_012" parent="." unique_id=1683310644 instance=ExtResource("29_lwa2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030000001, 0.01999998, 9.83)
@@ -603,7 +601,7 @@ transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.984
 transform = Transform3D(0.98668456, 0, 0.16264558, 0, 1, 0, -0.16264558, 0, 0.98668456, 0.21302888, -0.29, 21.587843)
 
 [node name="King_Animation" parent="." unique_id=552292896 instance=ExtResource("36_kr1e0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.4, 5.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 2.45, 5.1)
 
 [node name="Napkin_022" parent="." unique_id=398013293 instance=ExtResource("36_yr3df")]
 transform = Transform3D(0.79695576, 0, -0.08715574, 0, 1, 0, 0.06972459, 0, 0.9961947, 0.009999998, 1.7800001, 19.720001)
@@ -612,3 +610,9 @@ transform = Transform3D(0.79695576, 0, -0.08715574, 0, 1, 0, 0.06972459, 0, 0.99
 transform = Transform3D(14.85, 0, 0, 0, -4.3711374e-08, 12.75, 0, -0.99999964, -5.573202e-07, 0, 12.5, -0.8000002)
 material_override = ExtResource("39_s8mmm")
 mesh = SubResource("PlaneMesh_4kxuq")
+
+[node name="Throne2" parent="." unique_id=1423907021 instance=ExtResource("39_5ekwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 2.5, 5.1000004)
+
+[node name="Puff2" parent="." unique_id=824148118 instance=ExtResource("40_i6xau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 2.52, 5.3000007)

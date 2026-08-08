@@ -3,36 +3,38 @@
 [ext_resource type="Script" uid="uid://c8dvt1lns1lgg" path="res://UI/Progression/progression_screen.gd" id="1_h64k1"]
 [ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_wj56m"]
 [ext_resource type="PackedScene" uid="uid://bi4geqtwdtgpq" path="res://UI/Progression/Attributes/attribute_level_upgrader.tscn" id="2_1tcv4"]
-[ext_resource type="Texture2D" uid="uid://datr6hy3cd3je" path="res://UI/Progression/Assets/menu_BG.png" id="3_2proi"]
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="3_qdwcu"]
-[ext_resource type="Texture2D" uid="uid://bedcrvb7h4vl0" path="res://UI/Progression/Assets/upgrades.png" id="4_s0rk6"]
+[ext_resource type="Texture2D" uid="uid://bfykwnwu1cb4w" path="res://UI/Progression/Assets/New/Upgrade_Window.png" id="3_t6603"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="4_wj56m"]
 [ext_resource type="FontFile" uid="uid://dyp84fgnvqc65" path="res://UI/Progression/Font/Balthazar-Regular.ttf" id="5_lnyxp"]
 [ext_resource type="Texture2D" uid="uid://cy4aqvdk6gd3c" path="res://Game/Tutorial/InputHints/vector_whiteIcons.svg" id="5_xdk4a"]
-[ext_resource type="Texture2D" uid="uid://uc0fgeaivlq6" path="res://UI/Progression/Assets/watermelon_but.png" id="6_rp3xo"]
-[ext_resource type="Texture2D" uid="uid://dqcox7cumw33i" path="res://UI/Progression/Assets/watermelonn_icon.png" id="7_5uakg"]
 [ext_resource type="Texture2D" uid="uid://u2j822ymooqr" path="res://UI/Progression/Assets/exp.png" id="8_ou33j"]
 [ext_resource type="Texture2D" uid="uid://lgi031tw3pai" path="res://UI/Progression/Assets/dmg.png" id="10_fiv3w"]
 [ext_resource type="Texture2D" uid="uid://cc1igtp2kwrqc" path="res://UI/Progression/Assets/sec.png" id="11_aaqxj"]
 [ext_resource type="Texture2D" uid="uid://bqcvf57fmk7ro" path="res://UI/Progression/Assets/crit_ch.png" id="12_2toln"]
+[ext_resource type="Texture2D" uid="uid://cvcavq7f1j5w4" path="res://UI/Progression/Assets/New/NextRoundFlat.png" id="12_5ge30"]
 [ext_resource type="Texture2D" uid="uid://c7detgytbi5qq" path="res://UI/Progression/Assets/crit_str.png" id="13_42rac"]
+[ext_resource type="Texture2D" uid="uid://cob25q4cejeqs" path="res://UI/Progression/Assets/New/NextRoundFocus.png" id="13_k6ap8"]
 [ext_resource type="Texture2D" uid="uid://dwx1sm7rp2gde" path="res://UI/Progression/Assets/abilities.png" id="14_eeoo1"]
-[ext_resource type="Texture2D" uid="uid://cmlqx47xmi1nx" path="res://UI/Progression/Assets/start.png" id="15_4xlrk"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4kxuq"]
-texture = ExtResource("3_2proi")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62yky"]
-texture = ExtResource("4_s0rk6")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mti6b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxelv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mti6b"]
-texture = ExtResource("6_rp3xo")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm1bc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm1bc"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62yky"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ekwc"]
+texture = ExtResource("12_5ge30")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2proi"]
+texture = ExtResource("13_k6ap8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6xau"]
+texture = ExtResource("13_k6ap8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h73s"]
 atlas = ExtResource("5_xdk4a")
@@ -56,7 +58,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_4kxuq")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4kxuq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=540195905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 625.0
+offset_top = 1.3087769
+offset_right = 623.0
+offset_bottom = 713.6963
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_t6603")
 
 [node name="Panel3" type="Panel" parent="." unique_id=1889343771]
 layout_mode = 1
@@ -69,19 +85,19 @@ offset_left = -0.6000366
 offset_top = 0.07999802
 offset_right = -4.3200684
 offset_bottom = 0.0799942
-theme_override_styles/panel = SubResource("StyleBoxTexture_62yky")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mti6b")
 
 [node name="TextEdit" type="Label" parent="Panel3" unique_id=2130455727]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.068
-anchor_top = 0.208
-anchor_right = 0.93200004
-anchor_bottom = 0.85400003
-offset_left = 2.0519981
-offset_top = -3.9759998
-offset_right = -141.052
-offset_bottom = -4.488003
+anchor_left = 0.06313382
+anchor_top = 0.13855556
+anchor_right = 0.66013384
+anchor_bottom = 0.73655564
+offset_left = 17.051998
+offset_top = -2.9759998
+offset_right = -16.315002
+offset_bottom = -0.03200531
 theme_override_colors/font_color = Color(0.88720316, 0.6593863, 0.2385357, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.2784314)
 theme_override_colors/font_outline_color = Color(0.059373558, 0.0039156917, 0.0039156917, 1)
@@ -93,52 +109,46 @@ theme_override_fonts/font = ExtResource("5_lnyxp")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pxelv")
 text = "Upgrades"
+horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="." unique_id=1736499337]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.84400004
+anchor_left = 0.74600005
 anchor_top = 0.021000002
 anchor_right = 0.98100007
-anchor_bottom = 0.156
-offset_left = -0.32006836
+anchor_bottom = 0.126
+offset_left = 0.11993408
 offset_top = -0.12000084
 offset_right = 0.3199463
-offset_bottom = -0.3199997
-theme_override_styles/panel = SubResource("StyleBoxTexture_mti6b")
+offset_bottom = 0.27999878
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mm1bc")
 
 [node name="PointLabel" type="Label" parent="Panel2" unique_id=1364749207]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.53400004
-anchor_top = 0.381
-anchor_right = 0.841
-anchor_bottom = 0.67
+anchor_left = 0.35875085
+anchor_top = 0.3283816
+anchor_right = 0.66575086
+anchor_bottom = 0.8025
 offset_left = 0.015991211
 offset_top = 0.042999268
 offset_right = -0.01600647
 offset_bottom = 0.010002136
 grow_horizontal = 0
-theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_colors/font_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/font = ExtResource("5_lnyxp")
+theme_override_font_sizes/font_size = 40
 text = "1000"
-
-[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=1745380702]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.18200001
-anchor_top = 0.25300002
-anchor_right = 0.47700003
-anchor_bottom = 0.74700004
-offset_left = -0.032001495
-offset_top = -0.041002274
-offset_right = 0.04799652
-offset_bottom = 0.040992737
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("7_5uakg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1037505900]
 layout_mode = 1
@@ -294,20 +304,17 @@ target_attribute = 12
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.62
-anchor_top = 0.83500004
-anchor_right = 0.86100006
-anchor_bottom = 0.97900003
+anchor_left = 0.50906247
+anchor_top = 0.80027777
+anchor_right = 0.9680313
+anchor_bottom = 0.9567778
 offset_left = -0.5999756
 offset_top = -0.2000122
 offset_right = -0.080078125
 offset_bottom = 0.11999512
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1964266140]
-layout_mode = 2
-texture = ExtResource("15_4xlrk")
+metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="Button" parent="MarginContainer" unique_id=1815980857]
 unique_name_in_owner = true
@@ -317,7 +324,9 @@ theme_override_colors/font_focus_color = Color(0.8862745, 0.65882355, 0.23921569
 theme_override_colors/font_outline_color = Color(0.05490196, 0.003921569, 0.003921569, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = SubResource("StyleBoxEmpty_62yky")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5ekwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2proi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_i6xau")
 text = "Next Round"
 
 [node name="ProgressionTutorial" type="Control" parent="." unique_id=15828988]

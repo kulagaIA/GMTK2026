@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bhap6c3ld4428" path="res://UI/HUD/PlayerStaminaTracker/player_stamina_tracker.tscn" id="2_ing8j"]
 [ext_resource type="PackedScene" uid="uid://c1fu6su2mvk84" path="res://UI/HUD/DamageNumbers/damage_numbers_overlay.tscn" id="3_a0tlv"]
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
+[ext_resource type="Texture2D" uid="uid://ep4ku5wjn0a2" path="res://UI/HUD/Assets/MelonsCharmsVelosityBG.png" id="4_7eeat"]
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
+[ext_resource type="Texture2D" uid="uid://c457c8iperdgl" path="res://UI/HUD/Assets/Avatar_BG.png" id="4_wb36f"]
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
+[ext_resource type="Texture2D" uid="uid://c6bumgp8pwaow" path="res://UI/HUD/Assets/Timer_Panel.png" id="5_vat4w"]
 [ext_resource type="PackedScene" uid="uid://desxqv8rcmelh" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.tscn" id="7_s83ig"]
 [ext_resource type="PackedScene" uid="uid://djfwcxl578sxb" path="res://UI/HUD/PlayerPivoChargesTracker/player_pivo_charges_tracker.tscn" id="8_adata"]
 [ext_resource type="PackedScene" uid="uid://cnbg5s70g4n6i" path="res://UI/HUD/PointsTracker/dev_points_tracker.tscn" id="8_db5ks"]
@@ -35,17 +38,59 @@ script = ExtResource("1_ia7gp")
 [node name="DamageNumbersOverlay" parent="." unique_id=462550679 instance=ExtResource("3_a0tlv")]
 layout_mode = 1
 
+[node name="MelonsCharmsVelosityBG" type="TextureRect" parent="." unique_id=1887798808]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.001
+offset_left = -231.0
+offset_top = 0.99999994
+offset_right = 302.0
+offset_bottom = 221.28
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_7eeat")
+
+[node name="TimerBG" type="TextureRect" parent="." unique_id=774830427]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_right = 445.0
+offset_bottom = 330.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_vat4w")
+
+[node name="AvatarBG" type="TextureRect" parent="." unique_id=1568243038]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.001
+anchor_top = 0.98600006
+anchor_right = -0.001
+anchor_bottom = 0.98600006
+offset_left = 0.27999926
+offset_top = -225.92001
+offset_right = 1818.28
+offset_bottom = 1070.08
+grow_vertical = 0
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("4_wb36f")
+
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
 layout_mode = 1
-anchor_left = 0.25500003
-anchor_top = 0.59900004
-anchor_right = 0.294
-anchor_bottom = 0.95600003
+anchor_left = 0.17843752
+anchor_top = 0.69900006
+anchor_right = 0.21400002
+anchor_bottom = 0.95155555
 offset_left = 0.5999756
 offset_top = -0.2800293
-offset_right = -0.32000732
-offset_bottom = -0.32000732
+offset_right = 0.07998657
+offset_bottom = -0.11999512
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ComboCounter" parent="." unique_id=1076786393 instance=ExtResource("5_abcde")]
 visible = false
@@ -67,11 +112,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -50.0
-offset_top = 22.0
+offset_top = 34.0
 offset_right = 50.0
-offset_bottom = 72.0
+offset_bottom = 84.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
+text = "00:00"
 horizontal_alignment = 1
 
 [node name="FaceDisplay" parent="." unique_id=2091583509 instance=ExtResource("4_qdh7y")]
@@ -80,14 +126,14 @@ top_level = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.027
-anchor_top = 0.59300005
-anchor_right = 0.22900002
-anchor_bottom = 0.95300007
-offset_left = -0.5600014
-offset_top = 0.03994751
-offset_right = -0.120025635
-offset_bottom = -0.16003418
+anchor_left = 0.012
+anchor_top = 0.70400006
+anchor_right = 0.16700001
+anchor_bottom = 0.929
+offset_left = 0.6399994
+offset_top = 0.1199646
+offset_right = 0.23999023
+offset_bottom = 0.11999512
 grow_vertical = 0
 texture = SubResource("PlaceholderTexture2D_qdh7y")
 expand_mode = 3
@@ -119,11 +165,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -203.0
-offset_bottom = 81.0
+offset_left = -161.0
+offset_bottom = 82.0
 grow_horizontal = 0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=510534195]
+visible = false
 layout_mode = 2
 texture = ExtResource("9_adata")
 stretch_mode = 5
