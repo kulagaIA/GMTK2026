@@ -29,7 +29,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	regenerate_stamina(delta)
+	if not get_tree().paused and Game.player._gameplay_started:
+		regenerate_stamina(delta)
 
 func reset() -> void:
 	pivo.reset()
