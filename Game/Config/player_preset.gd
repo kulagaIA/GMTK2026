@@ -3,6 +3,7 @@ extends Resource
 
 @export var display_name: String = "Base Player"
 @export var max_stamina: float = 100
+@export var stamina_decay_per_hit: float = 20.0
 @export var stamina_regen: float = 1
 @export var stamina_regen_rate: float = 1
 @export var stamina_regen_curve: Curve =  preload("res://Data/Player/stamina_regen_curve.tres")

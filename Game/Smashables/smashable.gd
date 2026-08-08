@@ -40,7 +40,8 @@ func apply_stats(stats: SmashableResource) -> void:
 	_sound_player.configure(stats)
 
 func get_base_damage() -> float:
-	return damage.value
+	#return damage.value
+	return Game.player_state.stamina_decay.value
 
 # HACK: this is hard-coded to be damage to attacker, called before PlayerState
 func modify_hit(info: HitInfo) -> void:

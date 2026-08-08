@@ -5,6 +5,7 @@ extends Node
 @onready var stamina: DynamicAttribute = %Stamina
 @onready var stamina_regen: DynamicAttribute = %StaminaRegen
 @onready var stamina_regen_rate: DynamicAttribute = %StaminaRegenRate
+@onready var stamina_decay: DynamicAttribute = %StaminaDecay
 @onready var damage: DynamicAttribute = %Damage
 @onready var sensitivity: DynamicAttribute = %Sensitivity
 @onready var points: SimpleAttribute = %Points
@@ -48,6 +49,7 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	stamina_regen.set_value(stats.stamina_regen)
 	stamina_regen_rate.set_value(stats.stamina_regen_rate)
 	stamina_regen_curve = stats.stamina_regen_curve
+	stamina_decay.set_value(stats.stamina_decay_per_hit)
 	damage.set_value(stats.damage)
 	sensitivity.set_value(stats.sensitivity)
 	points.set_value(stats.points)

@@ -43,6 +43,13 @@ script = ExtResource("3_dr5hc")
 tag = 11
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
+[node name="StaminaDecay" type="Node" parent="." unique_id=1466923209]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+_starting_value = 20.0
+tag = 13
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
 [node name="Damage" type="Node" parent="." unique_id=500112805]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
