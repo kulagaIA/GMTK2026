@@ -138,7 +138,7 @@ func set_head_rotation(pitch: float, yaw: float) -> void:
 
 var current_hat : Node3D = null
 
-func spawn_hat_from_scene(hat_scene : PackedScene) -> void:
+func equip_hat_from_scene(hat_scene : PackedScene) -> void:
 	if current_hat:
 		current_hat.queue_free()
 		current_hat = null

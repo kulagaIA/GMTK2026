@@ -43,10 +43,13 @@ queue_tween_transition = 11
 unique_name_in_owner = true
 transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, 0.12705837, 0.66999954, 21.534143)
 
-[node name="head_bone" type="BoneAttachment3D" parent="Main_character2/RIG/Skeleton3D" parent_id_path=PackedInt32Array(1116912929, 912763886) index="36" unique_id=1167572101]
+[node name="head_bone" type="BoneAttachment3D" parent="Main_character2/RIG/Skeleton3D" parent_id_path=PackedInt32Array(1116912929, 46337024) index="36" unique_id=1167572101]
 transform = Transform3D(-1, -4.931419e-08, 2.3550847e-07, 9.715432e-09, -0.98609823, -0.16616149, 2.4040344e-07, -0.16616145, 0.9860986, 0.08757978, 4.390349, 0.17937657)
 bone_name = "head_2"
 bone_idx = 17
+
+[node name="hat_root" type="Node3D" parent="Main_character2/RIG/Skeleton3D/head_bone" unique_id=2012087628]
+transform = Transform3D(-0.24996765, 0.0040055253, -0.0003544184, -0.0040040202, -0.24996577, -0.0010397972, -0.0003710317, -0.0010339855, 0.24999759, 0.00029425044, -0.09508126, -0.07631203)
 
 [node name="HatSocket" type="Node3D" parent="Main_character2" unique_id=1513978765]
 unique_name_in_owner = true

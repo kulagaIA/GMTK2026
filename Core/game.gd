@@ -20,7 +20,7 @@ func toggle_mouse_cursor() -> void:
 
 #region Jam
 
-var player_head : Node
+var player_head : Node3D
 
 var mouse_sensitivity_setting : float = 1.0
 
