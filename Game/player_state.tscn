@@ -100,6 +100,7 @@ metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 [node name="PivoChargePerHit" type="Node" parent="." unique_id=254355559]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
+_starting_value = 0.025
 tag = 12
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
