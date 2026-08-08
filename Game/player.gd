@@ -246,7 +246,6 @@ var _stamina_recovery_boost_mod : AttributeMod = null
 @onready var stamina_regen_timer: Timer = %StaminaRegenTimer
 
 func shake_head() -> void:
-	print(_stamina_recovery_boost_mod)
 	if not _stamina_recovery_boost_mod:
 		var regen_info := AttributeModInfo.new()
 		regen_info.mod_type = AttributeModInfo.ModType.ADD_FLAT
