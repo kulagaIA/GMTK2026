@@ -164,7 +164,7 @@ func load_level(config: SmashLevelConfig) -> void:
 	var pools_sum_size : int = 0
 	for pool : SmashablesPool in pools:
 		pools_sum_size += pool.count
-	for i in range(Game.level_config.bomb_min_space_between, pools_sum_size - Game.level_config.bomb_min_space_between):
+	for i in range(Game.level_config.bomb_start_prohibited_positions, pools_sum_size - Game.level_config.bomb_end_prohibited_positions):
 		available_positions.append(i)
 	available_positions.shuffle()
 	var selected_positions: Array[int] = []
