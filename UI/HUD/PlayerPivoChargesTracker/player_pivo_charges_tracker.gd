@@ -6,7 +6,6 @@ extends Control
 @export var background_color := Color(0.2,0.2,0.2,0.5)
 
 @onready var icon : TextureRect = %PivoIcon
-@onready var counter : Label = %PivoChargesCounter
 
 func _draw():
 	var rect = icon.get_rect()
@@ -44,6 +43,5 @@ func _on_player_pivo_charges_value_changed(attribute: Attribute, new_value: floa
 	show_value(new_value)
 
 func show_value(value : float) -> void:
-	progress = fmod(value, 1.0)
+	progress = clamp(value, 0.0, 1.0)
 	queue_redraw()
-	counter.text = str(int(value)) 

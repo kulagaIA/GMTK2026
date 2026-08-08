@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
 [ext_resource type="PackedScene" uid="uid://desxqv8rcmelh" path="res://UI/HUD/SmashablesQueueTracker/dev_smashables_queue_tracker.tscn" id="7_s83ig"]
-[ext_resource type="PackedScene" uid="uid://djfwcxl578sxb" path="res://UI/HUD/PlayerPivoChargesTracker/dev_player_pivo_charges_tracker.tscn" id="8_adata"]
+[ext_resource type="PackedScene" uid="uid://djfwcxl578sxb" path="res://UI/HUD/PlayerPivoChargesTracker/player_pivo_charges_tracker.tscn" id="8_adata"]
 [ext_resource type="PackedScene" uid="uid://cnbg5s70g4n6i" path="res://UI/HUD/PointsTracker/dev_points_tracker.tscn" id="8_db5ks"]
 [ext_resource type="Texture2D" uid="uid://dqcox7cumw33i" path="res://UI/Progression/Assets/watermelonn_icon.png" id="9_adata"]
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="9_h1lrf"]
@@ -37,7 +37,6 @@ layout_mode = 1
 
 [node name="DevPlayerHealthTracker" parent="." unique_id=1732815039 instance=ExtResource("2_ing8j")]
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.25500003
 anchor_top = 0.59900004
 anchor_right = 0.294
@@ -47,7 +46,6 @@ offset_top = -0.2800293
 offset_right = -0.32000732
 offset_bottom = -0.32000732
 grow_horizontal = 2
-grow_vertical = 0
 
 [node name="ComboCounter" parent="." unique_id=1076786393 instance=ExtResource("5_abcde")]
 visible = false
