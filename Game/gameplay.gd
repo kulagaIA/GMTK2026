@@ -57,7 +57,7 @@ func restart_gameplay() -> void:
 	load_level(Game.level_config)
 	player_state.reset()
 	var countdown := countdown_scene.instantiate() as Control
-	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
+	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_menu, countdown)
 	await countdown.tree_exited
 	if not Game.game_state_machine.current_state is GameplayGameState:
 		return

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c5t1j23bw2cpp"]
 
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_a4wvi"]
 [ext_resource type="Script" uid="uid://cmir3bvicdppq" path="res://UI/Info/round_countdown.gd" id="1_ms2hh"]
 
 [node name="RoundCuntdown" type="Control" unique_id=1625627585]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_a4wvi")
 script = ExtResource("1_ms2hh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=677199249]
@@ -21,6 +23,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="CountdownLabel" type="Label" parent="." unique_id=729957646]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,6 +42,23 @@ text = "3"
 [node name="Timer" type="Timer" parent="." unique_id=631630201]
 wait_time = 3.0
 one_shot = true
-autostart = true
+
+[node name="StartButton" type="Button" parent="." unique_id=1220786650]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -21.0
+offset_right = 33.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "Start"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
