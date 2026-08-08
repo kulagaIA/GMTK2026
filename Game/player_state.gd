@@ -78,7 +78,8 @@ func modify_hit(info: HitInfo) -> void:
 	info.damage_to_attacker_modified /= damage_resistance.value
 
 func _on_hit_occurred(info: HitInfo) -> void:
-	pivo_charges.add(pivo_charge_per_hit.value)
+	if not pivo.is_active():
+		pivo_charges.add(pivo_charge_per_hit.value)
 
 func apply_damage(amount: float) -> void:
 	consume_stamina(amount)
