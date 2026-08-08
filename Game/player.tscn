@@ -53,5 +53,6 @@ tag = 3
 
 [node name="FaceRenderer" parent="." unique_id=1238039156 instance=ExtResource("3_xhrf0")]
 unique_name_in_owner = true
+camera_follow_speed = 20.0
 
 [connection signal="timeout" from="StaminaRegenTimer" to="." method="_on_stamina_regen_timer_timeout"]
