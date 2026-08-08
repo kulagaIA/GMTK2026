@@ -67,7 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Mouse input
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _mouse_moving and not _drinking_pivo:
+	if _gameplay_started and _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned or allow_turning:
 			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * horizontal_sensitivity_multiplier
