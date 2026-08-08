@@ -59,6 +59,8 @@ func restart_gameplay() -> void:
 	var countdown := countdown_scene.instantiate() as Control
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_info, countdown)
 	await countdown.tree_exited
+	if not Game.game_state_machine.current_state is GameplayGameState:
+		return
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
 	if player_state.pivo_charges.value >= 1.0:
 		Game.tutorial_manager.request_tutorial(Tutorial.Tag.BEER)
@@ -73,6 +75,7 @@ func cleanup_gameplay() -> void:
 
 func stop_gameplay() -> void:
 	stop_gameplay_timer()
+	Game.canvas_manager.clear_layer(JamUtils.layer_ui_info)
 	player.handle_gameplay_ended()
 
 #region Timer
