@@ -4,19 +4,19 @@ extends Control
 
 @export var tag : Tutorial.Tag
 
-var tutorial : Tutorial:
+var manager : Tutorial:
 	get:
 		return Game.tutorial_manager
 
 func _ready() -> void:
-	assert(tutorial)
-	tutorial.tutorial_requested.connect(_on_tutorial_requested)
-	tutorial.tutorial_dismissed.connect(_on_tutorial_dismissed)
+	assert(manager)
+	manager.tutorial_requested.connect(_on_tutorial_requested)
+	manager.tutorial_dismissed.connect(_on_tutorial_dismissed)
 
 func _exit_tree() -> void:
-	if tutorial:
-		tutorial.tutorial_requested.disconnect(_on_tutorial_requested)
-		tutorial.tutorial_dismissed.disconnect(_on_tutorial_dismissed)
+	if manager:
+		manager.tutorial_requested.disconnect(_on_tutorial_requested)
+		manager.tutorial_dismissed.disconnect(_on_tutorial_dismissed)
 
 
 func _on_tutorial_requested(tutorial : Tutorial.Tag) -> void:
