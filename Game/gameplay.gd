@@ -186,7 +186,7 @@ func load_level(config: SmashLevelConfig) -> void:
 	for pool in config.pools:
 		for idx in range(pool.count):
 			if selected_positions.find(current_insert_pos) != -1 :
-				smashables.append(BOMB_RESOURCE.duplicate(true))
+				smashables.append(BOMB_RESOURCE)
 			smashables.append(pool.smashable)
 			current_insert_pos += 1
 	queue_smashables(spawned_queue.queue_size)
