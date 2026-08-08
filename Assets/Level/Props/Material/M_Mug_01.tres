@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b6fdf4k8biqm2"]
+
+[ext_resource type="Texture2D" uid="uid://def55gbanv7as" path="res://Assets/Level/Props/Mug_01_warcraft beer mug.png" id="1_33rhr"]
+
+[resource]
+resource_name = "M_Mug_01"
+cull_mode = 2
+albedo_texture = ExtResource("1_33rhr")
+roughness = 0.5
+disable_receive_shadows = true
+metadata/extras = {
+"yp": {
+"active_ypaint_node": "Group",
+"expand_content": 0.0
+}
+}
+metadata/_gltf_primary_texture_coord = 0

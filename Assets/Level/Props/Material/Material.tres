@@ -6,5 +6,5 @@ cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 emission_enabled = true
-emission = Color(0.970377, 0.6060081, 3.85046e-07, 1)
-emission_energy_multiplier = 1.77
+emission = Color(0.8229486, 0.47629076, 0, 1)
+emission_energy_multiplier = 0.8

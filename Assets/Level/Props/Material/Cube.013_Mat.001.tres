@@ -6,8 +6,8 @@
 resource_name = "Cube.013_Mat.001"
 cull_mode = 2
 albedo_texture = ExtResource("1_bsvn6")
-roughness = 0.5
-disable_receive_shadows = true
+roughness = 0.6
+refraction_enabled = true
 metadata/extras = {
 "tex_overlay_mappings": ["UV"],
 "yp": {

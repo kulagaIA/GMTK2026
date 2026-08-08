@@ -8,7 +8,7 @@ cull_mode = 2
 albedo_texture = ExtResource("1_njwqw")
 metallic_specular = 0.0
 roughness = 0.5
-disable_receive_shadows = true
+refraction_enabled = true
 metadata/extras = {
 "tex_overlay_mappings": ["UV"],
 "yp": {

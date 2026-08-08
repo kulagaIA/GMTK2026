@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ddc2md0ktb1me"
-path="res://.godot/imported/Mug_01.glb-0e2ebe478ad055885f044f9b920a75d8.scn"
+uid="uid://ctvack3fkmrtd"
+path="res://.godot/imported/Napkin_02.glb-2960b47d91a6ae0f7e6799641564f40a.scn"
 
 [deps]
 
-source_file="res://Assets/Level/Props/Mug_01.glb"
-dest_files=["res://.godot/imported/Mug_01.glb-0e2ebe478ad055885f044f9b920a75d8.scn"]
+source_file="res://Assets/Level/Props/Napkin_02.glb"
+dest_files=["res://.godot/imported/Napkin_02.glb-2960b47d91a6ae0f7e6799641564f40a.scn"]
 
 [params]
 
@@ -41,13 +41,13 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"M_Mug_01": {
+"M_Props_01": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Level/Props/Material/M_Mug_01.tres",
-"use_external/path": "uid://b6fdf4k8biqm2"
+"use_external/fallback_path": "res://Assets/Level/Props/Material/M_Props_01.tres",
+"use_external/path": "uid://bh75tn2xw7vty"
 }
 }
 }
 gltf/naming_version=2
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=2
 gltf/texture_map_mode=1

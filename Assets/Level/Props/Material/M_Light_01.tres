@@ -4,11 +4,12 @@
 
 [resource]
 resource_name = "M_Light_01"
-transparency = 4
+transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 0.80165195, 0.43326247, 1)
 albedo_texture = ExtResource("1_m60om")
 roughness = 0.5
 emission_enabled = true
 emission = Color(0.5832219, 0.35644352, 0.08263809, 1)
+refraction_scale = -0.93
 metadata/_gltf_primary_texture_coord = 0

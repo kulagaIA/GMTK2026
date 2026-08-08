@@ -2,32 +2,34 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5sys2e8253cb"
-path.s3tc="res://.godot/imported/texturea_stol_normal-2.png-b45730c09a2a4d352085293c907d8036.s3tc.ctex"
+uid="uid://def55gbanv7as"
+path="res://.godot/imported/Mug_01_warcraft beer mug.png-51c6b5912502ed9f376a028bb0813aec.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "fbdef127662a4e49d3e48d19f7c805fd"
 }
 
 [deps]
 
-source_file="res://Assets/Level/Props/texturea_stol_normal-2.png"
-dest_files=["res://.godot/imported/texturea_stol_normal-2.png-b45730c09a2a4d352085293c907d8036.s3tc.ctex"]
+source_file="res://Assets/Level/Props/Mug_01_warcraft beer mug.png"
+dest_files=["res://.godot/imported/Mug_01_warcraft beer mug.png-51c6b5912502ed9f376a028bb0813aec.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Assets/Level/Props/texturea_stol_normal-2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

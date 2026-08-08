@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cvmhfustpt876"]
 
-[ext_resource type="Texture2D" uid="uid://c5xc2145avxt7" path="res://Assets/Level/Walls/Wall_texture.jpg" id="1_l4rsr"]
+[ext_resource type="Texture2D" uid="uid://47r6ldwwk41i" path="res://Assets/Level/Walls/Concept_env_fronn_view_04.jpg" id="1_l4rsr"]
 
 [resource]
 resource_name = "M_Wall_01"
@@ -8,4 +8,6 @@ cull_mode = 2
 albedo_texture = ExtResource("1_l4rsr")
 metallic_specular = 0.0
 roughness = 0.5
+detail_blend_mode = 3
+disable_receive_shadows = true
 metadata/_gltf_primary_texture_coord = 0

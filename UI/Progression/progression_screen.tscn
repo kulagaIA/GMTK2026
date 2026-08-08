@@ -25,9 +25,7 @@ texture = ExtResource("3_2proi")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_62yky"]
 texture = ExtResource("4_s0rk6")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mti6b"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxelv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mti6b"]
 texture = ExtResource("6_rp3xo")
@@ -80,15 +78,20 @@ anchor_left = 0.068
 anchor_top = 0.208
 anchor_right = 0.93200004
 anchor_bottom = 0.85400003
-offset_left = 0.05199814
-offset_top = 0.024000168
-offset_right = -0.052001953
-offset_bottom = -3.4880028
-theme_override_colors/font_color = Color(0.81757176, 0.5918121, 0.31368482, 1)
+offset_left = 2.0519981
+offset_top = -3.9759998
+offset_right = -141.052
+offset_bottom = -4.488003
+theme_override_colors/font_color = Color(0.88720316, 0.6593863, 0.2385357, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.2784314)
+theme_override_colors/font_outline_color = Color(0.059373558, 0.0039156917, 0.0039156917, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("5_lnyxp")
-theme_override_font_sizes/font_size = 37
-theme_override_styles/normal = SubResource("StyleBoxEmpty_4kxuq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mti6b")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pxelv")
 text = "Upgrades"
 vertical_alignment = 1
 
@@ -164,8 +167,14 @@ stretch_mode = 5
 [node name="HealthLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1945423147]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_colors/font_color = Color(1, 0.7433313, 0.269822, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5764706)
+theme_override_colors/font_outline_color = Color(0.05490196, 0.003921569, 0.003921569, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
 theme_override_fonts/font = ExtResource("5_lnyxp")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxTexture_mm1bc")
 text = "Health:"
 
@@ -186,7 +195,14 @@ stretch_mode = 5
 [node name="DamageLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1806006289]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.85882354, 0.6627451, 0.41960785, 1)
+theme_override_colors/font_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4745098)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 35
 text = "Damage:"
 
 [node name="DamageUpgrader" parent="VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
@@ -296,7 +312,10 @@ texture = ExtResource("15_4xlrk")
 [node name="Back" type="Button" parent="MarginContainer" unique_id=1815980857]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9593652, 0.7345416, 0.4122536, 1)
+theme_override_colors/font_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
+theme_override_colors/font_focus_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
+theme_override_colors/font_outline_color = Color(0.05490196, 0.003921569, 0.003921569, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxEmpty_62yky")
 text = "Next Round"
