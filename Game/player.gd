@@ -24,9 +24,9 @@ func handle_gameplay_started() -> void:
 	last_shake_direction = 0
 
 func handle_gameplay_ended() -> void:
-	_reset_neck(0.7)
-	unstun()
 	_gameplay_started = false
+	unstun()
+	await _reset_neck(0.7, true, true)
 
 func _exit_tree() -> void:
 	pass
@@ -223,13 +223,19 @@ func stun() -> void:
 		return
 	stunned = true
 	stun_recovery = 0
-	_reset_neck(0.7)
+	_reset_neck(0.7, true, false)
 	stun_status_changed.emit(stunned)
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
 
-func _reset_neck(duration : float) -> void:
+func _reset_neck(duration : float, reset_tilt : bool, reset_turn : bool) -> void:
+	if not (reset_tilt or reset_turn):
+		return
 	var tween := get_tree().create_tween()
-	tween.tween_property(self, "neck_position", starting_neck_position, duration)
+	tween.set_parallel()
+	if reset_tilt:
+		tween.tween_property(self, "neck_position", starting_neck_position, duration)
+	if reset_turn:
+		tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, duration)
 	await tween.finished
 
 func unstun() -> void:
@@ -289,7 +295,7 @@ var _drinking_pivo: bool = false
 func _start_drinking_pivo() -> void:
 	_drinking_pivo = true
 	pivo_path_follow.progress_ratio = 0
-	_reset_neck(drinking_time / 2 - .2)
+	_reset_neck(drinking_time / 2 - .2, true, true)
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(pivo_path_follow, "progress_ratio", 1, drinking_time / 2).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(pivo_path_follow, "progress_ratio", 0, drinking_time / 2).set_ease(Tween.EASE_IN_OUT)
