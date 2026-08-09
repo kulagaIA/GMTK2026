@@ -324,9 +324,9 @@ func _start_drinking_pivo() -> void:
 
 var current_hat : Node3D = null
 func update_hat() -> void:
-	var hp_level : int = player_state.progression_data.get_attribute_level(Attribute.Tag.MAX_STAMINA)
+	var hp_level : int = player_state.progression_data.get_attribute_level(Attribute.Tag.STAMINA_DECAY)
 	if hp_level >= 0:
-		var hp_progression : AttributeProgressionInfo = Game.progression_config.get_progression_for_attribute(Attribute.Tag.MAX_STAMINA)
+		var hp_progression : AttributeProgressionInfo = Game.progression_config.get_progression_for_attribute(Attribute.Tag.STAMINA_DECAY)
 		var hat_scene := hp_progression.levels[hp_level].hat_scene
 		face_renderer.equip_hat_from_scene(hat_scene)
 		if current_hat:

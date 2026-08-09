@@ -7,7 +7,6 @@
 
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
-seconds_before_bomb_skip = 0.1
 boss_type = ExtResource("3_4531b")
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1989958060]
