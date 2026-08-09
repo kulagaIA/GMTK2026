@@ -72,3 +72,4 @@ transform = Transform3D(0.28232402, 0, -0.5294272, 0, 0.59999996, 0, 0.5294272, 
 
 [editable path="Level"]
 [editable path="Main_character2"]
+[editable path="npc1"]
