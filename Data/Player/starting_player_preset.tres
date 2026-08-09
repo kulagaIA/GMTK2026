@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_gcej8")
-stamina_decay_per_hit = 40.0
+stamina_decay_per_hit = 1.0
 stamina_regen = 30.0
 shake_regen_boost = 2.0
 damage = 15.0
