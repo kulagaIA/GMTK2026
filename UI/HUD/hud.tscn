@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://djqmikqpsfu2g" path="res://UI/HUD/Timer/timer.tscn" id="3_te8l2"]
 [ext_resource type="Texture2D" uid="uid://ep4ku5wjn0a2" path="res://UI/HUD/Assets/MelonsCharmsVelosityBG.png" id="4_7eeat"]
 [ext_resource type="PackedScene" uid="uid://ba5gdpgerq27d" path="res://UI/HUD/FaceDisplay/face_display.tscn" id="4_qdh7y"]
-[ext_resource type="Texture2D" uid="uid://c457c8iperdgl" path="res://UI/HUD/Assets/Avatar_BG.png" id="4_wb36f"]
+[ext_resource type="Texture2D" uid="uid://lvl4thdc34qh" path="res://UI/HUD/Assets/Avatar_BG.png" id="4_wb36f"]
 [ext_resource type="Texture2D" uid="uid://c2t0f3jknc1v4" path="res://UI/HUD/Assets/Gradient_Black.png" id="5_73dop"]
 [ext_resource type="PackedScene" uid="uid://c7x3ovf6y8c2m" path="res://UI/HUD/ComboTracker/combo_tracker.tscn" id="5_abcde"]
 [ext_resource type="Texture2D" uid="uid://c6bumgp8pwaow" path="res://UI/HUD/Assets/Timer_Panel.png" id="5_vat4w"]
@@ -69,7 +69,7 @@ offset_right = 268.0
 offset_bottom = 187.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4kxuq")
 
-[node name="TextEdit" type="Label" parent="Main Quest" unique_id=1080086329]
+[node name="Main Quest" type="Label" parent="Main Quest" unique_id=1080086329]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
@@ -87,7 +87,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_njjwx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vmkag")
 text = "Main Quest"
 
-[node name="TextEdit2" type="Label" parent="Main Quest" unique_id=1185199823]
+[node name="Day" type="Label" parent="Main Quest" unique_id=1185199823]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 44.0
@@ -105,7 +105,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_njjwx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vmkag")
 text = "Day of the Melon"
 
-[node name="TextEdit3" type="Label" parent="Main Quest" unique_id=323596190]
+[node name="Destroy" type="Label" parent="Main Quest" unique_id=323596190]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 74.0

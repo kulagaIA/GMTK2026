@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_mwma7"]
 [ext_resource type="Script" uid="uid://cvq2jl3qvsn0k" path="res://UI/GameOver/round_over_screen.gd" id="2_1e1nl"]
+[ext_resource type="Texture2D" uid="uid://bd8bmk08kjd68" path="res://UI/MainMenu/Asset/Gradient_Black.png" id="3_7wgxi"]
 
 [node name="RoundOverScreen" type="Control" unique_id=830209055]
 layout_mode = 3
@@ -13,6 +14,15 @@ grow_vertical = 2
 theme = ExtResource("1_mwma7")
 script = ExtResource("2_1e1nl")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1442289366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7wgxi")
+
 [node name="RoundOverText" type="Label" parent="." unique_id=1444043972]
 unique_name_in_owner = true
 layout_mode = 1
@@ -20,13 +30,19 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -640.0
-offset_top = 82.0
+offset_top = 223.0
 offset_right = 640.0
-offset_bottom = 181.0
+offset_bottom = 336.0
 grow_horizontal = 2
 size_flags_vertical = 0
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 96
+theme_override_colors/font_color = Color(0.8745098, 0.64705884, 0.23137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 110
 text = "Time's up!"
 horizontal_alignment = 1
 
