@@ -56,7 +56,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 func _input(event: InputEvent) -> void:
 	if _gameplay_started and Input.is_action_just_pressed("pivo"):
-		if _gameplay_started and player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned:
+		if _gameplay_started and player_state.pivo_charges.value >= 1 and not _drinking_pivo and (allow_drinking_when_stunned or not stunned):
 			if player_state.pivo.is_available():
 				_start_drinking_pivo()
 				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
@@ -307,6 +307,7 @@ var _drinking_pivo: bool = false
 @onready var pivo_mug: Node3D = %PivoMug
 
 @export var drinking_time: float = 2
+@export var allow_drinking_when_stunned : bool = true
 
 func _start_drinking_pivo() -> void:
 	_drinking_pivo = true
