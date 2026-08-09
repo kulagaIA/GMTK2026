@@ -36,30 +36,34 @@ var display_duration : float = 2
 
 func _ready() -> void:
 	text = str(int(damage_value))
+	if label_settings:
+		self.label_settings = label_settings.duplicate()
+	else:
+		self.label_settings = LabelSettings.new()
 	if is_crit:
 		modulate = crit_color_from_amplitude.sample(amplitude)
 		scale.x = crit_scale_from_amplitude.sample(amplitude)
 		velocity.y = -randfn(crit_speed, crit_speed_deviation)
 		velocity = velocity.rotated(deg_to_rad(randfn(0, crit_angle_deviation_deg)))
 		display_duration = crit_duration
-		label_settings.shadow_color = crit_shadow_color
-		label_settings.shadow_offset = crit_shadow_offset
-		label_settings.shadow_size = crit_shadow_size
-		label_settings.outline_size = crit_outline_size
-		label_settings.outline_color = crit_outline_color
-		label_settings.font_size = crit_size_px
+		self.label_settings.shadow_color = crit_shadow_color
+		self.label_settings.shadow_offset = crit_shadow_offset
+		self.label_settings.shadow_size = crit_shadow_size
+		self.label_settings.outline_size = crit_outline_size
+		self.label_settings.outline_color = crit_outline_color
+		self.label_settings.font_size = crit_size_px
 	else:
 		modulate = color_from_amplitude.sample(amplitude)
 		scale.x = scale_from_amplitude.sample(amplitude)
 		velocity.y = -randfn(speed, speed_deviation)
 		velocity = velocity.rotated(deg_to_rad(randfn(0, angle_deviation_deg)))
 		display_duration = duration
-		label_settings.shadow_color = shadow_color
-		label_settings.shadow_offset = shadow_offset
-		label_settings.shadow_size = shadow_size
-		label_settings.outline_size = outline_size
-		label_settings.outline_color = outline_color
-		label_settings.font_size = size_px
+		self.label_settings.shadow_color = shadow_color
+		self.label_settings.shadow_offset = shadow_offset
+		self.label_settings.shadow_size = shadow_size
+		self.label_settings.outline_size = outline_size
+		self.label_settings.outline_color = outline_color
+		self.label_settings.font_size = size_px
 	scale.y = scale.x
 	velocity = Vector2.ZERO
 

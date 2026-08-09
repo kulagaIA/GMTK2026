@@ -14,6 +14,7 @@ _data = [Vector2(0.0020876825, 0.15825689), 0.0, 0.0, 0, 0, Vector2(0.31524011, 
 point_count = 6
 
 [sub_resource type="Gradient" id="Gradient_4jehr"]
+offsets = PackedFloat32Array(0, 0.3014862)
 colors = PackedColorArray(0.8119445, 0.41260704, 0, 1, 1, 0.019607844, 0, 1)
 
 [sub_resource type="Curve" id="Curve_d18qv"]
