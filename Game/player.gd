@@ -92,7 +92,7 @@ const MAX_TURN = deg_to_rad(40)
 var neck_turn_limit : float:
 	get:
 		return neck_turn_limit_curve.sample(neck_rise_progress) * MAX_TURN
-var shake_threshold_ratio : float = 0.7
+@export var shake_threshold_ratio : float = 0.7
 var shake_threshold : float:
 	get:
 		return shake_threshold_ratio * MAX_TURN
