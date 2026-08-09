@@ -21,10 +21,15 @@ var _gameplay_started : bool = false
 func handle_gameplay_started() -> void:
 	update_hat()
 	_gameplay_started = true
+	AudioManager.play_sound(AudioManager.global_sound.time_start, self, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
+	AudioManager.play_sound(AudioManager.global_sound.crowd_cheers, self, AudioManager.BusType.SFX_BUS, Vector2(-6.0,-3.0))
 	last_shake_direction = 0
+	
 
 func handle_gameplay_ended() -> void:
 	_gameplay_started = false
+	AudioManager.play_sound(AudioManager.global_sound.time_out, self, AudioManager.BusType.SFX_BUS)
+	AudioManager.play_sound(AudioManager.global_sound.crowd_claps, self, AudioManager.BusType.SFX_BUS, Vector2(-6.0,0.0))
 	unstun()
 	await _reset_neck(0.7, true, true)
 
@@ -231,6 +236,8 @@ func stun() -> void:
 	_reset_neck(0.7, true, false)
 	stun_status_changed.emit(stunned)
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
+	AudioManager.play_sound(AudioManager.global_sound.stun_sound, self, AudioManager.BusType.SFX_BUS)
+	AudioManager.play_sound(AudioManager.global_sound.crowd_gasp, self, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
 
 func _reset_neck(duration : float, reset_tilt : bool, reset_turn : bool) -> void:
 	if not (reset_tilt or reset_turn):

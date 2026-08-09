@@ -38,6 +38,7 @@ func apply_stats(stats: SmashableResource) -> void:
 	reward.set_value(stats.reward)
 	_view.configure(stats)
 	_sound_player.configure(stats)
+	_sound_player.play_roll()
 
 func get_base_damage() -> float:
 	#return damage.value
@@ -73,6 +74,7 @@ func _on_health_value_changed(attribute: Attribute, new_value: float, old_value:
 		#print("Smashable HP left: %f" % [new_value])
 		if new_value <= 0.0:
 			_destroyed = true
+			_sound_player.play_destroy()
 			_view.play_destroy()
 			destroyed.emit(self)
 

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="GlobalSoundsResource" format=3 uid="uid://g8m5srjah14a"]
+
+[ext_resource type="Script" uid="uid://dmfnl8m8d6lex" path="res://Game/Sound/global_sounds.gd" id="1_cfkg0"]
+[ext_resource type="AudioStream" uid="uid://c26h4gdj2qr47" path="res://Assets/Sound/Effects/cowd_sounds/crowd_boo.wav" id="1_ff0eo"]
+[ext_resource type="AudioStream" uid="uid://nkgxyaatnblo" path="res://Assets/Sound/Effects/helmet_crunch_1.wav" id="1_gx868"]
+[ext_resource type="AudioStream" uid="uid://7tmeakn1p465" path="res://Assets/Sound/Effects/helmet_crunch_2.wav" id="2_86aly"]
+[ext_resource type="AudioStream" uid="uid://qaye4bxkwtur" path="res://Assets/Sound/Effects/stun.wav" id="2_bkct1"]
+[ext_resource type="AudioStream" uid="uid://b5k4134qp6rfl" path="res://Assets/Sound/Effects/cowd_sounds/crowd_cheers.wav" id="2_xaqyd"]
+[ext_resource type="AudioStream" uid="uid://bqxq8we0jv8ae" path="res://Assets/Sound/Effects/horn.wav" id="3_86aly"]
+[ext_resource type="AudioStream" uid="uid://nay7rhm3r5v6" path="res://Assets/Sound/Effects/cowd_sounds/crowd_claps.wav" id="3_aqon2"]
+[ext_resource type="AudioStream" uid="uid://bwtvpjw1qdnml" path="res://Assets/Sound/Effects/timeout.wav" id="4_g4o7o"]
+[ext_resource type="AudioStream" uid="uid://chr05obof036g" path="res://Assets/Sound/Effects/cowd_sounds/crowd_gasp_1.wav" id="4_imgli"]
+[ext_resource type="AudioStream" uid="uid://1tvhnw0uhgce" path="res://Assets/Sound/Effects/start.wav" id="5_ak1hd"]
+[ext_resource type="AudioStream" uid="uid://b0k53yp0pr83f" path="res://Assets/Sound/Effects/cowd_sounds/crowd_gasp_2.wav" id="5_m4qkc"]
+[ext_resource type="AudioStream" uid="uid://k7vmdgawy7ib" path="res://Assets/Sound/Effects/cowd_sounds/crowd_gasp_3.wav" id="6_0lk8p"]
+[ext_resource type="AudioStream" uid="uid://djqyctg805nc8" path="res://Assets/Sound/Effects/timer.wav" id="7_g4o7o"]
+[ext_resource type="AudioStream" uid="uid://ddk6dvj1sut31" path="res://Assets/Sound/Effects/cowd_sounds/crowd_gasp_4.wav" id="7_k87wr"]
+[ext_resource type="AudioStream" uid="uid://54ewmkch533" path="res://Assets/Sound/Effects/cowd_sounds/crowd_laugh.wav" id="8_wwebp"]
+[ext_resource type="AudioStream" uid="uid://dp1pesipyvogk" path="res://Assets/Sound/Effects/cowd_sounds/crowd_upset.wav" id="9_k42dr"]
+[ext_resource type="AudioStream" uid="uid://cxa4jr8hyppci" path="res://Assets/Sound/Effects/cowd_sounds/crowd_wow_1.wav" id="10_fqfua"]
+[ext_resource type="AudioStream" uid="uid://bg4xfqtf52uvj" path="res://Assets/Sound/Effects/cowd_sounds/crowd_wow_2.wav" id="11_4fyl6"]
+
+[resource]
+script = ExtResource("1_cfkg0")
+stun_sound = Array[AudioStream]([ExtResource("2_bkct1")])
+helmet_crunch = Array[AudioStream]([ExtResource("1_gx868"), ExtResource("2_86aly")])
+time_start = ExtResource("5_ak1hd")
+time_out = ExtResource("4_g4o7o")
+timer_tick = ExtResource("7_g4o7o")
+horn = ExtResource("3_86aly")
+crowd_boo = Array[AudioStream]([ExtResource("1_ff0eo")])
+crowd_cheers = Array[AudioStream]([ExtResource("2_xaqyd")])
+crowd_claps = Array[AudioStream]([ExtResource("3_aqon2")])
+crowd_gasp = Array[AudioStream]([ExtResource("4_imgli"), ExtResource("5_m4qkc"), ExtResource("6_0lk8p"), ExtResource("7_k87wr")])
+crowd_laugh = Array[AudioStream]([ExtResource("8_wwebp")])
+crowd_upset = Array[AudioStream]([ExtResource("9_k42dr")])
+crowd_wow = Array[AudioStream]([ExtResource("10_fqfua"), ExtResource("11_4fyl6")])

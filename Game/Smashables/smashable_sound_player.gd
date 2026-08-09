@@ -16,6 +16,7 @@ var _normal_hits: Array[AudioStream]
 var _metal_hits: Array[AudioStream]
 var _crit_hits: Array[AudioStream]
 var _destroy: Array[AudioStream]
+var _roll: Array[AudioStream]
 
 var _last_stream: AudioStream
 
@@ -27,23 +28,27 @@ func configure(data: SmashableResource) -> void:
 	_metal_hits = data.metal_hits
 	_crit_hits = data.crit_hits
 	_destroy = data.destroy
+	_roll = data.roll
 
 
 func play_hit(sound_info: HitSoundInfo) -> void:
 	var sound_type = sound_info.hit_type
 	if sound_info.is_crit:
-		_play_random(_crit_effects_player, _crit_hits)
-	match sound_type:
-		HitSoundType.NORMAL:
-			_play_random(_hit_effects_player, _normal_hits)
-		HitSoundType.METAL:
-			_play_random(_hit_effects_player, _metal_hits)
+		AudioManager.play_sound(_crit_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(0.0, 0.0), 24.0)
+	if sound_type == HitSoundType.METAL:
+			AudioManager.play_sound(_metal_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(-20, 25))
+			
+	AudioManager.play_sound(_normal_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(-25, 25))
 
 
-func play_destroy(sound_info: HitSoundInfo) -> void:
-	if sound_info.is_crit:
-		_play_random(_crit_effects_player, _crit_hits)
-	_play_random(_hit_effects_player, _destroy)
+func play_roll() -> void:
+	AudioManager.play_sound(_roll, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(25.0, 45.0), 24.0)
+
+func play_destroy() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.crowd_claps, self, AudioManager.BusType.SFX_BUS, Vector2(-10.0, 10.0), -10.0)
+	AudioManager.play_sound(AudioManager.global_sound.crowd_cheers, self, AudioManager.BusType.SFX_BUS, Vector2(-10.0, 10.0), -10.0)
+	AudioManager.play_sound(AudioManager.global_sound.crowd_wow, self, AudioManager.BusType.SFX_BUS, Vector2(-30.0, 0.0))
+	AudioManager.play_sound(_destroy, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(0.0, 25.0), 24.0)
 
 
 func _play_random(player: Node, streams: Array[AudioStream]) -> void:

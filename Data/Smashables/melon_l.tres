@@ -16,7 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://cehplm44dm5ud" path="res://Assets/Sound/Effects/target_hit_1.wav" id="14_mx734"]
 [ext_resource type="AudioStream" uid="uid://gl643lg5hykt" path="res://Assets/Sound/Effects/target_hit_2.wav" id="15_6ytwa"]
 [ext_resource type="AudioStream" uid="uid://psl5l1lsbpej" path="res://Assets/Sound/Effects/target_hit_3.wav" id="16_7u0p4"]
+[ext_resource type="AudioStream" uid="uid://bkvyp6pc7jprr" path="res://Assets/Sound/Effects/roll_1.wav" id="17_ddjgh"]
 [ext_resource type="Script" uid="uid://btpfuiq3co3bj" path="res://Game/smashable_resource.gd" id="17_qgjur"]
+[ext_resource type="AudioStream" uid="uid://dqn0uh2kmjpy7" path="res://Assets/Sound/Effects/roll_2.wav" id="18_bvfa7"]
+[ext_resource type="AudioStream" uid="uid://jlc1ge4gmb4f" path="res://Assets/Sound/Effects/roll_3.wav" id="19_66txl"]
 
 [resource]
 script = ExtResource("17_qgjur")
@@ -33,4 +36,5 @@ normal_hits = Array[AudioStream]([ExtResource("14_mx734"), ExtResource("15_6ytwa
 metal_hits = Array[AudioStream]([ExtResource("11_jfryr"), ExtResource("12_3d7y0"), ExtResource("13_xungg")])
 crit_hits = Array[AudioStream]([ExtResource("2_va174")])
 destroy = Array[AudioStream]([ExtResource("7_mnyqq"), ExtResource("8_plmad"), ExtResource("9_dflyn")])
+roll = Array[AudioStream]([ExtResource("17_ddjgh"), ExtResource("18_bvfa7"), ExtResource("19_66txl")])
 metadata/_custom_type_script = "uid://btpfuiq3co3bj"

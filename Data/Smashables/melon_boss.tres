@@ -32,4 +32,5 @@ normal_hits = Array[AudioStream]([ExtResource("14_4wph6"), ExtResource("15_m4y2y
 metal_hits = Array[AudioStream]([ExtResource("11_cugea"), ExtResource("12_mcj3b"), ExtResource("13_uof2y")])
 crit_hits = Array[AudioStream]([ExtResource("2_brx7i")])
 destroy = Array[AudioStream]([ExtResource("7_anxc1"), ExtResource("8_uupa3"), ExtResource("9_7uxhx")])
+roll = Array[AudioStream]([ExtResource("14_4wph6"), ExtResource("15_m4y2y"), ExtResource("16_jeoyp")])
 metadata/_custom_type_script = "uid://btpfuiq3co3bj"

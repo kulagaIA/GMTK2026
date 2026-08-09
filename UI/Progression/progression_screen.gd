@@ -47,6 +47,7 @@ func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 
 func _on_back_pressed() -> void:
 	#Game.load_gameplay_scene()
+	AudioManager.play_sound(AudioManager.global_sound.horn, AudioManager, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
 	Game.change_game_state(GameState.GAMEPLAY)
 
 func _on_attribute_upgraded(attribute: Attribute.Tag) -> void:

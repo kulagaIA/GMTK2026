@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dk5hk1ger0iic" path="res://Game/Sound/sound_manager.gd" id="1_hj8ny"]
 [ext_resource type="AudioStream" uid="uid://c4d5jb44ccywt" path="res://Assets/Sound/Music/drums.mp3" id="2_mo8ii"]
 [ext_resource type="AudioStream" uid="uid://c76svb23qmgax" path="res://Assets/Sound/Music/melody.mp3" id="3_pn213"]
+[ext_resource type="AudioStream" uid="uid://cgt1cxseomve7" path="res://Assets/Sound/Effects/cowd_sounds/crowd_background.mp3" id="4_pn213"]
 
 [node name="SoundManager" type="Node" unique_id=1031725714]
 script = ExtResource("1_hj8ny")
@@ -10,7 +11,9 @@ script = ExtResource("1_hj8ny")
 [node name="Drums" type="AudioStreamPlayer" parent="." unique_id=972173861]
 unique_name_in_owner = true
 stream = ExtResource("2_mo8ii")
+volume_db = -10.357
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="Melody" type="AudioStreamPlayer" parent="." unique_id=597106262]
@@ -18,4 +21,13 @@ unique_name_in_owner = true
 stream = ExtResource("3_pn213")
 volume_db = -80.0
 autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Crowd" type="AudioStreamPlayer" parent="." unique_id=510648219]
+unique_name_in_owner = true
+stream = ExtResource("4_pn213")
+volume_db = -12.946
+autoplay = true
+bus = &"Music"
 parameters/looping = true
