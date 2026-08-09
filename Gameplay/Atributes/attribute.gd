@@ -19,6 +19,7 @@ enum Tag {
 	STAMINA_DECAY,
 	PIVO_CHARGE_PER_SMASH,
 	PIVO_CHARGE_PER_SMASHED_HP,
+	PIVO_DURATION,
 }
 @export var tag : Tag = Tag.NONE
 

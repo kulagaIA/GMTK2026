@@ -15,6 +15,7 @@ extends Node
 @onready var pivo: Ability = %Pivo
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
+@onready var pivo_duration: DynamicAttribute = %PivoDuration
 @onready var pivo_charge_per_hit: DynamicAttribute = %PivoChargePerHit
 @onready var pivo_charge_per_smash: DynamicAttribute = %PivoChargePerSmash
 @onready var pivo_charge_per_smashed_hp: DynamicAttribute = %PivoChargePerSmashedHp
@@ -40,6 +41,7 @@ func reset() -> void:
 	pivo_charges.set_value(0)
 	stamina.max_value = max_stamina.value
 	stamina.set_value(max_stamina.value)
+	pivo.duration = pivo_duration.value
 
 func apply_stats(stats: SmashPlayerPreset) -> void:
 	if stats == null:
@@ -60,7 +62,8 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	crit_multiplier.set_value(stats.crit_multiplier)
 	damage_resistance.set_value(1)
 	pivo_charges.set_value(stats.pivo_charges)
-	pivo.duration = stats.pivo_duration
+	pivo_duration.set_value(stats.pivo_duration)
+	pivo.duration = pivo_duration.value
 	pivo.cooldown = stats.pivo_cooldown
 	pivo.modifiers[Attribute.Tag.STAMINA_REGEN_RATE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, stats.pivo_regen_rate_boost)
 	pivo_charge_per_hit.set_value(stats.pivo_charge_per_hit)
@@ -124,3 +127,8 @@ func upgrade_attribute(attribute: Attribute.Tag, new_level: int) -> void:
 		current_level += 1
 		target_attribute.add_modifier(target_progression.levels[current_level].modificator)
 	progression_data.attribute_levels.set(attribute, new_level)
+
+
+func _on_pivo_state_changed(new_state: Ability.State) -> void:
+	if new_state == Ability.State.ACTIVE:
+		stamina.add(stamina.max_value)
