@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ci783tp38ho2v"]
+
+[ext_resource type="Texture2D" uid="uid://b2q07vsnf40fm" path="res://UI/MainMenu/Asset/Main_menu_Knopka.png" id="1_wylvd"]
+
+[resource]
+texture = ExtResource("1_wylvd")
