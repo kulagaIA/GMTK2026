@@ -75,8 +75,7 @@ func modify_hit(info: HitInfo) -> void:
 		#print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
 		info.attacker_crit = true
-	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.0, 1.0)
-	headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(headVelocityAmplitudeMultiplier)
+	var headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(info.amplitude)
 	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	info.damage_to_target_modified = base_damage * multiplier * headVelocityAmplitudeMultiplier
 	info.damage_to_attacker_modified /= damage_resistance.value
