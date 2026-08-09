@@ -6,6 +6,8 @@ const GAMEPLAY := &"Gameplay"
 const ROUND_OVER := &"RoundOver"
 const PROGRESSION := &"Progression"
 const VICTORY := &"Victory"
+const CREDITS := &"Credits"
+const SETTINGS := &"Settings"
 
 func enter(prev_state : State) -> void:
 	super.enter(prev_state)

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c3d7uqelhy7k6"]
+
+[ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_n4oh0"]
+[ext_resource type="Script" uid="uid://dm8wo2646jvtd" path="res://UI/Credits/credits.gd" id="2_n4oh0"]
+[ext_resource type="Script" uid="uid://ce3qsmnhwei1y" path="res://UI/web_helper_button.gd" id="6_uplb4"]
+
+[node name="Credits" type="Control" unique_id=362125495]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n4oh0")
+script = ExtResource("2_n4oh0")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=487912128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=212692656]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="CenterContainer/VBox" unique_id=157462171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]CREATED BY:
+[url=https://manlok.itch.io/]Manlok[/url]
+[url=https://z0rik.itch.io/]Z0RIK[/url]
+[url=https://iaroslav-khakhalev.itch.io/]Iaroslav Khakhalev[/url]
+[url=https://sshamshin.itch.io/]s.shamshin[/url]
+[url=https://dismox.itch.io/]dismox[/url]
+[url=https://kuzncor3.itch.io/]Andrei Kuznetsov[/url]
+[url=https://kulagaia.itch.io/]kulagaIA[/url]
+[url=https://mintplatinum.itch.io/]MintPlatinum[/url][/center]
+"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBox" unique_id=785415804]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+script = ExtResource("6_uplb4")
+hide_in_web_build = true
+
+[connection signal="pressed" from="CenterContainer/VBox/BackButton" to="." method="_on_back_button_pressed"]

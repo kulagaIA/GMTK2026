@@ -21,8 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://c6uqpxfa40845" path="res://UI/HUD/hud.tscn" id="18_kcwrq"]
 [ext_resource type="Script" uid="uid://cfi2u2nfo47fs" path="res://Core/States/progression_game_state.gd" id="18_sbld0"]
 [ext_resource type="Script" uid="uid://dqilioqh70fiv" path="res://Core/States/victory_game_state.gd" id="19_eg2hk"]
+[ext_resource type="Script" uid="uid://4mxrmap3xord" path="res://Core/States/credits_game_state.gd" id="22_mlivq"]
 [ext_resource type="PackedScene" uid="uid://clo8w5h8inyox" path="res://Game/Sound/sound_manager.tscn" id="22_sbld0"]
 [ext_resource type="PackedScene" uid="uid://fc6rtwowot7p" path="res://Game/Tutorial/tutorial_manager.tscn" id="23_eg2hk"]
+[ext_resource type="Script" uid="uid://2yia323lne8w" path="res://Core/States/settings_game_state.gd" id="23_ymqbx"]
 
 [node name="Game" type="Node" unique_id=736238743]
 process_mode = 3
@@ -94,6 +96,14 @@ metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="Victory" type="Node" parent="GameStateMachine" unique_id=852794398]
 script = ExtResource("19_eg2hk")
+metadata/_custom_type_script = "uid://4ab8024ypye"
+
+[node name="Credits" type="Node" parent="GameStateMachine" unique_id=572450857]
+script = ExtResource("22_mlivq")
+metadata/_custom_type_script = "uid://4ab8024ypye"
+
+[node name="Settings" type="Node" parent="GameStateMachine" unique_id=1941975179]
+script = ExtResource("23_ymqbx")
 metadata/_custom_type_script = "uid://4ab8024ypye"
 
 [node name="SoundManager" parent="." unique_id=1031725714 instance=ExtResource("22_sbld0")]
