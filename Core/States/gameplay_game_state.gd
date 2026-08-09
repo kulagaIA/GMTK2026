@@ -19,15 +19,15 @@ func enter(prev_state : State) -> void:
 	
 	Game.gameplay.prepare_gameplay()
 	Game.player.mouse_controls_enabled = true
+	_show_hud()
+	
 	var countdown := countdown_scene.instantiate() as Control
 	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_menu, countdown)
 	await countdown.tree_exited
-	#if not Game.game_state_machine.current_state is GameplayGameState:
-		#return
+	
 	Game.gameplay.hit_occurred.connect(Game.player_state._on_hit_occurred)
 	Game.player_state.stamina.value_changed.connect(Game.player._on_health_value_changed)
 	Game.gameplay.start_gameplay()
-	_show_hud()
 
 func exit(next_state : State) -> void:
 	_hide_hud()

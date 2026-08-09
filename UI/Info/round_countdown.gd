@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 	#countdown_label.text = "%d..." % [int(ceilf(timer.time_left))]
 	pass
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	print(event)
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
+		queue_free()
+	if event is InputEventMouseButton and event.is_pressed():
 		queue_free()
 
 func _on_timer_timeout() -> void:
