@@ -103,7 +103,10 @@ func apply_single_hit(velocity: float, amplitude: float) -> void:
 	
 	info.damage_to_target_base = player_state.damage.value
 	#info.damage_to_attacker_base = target_smashable.damage.value
-	info.damage_to_attacker_base = player_state.stamina_decay.value
+	if target_smashable.data.is_a_bomb():
+		info.damage_to_attacker_base = target_smashable.damage.value
+	else:
+		info.damage_to_attacker_base = player_state.stamina_decay.value
 
 	# HACK: this is just sad
 	target_smashable.modify_hit(info)

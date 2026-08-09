@@ -1,16 +1,9 @@
 [gd_resource type="Resource" script_class="SmashableResource" format=3 uid="uid://bps3c4ceeqcc3"]
 
 [ext_resource type="AudioStream" uid="uid://0mgf8gshkndm" path="res://Assets/Sound/Effects/critical.wav" id="2_ag1pl"]
-[ext_resource type="ArrayMesh" uid="uid://cbkbxsotbvo7p" path="res://Assets/Watermelons/Melon A DAMAGE.glb" id="3_t74kb"]
-[ext_resource type="ArrayMesh" uid="uid://rk6l6ilcu50l" path="res://Assets/Watermelons/Pieces/Piece melon.glb" id="4_sop6l"]
-[ext_resource type="ArrayMesh" uid="uid://buah66pjf78wf" path="res://Assets/Watermelons/Pieces/Piece melon A.glb" id="5_udpel"]
-[ext_resource type="ArrayMesh" uid="uid://b8bb8xrcdy1vv" path="res://Assets/Watermelons/Pieces/Piece melon B.glb" id="6_roea3"]
+[ext_resource type="ArrayMesh" uid="uid://b0bdqj1akx2sd" path="res://Assets/Watermelons/Bomb/bomb.glb" id="2_rlvy3"]
 [ext_resource type="AudioStream" uid="uid://nkgxyaatnblo" path="res://Assets/Sound/Effects/helmet_crunch_1.wav" id="7_ag1pl"]
 [ext_resource type="AudioStream" uid="uid://7tmeakn1p465" path="res://Assets/Sound/Effects/helmet_crunch_2.wav" id="8_t74kb"]
-[ext_resource type="ArrayMesh" uid="uid://b0bdqj1akx2sd" path="res://Assets/Watermelons/Bomb/bomb.glb" id="2_rlvy3"]
-[ext_resource type="AudioStream" uid="uid://jahjoyabtw2f" path="res://Assets/Sound/Effects/target_destroyed_1.wav" id="7_vg5t3"]
-[ext_resource type="AudioStream" uid="uid://drweojof3o2wp" path="res://Assets/Sound/Effects/target_destroyed_2.wav" id="8_mxc4s"]
-[ext_resource type="AudioStream" uid="uid://bh0sivrhgkpj" path="res://Assets/Sound/Effects/target_destroyed_3.wav" id="9_ikh3m"]
 [ext_resource type="AudioStream" uid="uid://cctqqndnr3l2n" path="res://Assets/Sound/Effects/helmet_hit_1.wav" id="11_qekbm"]
 [ext_resource type="AudioStream" uid="uid://trnyyqqv8dv4" path="res://Assets/Sound/Effects/helmet_hit_2.wav" id="12_ngthg"]
 [ext_resource type="AudioStream" uid="uid://b0jojnv2hb5xr" path="res://Assets/Sound/Effects/helmet_hit_3.wav" id="13_ljovy"]
@@ -22,16 +15,24 @@
 [ext_resource type="AudioStream" uid="uid://dqn0uh2kmjpy7" path="res://Assets/Sound/Effects/roll_2.wav" id="17_sop6l"]
 [ext_resource type="AudioStream" uid="uid://jlc1ge4gmb4f" path="res://Assets/Sound/Effects/roll_3.wav" id="18_udpel"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddlxy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ch0nw"]
+material = SubResource("StandardMaterial3D_ddlxy")
+radius = 0.01
+height = 0.01
+
 [resource]
 script = ExtResource("17_gv5bk")
 display_name = "Bomb"
 scale = 0.2
 health = 1
-damage = 100
+damage = 70
 reward = 0
 intact_mesh = ExtResource("2_rlvy3")
 damaged_mesh = ExtResource("2_rlvy3")
-broken_mesh = ExtResource("2_rlvy3")
+broken_mesh = SubResource("SphereMesh_ch0nw")
 normal_hits = Array[AudioStream]([ExtResource("14_o0rgu"), ExtResource("15_dcine"), ExtResource("16_yi01q")])
 metal_hits = Array[AudioStream]([ExtResource("11_qekbm"), ExtResource("12_ngthg"), ExtResource("13_ljovy")])
 crit_hits = Array[AudioStream]([ExtResource("2_ag1pl")])
