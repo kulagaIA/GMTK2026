@@ -8,7 +8,8 @@ extends Node3D
 @onready var damage: SimpleAttribute = %Damage
 @onready var reward: SimpleAttribute = %Reward
 
-@onready var sparks: GPUParticles3D = %Sparks
+@onready var sparks: GPUParticles3D = %BombSparks
+@onready var bomb_timer: Timer = $BombTimer
 
 signal destroyed(target: Smashable)
 var _destroyed : bool = false
@@ -44,6 +45,11 @@ func apply_stats(stats: SmashableResource) -> void:
 	if stats.is_a_bomb():
 		_view.rotate_y(deg_to_rad(45))
 		sparks.global_position = _view.bomb_sparks_root.global_position
+
+func start_bomb() -> void:
+	if data.is_a_bomb():
+		#sparks.visible = true
+		bomb_timer.start(Game.starting_player_stats.bomb_fuse_seconds)
 
 func get_base_damage() -> float:
 	#return damage.value
@@ -97,3 +103,9 @@ func _update_damage_stage() -> void:
 		if _stage != DamageStage.INTACT:
 			_stage = DamageStage.INTACT
 			_mesh.mesh = data.intact_mesh
+
+
+func _on_bomb_timer_timeout() -> void:
+	take_damage(100)
+	sparks.visible = false
+	destroyed.emit(self)

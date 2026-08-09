@@ -69,7 +69,7 @@ unique_name_in_owner = true
 [node name="SmashableSoundPlayer" parent="." unique_id=101999043 instance=ExtResource("4_dc0ta")]
 unique_name_in_owner = true
 
-[node name="Sparks" type="GPUParticles3D" parent="." unique_id=1265901832]
+[node name="BombSparks" type="GPUParticles3D" parent="." unique_id=1265901832]
 unique_name_in_owner = true
 transform = Transform3D(0.10605055, -0.0038751638, 0.07508835, 0.028580012, 0.12216003, -0.034060355, -0.06954467, 0.044293426, 0.100506864, 0.44587186, 0.19483063, 0.42351624)
 material_override = SubResource("StandardMaterial3D_4nhfg")
@@ -81,4 +81,8 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ufny3")
 draw_pass_1 = SubResource("QuadMesh_ugw8w")
 
+[node name="BombTimer" type="Timer" parent="." unique_id=1884460740]
+one_shot = true
+
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

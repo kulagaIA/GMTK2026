@@ -39,6 +39,8 @@ func advance_queue() -> void:
 	await _active_tweener.finished
 	_trash_smashables.push_back(active_smashables.pop_front())
 	_active_tweener = null
+	if current_smashable:
+		current_smashable.start_bomb()
 	_cleanup_trash()
 
 func spawn_smashable(resource: SmashableResource) -> Smashable:

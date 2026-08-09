@@ -2,6 +2,7 @@ class_name SmashPlayerPreset
 extends Resource
 
 @export var display_name: String = "Base Player"
+@export var bomb_fuse_seconds: float = 1.0
 @export var max_stamina: float = 100
 @export var stamina_decay_per_hit: float = 20.0
 @export var stamina_regen: float = 1

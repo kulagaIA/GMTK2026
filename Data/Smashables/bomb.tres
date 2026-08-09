@@ -22,6 +22,7 @@ damage = 100
 reward = 0
 intact_mesh = ExtResource("2_rlvy3")
 damaged_mesh = ExtResource("2_rlvy3")
+broken_mesh = ExtResource("2_rlvy3")
 normal_hits = Array[AudioStream]([ExtResource("14_o0rgu"), ExtResource("15_dcine"), ExtResource("16_yi01q")])
 metal_hits = Array[AudioStream]([ExtResource("11_qekbm"), ExtResource("12_ngthg"), ExtResource("13_ljovy")])
 crit_hits = Array[AudioStream]([ExtResource("2_ag1pl")])
