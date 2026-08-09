@@ -53,14 +53,15 @@ func _process(delta: float) -> void:
 		bomb_clearing = false
 
 func restart_gameplay() -> void:
+	prepare_gameplay()
+	start_gameplay()
+
+func prepare_gameplay() -> void:
 	cleanup_gameplay()
 	load_level(Game.level_config)
 	player_state.reset()
-	var countdown := countdown_scene.instantiate() as Control
-	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_menu, countdown)
-	await countdown.tree_exited
-	if not Game.game_state_machine.current_state is GameplayGameState:
-		return
+
+func start_gameplay() -> void:
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
 	if player_state.pivo_charges.value >= 1.0:
 		Game.tutorial_manager.request_tutorial(Tutorial.Tag.BEER)
@@ -81,7 +82,6 @@ func stop_gameplay() -> void:
 #region Timer
 
 @onready var timer := %GameTimer as GameTimer
-@export var countdown_scene : PackedScene
 
 func restart_gameplay_timer() -> void:
 	timer.start(player_state.initial_time.value)

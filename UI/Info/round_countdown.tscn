@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_a4wvi")
 script = ExtResource("1_ms2hh")
 
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="CountdownLabel" type="Label" parent="." unique_id=729957646]
@@ -39,11 +41,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 96
 text = "3"
 
-[node name="Timer" type="Timer" parent="." unique_id=631630201]
-wait_time = 3.0
-one_shot = true
-
 [node name="StartButton" type="Button" parent="." unique_id=1220786650]
+visible = false
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 1
 anchors_preset = 8
@@ -60,5 +59,26 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 96
 text = "Start"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="StartPromptLabel" type="Label" parent="." unique_id=876124052]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 82.0
+offset_right = 640.0
+offset_bottom = 181.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 96
+text = "Press any key to start"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=631630201]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,10 +21,12 @@ var _gameplay_started : bool = false
 func handle_gameplay_started() -> void:
 	update_hat()
 	_gameplay_started = true
+	mouse_controls_enabled = true
 	last_shake_direction = 0
 
 func handle_gameplay_ended() -> void:
 	_gameplay_started = false
+	mouse_controls_enabled = false
 	unstun()
 	await _reset_neck(0.7, true, true)
 
@@ -49,7 +51,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 func _input(event: InputEvent) -> void:
 	if _gameplay_started and Input.is_action_just_pressed("pivo"):
-		if player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
+		if _gameplay_started and player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned:
 			if player_state.pivo.is_available():
 				_start_drinking_pivo()
 				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
@@ -59,6 +61,8 @@ func _input(event: InputEvent) -> void:
 			pass
 	pass
 
+var mouse_controls_enabled : bool = false
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and _gameplay_started:
 		Game.open_pause_menu()
@@ -67,7 +71,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Mouse input
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _gameplay_started and _mouse_moving and not _drinking_pivo:
+	if mouse_controls_enabled and _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned or allow_turning:
 			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
