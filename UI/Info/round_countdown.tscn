@@ -15,6 +15,7 @@ theme = ExtResource("1_a4wvi")
 script = ExtResource("1_ms2hh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=677199249]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
