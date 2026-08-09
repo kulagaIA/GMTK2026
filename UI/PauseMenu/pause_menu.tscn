@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://uij46cficj03"]
 
 [ext_resource type="Script" uid="uid://kx5ljt6n2eab" path="res://UI/PauseMenu/pause_menu.gd" id="1_t3iro"]
+[ext_resource type="Texture2D" uid="uid://bd8bmk08kjd68" path="res://UI/MainMenu/Asset/Gradient_Black.png" id="2_s0ulm"]
 [ext_resource type="Script" uid="uid://ce3qsmnhwei1y" path="res://UI/web_helper_button.gd" id="2_w5vkt"]
+[ext_resource type="FontFile" uid="uid://drt0yjm7noa8m" path="res://UI/Fonts/Balthazar_Regular.ttf" id="3_i14rv"]
+[ext_resource type="StyleBox" uid="uid://ci783tp38ho2v" path="res://UI/Assets/ButtomStyles/button_style_texture.tres" id="4_m32yk"]
+[ext_resource type="StyleBox" uid="uid://csjg5ojkymubw" path="res://UI/Assets/ButtomStyles/button__hover_style_texture.tres" id="5_bpmyq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_woxes"]
+texture = ExtResource("2_s0ulm")
 
 [node name="PauseMenu" type="Control" unique_id=2127473529]
 process_mode = 3
@@ -20,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_woxes")
 
 [node name="CenterContainer" type="CenterContainer" parent="BG" unique_id=361884279]
 layout_mode = 2
@@ -30,17 +38,38 @@ layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=1676492337]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.7411765, 0.27058825, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_i14rv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_m32yk")
+theme_override_styles/hover = ExtResource("5_bpmyq")
 text = "Resume"
 
 [node name="TitleButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=1179927656]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.7411765, 0.27058825, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_i14rv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_m32yk")
+theme_override_styles/hover = ExtResource("5_bpmyq")
 text = "Quit to Title"
 
 [node name="QuitButton" type="Button" parent="BG/CenterContainer/ButtonsVBox" unique_id=393799228]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.7372549, 0.26666668, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_i14rv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_m32yk")
+theme_override_styles/hover = ExtResource("5_bpmyq")
 text = "Quit to Desktop"
 script = ExtResource("2_w5vkt")
 hide_in_web_build = true
