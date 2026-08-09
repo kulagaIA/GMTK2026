@@ -13,6 +13,7 @@ extends Label
 @export var shadow_size = 3
 @export var outline_size = 6
 @export var outline_color = Color.BLACK
+@export var velocity_curve: Curve
 
 @export_group("Crit Numbers")
 @export var crit_size_px: int = 32
@@ -27,6 +28,7 @@ extends Label
 @export var crit_shadow_size = 3
 @export var crit_outline_size = 6
 @export var crit_outline_color = Color.BLACK
+@export var crit_velocity_curve: Curve
 
 var damage_value : float = 1.0
 var is_crit : bool = false
@@ -65,11 +67,14 @@ func _ready() -> void:
 		self.label_settings.outline_color = outline_color
 		self.label_settings.font_size = size_px
 	scale.y = scale.x
-	velocity = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	display_duration -= delta
 	if (display_duration <= 0):
 		self.queue_free()
-	
-	global_position += velocity * delta
+	var velocity_multiplier : = 0.0
+	if is_crit:
+		velocity_multiplier = crit_velocity_curve.sample(display_duration / crit_duration)
+	else:
+		velocity_multiplier = velocity_curve.sample(display_duration / duration)
+	global_position += velocity * velocity_multiplier * delta

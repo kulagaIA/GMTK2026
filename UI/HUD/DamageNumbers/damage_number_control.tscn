@@ -13,6 +13,10 @@ colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1, 1, 1, 1, 1, 1, 1
 _data = [Vector2(0.0020876825, 0.15825689), 0.0, 0.0, 0, 0, Vector2(0.31524011, 0.27752292), 0.7524821, 0.7524821, 0, 0, Vector2(0.53862214, 0.69266057), -0.17977495, -0.17977495, 0, 0, Vector2(0.72651356, 0.72706425), 0.0, 0.0, 0, 0, Vector2(0.8580376, 0.9678899), 0.0, 0.0, 0, 0, Vector2(1, 1), -0.20984966, 0.0, 0, 0]
 point_count = 6
 
+[sub_resource type="Curve" id="Curve_l2hhi"]
+_data = [Vector2(0.0020876825, 0.15825689), 0.0, 0.0, 0, 0, Vector2(0.31524011, 0.27752292), 0.7524821, 0.7524821, 0, 0, Vector2(0.53862214, 0.69266057), -0.17977495, -0.17977495, 0, 0, Vector2(0.72651356, 0.72706425), 0.0, 0.0, 0, 0, Vector2(0.8580376, 0.9678899), 0.0, 0.0, 0, 0, Vector2(1, 1), -0.20984966, 0.0, 0, 0]
+point_count = 6
+
 [sub_resource type="Gradient" id="Gradient_4jehr"]
 offsets = PackedFloat32Array(0, 0.3014862)
 colors = PackedColorArray(0.8119445, 0.41260704, 0, 1, 1, 0.019607844, 0, 1)
@@ -20,6 +24,10 @@ colors = PackedColorArray(0.8119445, 0.41260704, 0, 1, 1, 0.019607844, 0, 1)
 [sub_resource type="Curve" id="Curve_d18qv"]
 _data = [Vector2(0, 0.19036698), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.020344703, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Curve" id="Curve_08q84"]
+_data = [Vector2(0.0020876825, 0.15825689), 0.0, 0.0, 0, 0, Vector2(0.31524011, 0.27752292), 0.7524821, 0.7524821, 0, 0, Vector2(0.53862214, 0.69266057), -0.17977495, -0.17977495, 0, 0, Vector2(0.72651356, 0.72706425), 0.0, 0.0, 0, 0, Vector2(0.8580376, 0.9678899), 0.0, 0.0, 0, 0, Vector2(1, 1), -0.20984966, 0.0, 0, 0]
+point_count = 6
 
 [node name="DamageNumberControl" type="Label" unique_id=1264250837]
 anchors_preset = 8
@@ -41,16 +49,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_4i0qu")
 size_px = 107
+duration = 20.0
 speed = 200.0
 speed_deviation = 50.0
+angle_deviation_deg = 90.0
 color_from_amplitude = SubResource("Gradient_d18qv")
 scale_from_amplitude = SubResource("Curve_ddlxy")
 shadow_offset = Vector2(2.07, 2)
 shadow_size = 11
 outline_size = 3
+velocity_curve = SubResource("Curve_l2hhi")
 crit_size_px = 261
 crit_color_from_amplitude = SubResource("Gradient_4jehr")
 crit_scale_from_amplitude = SubResource("Curve_d18qv")
 crit_shadow_size = 25
 crit_outline_size = 18
 crit_outline_color = Color(0.7685739, 4.235506e-06, 0.4800712, 1)
+crit_velocity_curve = SubResource("Curve_08q84")
