@@ -43,7 +43,7 @@ _subresources={
 "materials": {
 "M_Floor_01.001": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Level/Walls/M_Floor_01.001.tres",
+"use_external/fallback_path": "res://Assets/Level/Walls/Material/M_Floor_01.001.tres",
 "use_external/path": "uid://bbxjdngx7simm"
 }
 }
