@@ -135,6 +135,7 @@ var _neck_velocity : float = 0.0
 var _neck_acceleration : float = 0.0
 var _neck_peak_velocity := 0.0
 @export var neck_speed : float = 10.0
+@export var min_strike_velocity : float = 300.0
 @export var neck_fall_sensitivity : Curve
 @export var neck_rise_sensitivity : Curve
 
@@ -165,7 +166,8 @@ func _consume_mouse_input(delta : float) -> void:
 	if neck_position > neck_strike_amplitude:
 		neck_strike_amplitude = neck_position
 	if neck_position != neck_pos_unclamped:
-		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude:
+		#print(_neck_peak_velocity, "~", min_strike_velocity)
+		if _gameplay_started and neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude and _neck_peak_velocity > min_strike_velocity:
 			hit.emit(
 				clamp(_neck_peak_velocity / MAX_SWING_SPEED, 0.0, 1.0),
 				clamp(neck_strike_amplitude / max_neck_position, 0.0, 1.0)
