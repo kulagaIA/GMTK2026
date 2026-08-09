@@ -43,6 +43,7 @@ script = ExtResource("1_34eoq")
 [node name="MaxHealth" type="Node" parent="." unique_id=457779434]
 unique_name_in_owner = true
 script = ExtResource("2_2yyft")
+min_value = 1.0
 tag = 2
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 

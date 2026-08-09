@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 func apply_stats(stats: SmashableResource) -> void:
 	assert(stats)
 	max_health.set_value(stats.health)
+	health.max_value = stats.health
 	health.set_value(stats.health)
 	damage.set_value(stats.damage)
 	reward.set_value(stats.reward)
@@ -86,8 +87,10 @@ func _on_health_value_changed(attribute: Attribute, new_value: float, old_value:
 		#print("Smashable HP left: %f" % [new_value])
 		if new_value <= 0.0:
 			_destroyed = true
-			_sound_player.play_destroy()
-			_view.play_destroy()
+			if not data.is_a_bomb() or not bomb_timer.is_stopped():
+				_sound_player.play_destroy()
+				sparks.visible = false
+				_view.play_destroy()
 			destroyed.emit(self)
 
 func _update_damage_stage() -> void:
