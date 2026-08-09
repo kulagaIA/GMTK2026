@@ -25,9 +25,9 @@
 script = ExtResource("17_qgjur")
 display_name = "Large"
 scale = 0.9
-health = 500
+health = 1200
 damage = 30
-reward = 200
+reward = 300
 intact_mesh = ExtResource("10_xue1a")
 damaged_mesh = ExtResource("3_3l0eq")
 broken_mesh = ExtResource("1_n5fvm")
