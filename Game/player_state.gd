@@ -2,7 +2,7 @@ class_name SmashPlayerState
 extends Node
 
 @onready var max_stamina: DynamicAttribute = %MaxStamina
-@onready var stamina: DynamicAttribute = %Stamina
+@onready var stamina: SimpleAttribute = %Stamina
 @onready var stamina_regen: DynamicAttribute = %StaminaRegen
 @onready var stamina_regen_rate: DynamicAttribute = %StaminaRegenRate
 @onready var stamina_decay: DynamicAttribute = %StaminaDecay

@@ -19,14 +19,14 @@ _starting_value = 100.0
 tag = 2
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
-[node name="Stamina" type="Node" parent="." unique_id=2036006554]
+[node name="Stamina" type="Node" parent="." unique_id=376382201]
 unique_name_in_owner = true
-script = ExtResource("3_dr5hc")
+script = ExtResource("2_dr5hc")
 _starting_value = 100.0
 has_max_value = true
 max_value = 100.0
 tag = 3
-metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+metadata/_custom_type_script = "uid://d23my1rvaun41"
 
 [node name="StaminaRegen" type="Node" parent="." unique_id=292950122]
 unique_name_in_owner = true
