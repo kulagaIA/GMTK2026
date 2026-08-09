@@ -17,3 +17,6 @@ extends Resource
 @export var metal_hits: Array[AudioStream]
 @export var crit_hits: Array[AudioStream]
 @export var destroy: Array[AudioStream]
+
+func is_a_bomb() -> bool:
+	return reward <= 0

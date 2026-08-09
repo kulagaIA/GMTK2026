@@ -74,9 +74,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if mouse_controls_enabled and _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned or allow_turning:
-			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
+			_input_yaw = (1.0 if Game.flip_mouse_x else -1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
 		if not stunned:
-			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * sensitivity_multiplier.x
+			_input_pitch = (1.0 if Game.flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * sensitivity_multiplier.x
 
 const MIN_TILT = deg_to_rad(-80)
 const MAX_TILT = deg_to_rad(40)
@@ -100,8 +100,6 @@ var _mouse_moving : bool = false
 var _input_yaw : float
 var _input_pitch : float
 
-var flip_mouse_x : bool = true
-var flip_mouse_y : bool = true
 @export var sensitivity_multiplier : Vector2 = Vector2(1.0, 0.1)
 
 var _mouse_rotation : Vector3
