@@ -98,6 +98,13 @@ has_max_value = true
 tag = 10
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
+[node name="PivoDuration" type="Node" parent="." unique_id=816958571]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+min_value = 0.5
+tag = 16
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
 [node name="DamageResistance" type="Node" parent="." unique_id=395671972]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
@@ -112,4 +119,19 @@ _starting_value = 0.025
 tag = 12
 metadata/_custom_type_script = "uid://d23my1rvaun41"
 
+[node name="PivoChargePerSmash" type="Node" parent="." unique_id=1418539588]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+_starting_value = 0.0
+tag = 14
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
+[node name="PivoChargePerSmashedHp" type="Node" parent="." unique_id=2091795176]
+unique_name_in_owner = true
+script = ExtResource("3_dr5hc")
+_starting_value = 0.0
+tag = 15
+metadata/_custom_type_script = "uid://d23my1rvaun41"
+
 [connection signal="value_changed" from="Stamina" to="." method="_on_health_value_changed"]
+[connection signal="state_changed" from="Pivo" to="." method="_on_pivo_state_changed"]

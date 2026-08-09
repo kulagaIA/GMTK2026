@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://sp4rprby8bol" path="res://UI/HUD/DamageNumbers/damage_number_control.gd" id="1_4i0qu"]
 [ext_resource type="Theme" uid="uid://dypd4ukj6o5rn" path="res://UI/Themes/menu.tres" id="1_d18qv"]
 
+[sub_resource type="Gradient" id="Gradient_4jehr"]
+offsets = PackedFloat32Array(0, 0.3014862, 0.58598727, 1)
+colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="Curve" id="Curve_d18qv"]
+_data = [Vector2(0, 0.5025126), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.0499307, 0.0, 0, 0]
+point_count = 2
+
 [node name="DamageNumberControl" type="Label" unique_id=1264250837]
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,3 +31,5 @@ vertical_alignment = 1
 script = ExtResource("1_4i0qu")
 speed = 200.0
 speed_deviation = 50.0
+color_from_amplitude = SubResource("Gradient_4jehr")
+scale_from_amplitude = SubResource("Curve_d18qv")

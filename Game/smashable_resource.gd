@@ -18,3 +18,6 @@ extends Resource
 @export var crit_hits: Array[AudioStream]
 @export var destroy: Array[AudioStream]
 @export var roll: Array[AudioStream]
+
+func is_a_bomb() -> bool:
+	return reward <= 0

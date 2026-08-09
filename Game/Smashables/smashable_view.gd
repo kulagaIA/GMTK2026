@@ -3,6 +3,7 @@ extends Node3D
 
 @onready var mesh: MeshInstance3D = %Mesh
 @onready var visual_root: Node3D = %VisualRoot
+@onready var bomb_sparks_root: Node3D = %BombSparksRoot
 
 func configure(data: SmashableResource) -> void:
 	mesh.mesh = data.intact_mesh

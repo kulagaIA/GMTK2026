@@ -15,14 +15,13 @@ var smashables: Array[SmashableResource] = []
 var num_smashables_left : int:
 	get:
 		var result := smashables.filter(
-			func(smashable : SmashableResource): return smashable.display_name != "Bomb").size() + spawned_queue.active_smashables.filter(
-			func(smashable : Smashable): return smashable.data.display_name != "Bomb").size()
+			func(smashable : SmashableResource): return not smashable.is_a_bomb()).size() + spawned_queue.active_smashables.filter(
+			func(smashable : Smashable): return not smashable.data.is_a_bomb()).size()
 		if spawned_queue.current_smashable.health.value <= 0.0:
 			result -= 1
 		return result
 
 const BOMB_RESOURCE = preload("res://Data/Smashables/bomb.tres")
-@export var seconds_before_bomb_skip: float = 1.5
 
 func _ready() -> void:
 	Game.gameplay = self
@@ -34,33 +33,19 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_depleted)
 
 
-var seconds_since_bomb : float = 0
-var bomb_clearing = false
 func _process(delta: float) -> void:
-	if((spawned_queue.current_smashable)
-		&& (spawned_queue.current_smashable.data.display_name == 'Bomb')
-		&& (Game.game_state_machine.current_state.name == "Gameplay")):
-		seconds_since_bomb += delta
-	if (seconds_since_bomb >= seconds_before_bomb_skip && bomb_clearing == false):
-		print("bomb skipped")
-		bomb_clearing = true
-		spawned_queue.current_smashable.apply_damage(100)
-		seconds_since_bomb = 0
-		queue_smashables(1)
-		spawned_queue.advance_queue()
-		print("Smashables left: %d spawned, %d queued" % [spawned_queue.active_smashables.size(), smashables.size()])
-		smashable_destroyed.emit(smashables)
-		bomb_clearing = false
+	pass
 
 func restart_gameplay() -> void:
+	prepare_gameplay()
+	start_gameplay()
+
+func prepare_gameplay() -> void:
 	cleanup_gameplay()
 	load_level(Game.level_config)
 	player_state.reset()
-	var countdown := countdown_scene.instantiate() as Control
-	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_menu, countdown)
-	await countdown.tree_exited
-	if not Game.game_state_machine.current_state is GameplayGameState:
-		return
+
+func start_gameplay() -> void:
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.SWING)
 	if player_state.pivo_charges.value >= 1.0:
 		Game.tutorial_manager.request_tutorial(Tutorial.Tag.BEER)
@@ -81,7 +66,6 @@ func stop_gameplay() -> void:
 #region Timer
 
 @onready var timer := %GameTimer as GameTimer
-@export var countdown_scene : PackedScene
 
 func restart_gameplay_timer() -> void:
 	timer.start(player_state.initial_time.value)

@@ -110,7 +110,44 @@ text = "8.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="InvertMouseLabel" type="Label" parent="VBoxContainer" unique_id=197073444]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Invert mouse:"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=83818597]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="FlipXLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1287845693]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Horizontal:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlipXButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=452945928]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FlipYLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1159067842]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vertical:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FlipYButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=1556476589]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="drag_ended" from="VBoxContainer/HBoxContainer/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/FlipXButton" to="." method="_on_flip_x_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/FlipYButton" to="." method="_on_flip_y_button_toggled"]

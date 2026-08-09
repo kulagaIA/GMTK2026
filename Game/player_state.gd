@@ -15,7 +15,10 @@ extends Node
 @onready var pivo: Ability = %Pivo
 @onready var damage_resistance: DynamicAttribute = %DamageResistance
 @onready var pivo_charges: DynamicAttribute = %PivoCharges
+@onready var pivo_duration: DynamicAttribute = %PivoDuration
 @onready var pivo_charge_per_hit: DynamicAttribute = %PivoChargePerHit
+@onready var pivo_charge_per_smash: DynamicAttribute = %PivoChargePerSmash
+@onready var pivo_charge_per_smashed_hp: DynamicAttribute = %PivoChargePerSmashedHp
 
 @export var stamina_regen_curve: Curve
 
@@ -38,6 +41,7 @@ func reset() -> void:
 	pivo_charges.set_value(0)
 	stamina.max_value = max_stamina.value
 	stamina.set_value(max_stamina.value)
+	pivo.duration = pivo_duration.value
 
 func apply_stats(stats: SmashPlayerPreset) -> void:
 	if stats == null:
@@ -58,11 +62,13 @@ func apply_stats(stats: SmashPlayerPreset) -> void:
 	crit_multiplier.set_value(stats.crit_multiplier)
 	damage_resistance.set_value(1)
 	pivo_charges.set_value(stats.pivo_charges)
-	pivo.duration = stats.pivo_duration
+	pivo_duration.set_value(stats.pivo_duration)
+	pivo.duration = pivo_duration.value
 	pivo.cooldown = stats.pivo_cooldown
-	pivo.modifiers[Attribute.Tag.CRIT_CHANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_crit_chance_multplier)
-	pivo.modifiers[Attribute.Tag.DAMAGE_RESISTANCE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_PERCENT, stats.pivo_damage_resistance)
+	pivo.modifiers[Attribute.Tag.STAMINA_REGEN_RATE] = AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, stats.pivo_regen_rate_boost)
 	pivo_charge_per_hit.set_value(stats.pivo_charge_per_hit)
+	pivo_charge_per_smash.set_value(stats.pivo_charge_per_smash)
+	pivo_charge_per_smashed_hp.set_value(stats.pivo_charge_per_smashed_hp)
 
 func get_base_damage() -> float:
 	return damage.value
@@ -75,15 +81,20 @@ func modify_hit(info: HitInfo) -> void:
 		#print("crit occured! multiplier: %f" % [crit_multiplier.value])
 		multiplier *= crit_multiplier.value
 		info.attacker_crit = true
-	var headVelocityAmplitudeMultiplier = remap(info.velocity + info.amplitude, 0.0, 2.0, 0.0, 1.0)
-	headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(headVelocityAmplitudeMultiplier)
+	var headVelocityAmplitudeMultiplier = ampplitude_to_damage.sample_baked(info.amplitude)
 	#print("head velocity+amplitude multiplier=", headVelocityAmplitudeMultiplier)
 	info.damage_to_target_modified = base_damage * multiplier * headVelocityAmplitudeMultiplier
 	info.damage_to_attacker_modified /= damage_resistance.value
 
 func _on_hit_occurred(info: HitInfo) -> void:
 	if not pivo.is_active():
-		pivo_charges.add(pivo_charge_per_hit.value)
+		var charge_value : float = pivo_charge_per_hit.value
+		if info.target_smashed:
+			var smashable := info.target as Smashable
+			if smashable and smashable.data.reward > 0:
+				charge_value += pivo_charge_per_smash.value
+				charge_value += pivo_charge_per_smashed_hp.value * smashable.data.health
+		pivo_charges.add(charge_value)
 
 func apply_damage(amount: float) -> void:
 	consume_stamina(amount)
@@ -116,3 +127,8 @@ func upgrade_attribute(attribute: Attribute.Tag, new_level: int) -> void:
 		current_level += 1
 		target_attribute.add_modifier(target_progression.levels[current_level].modificator)
 	progression_data.attribute_levels.set(attribute, new_level)
+
+
+func _on_pivo_state_changed(new_state: Ability.State) -> void:
+	if new_state == Ability.State.ACTIVE:
+		stamina.add(stamina.max_value)

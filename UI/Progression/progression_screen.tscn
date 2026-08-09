@@ -6,16 +6,17 @@
 [ext_resource type="Script" uid="uid://c6qffeohvtgcg" path="res://Game/Tutorial/tutorial_control.gd" id="3_qdwcu"]
 [ext_resource type="Texture2D" uid="uid://bfykwnwu1cb4w" path="res://UI/Progression/Assets/New/Upgrade_Window.png" id="3_t6603"]
 [ext_resource type="Texture2D" uid="uid://0gunjqm75fm3" path="res://Game/Tutorial/InputHints/generic_button_square.svg" id="4_wj56m"]
+[ext_resource type="Texture2D" uid="uid://toq6jdo5apnj" path="res://UI/Progression/Assets/New/Upgrade_Button.png" id="5_k6ap8"]
 [ext_resource type="FontFile" uid="uid://dyp84fgnvqc65" path="res://UI/Progression/Font/Balthazar-Regular.ttf" id="5_lnyxp"]
 [ext_resource type="Texture2D" uid="uid://cy4aqvdk6gd3c" path="res://Game/Tutorial/InputHints/vector_whiteIcons.svg" id="5_xdk4a"]
-[ext_resource type="Texture2D" uid="uid://u2j822ymooqr" path="res://UI/Progression/Assets/exp.png" id="8_ou33j"]
-[ext_resource type="Texture2D" uid="uid://lgi031tw3pai" path="res://UI/Progression/Assets/dmg.png" id="10_fiv3w"]
-[ext_resource type="Texture2D" uid="uid://cc1igtp2kwrqc" path="res://UI/Progression/Assets/sec.png" id="11_aaqxj"]
-[ext_resource type="Texture2D" uid="uid://bqcvf57fmk7ro" path="res://UI/Progression/Assets/crit_ch.png" id="12_2toln"]
+[ext_resource type="Texture2D" uid="uid://bogv86ugr2yef" path="res://UI/Progression/Assets/New/Head_Icon.png" id="6_2proi"]
+[ext_resource type="Texture2D" uid="uid://d1f7uyd5h4xvi" path="res://UI/Progression/Assets/New/Damage_Icon.png" id="8_s0rk6"]
+[ext_resource type="Texture2D" uid="uid://bkg8equpbo2gs" path="res://UI/Progression/Assets/New/Time_Icon.png" id="9_k6ap8"]
+[ext_resource type="Texture2D" uid="uid://dyg4b7ufld624" path="res://UI/Progression/Assets/New/Crit_Icon.png" id="10_2proi"]
 [ext_resource type="Texture2D" uid="uid://cvcavq7f1j5w4" path="res://UI/Progression/Assets/New/NextRoundFlat.png" id="12_5ge30"]
+[ext_resource type="Texture2D" uid="uid://bb57rjaomanqx" path="res://UI/Progression/Assets/New/Beer_Icon.png" id="12_s0rk6"]
 [ext_resource type="Texture2D" uid="uid://c7detgytbi5qq" path="res://UI/Progression/Assets/crit_str.png" id="13_42rac"]
 [ext_resource type="Texture2D" uid="uid://cob25q4cejeqs" path="res://UI/Progression/Assets/New/NextRoundFocus.png" id="13_k6ap8"]
-[ext_resource type="Texture2D" uid="uid://dwx1sm7rp2gde" path="res://UI/Progression/Assets/abilities.png" id="14_eeoo1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
 
@@ -31,9 +32,6 @@
 texture = ExtResource("12_5ge30")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2proi"]
-texture = ExtResource("13_k6ap8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6xau"]
 texture = ExtResource("13_k6ap8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h73s"]
@@ -91,9 +89,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mti6b")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.06313382
-anchor_top = 0.13855556
+anchor_top = 0.096888885
 anchor_right = 0.66013384
-anchor_bottom = 0.73655564
+anchor_bottom = 0.69488895
 offset_left = 17.051998
 offset_top = -2.9759998
 offset_right = -16.315002
@@ -101,8 +99,8 @@ offset_bottom = -0.03200531
 theme_override_colors/font_color = Color(0.88720316, 0.6593863, 0.2385357, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.2784314)
 theme_override_colors/font_outline_color = Color(0.059373558, 0.0039156917, 0.0039156917, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("5_lnyxp")
@@ -130,14 +128,14 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mm1bc")
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35875085
-anchor_top = 0.3283816
-anchor_right = 0.66575086
-anchor_bottom = 0.8025
+anchor_left = 0.34546182
+anchor_top = 0.2625921
+anchor_right = 0.6523555
+anchor_bottom = 0.8686843
 offset_left = 0.015991211
 offset_top = 0.042999268
-offset_right = -0.01600647
-offset_bottom = 0.010002136
+offset_right = 0.01600647
+offset_bottom = -0.020004272
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -145,18 +143,104 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 6
-theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("5_lnyxp")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 45
 text = "1000"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1920451217]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5160001
+anchor_top = 0.1692778
+anchor_right = 0.9630001
+anchor_bottom = 0.2752778
+offset_left = 0.5199585
+offset_top = 0.11999512
+offset_right = 2286.3599
+offset_bottom = 305.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.198, 0.198)
+texture = ExtResource("5_k6ap8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=307429923]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5160001
+anchor_top = 0.2928889
+anchor_right = 0.9630001
+anchor_bottom = 0.39888892
+offset_left = 0.5199585
+offset_top = 0.11999512
+offset_right = 2286.3599
+offset_bottom = 305.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.198, 0.198)
+texture = ExtResource("5_k6ap8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1490465261]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5160001
+anchor_top = 0.4165
+anchor_right = 0.9630001
+anchor_bottom = 0.52250004
+offset_left = 0.5199585
+offset_top = 0.11999512
+offset_right = 2286.3599
+offset_bottom = 305.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.198, 0.198)
+texture = ExtResource("5_k6ap8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1076628799]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5160001
+anchor_top = 0.5428889
+anchor_right = 0.9630001
+anchor_bottom = 0.6488889
+offset_left = 0.5199585
+offset_top = 0.11999512
+offset_right = 2286.3599
+offset_bottom = 305.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.198, 0.198)
+texture = ExtResource("5_k6ap8")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=805084921]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5160001
+anchor_top = 0.6678889
+anchor_right = 0.9630001
+anchor_bottom = 0.7738889
+offset_left = 0.5199585
+offset_top = 0.11999512
+offset_right = 2286.3599
+offset_bottom = 305.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.198, 0.198)
+texture = ExtResource("5_k6ap8")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1037505900]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.55200005
+anchor_left = 0.5824688
 anchor_top = 0.162
-anchor_right = 0.90500003
-anchor_bottom = 0.81700003
+anchor_right = 0.9589063
+anchor_bottom = 0.77950007
 offset_left = -0.5600586
 offset_top = 0.3600006
 offset_right = 0.5999756
@@ -164,15 +248,20 @@ offset_bottom = -0.24005127
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=591558809]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1825778341]
+custom_maximum_size = Vector2(65, 65)
 layout_mode = 2
-texture = ExtResource("8_ou33j")
-stretch_mode = 5
+size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("6_2proi")
+expand_mode = 2
 
 [node name="HealthLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1945423147]
 layout_mode = 2
@@ -191,6 +280,7 @@ text = "Health:"
 [node name="HealthUpgrader" parent="VBoxContainer/HBoxContainer" unique_id=81163404 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 target_attribute = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1388283840]
@@ -198,8 +288,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=269625216]
+custom_maximum_size = Vector2(65, 65)
 layout_mode = 2
-texture = ExtResource("10_fiv3w")
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("8_s0rk6")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="DamageLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1806006289]
@@ -218,6 +312,7 @@ text = "Damage:"
 [node name="DamageUpgrader" parent="VBoxContainer/HBoxContainer2" unique_id=1941285010 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 target_attribute = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=496017648]
@@ -225,8 +320,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=1909006246]
+custom_maximum_size = Vector2(65, 65)
 layout_mode = 2
-texture = ExtResource("11_aaqxj")
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("9_k6ap8")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1204130278]
@@ -238,6 +337,7 @@ text = "Time:"
 [node name="TimerUpgrader" parent="VBoxContainer/HBoxContainer3" unique_id=2002332192 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 target_attribute = 5
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=302581286]
@@ -245,8 +345,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4" unique_id=1779524931]
+custom_maximum_size = Vector2(65, 65)
 layout_mode = 2
-texture = ExtResource("12_2toln")
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("10_2proi")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=340295577]
@@ -258,6 +362,7 @@ text = "Crit chance:"
 [node name="CritChanceUpgrader" parent="VBoxContainer/HBoxContainer4" unique_id=677643734 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 target_attribute = 7
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=261476725]
@@ -286,8 +391,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer6" unique_id=1549761514]
+custom_maximum_size = Vector2(65, 65)
 layout_mode = 2
-texture = ExtResource("14_eeoo1")
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("12_s0rk6")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="VBoxContainer/HBoxContainer6" unique_id=2004280899]
@@ -299,6 +408,7 @@ text = "Beer Charges:"
 [node name="PivoChargePerHit" parent="VBoxContainer/HBoxContainer6" unique_id=289684617 instance=ExtResource("2_1tcv4")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 target_attribute = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=886700437]
@@ -320,13 +430,12 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
-theme_override_colors/font_focus_color = Color(0.8862745, 0.65882355, 0.23921569, 1)
+theme_override_colors/font_hover_color = Color(0.9998151, 0.80425924, 0.3355251, 1)
 theme_override_colors/font_outline_color = Color(0.05490196, 0.003921569, 0.003921569, 1)
-theme_override_constants/outline_size = 6
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxTexture_5ekwc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2proi")
-theme_override_styles/focus = SubResource("StyleBoxTexture_i6xau")
 text = "Next Round"
 
 [node name="ProgressionTutorial" type="Control" parent="." unique_id=15828988]

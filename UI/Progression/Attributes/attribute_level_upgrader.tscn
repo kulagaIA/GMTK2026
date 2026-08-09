@@ -13,7 +13,7 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [node name="AttributeLevelUpgrader" type="HBoxContainer" unique_id=81163404]
-offset_right = 42.0
+offset_right = 211.0
 offset_bottom = 58.0
 script = ExtResource("1_dvwhr")
 
@@ -28,23 +28,9 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeButton" type="Button" parent="." unique_id=339700665]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_4kxuq")
-text = "+"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=192364650]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1711894040]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_mwt6u")
+size_flags_horizontal = 2
 
 [node name="CostLabel" type="Label" parent="HBoxContainer" unique_id=388032457]
 unique_name_in_owner = true
@@ -55,5 +41,21 @@ theme_override_fonts/font = ExtResource("2_ef8uh")
 theme_override_font_sizes/font_size = 25
 text = "100"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1711894040]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_mwt6u")
+
+[node name="UpgradeButton" type="Button" parent="." unique_id=339700665]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_4kxuq")
+text = "+"
 
 [connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]

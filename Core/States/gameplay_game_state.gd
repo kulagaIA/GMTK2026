@@ -3,6 +3,7 @@ extends GameState
 
 @export var autopause_delay : float = 0.5
 var _uncaptured_time : float = 0.0
+@export var countdown_scene : PackedScene
 
 
 func enter(prev_state : State) -> void:
@@ -15,10 +16,18 @@ func enter(prev_state : State) -> void:
 	assert(camera)
 	assert(target_camera)
 	await camera.fly_and_reparent(target_camera, 2.5)
+	
+	Game.gameplay.prepare_gameplay()
+	Game.player.mouse_controls_enabled = true
+	_show_hud()
+	
+	var countdown := countdown_scene.instantiate() as Control
+	Game.canvas_manager.push_content_to_layer(JamUtils.layer_ui_menu, countdown)
+	await countdown.tree_exited
+	
 	Game.gameplay.hit_occurred.connect(Game.player_state._on_hit_occurred)
 	Game.player_state.stamina.value_changed.connect(Game.player._on_health_value_changed)
-	Game.gameplay.restart_gameplay()
-	_show_hud()
+	Game.gameplay.start_gameplay()
 
 func exit(next_state : State) -> void:
 	_hide_hud()
@@ -30,7 +39,7 @@ func exit(next_state : State) -> void:
 
 func update(delta: float) -> void:
 	super.update(delta)
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not get_tree().paused:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not get_tree().paused and Game.player._gameplay_started:
 		_uncaptured_time += delta
 		if _uncaptured_time > autopause_delay:
 			_uncaptured_time = 0.0

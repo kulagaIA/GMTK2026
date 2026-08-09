@@ -23,6 +23,7 @@ func handle_gameplay_started() -> void:
 	_gameplay_started = true
 	AudioManager.play_sound(AudioManager.global_sound.time_start, self, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
 	AudioManager.play_sound(AudioManager.global_sound.crowd_cheers, self, AudioManager.BusType.SFX_BUS, Vector2(-6.0,-3.0))
+	mouse_controls_enabled = true
 	last_shake_direction = 0
 	
 
@@ -30,6 +31,7 @@ func handle_gameplay_ended() -> void:
 	_gameplay_started = false
 	AudioManager.play_sound(AudioManager.global_sound.time_out, self, AudioManager.BusType.SFX_BUS)
 	AudioManager.play_sound(AudioManager.global_sound.crowd_claps, self, AudioManager.BusType.SFX_BUS, Vector2(-6.0,0.0))
+	mouse_controls_enabled = false
 	unstun()
 	await _reset_neck(0.7, true, true)
 
@@ -54,7 +56,7 @@ func _on_hit_occurred(info: HitInfo) -> void:
 
 func _input(event: InputEvent) -> void:
 	if _gameplay_started and Input.is_action_just_pressed("pivo"):
-		if player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned and Game.game_state_machine.current_state.name == "Gameplay":
+		if _gameplay_started and player_state.pivo_charges.value >= 1 and not _drinking_pivo and not stunned:
 			if player_state.pivo.is_available():
 				_start_drinking_pivo()
 				Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.BEER)
@@ -64,6 +66,8 @@ func _input(event: InputEvent) -> void:
 			pass
 	pass
 
+var mouse_controls_enabled : bool = false
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and _gameplay_started:
 		Game.open_pause_menu()
@@ -72,12 +76,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Mouse input
 	_mouse_moving = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _gameplay_started and _mouse_moving and not _drinking_pivo:
+	if mouse_controls_enabled and _mouse_moving and not _drinking_pivo:
 		var mouse_event = event as InputEventMouseMotion
 		if stunned or allow_turning:
-			_input_yaw = (-1.0 if flip_mouse_x else 1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
+			_input_yaw = (1.0 if Game.flip_mouse_x else -1.0) * mouse_event.relative.x * mouse_sensitivity * sensitivity_multiplier.y
 		if not stunned:
-			_input_pitch = (1.0 if flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * sensitivity_multiplier.x
+			_input_pitch = (1.0 if Game.flip_mouse_y else -1.0) * mouse_event.relative.y * mouse_sensitivity * sensitivity_multiplier.x
 
 const MIN_TILT = deg_to_rad(-80)
 const MAX_TILT = deg_to_rad(40)
@@ -101,8 +105,6 @@ var _mouse_moving : bool = false
 var _input_yaw : float
 var _input_pitch : float
 
-var flip_mouse_x : bool = true
-var flip_mouse_y : bool = true
 @export var sensitivity_multiplier : Vector2 = Vector2(1.0, 0.1)
 
 var _mouse_rotation : Vector3
@@ -140,6 +142,7 @@ var _neck_velocity : float = 0.0
 var _neck_acceleration : float = 0.0
 var _neck_peak_velocity := 0.0
 @export var neck_speed : float = 10.0
+@export var min_strike_velocity : float = 300.0
 @export var neck_fall_sensitivity : Curve
 @export var neck_rise_sensitivity : Curve
 
@@ -170,7 +173,8 @@ func _consume_mouse_input(delta : float) -> void:
 	if neck_position > neck_strike_amplitude:
 		neck_strike_amplitude = neck_position
 	if neck_position != neck_pos_unclamped:
-		if neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude:
+		#print(_neck_peak_velocity, "~", min_strike_velocity)
+		if _gameplay_started and neck_pos_unclamped < min_neck_position and neck_strike_amplitude > min_strike_amplitude and _neck_peak_velocity > min_strike_velocity:
 			hit.emit(
 				clamp(_neck_peak_velocity / MAX_SWING_SPEED, 0.0, 1.0),
 				clamp(neck_strike_amplitude / max_neck_position, 0.0, 1.0)

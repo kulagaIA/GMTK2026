@@ -2,6 +2,7 @@ class_name SmashPlayerPreset
 extends Resource
 
 @export var display_name: String = "Base Player"
+@export var bomb_fuse_seconds: float = 1.0
 @export var max_stamina: float = 100
 @export var stamina_decay_per_hit: float = 20.0
 @export var stamina_regen: float = 1
@@ -18,6 +19,9 @@ extends Resource
 @export var pivo_duration: float = 3
 @export var pivo_cooldown: float = 5
 @export var pivo_damage_resistance: float = 1.0
+@export var pivo_regen_rate_boost: float = 5.0
 @export var pivo_crit_chance_multplier: float = 1.0
 @export var pivo_charges: int = 1
 @export var pivo_charge_per_hit: float = 0.2
+@export var pivo_charge_per_smash: float = 0.5
+@export var pivo_charge_per_smashed_hp: float = 0.001

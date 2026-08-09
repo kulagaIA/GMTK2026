@@ -21,6 +21,7 @@ script = ExtResource("1_kwoj6")
 neck_turn_limit_curve = ExtResource("2_ltdye")
 neck_fall_sensitivity = ExtResource("3_c5leg")
 neck_rise_sensitivity = ExtResource("4_oyrjc")
+stun_recovery_ratio = 0.5
 drinking_time = 1.0
 
 [node name="StaminaRegenTimer" type="Timer" parent="." unique_id=2120546619]

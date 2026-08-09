@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="ArrayMesh"
 importer_version=1
-type="PackedScene"
+type="ArrayMesh"
 uid="uid://b0bdqj1akx2sd"
-path="res://.godot/imported/bomb.glb-b48276d1c2ef691e9916affdcc754ba9.scn"
+path="res://.godot/imported/bomb.glb-b48276d1c2ef691e9916affdcc754ba9.res"
 
 [deps]
 
 source_file="res://Assets/Watermelons/Bomb/bomb.glb"
-dest_files=["res://.godot/imported/bomb.glb-b48276d1c2ef691e9916affdcc754ba9.scn"]
+dest_files=["res://.godot/imported/bomb.glb-b48276d1c2ef691e9916affdcc754ba9.res"]
 
 [params]
 

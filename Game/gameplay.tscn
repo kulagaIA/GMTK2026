@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://kp4gc6gequll"]
 
 [ext_resource type="Script" uid="uid://crcvi18yewi61" path="res://Game/gameplay.gd" id="1_slo8l"]
-[ext_resource type="PackedScene" uid="uid://c5t1j23bw2cpp" path="res://UI/Info/round_countdown.tscn" id="2_4531b"]
 [ext_resource type="Script" uid="uid://ndb11yb8e06s" path="res://Game/game_timer.gd" id="2_timer"]
 [ext_resource type="Resource" uid="uid://c3ymw1gbsw0at" path="res://Data/Smashables/melon_boss.tres" id="3_4531b"]
 [ext_resource type="PackedScene" uid="uid://b1e26gyir4s3r" path="res://Game/player.tscn" id="3_ihuh5"]
@@ -9,7 +8,6 @@
 [node name="Gameplay" type="Node3D" unique_id=1557019137]
 script = ExtResource("1_slo8l")
 seconds_before_bomb_skip = 0.1
-countdown_scene = ExtResource("2_4531b")
 boss_type = ExtResource("3_4531b")
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1989958060]
