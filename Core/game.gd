@@ -23,6 +23,7 @@ func toggle_mouse_cursor() -> void:
 var player_head : Node3D
 
 var mouse_sensitivity_setting : float = 1.0
+var sound_volume_setting : float = 1.0
 var flip_mouse_x : bool = false
 var flip_mouse_y : bool = false
 

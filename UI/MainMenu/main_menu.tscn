@@ -34,6 +34,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
+[node name="SettingsButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=367060434]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
 [node name="Gym3DButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=1125152303]
 visible = false
 layout_mode = 2
@@ -50,9 +55,7 @@ scene_to_load = ExtResource("3_3jj5y")
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=2017876094]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-disabled = true
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/ButtonsVBox" unique_id=785415804]
@@ -62,92 +65,7 @@ text = "Quit"
 script = ExtResource("6_trkrl")
 hide_in_web_build = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1794854354]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -98.0
-offset_right = 418.0
-offset_bottom = -10.0
-grow_vertical = 0
-
-[node name="SensitivityLabel" type="Label" parent="VBoxContainer" unique_id=235200458]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Mouse Sensitivity:"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=747674718]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="MinSensLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=2038710802]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "0.2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SensitivitySlider" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=386409418]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 0.2
-max_value = 8.0
-step = 0.0
-value = 1.0
-
-[node name="MaxSensLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1157764257]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "8.0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InvertMouseLabel" type="Label" parent="VBoxContainer" unique_id=197073444]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Invert mouse:"
-vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=83818597]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="FlipXLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1287845693]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Horizontal:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FlipXButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=452945928]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="FlipYLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1159067842]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Vertical:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FlipYButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=1556476589]
-unique_name_in_owner = true
-layout_mode = 2
-
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonsVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="drag_ended" from="VBoxContainer/HBoxContainer/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/FlipXButton" to="." method="_on_flip_x_button_toggled"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/FlipYButton" to="." method="_on_flip_y_button_toggled"]
