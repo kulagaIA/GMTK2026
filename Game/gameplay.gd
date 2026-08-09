@@ -38,8 +38,8 @@ var seconds_since_bomb : float = 0
 var bomb_clearing = false
 func _process(delta: float) -> void:
 	if((spawned_queue.current_smashable)
-		&& (spawned_queue.current_smashable.data.display_name == 'Bomb')
-		&& (Game.game_state_machine.current_state.name == "Gameplay")):
+		&& (spawned_queue.current_smashable.data.is_a_bomb())
+		&& (Game.game_state_machine.current_state is GameplayGameState)):
 		seconds_since_bomb += delta
 	if (seconds_since_bomb >= seconds_before_bomb_skip && bomb_clearing == false):
 		print("bomb skipped")
