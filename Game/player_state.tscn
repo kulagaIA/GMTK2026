@@ -90,7 +90,7 @@ unique_name_in_owner = true
 process_mode = 1
 script = ExtResource("4_i41wu")
 
-[node name="PivoCharges" type="Node" parent="." unique_id=488732216]
+[node name="PivoCharges" type="Node" parent="." unique_id=763286391]
 unique_name_in_owner = true
 script = ExtResource("3_dr5hc")
 _starting_value = 0.0

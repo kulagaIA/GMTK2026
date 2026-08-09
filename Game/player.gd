@@ -317,7 +317,7 @@ func _start_drinking_pivo() -> void:
 	tween.tween_property(pivo_path_follow, "progress_ratio", 0, drinking_time / 2).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 	_drinking_pivo = false
-	player_state.pivo_charges.add_modifier(AttributeModInfo.new(AttributeModInfo.ModType.ADD_FLAT, -1))
+	player_state.pivo_charges.set_value(0.0)
 	player_state.pivo.activate()
 
 #endregion
