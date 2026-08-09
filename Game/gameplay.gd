@@ -16,7 +16,7 @@ var num_smashables_left : int:
 	get:
 		var result := smashables.filter(
 			func(smashable : SmashableResource): return not smashable.is_a_bomb()).size() + spawned_queue.active_smashables.filter(
-			func(smashable : Smashable): return smashable.data.is_a_bomb()).size()
+			func(smashable : Smashable): return not smashable.data.is_a_bomb()).size()
 		if spawned_queue.current_smashable.health.value <= 0.0:
 			result -= 1
 		return result
