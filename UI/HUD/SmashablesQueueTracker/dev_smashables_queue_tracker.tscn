@@ -6,5 +6,5 @@
 offset_right = 214.0
 offset_bottom = 67.0
 theme_override_font_sizes/font_size = 48
-text = "Melons left: 100"
+text = "69/ 100"
 script = ExtResource("1_01qar")
