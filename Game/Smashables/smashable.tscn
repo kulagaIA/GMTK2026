@@ -4,6 +4,38 @@
 [ext_resource type="Script" uid="uid://d23my1rvaun41" path="res://Gameplay/Atributes/simple_attribute.gd" id="2_2yyft"]
 [ext_resource type="PackedScene" uid="uid://un3urakfnagt" path="res://Game/Smashables/smashable_view.tscn" id="3_2yyft"]
 [ext_resource type="PackedScene" uid="uid://c3c1fupr2115r" path="res://Game/Smashables/smashable_sound_player.tscn" id="4_dc0ta"]
+[ext_resource type="Texture2D" uid="uid://ddvi2hxh566ui" path="res://Assets/Watermelons/Bomb/Fetil.png" id="5_ntoc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nhfg"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_ntoc7")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ufny3"]
+lifetime_randomness = 0.4
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 4
+emission_point_count = 1
+direction = Vector3(0, 0, 0)
+spread = 180.0
+angular_velocity_min = -104.80001
+angular_velocity_max = 104.819984
+orbit_velocity_min = -2.0
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.0000021
+linear_accel_max = -2.2351742e-06
+scale_min = 0.19999999
+scale_max = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_ugw8w"]
 
 [node name="Smashable" type="Node3D" unique_id=892062914]
 script = ExtResource("1_34eoq")
@@ -36,5 +68,17 @@ unique_name_in_owner = true
 
 [node name="SmashableSoundPlayer" parent="." unique_id=101999043 instance=ExtResource("4_dc0ta")]
 unique_name_in_owner = true
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=1265901832]
+unique_name_in_owner = true
+transform = Transform3D(0.10605055, -0.0038751638, 0.07508835, 0.028580012, 0.12216003, -0.034060355, -0.06954467, 0.044293426, 0.100506864, 0.44587186, 0.19483063, 0.42351624)
+material_override = SubResource("StandardMaterial3D_4nhfg")
+amount = 3
+lifetime = 0.7
+speed_scale = 2.0
+explosiveness = 0.1
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ufny3")
+draw_pass_1 = SubResource("QuadMesh_ugw8w")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

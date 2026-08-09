@@ -17,3 +17,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(-0.06272983, -0.7900894, -0.6097734, -0.9980212, 0.052304093, 0.034899496, 0.004319923, 0.61075604, -0.79180706, 0, 0.2, 0)
 mesh = ExtResource("3_4ggf6")
+
+[node name="BombSparksRoot" type="Node3D" parent="VisualRoot/Mesh" unique_id=804278774]
+unique_name_in_owner = true
+transform = Transform3D(0.99999964, 2.2118911e-08, 2.2817403e-08, -2.561137e-09, 1, 4.172325e-07, 1.3969839e-08, 2.9802322e-08, 0.99999976, -0.82518643, -0.42444023, -2.9434257)

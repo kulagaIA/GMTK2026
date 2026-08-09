@@ -8,6 +8,8 @@ extends Node3D
 @onready var damage: SimpleAttribute = %Damage
 @onready var reward: SimpleAttribute = %Reward
 
+@onready var sparks: GPUParticles3D = %Sparks
+
 signal destroyed(target: Smashable)
 var _destroyed : bool = false
 
@@ -38,6 +40,10 @@ func apply_stats(stats: SmashableResource) -> void:
 	reward.set_value(stats.reward)
 	_view.configure(stats)
 	_sound_player.configure(stats)
+	sparks.visible = stats.is_a_bomb()
+	if stats.is_a_bomb():
+		_view.rotate_y(deg_to_rad(45))
+		sparks.global_position = _view.bomb_sparks_root.global_position
 
 func get_base_damage() -> float:
 	#return damage.value
