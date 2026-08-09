@@ -110,11 +110,15 @@ func _on_health_value_changed(attribute: Attribute, new_value: float, old_value:
 func regenerate_stamina(delta: float) -> void:
 	if stamina.value >= max_stamina.value:
 		return
-	var regen_multiplier := stamina_regen_curve.sample_baked(stamina.percent)
+	var regen_multiplier := stamina_regen_curve.sample_baked(player_stamina_percent)
 	var regen := stamina_regen.value * stamina_regen_rate.value * regen_multiplier * delta
 	stamina.add(regen)
 	if stamina.value > max_stamina.value:
 		stamina.set_value(max_stamina.value)
+
+var player_stamina_percent : float:
+	get:
+		return stamina.value / stamina.max_value
 
 func upgrade_attribute(attribute: Attribute.Tag, new_level: int) -> void:
 	var current_level := progression_data.get_attribute_level(attribute)
