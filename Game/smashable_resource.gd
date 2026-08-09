@@ -5,6 +5,8 @@ extends Resource
 @export var scale: float = 1.0
 @export var health: int = 40
 @export var damage: int = 8
+@export var stamina_decay_flat: float = 0.0
+@export var stamina_decay_multiplier: float = 1.0
 @export var reward: int = 10
 
 @export var intact_mesh: Mesh
