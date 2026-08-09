@@ -391,7 +391,7 @@ shape = SubResource("BoxShape3D_105nu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, 0, -2)
 
 [node name="Chair_013" parent="Table_Stuff_01" unique_id=27361944 instance=ExtResource("14_jftiw")]
-transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, -2.5000002, 0, -2.9000015)
+transform = Transform3D(0.86463624, 0, 0.50239855, 0, 1, 0, -0.50239855, 0, 0.86463624, -2.7218928, 0, -2.9000015)
 
 [node name="Chair_014" parent="Table_Stuff_01" unique_id=1007048006 instance=ExtResource("14_jftiw")]
 transform = Transform3D(-0.9961947, 0, 0.08715565, 0, 1, 0, -0.08715565, 0, -0.9961947, -2.7, 0, 2)

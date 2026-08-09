@@ -14,7 +14,6 @@ script = ExtResource("1_14wd1")
 [node name="Gameplay" parent="." unique_id=1557019137 node_paths=PackedStringArray("spawned_queue") instance=ExtResource("1_gs3im")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.830296)
 spawned_queue = NodePath("../SmashableQueue")
-seconds_before_bomb_skip = 1.0
 
 [node name="MenuCamera" parent="." unique_id=1560827527 instance=ExtResource("3_hec4b")]
 transform = Transform3D(0.67559046, -0.08665726, -0.73216665, 0, 0.9930685, -0.117536895, 0.7372771, 0.079406805, 0.6709076, -10.9732895, 2.308755, 20.046171)
@@ -43,7 +42,7 @@ queue_tween_transition = 11
 unique_name_in_owner = true
 transform = Transform3D(0.46628758, 0, 0.37759224, 0, 0.6, 0, -0.37759224, 0, 0.46628758, 0.12705837, 0.66999954, 21.534143)
 
-[node name="head_bone" type="BoneAttachment3D" parent="Main_character2/RIG/Skeleton3D" parent_id_path=PackedInt32Array(1116912929, 846640742) index="36" unique_id=1167572101]
+[node name="head_bone" type="BoneAttachment3D" parent="Main_character2/RIG/Skeleton3D" parent_id_path=PackedInt32Array(1116912929, 806725736) index="36" unique_id=1167572101]
 transform = Transform3D(-1, -4.931419e-08, 2.3550847e-07, 9.715432e-09, -0.98609823, -0.16616149, 2.4040344e-07, -0.16616145, 0.9860986, 0.08757978, 4.390349, 0.17937657)
 bone_name = "head_2"
 bone_idx = 17
@@ -57,7 +56,7 @@ transform = Transform3D(-0.2498137, -0.009649813, -1.4901161e-08, -0.009649812, 
 
 [node name="npc1" parent="." unique_id=1488702158 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
-transform = Transform3D(0.3313337, 0, 0.5002179, 0, 0.59999996, 0, -0.5002179, 0, 0.3313337, -2.3909369, 0.6449466, 16.546146)
+transform = Transform3D(0.39415067, 0, 0.45237738, 0, 0.59999996, 0, -0.45237738, 0, 0.39415067, -2.3909369, 0.6449466, 15.82226)
 
 [node name="npc2" parent="." unique_id=1522829206 instance=ExtResource("8_shv8l")]
 unique_name_in_owner = true
