@@ -16,5 +16,6 @@ pivo_cooldown = 2.0
 pivo_damage_resistance = 2.0
 pivo_crit_chance_multplier = 2.0
 pivo_charges = 0
-pivo_charge_per_hit = 0.02
+pivo_charge_per_hit = 0.0
+pivo_charge_per_smash = 0.2
 metadata/_custom_type_script = "uid://dhpgcuy27qysf"
