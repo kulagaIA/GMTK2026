@@ -110,4 +110,6 @@ func _update_damage_stage() -> void:
 func _on_bomb_timer_timeout() -> void:
 	take_damage(100)
 	sparks.visible = false
+	_view.play_hit()
+	_update_damage_stage()
 	destroyed.emit(self)
