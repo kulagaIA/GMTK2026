@@ -10,19 +10,19 @@
 [sub_resource type="Resource" id="Resource_uc0nm"]
 script = ExtResource("2_0vxtx")
 smashable = ExtResource("2_m6tf1")
-count = 24
+count = 22
 metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
 [sub_resource type="Resource" id="Resource_4531b"]
 script = ExtResource("2_0vxtx")
 smashable = ExtResource("3_m6tf1")
-count = 24
+count = 25
 metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
 [sub_resource type="Resource" id="Resource_bw48f"]
 script = ExtResource("2_0vxtx")
 smashable = ExtResource("4_6cmcy")
-count = 20
+count = 21
 metadata/_custom_type_script = "uid://7oi6fcvw5rs"
 
 [sub_resource type="Resource" id="Resource_kxj8v"]

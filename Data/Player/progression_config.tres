@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_hkbii"]
 script = ExtResource("2_4rqh2")
-cost = 20
+cost = 50
 modificator = SubResource("Resource_4rqh2")
 hat_scene = ExtResource("4_oj24t")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_aqhsy"]
 script = ExtResource("2_4rqh2")
-cost = 150
+cost = 250
 modificator = SubResource("Resource_whebj")
 hat_scene = ExtResource("5_776t0")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
@@ -40,7 +40,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_aknjk"]
 script = ExtResource("2_4rqh2")
-cost = 550
+cost = 700
 modificator = SubResource("Resource_33tk5")
 hat_scene = ExtResource("6_3dw4i")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_xnrpl"]
 script = ExtResource("2_4rqh2")
-cost = 1500
+cost = 1800
 modificator = SubResource("Resource_bbs4j")
 hat_scene = ExtResource("7_r2lkc")
 metadata/_custom_type_script = "uid://b34o7ah7chudh"
@@ -115,7 +115,7 @@ metadata/_custom_type_script = "uid://drdarr315r058"
 
 [sub_resource type="Resource" id="Resource_776t0"]
 script = ExtResource("3_4rqh2")
-mod_value = 10.0
+mod_value = 15.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_3dw4i"]
@@ -126,7 +126,7 @@ metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_r2lkc"]
 script = ExtResource("3_4rqh2")
-mod_value = 15.0
+mod_value = 20.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_w4qko"]
@@ -137,7 +137,7 @@ metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_hxixs"]
 script = ExtResource("3_4rqh2")
-mod_value = 20.0
+mod_value = 25.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_flhyh"]
@@ -148,7 +148,7 @@ metadata/_custom_type_script = "uid://b34o7ah7chudh"
 
 [sub_resource type="Resource" id="Resource_yeueb"]
 script = ExtResource("3_4rqh2")
-mod_value = 50.0
+mod_value = 45.0
 metadata/_custom_type_script = "uid://befawv230b71n"
 
 [sub_resource type="Resource" id="Resource_qrafl"]

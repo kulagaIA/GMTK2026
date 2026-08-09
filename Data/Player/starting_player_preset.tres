@@ -6,12 +6,12 @@
 [resource]
 script = ExtResource("1_gcej8")
 bomb_fuse_seconds = 0.75
-stamina_decay_per_hit = 34.58
-stamina_regen = 45.95
+stamina_decay_per_hit = 40.0
+stamina_regen = 30.0
 stamina_regen_rate = 2.5
 shake_regen_boost = 2.0
 damage = 15.0
-initial_time = 28.09
+initial_time = 25.0
 crit_chance = 1.0
 crit_multiplier = 1.2
 pivo_duration = 1.0
