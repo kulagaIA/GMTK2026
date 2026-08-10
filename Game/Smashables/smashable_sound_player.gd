@@ -34,7 +34,7 @@ func configure(data: SmashableResource) -> void:
 func play_hit(sound_info: HitSoundInfo) -> void:
 	var sound_type = sound_info.hit_type
 	if sound_info.is_crit:
-		AudioManager.play_sound(_crit_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(0.0, 0.0), 24.0)
+		AudioManager.play_sound(_crit_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(-10.0, 10.0), 24.0)
 	if sound_type == HitSoundType.METAL:
 			AudioManager.play_sound(_metal_hits, get_parent(), AudioManager.BusType.SFX_BUS, Vector2(-20, 25))
 			
