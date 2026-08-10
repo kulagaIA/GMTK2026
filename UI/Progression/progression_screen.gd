@@ -47,6 +47,7 @@ func _on_leaf_purchase_requested(leaf: ProgressionLeafControl) -> void:
 
 func _on_back_pressed() -> void:
 	#Game.load_gameplay_scene()
+	AudioManager.play_sound(AudioManager.global_sound.button_pressed, AudioManager, AudioManager.BusType.UI_BUS)
 	AudioManager.play_sound(AudioManager.global_sound.horn, AudioManager, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
 	Game.change_game_state(GameState.GAMEPLAY)
 
@@ -72,3 +73,7 @@ func update_info() -> void:
 	crit_chance_upgrader.update_info()
 	crit_multiplier_upgrader.update_info()
 	pivo_charge_per_hit.update_info()
+
+
+func _on_button_mouse_entered() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.button_hovered, AudioManager, AudioManager.BusType.UI_BUS)

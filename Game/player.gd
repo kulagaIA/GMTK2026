@@ -242,6 +242,8 @@ func stun() -> void:
 	Game.tutorial_manager.request_tutorial(Tutorial.Tag.STUN)
 	AudioManager.play_sound(AudioManager.global_sound.stun_sound, self, AudioManager.BusType.SFX_BUS)
 	AudioManager.play_sound(AudioManager.global_sound.crowd_gasp, self, AudioManager.BusType.SFX_BUS, Vector2.ZERO, 20.0)
+	AudioManager.set_low_pass_filter(AudioManager.BusType.MASTER_BUS, 1000.0, 0.5)
+	AudioManager.set_reverb(AudioManager.BusType.MASTER_BUS, 0.3, 1.5)
 
 func _reset_neck(duration : float, reset_tilt : bool, reset_turn : bool) -> void:
 	if not (reset_tilt or reset_turn):
@@ -254,12 +256,15 @@ func _reset_neck(duration : float, reset_tilt : bool, reset_turn : bool) -> void
 		tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, duration)
 	await tween.finished
 
+
 func unstun() -> void:
 	if not stunned:
 		return
 	stunned = false
 	Game.tutorial_manager.dismiss_tutorial(Tutorial.Tag.STUN)
 	stun_status_changed.emit(stunned)
+	AudioManager.set_low_pass_filter(AudioManager.BusType.MASTER_BUS, 20500.0, 2.0)
+	AudioManager.set_reverb(AudioManager.BusType.MASTER_BUS, 0.0, 2.0)
 	#var tween := get_tree().create_tween()
 	#tween.tween_property(self, "_mouse_rotation", Vector3.ZERO, .6)
 	#await tween.finished
@@ -310,6 +315,7 @@ var _drinking_pivo: bool = false
 @export var allow_drinking_when_stunned : bool = true
 
 func _start_drinking_pivo() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.pivo, self, AudioManager.BusType.SFX_BUS, Vector2(-10.0, 10.0), 25.0)
 	_drinking_pivo = true
 	pivo_path_follow.progress_ratio = 0
 	_reset_neck(drinking_time / 2 - .2, true, true)

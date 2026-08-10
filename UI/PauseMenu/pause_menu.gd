@@ -24,13 +24,19 @@ func unpause() -> void:
 
 
 func _on_resume_button_pressed() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.button_pressed, AudioManager, AudioManager.BusType.UI_BUS)
 	unpause()
 
 
 func _on_title_button_pressed() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.button_pressed, AudioManager, AudioManager.BusType.UI_BUS)
 	Game.change_game_state(GameState.MENU)
 	queue_free()
 
 
 func _on_quit_button_pressed() -> void:
 	Game.quit_to_desktop()
+
+
+func _on_button_mouse_entered() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.button_hovered, AudioManager, AudioManager.BusType.UI_BUS)

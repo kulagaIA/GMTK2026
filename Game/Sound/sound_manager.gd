@@ -33,3 +33,9 @@ func change_master_volume(new_volume: float) -> void:
 		master_volume
 	master_volume_changed.emit(new_volume)
  
+func pitch_music(pitch_value: float = 1.0, duration: float = 1.0) -> void:
+	var melody_tween := create_tween()
+	melody_tween.tween_property(melody, "pitch_scale", pitch_value, duration)
+	
+	var drums_tween := create_tween()
+	drums_tween.tween_property(drums, "pitch_scale", pitch_value, duration)

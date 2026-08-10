@@ -579,4 +579,5 @@ expand_mode = 4
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer4/CritChanceUpgrader" to="." method="_on_attribute_upgraded"]
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer5/CritMultiplierUpgrader" to="." method="_on_attribute_upgraded"]
 [connection signal="upgraded" from="VBoxContainer/HBoxContainer6/PivoChargePerHit" to="." method="_on_attribute_upgraded"]
+[connection signal="mouse_entered" from="MarginContainer/Back" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

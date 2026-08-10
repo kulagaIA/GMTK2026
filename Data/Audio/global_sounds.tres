@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="GlobalSoundsResource" format=3 uid="uid://g8m5srjah14a"]
 
+[ext_resource type="AudioStream" uid="uid://c4seaa8h1eoah" path="res://Assets/Sound/Effects/bomb_explosion.wav" id="1_0lk8p"]
 [ext_resource type="Script" uid="uid://dmfnl8m8d6lex" path="res://Game/Sound/global_sounds.gd" id="1_cfkg0"]
 [ext_resource type="AudioStream" uid="uid://c26h4gdj2qr47" path="res://Assets/Sound/Effects/cowd_sounds/crowd_boo.wav" id="1_ff0eo"]
 [ext_resource type="AudioStream" uid="uid://nkgxyaatnblo" path="res://Assets/Sound/Effects/helmet_crunch_1.wav" id="1_gx868"]
+[ext_resource type="AudioStream" uid="uid://dm1cm4s0adkqt" path="res://Assets/Sound/Effects/ui/button_hover.wav" id="1_imgli"]
 [ext_resource type="AudioStream" uid="uid://7tmeakn1p465" path="res://Assets/Sound/Effects/helmet_crunch_2.wav" id="2_86aly"]
 [ext_resource type="AudioStream" uid="uid://qaye4bxkwtur" path="res://Assets/Sound/Effects/stun.wav" id="2_bkct1"]
+[ext_resource type="AudioStream" uid="uid://b8q4a37lfk3w1" path="res://Assets/Sound/Effects/bomb_fuse.wav" id="2_k87wr"]
+[ext_resource type="AudioStream" uid="uid://b7xaxje8jeptu" path="res://Assets/Sound/Effects/ui/button_pressed.wav" id="2_m4qkc"]
 [ext_resource type="AudioStream" uid="uid://b5k4134qp6rfl" path="res://Assets/Sound/Effects/cowd_sounds/crowd_cheers.wav" id="2_xaqyd"]
 [ext_resource type="AudioStream" uid="uid://bqxq8we0jv8ae" path="res://Assets/Sound/Effects/horn.wav" id="3_86aly"]
 [ext_resource type="AudioStream" uid="uid://nay7rhm3r5v6" path="res://Assets/Sound/Effects/cowd_sounds/crowd_claps.wav" id="3_aqon2"]
@@ -19,6 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://dp1pesipyvogk" path="res://Assets/Sound/Effects/cowd_sounds/crowd_upset.wav" id="9_k42dr"]
 [ext_resource type="AudioStream" uid="uid://cxa4jr8hyppci" path="res://Assets/Sound/Effects/cowd_sounds/crowd_wow_1.wav" id="10_fqfua"]
 [ext_resource type="AudioStream" uid="uid://bg4xfqtf52uvj" path="res://Assets/Sound/Effects/cowd_sounds/crowd_wow_2.wav" id="11_4fyl6"]
+[ext_resource type="AudioStream" uid="uid://hohbrlklj2s3" path="res://Assets/Sound/Effects/pivo.wav" id="19_wwebp"]
+[ext_resource type="AudioStream" uid="uid://y1dag72442g4" path="res://Assets/Sound/Effects/pivo_charge.wav" id="20_k42dr"]
+[ext_resource type="AudioStream" uid="uid://d0c0eo8kp6whn" path="res://Assets/Sound/Effects/ui/buying.wav" id="22_0lk8p"]
 
 [resource]
 script = ExtResource("1_cfkg0")
@@ -35,3 +42,10 @@ crowd_gasp = Array[AudioStream]([ExtResource("4_imgli"), ExtResource("5_m4qkc"),
 crowd_laugh = Array[AudioStream]([ExtResource("8_wwebp")])
 crowd_upset = Array[AudioStream]([ExtResource("9_k42dr")])
 crowd_wow = Array[AudioStream]([ExtResource("10_fqfua"), ExtResource("11_4fyl6")])
+button_pressed = ExtResource("2_m4qkc")
+button_hovered = ExtResource("1_imgli")
+upgrade = ExtResource("22_0lk8p")
+bomb_explosion = ExtResource("1_0lk8p")
+bomb_fuse = ExtResource("2_k87wr")
+pivo = ExtResource("19_wwebp")
+pivo_charge = ExtResource("20_k42dr")

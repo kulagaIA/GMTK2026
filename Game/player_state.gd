@@ -94,7 +94,11 @@ func _on_hit_occurred(info: HitInfo) -> void:
 			if smashable and smashable.data.reward > 0:
 				charge_value += pivo_charge_per_smash.value
 				charge_value += pivo_charge_per_smashed_hp.value * smashable.data.health
+		var prev_charge = pivo_charges.value
 		pivo_charges.add(charge_value)
+		if pivo_charges.value == pivo_charges.max_value and pivo_charges.value != prev_charge:
+			AudioManager.play_sound(AudioManager.global_sound.pivo_charge, AudioManager, AudioManager.BusType.SFX_BUS, Vector2(-20.0, -10.0), 20.0)
+			
 
 func apply_damage(amount: float) -> void:
 	consume_stamina(amount)

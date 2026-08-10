@@ -28,6 +28,7 @@ func activate() -> void:
 			timer.start(duration)
 			state_changed.emit(_current_state)
 
+
 func reset() -> void:
 	timer.stop()
 	_current_state = State.AVAILABLE
@@ -38,6 +39,8 @@ func _add_mods() -> void:
 		var att_index: int = Game.player_state.get_children().find_custom(func(node: Node) -> bool: return (node is DynamicAttribute) and node.tag == tag)
 		if att_index != -1:
 			_active_mods[tag] = (Game.player_state.get_child(att_index) as DynamicAttribute).add_modifier(modifiers[tag])
+	Game.get_node("SoundManager").pitch_music(1.3, 1.0)
+	AudioManager.set_reverb(AudioManager.BusType.MASTER_BUS, 0.1, 0.5)
 
 func _remove_mods() -> void:
 	for tag in _active_mods.keys():
@@ -45,6 +48,8 @@ func _remove_mods() -> void:
 		if att_index != -1:
 			(Game.player_state.get_child(att_index) as DynamicAttribute).remove_modifier(_active_mods[tag])
 	_active_mods.clear()
+	Game.get_node("SoundManager").pitch_music(1.0, 1.0)
+	AudioManager.set_reverb(AudioManager.BusType.MASTER_BUS, 0.0, 0.1)
 
 func is_active() -> bool:
 	return _current_state == State.ACTIVE
@@ -65,3 +70,4 @@ func _on_timer_timeout() -> void:
 		State.COOLDOWN:
 			_current_state = State.AVAILABLE
 			state_changed.emit(_current_state)
+			

@@ -72,6 +72,7 @@ func try_upgrade() -> bool:
 	upgraded.emit(target_attribute)
 	update_info()
 	Game.player.update_hat()
+	AudioManager.play_sound(AudioManager.global_sound.upgrade, AudioManager, AudioManager.BusType.UI_BUS)
 	return true
 
 @onready var level_label: Label = %LevelLabel
@@ -88,3 +89,7 @@ func update_info() -> void:
 		cost_label.text = "MAX"
 	else:
 		cost_label.text = str(get_next_level_cost())
+
+
+func _on_upgrade_button_mouse_entered() -> void:
+	AudioManager.play_sound(AudioManager.global_sound.button_hovered, AudioManager, AudioManager.BusType.UI_BUS)

@@ -63,4 +63,5 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_4kxuq")
 text = "+"
 
+[connection signal="mouse_entered" from="UpgradeButton" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="pressed" from="UpgradeButton" to="." method="_on_upgrade_button_pressed"]

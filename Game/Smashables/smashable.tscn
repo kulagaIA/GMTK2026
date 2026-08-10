@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://un3urakfnagt" path="res://Game/Smashables/smashable_view.tscn" id="3_2yyft"]
 [ext_resource type="PackedScene" uid="uid://c3c1fupr2115r" path="res://Game/Smashables/smashable_sound_player.tscn" id="4_dc0ta"]
 [ext_resource type="Texture2D" uid="uid://ddvi2hxh566ui" path="res://Assets/Watermelons/Bomb/Fetil.png" id="5_ntoc7"]
+[ext_resource type="AudioStream" uid="uid://d2alrtps110qn" path="res://Assets/Sound/Effects/fuse.mp3" id="6_4nhfg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nhfg"]
 transparency = 1
@@ -84,6 +85,16 @@ draw_pass_1 = SubResource("QuadMesh_ugw8w")
 
 [node name="BombTimer" type="Timer" parent="." unique_id=1884460740]
 one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=639047583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04226932, 0.21096385, 0)
+stream = ExtResource("6_4nhfg")
+attenuation_model = 1
+unit_size = 20.0
+max_db = 6.0
+max_distance = 5.0
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

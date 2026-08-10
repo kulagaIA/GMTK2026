@@ -16,3 +16,13 @@ extends Resource
 @export var crowd_laugh: Array[AudioStream]
 @export var crowd_upset: Array[AudioStream]
 @export var crowd_wow: Array[AudioStream]
+
+@export var button_pressed: AudioStream
+@export var button_hovered: AudioStream
+@export var upgrade: AudioStream
+
+@export var bomb_explosion: AudioStream
+@export var bomb_fuse: AudioStream
+
+@export var pivo: AudioStream
+@export var pivo_charge: AudioStream

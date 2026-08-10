@@ -18,6 +18,7 @@ var _destroyed : bool = false
 @onready var _mesh: MeshInstance3D = _view.mesh
 
 @onready var _sound_player: SmashableSoundPlayer = %SmashableSoundPlayer
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 enum DamageStage {
 	INTACT,
@@ -47,11 +48,13 @@ func apply_stats(stats: SmashableResource) -> void:
 	if stats.is_a_bomb():
 		_view.rotate_y(deg_to_rad(45))
 		sparks.global_position = _view.bomb_sparks_root.global_position
+		audio_stream_player_3d.play()
 
 func start_bomb() -> void:
 	if data.is_a_bomb():
 		#sparks.visible = true
 		bomb_timer.start(Game.starting_player_stats.bomb_fuse_seconds)
+		
 
 func get_base_damage() -> float:
 	#return damage.value
@@ -115,3 +118,4 @@ func _on_bomb_timer_timeout() -> void:
 	sparks.visible = false
 	_view.play_hit()
 	destroyed.emit(self)
+	audio_stream_player_3d.stop()

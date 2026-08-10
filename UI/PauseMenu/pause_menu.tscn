@@ -74,6 +74,9 @@ text = "Quit to Desktop"
 script = ExtResource("2_w5vkt")
 hide_in_web_build = true
 
+[connection signal="mouse_entered" from="BG/CenterContainer/ButtonsVBox/ResumeButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="BG/CenterContainer/ButtonsVBox/TitleButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/TitleButton" to="." method="_on_title_button_pressed"]
+[connection signal="mouse_entered" from="BG/CenterContainer/ButtonsVBox/QuitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="BG/CenterContainer/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
